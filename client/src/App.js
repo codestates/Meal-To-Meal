@@ -1,8 +1,9 @@
-import './App.css';
+import './styles/App.css';
 import axios from 'axios';
 import { useEffect } from 'react';
-
-import Landing from '../src/pages/Landing'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Landing from '../src/pages/Landing';
+import Map from '../src/pages/Map';
 
 function App() {
   useEffect(() => {
@@ -16,9 +17,15 @@ function App() {
       .catch(err => console.log(err));
   }, []);
   return (
-  <div className="App">
-    <Landing />
-  </div>);
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/map" element={<Map />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
