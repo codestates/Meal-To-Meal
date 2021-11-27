@@ -53,7 +53,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  overflow-x: hidden;
+          margin-bottom: 40px;
+          overflow-x: hidden;
 }
 
 .landing-catchphrase {

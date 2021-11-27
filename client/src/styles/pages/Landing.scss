@@ -1,14 +1,12 @@
 @import '../mixin/mixin';
 @import '../mixin/landing-button';
 
-* {
-}
-
 .landing-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 40px;
   overflow-x: hidden;
 }
 

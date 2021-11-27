@@ -1,0 +1,21 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.header-logo {
+  height: 50px;
+  margin: 5px;
+}
+
+.fas {
+  font-size: 45px;
+  margin: 5px;
+  cursor: pointer;
+  transition: 200ms ease all;
+
+  &:hover {
+    opacity: 70%;
+  }
+}
