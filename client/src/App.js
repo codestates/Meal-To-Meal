@@ -1,3 +1,4 @@
+import './styles/App.css';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -22,6 +23,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+
           <Route exact path="/" element={<Landing />} />
           <Route path="/map" element={<Map isLogin={isLogin} setIsLogin={setIsLogin} />} />
         </Routes>
