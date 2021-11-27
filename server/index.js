@@ -18,8 +18,12 @@ app.use(
     origin: true,
     credentials: true,
     methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
-  }),
+  })
 );
+
+app.get('/', (req, res) => {
+  res.send('나는 서버다');
+});
 
 app.use(cookieParser());
 
