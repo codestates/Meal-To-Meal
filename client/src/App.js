@@ -1,7 +1,7 @@
+import './styles/App.css';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 import Landing from '../src/pages/Landing';
 import Map from '../src/pages/Map';
 

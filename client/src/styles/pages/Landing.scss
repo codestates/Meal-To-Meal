@@ -2,9 +2,6 @@
 @import '../mixin/landing-button';
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  word-break: keep-all;
 }
 
 .landing-container {
@@ -12,6 +9,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 .landing-catchphrase {
@@ -94,7 +92,7 @@
 @include mobile {
   .landing-catchphrase,
   .landing-catchphrase-02 {
-    font-size: 40px;
+    font-size: 30px;
   }
   .landing-logo {
     height: 230px;

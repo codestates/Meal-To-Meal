@@ -39,13 +39,6 @@
           box-shadow: none;
 }
 
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 0;
-  word-break: keep-all;
-}
-
 .landing-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -60,6 +53,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow-x: hidden;
 }
 
 .landing-catchphrase {
@@ -162,10 +156,10 @@
   margin: 0 10px 10px 10px;
 }
 
-@media (min-width: 335px) and (max-width: 757px) {
+@media (min-width: 375px) and (max-width: 757px) {
   .landing-catchphrase,
   .landing-catchphrase-02 {
-    font-size: 40px;
+    font-size: 30px;
   }
   .landing-logo {
     height: 230px;
