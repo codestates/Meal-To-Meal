@@ -2,6 +2,8 @@ import './App.css';
 import axios from 'axios';
 import { useEffect } from 'react';
 
+import Landing from '../src/pages/Landing'
+
 function App() {
   useEffect(() => {
     axios
@@ -13,7 +15,10 @@ function App() {
       })
       .catch(err => console.log(err));
   }, []);
-  return <div className="App"></div>;
+  return (
+  <div className="App">
+    <Landing />
+  </div>);
 }
 
 export default App;
