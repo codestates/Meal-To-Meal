@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import '../styles/components/Header.css';
 
-import Sidebar_login from './Sidebar_login';
-import Sidebar_not_login from './Sidebar_not_login';
+import SidebarLogin from './SidebarLogin';
+import SidebarNotLogin from './SidebarNotLogin';
 
 function Header({ isLogin, setIsLogin }) {
   const [isLoginOpenSidebar, setIsLoginOpenSidebar] = useState(false);
@@ -28,8 +27,8 @@ function Header({ isLogin, setIsLogin }) {
       ) : (
         <i className="fas fa-bars" onClick={openisNotLoginOpenSidebarHandler} />
       )}
-      {isLoginOpenSidebar ? <Sidebar_login /> : null}
-      {isNotLoginOpenSidebar ? <Sidebar_not_login /> : null}
+      {isLoginOpenSidebar ? <SidebarLogin /> : null}
+      {isNotLoginOpenSidebar ? <SidebarNotLogin /> : null}
     </div>
   );
 }

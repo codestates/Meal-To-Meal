@@ -1,7 +1,6 @@
 import React from 'react';
-import '../styles/components/Sidebar.css';
 
-function Sidebar_login() {
+function Sidebar_Login() {
   return (
     <div className="sidebar-container">
       <div className="sidebar-menu-container">
@@ -39,4 +38,4 @@ function Sidebar_login() {
   );
 }
 
-export default Sidebar_login;
+export default Sidebar_Login;

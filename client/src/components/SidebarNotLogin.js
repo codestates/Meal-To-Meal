@@ -1,7 +1,6 @@
 import React from 'react';
-import '../styles/components/Sidebar.css';
 
-function Sidebar_not_login() {
+function Sidebar_Not_Login() {
   return (
     <div className="sidebar-container">
       <div className="sidebar-menu-container">
@@ -23,4 +22,4 @@ function Sidebar_not_login() {
   );
 }
 
-export default Sidebar_not_login;
+export default Sidebar_Not_Login;

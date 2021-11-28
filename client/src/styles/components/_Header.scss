@@ -1,3 +1,6 @@
+@import '../components/Sidebar';
+@import '../mixin/mixin';
+
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -18,4 +21,16 @@
   &:hover {
     opacity: 70%;
   }
+}
+
+@include mobile {
+  .header-container {
+    display: none;
+  }
+}
+
+@include tablet {
+}
+
+@include desktop {
 }

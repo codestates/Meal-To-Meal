@@ -27,7 +27,7 @@
 }
 
 .footer-text {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .footer-copyright-container {
@@ -43,11 +43,17 @@
   justify-content: center;
   font-size: 13px;
   background-color: #f7f1e3;
-  padding-bottom: 20px;
-  padding-left: 60px;
+  padding: 0 15px 20px 60px;
+  text-align: end;
 }
 
 @include mobile {
+  .footer-container {
+    display: none;
+  }
+  .footer-copyright {
+    display: none;
+  }
 }
 
 @include tablet {

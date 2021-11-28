@@ -1,3 +1,5 @@
+@import '../mixin/mixin';
+
 .sidebar-container {
   display: flex;
   flex-direction: column;
@@ -33,4 +35,46 @@
   width: 100px;
   height: 80px;
   cursor: grab;
+}
+
+// 반응형
+@include mobile {
+  .sidebar-container {
+    width: 120px;
+  }
+
+  .sidebar-menu-container {
+    font-size: 12px;
+  }
+
+  .sidebar-icon {
+    font-size: 20px;
+  }
+
+  .sidebar-logo {
+    width: 50px;
+    height: 40px;
+  }
+}
+
+@include tablet {
+  .sidebar-container {
+    width: 150px;
+  }
+
+  .sidebar-menu-container {
+    font-size: 16px;
+  }
+
+  .sidebar-icon {
+    font-size: 25px;
+  }
+
+  .sidebar-logo {
+    width: 80px;
+    height: 60px;
+  }
+}
+
+@include desktop {
 }

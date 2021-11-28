@@ -1,16 +1,20 @@
+// eslint-disable-next-line no-unused-vars
 /* global kakao */
-import { get } from 'fast-levenshtein';
 import React, { useEffect } from 'react';
+
+import '../styles/pages/Map.css';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Search from '../components/Search';
 
 import Markerdata from '../static/kakao_markerdata';
+
 import '../styles/pages/Map.css';
 
 const { kakao } = window;
 
-const Map = () => {
+const Map = ({ isLogin, setIsLogin }) => {
   useEffect(() => {
     let container = document.getElementById('map');
 
@@ -38,16 +42,14 @@ const Map = () => {
       });
     });
   });
+
   return (
     <>
       <Header isLogin={isLogin} setIsLogin={setIsLogin} />
-        <div className="kakaomap-pagecontainer">
-          <div className="kakaomap-searchbox">
-            <input className="kakaomap-search-input" placeholder="가게를 검색하세요" />
-            <i className="fas fa-search"></i>
-          </div>
-          <div className="kakaomap-container" id="map"></div>
-        </div>
+      <div className="kakaomap-pagecontainer">
+        <div className="kakaomap-container" id="map" />
+        <Search />
+      </div>
       <Footer />
     </>
   );
