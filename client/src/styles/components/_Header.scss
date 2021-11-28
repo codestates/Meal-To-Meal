@@ -1,10 +1,21 @@
 @import '../components/Sidebar';
 @import '../mixin/mixin';
 
+button {
+  height: 30px;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
-  margin: 10px;
+  align-items: center;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 999;
+  height: 60px;
+  width: 100%;
 }
 
 .header-logo {

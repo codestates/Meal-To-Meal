@@ -44,14 +44,12 @@ const Map = ({ isLogin, setIsLogin }) => {
   });
 
   return (
-    <>
+    <div className="kakaomap-pagecontainer">
       <Header isLogin={isLogin} setIsLogin={setIsLogin} />
-      <div className="kakaomap-pagecontainer">
-        <div className="kakaomap-container" id="map" />
-        <Search />
-      </div>
+      <div className="kakaomap-container" id="map" />
+      <Search />
       <Footer />
-    </>
+    </div>
   );
 };
 

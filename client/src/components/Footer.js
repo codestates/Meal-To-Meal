@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <>
+    <footer>
       <div className="footer-container">
         <div className="footer-our-info-container">
           <img className="logo" src={require('../img/meal-to-meal-logo-192.png').default} alt="" />
@@ -25,7 +25,7 @@ function Footer() {
         </div>
       </div>
       <div className="footer-copyright">Copyright 2021 Sudo_Hired, All rights reserved.</div>
-    </>
+    </footer>
   );
 }
 

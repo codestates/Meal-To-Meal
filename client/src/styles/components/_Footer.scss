@@ -1,10 +1,16 @@
 @import '../mixin/mixin';
 
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 999;
+}
+
 .footer-container {
   display: flex;
   justify-content: space-around;
-  align-items: flex-end;
-  padding: 30px;
+  align-items: center;
   background-color: #f7f1e3;
 }
 
@@ -12,6 +18,7 @@
   width: 60px;
   height: 50px;
   margin-bottom: 2px;
+  padding-top: 15px;
 }
 
 .footer-our-info-container {
@@ -40,11 +47,10 @@
 
 .footer-copyright {
   display: flex;
-  justify-content: center;
-  font-size: 13px;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 10px 0 10px 0;
   background-color: #f7f1e3;
-  padding: 0 15px 20px 60px;
-  text-align: end;
 }
 
 @include mobile {
@@ -64,7 +70,7 @@
     font-size: 16px;
   }
   .footer-copyright {
-    font: 14px;
+    font: 12px;
   }
 }
 @include desktop {
@@ -75,6 +81,6 @@
     font-size: 18px;
   }
   .footer-copyright {
-    font: 15px;
+    font-size: 16px;
   }
 }

@@ -1,0 +1,17 @@
+.animation-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-height: 30vh;
+}
+
+.notfound-animation {
+  min-width: 300px;
+  max-width: 50vw;
+}
+
+.notfound-catchphrase {
+  min-width: 300px;
+}
