@@ -390,6 +390,7 @@ button {
           align-items: center;
   text-align: center;
   max-height: 30vh;
+  margin-top: 100px;
 }
 
 .notfound-animation {
@@ -399,5 +400,26 @@ button {
 
 .notfound-catchphrase {
   min-width: 300px;
+  font-size: 15px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .animation-container {
+    margin-top: 200px;
+  }
+  .notfound-catchphrase {
+    margin-top: 50px;
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .animation-container {
+    margin-top: 250px;
+  }
+  .notfound-catchphrase {
+    margin-top: 80px;
+    font-size: 50px;
+  }
 }
 /*# sourceMappingURL=App.css.map */
