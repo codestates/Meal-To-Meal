@@ -1,0 +1,44 @@
+@import '../mixin/mixin';
+
+.animation-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-height: 30vh;
+  margin-top: 100px;
+}
+
+.notfound-animation {
+  min-width: 300px;
+  max-width: 50vw;
+}
+
+.notfound-catchphrase {
+  min-width: 300px;
+  font-size: 15px;
+}
+
+@include mobile {
+}
+
+@include tablet {
+  .animation-container {
+    margin-top: 200px;
+  }
+  .notfound-catchphrase {
+    margin-top: 50px;
+    font-size: 30px;
+  }
+}
+
+@include desktop {
+  .animation-container {
+    margin-top: 250px;
+  }
+  .notfound-catchphrase {
+    margin-top: 80px;
+    font-size: 50px;
+  }
+}

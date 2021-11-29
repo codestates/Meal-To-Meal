@@ -53,8 +53,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-          margin-bottom: 40px;
-          overflow-x: hidden;
+  margin-bottom: 40px;
+  overflow-x: hidden;
 }
 
 .landing-catchphrase {
@@ -108,12 +108,12 @@
 }
 
 .landing-tutorial-catchphrase {
-  font-size: 25px;
+  font-size: 18px;
   margin-bottom: 10px;
 }
 
 .landing-tutorial-catchphrase-sub {
-  font-size: 15px;
+  font-size: 10px;
 }
 
 .landing-review-container {
@@ -157,10 +157,10 @@
   margin: 0 10px 10px 10px;
 }
 
-@media (min-width: 375px) and (max-width: 757px) {
+@media (min-width: 300px) and (max-width: 757px) {
   .landing-catchphrase,
   .landing-catchphrase-02 {
-    font-size: 30px;
+    font-size: 25px;
   }
   .landing-logo {
     height: 230px;
@@ -175,6 +175,9 @@
   }
   .landing-img-03 {
     margin: -130px -230px 10px 0;
+  }
+  .landing-review-container {
+    margin-bottom: 40px;
   }
 }
 

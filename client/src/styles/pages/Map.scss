@@ -1,55 +1,12 @@
+@import '../../styles/components/Search';
+@import '../components/Underbar';
+
 .kakaomap-pagecontainer {
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
   border: none;
-}
-
-.kakaomap-searchbox {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  z-index: 999;
-  position: fixed;
-  top: 65px;
-  left: 20px;
-}
-
-.kakaomap-search-input {
-  width: 200px;
-  height: 30px;
-  font-size: 15px;
-  margin-right: 10px;
-  border: hidden;
-  border-radius: 15px;
-  box-shadow: gray 2px 2px 2px 2px;
-  padding: 5px;
-  padding-left: 15px;
-  transition: 200ms ease all;
-
-  &:focus {
-    outline: solid 2px #ffcc1d;
-  }
-}
-
-.fas {
-  font-size: 30px;
-  transition: 200ms ease all;
-  margin-top: 4px;
-
-  &:hover {
-    text-shadow: grey 2px 2px 2px;
-    cursor: pointer;
-    color: #ffcc1d;
-  }
-  &:active {
-    text-shadow: none;
-  }
+  height: 100%;
 }
 
 .kakaomap-container {
   width: 100%;
-  height: 700px;
-  margin: 50px 0 0 0;
+  height: 100vh;
 }

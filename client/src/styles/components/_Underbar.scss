@@ -1,0 +1,45 @@
+@import '../mixin/mixin';
+
+.underbar-container {
+  position: fixed;
+  top: 1;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  background-color: #f7f1e3;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.fa-key,
+.fa-user-plus,
+.fa-map-marked-alt,
+.fa-sign-out-alt,
+.fa-hand-holding-usd,
+.fa-user,
+.fa-file-signature,
+.fa-trophy,
+.fa-cash-register,
+.fa-map-marked-alt {
+  font-size: 1.6em;
+  color: white;
+  -webkit-text-stroke: #ffcc1d 2px;
+}
+
+@include mobile {
+}
+
+@include tablet {
+  .underbar-container {
+    display: none;
+  }
+}
+
+@include desktop {
+  .underbar-container {
+    display: none;
+  }
+}
