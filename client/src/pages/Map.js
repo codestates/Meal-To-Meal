@@ -7,7 +7,7 @@ import '../styles/pages/Map.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Search from '../components/Search';
-
+import MapStoreinfo from '../components/MapStoreinfo';
 import Markerdata from '../static/kakao_markerdata';
 
 import '../styles/pages/Map.css';
@@ -28,18 +28,6 @@ const Map = ({ isLogin, setIsLogin }) => {
         map: map,
         position: new kakao.maps.LatLng(el.store_lat, el.store_lng),
       });
-      const infowindow = new kakao.maps.InfoWindow({
-        content: el.store_name,
-      });
-      kakao.maps.event.addListener(marker, 'click', function () {
-        infowindow.setContent(
-          '<div style="width: 400px; height: 100px; padding: 5px; font-size: 15px; ">' + el.store_name + '</div>'
-        );
-        infowindow.open(map, marker);
-      });
-      kakao.maps.event.addListener(map, 'click', function () {
-        infowindow.close();
-      });
     });
   });
 
@@ -48,6 +36,7 @@ const Map = ({ isLogin, setIsLogin }) => {
       <Header isLogin={isLogin} setIsLogin={setIsLogin} />
       <div className="kakaomap-container" id="map" />
       <Search />
+      <MapStoreinfo />
       <Footer />
     </div>
   );
