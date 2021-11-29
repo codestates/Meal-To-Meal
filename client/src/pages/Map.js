@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 /* global kakao */
-import React, { useEffect } from 'react';
+import { get } from 'fast-levenshtein';
+import React, { useState, useEffect } from 'react';
 
 import '../styles/pages/Map.css';
 
