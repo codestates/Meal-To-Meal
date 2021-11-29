@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 /* global kakao */
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import '../styles/pages/Map.css';
 
@@ -14,7 +14,7 @@ import '../styles/pages/Map.css';
 
 const { kakao } = window;
 
-const Map = ({ isLogin, setIsLogin }) => {
+const Map = ({ isLogin, setIsLogin, openLoginModalHandler }) => {
   useEffect(() => {
     let container = document.getElementById('map');
 
@@ -45,7 +45,7 @@ const Map = ({ isLogin, setIsLogin }) => {
 
   return (
     <div className="kakaomap-pagecontainer">
-      <Header isLogin={isLogin} setIsLogin={setIsLogin} />
+      <Header isLogin={isLogin} setIsLogin={setIsLogin} openLoginModalHandler={openLoginModalHandler} />
       <div className="kakaomap-container" id="map" />
       <Search />
       <Footer />

@@ -8,9 +8,15 @@ import UnderbarNotLogin from './components/UnderbarNotLogin';
 import NotFound from './pages/NotFound';
 import Landing from '../src/pages/Landing';
 import Map from '../src/pages/Map';
+import LoginModal from './components/LoginModal';
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
+  const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
+
+  const openLoginModalHandler = () => {
+    setIsOpenLoginModal(!isOpenLoginModal);
+  };
 
   useEffect(() => {
     axios
@@ -28,10 +34,18 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Landing />} />
           <Route path="/notfound" element={<NotFound />} />
-          <Route path="/map" element={<Map isLogin={isLogin} setIsLogin={setIsLogin} />} />
+          <Route
+            path="/map"
+            element={<Map isLogin={isLogin} setIsLogin={setIsLogin} openLoginModalHandler={openLoginModalHandler} />}
+          />
         </Routes>
       </BrowserRouter>
-      {isLogin ? <UnderbarLogin /> : <UnderbarNotLogin />}
+      {isLogin ? (
+        <UnderbarLogin />
+      ) : (
+        <UnderbarNotLogin isOpenLoginModal={isOpenLoginModal} openLoginModalHandler={openLoginModalHandler} />
+      )}
+      {isOpenLoginModal ? <LoginModal openLoginModalHandler={openLoginModalHandler} /> : null}
     </div>
   );
 }
