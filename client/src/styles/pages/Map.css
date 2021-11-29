@@ -1,0 +1,701 @@
+.search-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  z-index: 998;
+  width: 215px;
+  height: 40px;
+  background-color: white;
+  border-radius: 15px;
+  -webkit-box-shadow: gray 4px 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px 4px;
+}
+
+.search-store-input {
+  width: 140px;
+  height: 20px;
+  font-size: 10px;
+  border: hidden;
+  padding: 10px 0 0 15px;
+  margin: 0 0 5px 10px;
+  -webkit-transition: 120ms all;
+  transition: 120ms all;
+}
+
+.search-store-input:focus {
+  outline: none;
+  border-bottom: solid 2px #ffcc1d;
+}
+
+.fa-search {
+  font-size: 28px;
+  margin-left: 10px;
+  padding-top: 3px;
+}
+
+.fa-search:hover {
+  text-shadow: grey 2px 2px 2px;
+  cursor: pointer;
+  color: #ffcc1d;
+}
+
+.fa-search:active {
+  text-shadow: none;
+}
+
+@media (min-width: 300px) and (max-width: 757px) {
+  .search-container {
+    top: 10px;
+    left: 10px;
+  }
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .search-container {
+    width: 225px;
+    height: 45px;
+  }
+  .search-store-input {
+    width: 145px;
+    height: 25px;
+    font-size: 15px;
+  }
+  .fa-search {
+    font-size: 30px;
+    padding-top: 3px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .search-container {
+    width: 245px;
+    height: 50px;
+  }
+  .search-store-input {
+    width: 150px;
+    height: 30px;
+    font-size: 18px;
+  }
+  .fa-search {
+    font-size: 33px;
+    margin-left: 25px;
+    padding-top: 4px;
+  }
+}
+
+button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: white;
+  border: 1px solid;
+  border-radius: 5px;
+  -webkit-box-shadow: gray 2px 2px 2px;
+          box-shadow: gray 2px 2px 2px;
+  -webkit-transition: 100ms ease;
+  transition: 100ms ease;
+  padding: 0 10px 0 10px;
+}
+
+button:hover {
+  -webkit-box-shadow: gray 2px 2px 2px;
+          box-shadow: gray 2px 2px 2px;
+}
+
+button:before, button:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+button:hover:before, button:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.signup-modal-window {
+  position: absolute;
+  background-color: white;
+  border: 4px solid #ffcc1d;
+  height: 515px;
+  width: 240px;
+  padding: 2px 0 2px 8px;
+  margin-top: 20px;
+}
+
+.signup-logo {
+  height: 30px;
+}
+
+.signup-title-text {
+  margin: 5px 0 10px 0;
+  font-weight: bolder;
+}
+
+.signup-input-container {
+  font-size: 15px;
+}
+
+.signup-text {
+  padding-top: 10px;
+}
+
+.signup-input {
+  font-size: 13px;
+  border: 2px solid;
+  border-radius: 5px;
+  -webkit-transition: 100ms ease all;
+  transition: 100ms ease all;
+  height: 20px;
+  padding: 2px 0 2px 8px;
+  margin-top: 4px;
+}
+
+.signup-input:focus {
+  border: 2px solid #ffcc1d;
+  outline: none;
+}
+
+.signup-validation-message {
+  margin: 5px;
+  font-size: 10px;
+  color: gray;
+}
+
+.signup-phone-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.signup-phone-input {
+  width: 120px;
+  font-size: 8px;
+  border: 2px solid;
+  border-radius: 5px;
+  -webkit-transition: 100ms ease all;
+  transition: 100ms ease all;
+  height: 20px;
+  padding: 2px 0 2px 8px;
+  margin-top: 4px;
+}
+
+.signup-phone-input:focus {
+  border: 2px solid #ffcc1d;
+  outline: none;
+}
+
+.signup-phone-button {
+  font-size: 10px;
+  height: 23px;
+  margin-right: 10px;
+}
+
+.signup-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.signup-goback-button {
+  margin-right: 30px;
+  -webkit-transition: 120ms ease all;
+  transition: 120ms ease all;
+}
+
+.signup-goback-button:hover {
+  background-color: #f90716;
+  color: white;
+}
+
+.login-modal-container {
+  height: 100vh;
+}
+
+.login-modal-backdrop {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.login-signup-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login-modal-window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: white;
+  border: 4px solid #ffcc1d;
+  padding: 30px;
+  margin-bottom: 230px;
+  margin-top: 20px;
+}
+
+.login-logo {
+  height: 30px;
+}
+
+.login-title-text {
+  margin: 5px 0 10px 0;
+  font-weight: bolder;
+}
+
+.login-input-container {
+  font-size: 15px;
+}
+
+.login-text {
+  padding-top: 15px;
+}
+
+.login-input {
+  font-size: 13px;
+  border: 2px solid;
+  border-radius: 5px;
+  -webkit-transition: 100ms ease all;
+  transition: 100ms ease all;
+  height: 20px;
+  padding: 2px 0 2px 8px;
+  margin-top: 4px;
+}
+
+.login-input:focus {
+  border: 2px solid #ffcc1d;
+  outline: none;
+}
+
+.login-button-container {
+  padding-top: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 13px;
+}
+
+.login-signup-text {
+  padding-top: 3px;
+}
+
+.login-signup-link {
+  padding-top: 3px;
+  text-decoration: underline;
+  -webkit-transition: 120ms ease all;
+  transition: 120ms ease all;
+  cursor: pointer;
+}
+
+.login-signup-link:hover {
+  color: #2d9bf0;
+}
+
+.login-button {
+  font-size: 10px;
+}
+
+.login-signup-text {
+  margin: 0 5px 0 10px;
+}
+
+.login-kakao-container {
+  padding-top: 35px;
+  font-weight: bolder;
+}
+
+.login-kakao-button {
+  padding-top: 3px;
+  width: 130px;
+  margin-top: 4px;
+  -webkit-box-shadow: gray 2px 2px 2px;
+          box-shadow: gray 2px 2px 2px;
+  border-radius: 7px;
+  -webkit-transition: 100ms ease;
+  transition: 100ms ease;
+}
+
+.login-kakao-button:hover {
+  -webkit-box-shadow: gray 2px 2px 2px;
+          box-shadow: gray 2px 2px 2px;
+}
+
+.login-kakao-button:before, .login-kakao-button:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.login-kakao-button:hover:before, .login-kakao-button:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.login-kakao-button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.login-modal-img {
+  height: 215px;
+}
+
+@media (min-width: 300px) and (max-width: 757px) {
+  .login-modal-img {
+    display: none;
+  }
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .login-modal-window {
+    width: 50vw;
+    font-size: 25px;
+  }
+  .login-logo {
+    height: 55px;
+  }
+  .login-input-container {
+    font-size: 22px;
+  }
+  .login-input {
+    font-size: 20px;
+    width: 180px;
+    padding: 5px 0 5px 15px;
+  }
+  .login-button-container {
+    font-size: 14px;
+  }
+  .login-kakao-button {
+    width: 180px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .login-modal-window {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-size: 35px;
+  }
+  .login-logo {
+    height: 85px;
+  }
+  .login-input-container {
+    font-size: 25px;
+  }
+  .login-input {
+    font-size: 25px;
+    width: 280px;
+    padding: 5px 0 5px 15px;
+  }
+  .login-button-container {
+    font-size: 20px;
+    padding-right: 50px;
+  }
+  .login-kakao-button {
+    width: 220px;
+  }
+  .login-modal-img {
+    height: 480px;
+  }
+}
+
+.underbar-container {
+  position: fixed;
+  top: 1;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 997;
+  background-color: #f7f1e3;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.fa-key,
+.fa-user-plus,
+.fa-map-marked-alt,
+.fa-sign-out-alt,
+.fa-hand-holding-usd,
+.fa-user,
+.fa-file-signature,
+.fa-trophy,
+.fa-cash-register,
+.fa-map-marked-alt {
+  font-size: 1.6em;
+  color: white;
+  -webkit-text-stroke: #ffcc1d 2px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .underbar-container {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .underbar-container {
+    display: none;
+  }
+}
+
+.storeinfo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 530px;
+  left: 15px;
+  z-index: 1000;
+  width: 300px;
+  height: 150px;
+  padding: 20px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 45px;
+  -webkit-box-shadow: gray 2px 2px 2px 2px;
+          box-shadow: gray 2px 2px 2px 2px;
+}
+
+.storeinfo-storeimage {
+  width: 290px;
+  height: 80px;
+}
+
+.storeinfo-boxcontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-top: 6px;
+}
+
+.storeinfo-icon {
+  width: 18px;
+  height: 15px;
+}
+
+.storeinfo-storename {
+  font-size: 17px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.storeinfo-storecategory {
+  font-size: 9px;
+  margin-right: 195px;
+}
+
+.storeinfo-storedonation {
+  font-size: 9px;
+}
+
+.storeinfo-business_hour {
+  font-size: 9px;
+}
+
+.storeinfo-storeaddress {
+  font-size: 9px;
+  margin-right: 5px;
+}
+
+.storeinfo-storedescription {
+  font-size: 9px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .storeinfo-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: fixed;
+    top: 550px;
+    left: 225px;
+    z-index: 1000;
+    width: 300px;
+    height: 150px;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 45px;
+    -webkit-box-shadow: gray 2px 2px 2px 2px;
+            box-shadow: gray 2px 2px 2px 2px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .storeinfo-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: fixed;
+    top: 540px;
+    left: 750px;
+    z-index: 1000;
+    width: 380px;
+    height: 150px;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 45px;
+    -webkit-box-shadow: gray 2px 2px 2px 2px;
+            box-shadow: gray 2px 2px 2px 2px;
+  }
+  .storeinfo-storeimage {
+    width: 350px;
+    height: 80px;
+  }
+  .storeinfo-boxcontainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    margin-top: 6px;
+  }
+  .storeinfo-icon {
+    width: 18px;
+    height: 15px;
+  }
+  .storeinfo-storename {
+    font-size: 17px;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .storeinfo-storecategory {
+    font-size: 12px;
+    margin-right: 240px;
+  }
+  .storeinfo-storedonation {
+    font-size: 12px;
+  }
+  .storeinfo-business_hour {
+    font-size: 12px;
+  }
+  .storeinfo-storeaddress {
+    font-size: 12px;
+    margin-right: 5px;
+  }
+  .storeinfo-storedescription {
+    font-size: 12px;
+  }
+}
+
+.kakaomap-pagecontainer {
+  border: none;
+  height: 100%;
+}
+
+.kakaomap-container {
+  width: 100%;
+  height: 100vh;
+}
+
+.infowindow-container {
+  width: 300px;
+  height: 150px;
+}
+
+.infowindow-modal {
+  padding: 5px;
+  font-size: 15px;
+  color: red;
+}
+
+.label {
+  position: absolute;
+  top: 1;
+  bottom: 1;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  border: 3px solid red;
+}
+/*# sourceMappingURL=Map.css.map */

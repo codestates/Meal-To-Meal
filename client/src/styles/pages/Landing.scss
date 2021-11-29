@@ -1,17 +1,13 @@
 @import '../mixin/mixin';
 @import '../mixin/landing-button';
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  word-break: keep-all;
-}
-
 .landing-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 40px;
+  overflow-x: hidden;
 }
 
 .landing-catchphrase {
@@ -54,12 +50,12 @@
 }
 
 .landing-tutorial-catchphrase {
-  font-size: 25px;
+  font-size: 18px;
   margin-bottom: 10px;
 }
 
 .landing-tutorial-catchphrase-sub {
-  font-size: 15px;
+  font-size: 10px;
 }
 
 .landing-review-container {
@@ -94,7 +90,7 @@
 @include mobile {
   .landing-catchphrase,
   .landing-catchphrase-02 {
-    font-size: 40px;
+    font-size: 25px;
   }
   .landing-logo {
     height: 230px;
@@ -109,6 +105,9 @@
   }
   .landing-img-03 {
     margin: -130px -230px 10px 0;
+  }
+  .landing-review-container {
+    margin-bottom: 40px;
   }
 }
 

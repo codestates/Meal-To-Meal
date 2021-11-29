@@ -24,7 +24,14 @@ app.use(cookieParser());
 
 const HTTPS_PORT = process.env.HTTPS_PORT || 4000;
 
-sequelize.sync();
+sequelize
+  .sync({ force: false })
+  .then(() => {
+    console.log(':point_right::point_left: Database connection successfully!');
+  })
+  .catch(err => {
+    console.error(':file_cabinet:  Database Error! ' + err);
+  });
 
 app.use(
   cors({
@@ -43,6 +50,10 @@ app.use('/review', reviewRouter);
 app.use('/store', storeRouter);
 app.use('/usermeal', usermealRouter);
 app.use('/user', userRouter);
+
+app.get('/', (req, res) => {
+  res.send('우리는 서버배포에 성공한 노서정 진성준이다');
+});
 
 let server = app.listen(HTTPS_PORT);
 // eslint-disable-next-line no-console

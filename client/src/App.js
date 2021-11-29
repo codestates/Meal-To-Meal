@@ -1,9 +1,29 @@
+import './styles/App.css';
 import axios from 'axios';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import UnderbarLogin from './components/UnderbarLogin';
+import UnderbarNotLogin from './components/UnderbarNotLogin';
+import NotFound from './pages/NotFound';
 import Landing from '../src/pages/Landing';
+import Map from '../src/pages/Map';
+import LoginModal from './components/LoginModal';
+import StoreInfo from '../src/pages/StoreInfo';
 
 function App() {
+  const [isLogin, setIsLogin] = useState(false);
+  const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
+  const [isOpenSignupModal, setIsOpenSigupModal] = useState(false);
+
+  const openLoginModalHandler = () => {
+    setIsOpenLoginModal(!isOpenLoginModal);
+  };
+
+  const openSignupModalHandler = () => {
+    setIsOpenSigupModal(!isOpenSignupModal);
+  };
+
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}`, {
@@ -16,7 +36,29 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <Landing />
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Landing />} />
+          <Route path="/notfound" element={<NotFound />} />
+          <Route
+            path="/map"
+            element={<Map isLogin={isLogin} setIsLogin={setIsLogin} openLoginModalHandler={openLoginModalHandler} />}
+          />
+          <Route path="/storeinfo" element={<StoreInfo isLogin={isLogin} setIsLogin={setIsLogin} />} />
+        </Routes>
+      </BrowserRouter>
+      {isLogin ? (
+        <UnderbarLogin />
+      ) : (
+        <UnderbarNotLogin isOpenLoginModal={isOpenLoginModal} openLoginModalHandler={openLoginModalHandler} />
+      )}
+      {isOpenLoginModal ? (
+        <LoginModal
+          openLoginModalHandler={openLoginModalHandler}
+          isOpenSignupModal={isOpenSignupModal}
+          openSignupModalHandler={openSignupModalHandler}
+        />
+      ) : null}
     </div>
   );
 }
