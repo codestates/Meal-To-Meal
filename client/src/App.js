@@ -13,9 +13,14 @@ import LoginModal from './components/LoginModal';
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
+  const [isOpenSignupModal, setIsOpenSigupModal] = useState(false);
 
   const openLoginModalHandler = () => {
     setIsOpenLoginModal(!isOpenLoginModal);
+  };
+
+  const openSignupModalHandler = () => {
+    setIsOpenSigupModal(!isOpenSignupModal);
   };
 
   useEffect(() => {
@@ -45,7 +50,13 @@ function App() {
       ) : (
         <UnderbarNotLogin isOpenLoginModal={isOpenLoginModal} openLoginModalHandler={openLoginModalHandler} />
       )}
-      {isOpenLoginModal ? <LoginModal openLoginModalHandler={openLoginModalHandler} /> : null}
+      {isOpenLoginModal ? (
+        <LoginModal
+          openLoginModalHandler={openLoginModalHandler}
+          isOpenSignupModal={isOpenSignupModal}
+          openSignupModalHandler={openSignupModalHandler}
+        />
+      ) : null}
     </div>
   );
 }

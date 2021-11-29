@@ -127,13 +127,118 @@ button:active {
           box-shadow: none;
 }
 
+.signup-modal-window {
+  position: absolute;
+  background-color: white;
+  border: 4px solid #ffcc1d;
+  height: 515px;
+  width: 240px;
+  padding: 2px 0 2px 8px;
+  margin-top: 20px;
+}
+
+.signup-logo {
+  height: 30px;
+}
+
+.signup-title-text {
+  margin: 5px 0 10px 0;
+  font-weight: bolder;
+}
+
+.signup-input-container {
+  font-size: 15px;
+}
+
+.signup-text {
+  padding-top: 10px;
+}
+
+.signup-input {
+  font-size: 13px;
+  border: 2px solid;
+  border-radius: 5px;
+  -webkit-transition: 100ms ease all;
+  transition: 100ms ease all;
+  height: 20px;
+  padding: 2px 0 2px 8px;
+  margin-top: 4px;
+}
+
+.signup-input:focus {
+  border: 2px solid #ffcc1d;
+  outline: none;
+}
+
+.signup-validation-message {
+  margin: 5px;
+  font-size: 10px;
+  color: gray;
+}
+
+.signup-phone-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.signup-phone-input {
+  width: 120px;
+  font-size: 8px;
+  border: 2px solid;
+  border-radius: 5px;
+  -webkit-transition: 100ms ease all;
+  transition: 100ms ease all;
+  height: 20px;
+  padding: 2px 0 2px 8px;
+  margin-top: 4px;
+}
+
+.signup-phone-input:focus {
+  border: 2px solid #ffcc1d;
+  outline: none;
+}
+
+.signup-phone-button {
+  font-size: 10px;
+  height: 23px;
+  margin-right: 10px;
+}
+
+.signup-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.signup-goback-button {
+  margin-right: 30px;
+  -webkit-transition: 120ms ease all;
+  transition: 120ms ease all;
+}
+
+.signup-goback-button:hover {
+  background-color: #f90716;
+  color: white;
+}
+
 .login-modal-container {
   height: 100vh;
 }
 
 .login-modal-backdrop {
   position: fixed;
-  z-index: 999;
+  z-index: 998;
   top: 0;
   left: 0;
   bottom: 0;
@@ -142,6 +247,16 @@ button:active {
   display: -ms-grid;
   display: grid;
   place-items: center;
+}
+
+.login-signup-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .login-modal-window {
@@ -154,13 +269,11 @@ button:active {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
   background-color: white;
   border: 4px solid #ffcc1d;
   padding: 30px;
+  margin-bottom: 230px;
+  margin-top: 20px;
 }
 
 .login-logo {
@@ -210,9 +323,20 @@ button:active {
   font-size: 13px;
 }
 
-.login-signup-text,
+.login-signup-text {
+  padding-top: 3px;
+}
+
 .login-signup-link {
   padding-top: 3px;
+  text-decoration: underline;
+  -webkit-transition: 120ms ease all;
+  transition: 120ms ease all;
+  cursor: pointer;
+}
+
+.login-signup-link:hover {
+  color: #2d9bf0;
 }
 
 .login-button {
