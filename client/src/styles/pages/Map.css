@@ -135,6 +135,175 @@
   }
 }
 
+.storeinfo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  top: 530px;
+  left: 15px;
+  z-index: 1000;
+  width: 300px;
+  height: 150px;
+  padding: 20px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 45px;
+  -webkit-box-shadow: gray 2px 2px 2px 2px;
+          box-shadow: gray 2px 2px 2px 2px;
+}
+
+.storeinfo-storeimage {
+  width: 290px;
+  height: 80px;
+}
+
+.storeinfo-boxcontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  margin-top: 6px;
+}
+
+.storeinfo-icon {
+  width: 18px;
+  height: 15px;
+}
+
+.storeinfo-storename {
+  font-size: 17px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.storeinfo-storecategory {
+  font-size: 9px;
+  margin-right: 195px;
+}
+
+.storeinfo-storedonation {
+  font-size: 9px;
+}
+
+.storeinfo-business_hour {
+  font-size: 9px;
+}
+
+.storeinfo-storeaddress {
+  font-size: 9px;
+  margin-right: 5px;
+}
+
+.storeinfo-storedescription {
+  font-size: 9px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .storeinfo-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: fixed;
+    top: 550px;
+    left: 225px;
+    z-index: 1000;
+    width: 300px;
+    height: 150px;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 45px;
+    -webkit-box-shadow: gray 2px 2px 2px 2px;
+            box-shadow: gray 2px 2px 2px 2px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .storeinfo-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: fixed;
+    top: 540px;
+    left: 750px;
+    z-index: 1000;
+    width: 380px;
+    height: 150px;
+    padding: 20px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 45px;
+    -webkit-box-shadow: gray 2px 2px 2px 2px;
+            box-shadow: gray 2px 2px 2px 2px;
+  }
+  .storeinfo-storeimage {
+    width: 350px;
+    height: 80px;
+  }
+  .storeinfo-boxcontainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: left;
+        -ms-flex-pack: left;
+            justify-content: left;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    margin-top: 6px;
+  }
+  .storeinfo-icon {
+    width: 18px;
+    height: 15px;
+  }
+  .storeinfo-storename {
+    font-size: 17px;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  .storeinfo-storecategory {
+    font-size: 12px;
+    margin-right: 240px;
+  }
+  .storeinfo-storedonation {
+    font-size: 12px;
+  }
+  .storeinfo-business_hour {
+    font-size: 12px;
+  }
+  .storeinfo-storeaddress {
+    font-size: 12px;
+    margin-right: 5px;
+  }
+  .storeinfo-storedescription {
+    font-size: 12px;
+  }
+}
+
 .kakaomap-pagecontainer {
   border: none;
   height: 100%;
@@ -143,5 +312,28 @@
 .kakaomap-container {
   width: 100%;
   height: 100vh;
+}
+
+.infowindow-container {
+  width: 300px;
+  height: 150px;
+}
+
+.infowindow-modal {
+  padding: 5px;
+  font-size: 15px;
+  color: red;
+}
+
+.label {
+  position: absolute;
+  top: 1;
+  bottom: 1;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  border: 3px solid red;
 }
 /*# sourceMappingURL=Map.css.map */

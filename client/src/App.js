@@ -8,6 +8,7 @@ import UnderbarNotLogin from './components/UnderbarNotLogin';
 import NotFound from './pages/NotFound';
 import Landing from '../src/pages/Landing';
 import Map from '../src/pages/Map';
+import StoreInfo from '../src/pages/StoreInfo';
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/" element={<Landing />} />
           <Route path="/notfound" element={<NotFound />} />
           <Route path="/map" element={<Map isLogin={isLogin} setIsLogin={setIsLogin} />} />
+          <Route path="/storeinfo" element={<StoreInfo isLogin={isLogin} setIsLogin={setIsLogin} />} />
         </Routes>
       </BrowserRouter>
       {isLogin ? <UnderbarLogin /> : <UnderbarNotLogin />}

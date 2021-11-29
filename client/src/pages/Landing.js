@@ -1,14 +1,23 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/pages/Landing.css';
 
 function Landing() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="landing-container">
         <div className="landing-catchphrase">내가 먹은 맛있는 한 끼를</div>
         <div className="landing-catchphrase-02">다른 사람에게도 나눌 수 있는</div>
         <img className="landing-logo" src={require('../img/meal-to-meal-logo-512.png').default} alt="" />
-        <button className="landing-button">지금 시작하기</button>
+        <button
+          className="landing-button"
+          onClick={() => {
+            navigate('/map');
+          }}
+        >
+          지금 시작하기
+        </button>
         <img className="landing-img" src={require('../img/Deconstructed food-bro.png').default} alt="" />
         <img className="landing-img-02" src={require('../img/Hamburger-bro.png').default} alt="" />
         <img className="landing-img-03" src={require('../img/Refund-bro.png').default} alt="" />
