@@ -1,0 +1,173 @@
+@import '../mixin/mixin';
+
+.storeinfo-pagecontainer {
+  border: none;
+  height: 100%;
+}
+
+.storeinfo-box {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 1000;
+  width: fit-content;
+  height: fit-content;
+  padding: 20px;
+  background-color: white;
+}
+
+.box-container {
+  display: flex;
+  justify-content: left;
+  align-items: flex-end;
+  margin-top: 6px;
+  margin-bottom: 5px;
+}
+
+.storeinfo-title {
+  font-size: 18px;
+}
+.storeinfo-categoryimage {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+.storeinfo-storename {
+  margin-right: 200px;
+  font-size: 15px;
+}
+
+.storeinfo-category {
+  font-size: 15px;
+}
+
+.storeinfo-storeimage {
+  width: 340px;
+  height: 150px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.storeinfo-address {
+  margin-right: 40px;
+  font-size: 13px;
+}
+
+.storeinfo-businesshour {
+  font-size: 13px;
+}
+.storeinfo-description {
+  font-size: 13px;
+}
+
+@include tablet {
+  .storeinfo-box {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50px;
+    z-index: 1000;
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    background-color: white;
+  }
+  .box-container {
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+    margin-top: 6px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+  }
+
+  .storeinfo-title {
+    font-size: 20px;
+  }
+
+  .storeinfo-storename {
+    margin-right: 550px;
+    font-size: 18px;
+  }
+
+  .storeinfo-category {
+    font-size: 18px;
+  }
+
+  .storeinfo-storeimage {
+    width: 700px;
+    height: 200px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  .storeinfo-address {
+    margin-right: 330px;
+    font-size: 16px;
+  }
+
+  .storeinfo-businesshour {
+    font-size: 16px;
+  }
+  .storeinfo-description {
+    font-size: 16px;
+  }
+}
+
+@include desktop {
+  .storeinfo-box {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50px;
+    z-index: 1000;
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    background-color: white;
+  }
+  .box-container {
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+    margin-top: 6px;
+    margin-left: 15px;
+    margin-bottom: 5px;
+  }
+
+  .storeinfo-title {
+    font-size: 20px;
+  }
+
+  .storeinfo-categoryimage {
+    width: 15px;
+    height: 15px;
+  }
+  .storeinfo-storename {
+    margin-right: 550px;
+    font-size: 18px;
+  }
+
+  .storeinfo-category {
+    font-size: 18px;
+  }
+
+  .storeinfo-storeimage {
+    width: 700px;
+    height: 200px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  .storeinfo-address {
+    margin-right: 330px;
+    font-size: 16px;
+  }
+
+  .storeinfo-businesshour {
+    font-size: 16px;
+  }
+  .storeinfo-description {
+    font-size: 16px;
+  }
+}
