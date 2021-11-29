@@ -22,7 +22,7 @@ app.use(
 );
 
 app.get('/', (req, res) => {
-  res.send('나는 진노박임의 진성준 노서정이다');
+  res.send('우리는 서버배포에 성공한 노서정 진성준이다');
 });
 
 app.use(cookieParser());
