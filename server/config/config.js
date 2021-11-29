@@ -5,7 +5,7 @@ module.exports = {
   development: {
     username: 'root',
     password: process.env.DATABASE_PASSWORD,
-    database: 'MtoM',
+    database: 'MtoM_local',
     host: '127.0.0.1',
     dialect: 'mysql',
   },
