@@ -7,6 +7,8 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "dotenv": "^10.0.0",
+    "lottie-web": "^5.8.1",
+    "prettier": "^2.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.0.2",
@@ -41,6 +43,10 @@
     ]
   },
   "devDependencies": {
+<<<<<<< HEAD
     "axios": "^0.24.0"
+=======
+    "sass": "^1.43.5"
+>>>>>>> 7127e4e1850dc1f384657f66b561f3dc646fb425
   }
 }
