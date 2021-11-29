@@ -9,6 +9,8 @@ import NotFound from './pages/NotFound';
 import Landing from '../src/pages/Landing';
 import Map from '../src/pages/Map';
 import LoginModal from './components/LoginModal';
+import StoreInfo from '../src/pages/StoreInfo';
+
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -43,6 +45,7 @@ function App() {
             path="/map"
             element={<Map isLogin={isLogin} setIsLogin={setIsLogin} openLoginModalHandler={openLoginModalHandler} />}
           />
+          <Route path="/storeinfo" element={<StoreInfo isLogin={isLogin} setIsLogin={setIsLogin} />} />
         </Routes>
       </BrowserRouter>
       {isLogin ? (

@@ -1,5 +1,6 @@
 @import '../../styles/components/Search';
 @import '../components/Underbar';
+@import '../components/MapStoreinfo';
 
 .kakaomap-pagecontainer {
   border: none;
@@ -9,4 +10,27 @@
 .kakaomap-container {
   width: 100%;
   height: 100vh;
+}
+
+.infowindow-container {
+  width: 300px;
+  height: 150px;
+}
+
+.infowindow-modal {
+  padding: 5px;
+  font-size: 15px;
+  color: red;
+}
+
+.label {
+  position: absolute;
+  top: 1;
+  bottom: 1;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  border: 3px solid red;
 }
