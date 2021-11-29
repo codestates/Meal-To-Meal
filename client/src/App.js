@@ -9,7 +9,7 @@ function App() {
         withCredentials: true,
       })
       .then(res => {
-        console.log('나는 클라이언트다');
+        console.log(res);
       })
       .catch(err => console.log(err));
   }, []);
