@@ -11,7 +11,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 const HTTPS_PORT = process.env.HTTPS_PORT || 4000;
 
-sequelize.sync();
+sequelize
+  .sync({ force: false })
+  .then(() => {
+    console.log(':point_right::point_left: Database connection successfully!');
+  })
+  .catch(err => {
+    console.error(':file_cabinet:  Database Error! ' + err);
+  });
 
 app.use(
   cors({
