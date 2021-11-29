@@ -1,17 +1,18 @@
 /* global kakao */
-import { get } from 'fast-levenshtein';
 import React, { useState, useEffect } from 'react';
+import '../styles/pages/Map.css';
+import { get } from 'fast-levenshtein';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 import Markerdata from '../static/kakao_markerdata';
-import '../styles/pages/Map.css';
 
 const { kakao } = window;
 
-const Map = () => {
+const Map = ({ isLogin, setIsLogin, openLoginModalHandler }) => {
   const [isLogin, setIsLogin] = useState(false);
+
   useEffect(() => {
     let container = document.getElementById('map');
 
@@ -39,17 +40,12 @@ const Map = () => {
     });
   });
   return (
-    <>
-      <Header isLogin={isLogin} setIsLogin={setIsLogin} />
-      <div className="kakaomap-pagecontainer">
-        <div className="kakaomap-searchbox">
-          <input className="kakaomap-search-input" placeholder="가게를 검색하세요" />
-          <i className="fas fa-search"></i>
-        </div>
-        <div className="kakaomap-container" id="map" />
-      </div>
+    <div className="kakaomap-pagecontainer">
+      <Header isLogin={isLogin} setIsLogin={setIsLogin} openLoginModalHandler={openLoginModalHandler} />
+      <div className="kakaomap-container" id="map" />
+      <Search />
       <Footer />
-    </>
+    </div>
   );
 };
 

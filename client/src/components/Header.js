@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import SidebarLogin from './SidebarLogin';
 import SidebarNotLogin from './SidebarNotLogin';
 
-function Header({ isLogin, setIsLogin }) {
+function Header({ isLogin, setIsLogin, openLoginModalHandler }) {
   const [isLoginOpenSidebar, setIsLoginOpenSidebar] = useState(false);
   const [isNotLoginOpenSidebar, setIsNotLoginOpenSidebar] = useState(false);
 
@@ -28,7 +28,7 @@ function Header({ isLogin, setIsLogin }) {
         <i className="fas fa-bars" onClick={openisNotLoginOpenSidebarHandler} />
       )}
       {isLoginOpenSidebar ? <SidebarLogin /> : null}
-      {isNotLoginOpenSidebar ? <SidebarNotLogin /> : null}
+      {isNotLoginOpenSidebar ? <SidebarNotLogin openLoginModalHandler={openLoginModalHandler} /> : null}
     </div>
   );
 }

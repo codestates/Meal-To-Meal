@@ -1,9 +1,9 @@
 import React from 'react';
 
-function Sidebar_Not_Login() {
+function SidebarNotLogin({ openLoginModalHandler }) {
   return (
     <div className="sidebar-container">
-      <div className="sidebar-menu-container">
+      <div className="sidebar-menu-container" onClick={openLoginModalHandler}>
         <div className="sidebar-icon">&#x1F373;</div>
         <div className="sidebar-text">로그인</div>
       </div>
@@ -22,4 +22,4 @@ function Sidebar_Not_Login() {
   );
 }
 
-export default Sidebar_Not_Login;
+export default SidebarNotLogin;

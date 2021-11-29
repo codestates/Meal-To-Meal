@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Underbar_Login() {
+function UnderbarLogin() {
   return (
     <div className="underbar-container">
       <div className="underbar-menu-container">
@@ -28,4 +28,4 @@ function Underbar_Login() {
   );
 }
 
-export default Underbar_Login;
+export default UnderbarLogin;
