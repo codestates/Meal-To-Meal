@@ -11,7 +11,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 const HTTPS_PORT = process.env.HTTPS_PORT || 4000;
 
-sequelize.sync();
+sequelize
+  .sync({ force: false })
+  .then(() => {
+    console.log(':point_right::point_left: Database connection successfully!');
+  })
+  .catch(err => {
+    console.error(':file_cabinet:  Database Error! ' + err);
+  });
 
 app.use(
   cors({
@@ -22,7 +29,7 @@ app.use(
 );
 
 app.get('/', (req, res) => {
-  res.send('나는 서버다');
+  res.send('우리는 서버배포에 성공한 노서정 진성준이다');
 });
 
 app.use(cookieParser());
