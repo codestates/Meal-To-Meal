@@ -11,7 +11,6 @@ import Map from '../src/pages/Map';
 import LoginModal from './components/LoginModal';
 import StoreInfo from '../src/pages/StoreInfo';
 
-
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
