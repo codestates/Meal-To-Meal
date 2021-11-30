@@ -1,4 +1,4 @@
-const { isAuthorized, checkRefreshToken } = require('../tokenFunctions');
+const { isAuthorized, checkRefreshToken } = require('../../middlewares/tokenFunctions');
 
 module.exports = (req, res) => {
   const accessTokenData = isAuthorized(req);

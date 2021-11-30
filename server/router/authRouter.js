@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const controllers = require('../controllers/auth');
+const authController = require('../controllers/auth');
 
-router.get('/auth', controllers.tokenAuth);
-router.post('/auth/:email', controllers.auth.post);
-router.get('/auth/:email', controllers.auth.getEmailAuth);
+router.get('/auth', authController.tokenAuth);
+router.post('/auth/:email', authController.email.postEmailAuth);
+router.get('/auth/:email', authController.email.getEmailAuth);
 
-router.post('/oauth/kakao/login', controllers.oauth.kakaoLogin);
-router.post('/oauth/kakao/signout', controllers.oauth.kakaoSignout);
+router.post('/oauth/kakao/login', authController.oauth.kakaoLogin);
+router.post('/oauth/kakao/signout', authController.oauth.kakaoSignout);
 
 module.exports = router;

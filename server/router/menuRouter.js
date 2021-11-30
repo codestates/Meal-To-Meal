@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const controllers = require('../controllers/menu');
+const menuController = require('../controllers/menu/menu');
 
-router.post('/menu', controllers.menu.post);
-router.get('/menu-list/:storeid', controllers.menu.get);
-router.delete('/menu/:menuid', controllers.menu.delete);
+router.post('/menu', menuController.post);
+router.get('/menu-list/:storeid', menuController.get);
+router.delete('/menu/:menuid', menuController.delete);
 
 module.exports = router;
