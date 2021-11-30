@@ -1,12 +1,10 @@
 /* global kakao */
 import React, { useState, useEffect } from 'react';
 import '../styles/pages/Map.css';
-import { get } from 'fast-levenshtein';
-
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Search from '../components/Search';
-import Markerdata from '../static/kakao_markerdata';
+import StoreDummydata from '../static/store_dummydata';
 
 const { kakao } = window;
 
@@ -23,7 +21,7 @@ const Map = ({ isLogin, setIsLogin, openLoginModalHandler }) => {
 
     // eslint-disable-next-line no-lone-blocks
     {
-      Markerdata.forEach(el => {
+      StoreDummydata.forEach(el => {
         const marker = new kakao.maps.Marker({
           map: map,
           position: new kakao.maps.LatLng(el.store_lat, el.store_lng),

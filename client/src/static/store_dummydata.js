@@ -1,4 +1,4 @@
-const Markerdummy = [
+const StoreDummydata = [
   {
     id: 1,
     user_id: 1,
@@ -76,4 +76,4 @@ const Markerdummy = [
   },
 ];
 
-export default Markerdummy;
+export default StoreDummydata;
