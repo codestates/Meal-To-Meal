@@ -28,5 +28,9 @@ module.exports = {
       underscored: true,
       freezeTableName: true,
     },
+    timezone: '+09:00',
+    dialectOptions: {
+      timezone: '+09:00',
+    },
   },
 };
