@@ -1,16 +1,16 @@
 const { isAuthorized, checkRefreshToken } = require('../tokenFunctions');
 
-module.exports = (req, res) => {
+module.exports = req => {
   const accessTokenData = isAuthorized(req);
   const refreshToken = req.cookies.refreshToken;
   if (!accessTokenData) {
     const userInfo = checkRefreshToken(refreshToken);
     if (!userInfo) {
-      res.status(400).json({ message: '잘못된 요청입니다' });
+      return null;
     } else {
-      res.status(200).json({ userInfo: userInfo });
+      return userInfo;
     }
   } else {
-    res.status(200).json({ userInfo: accessTokenData });
+    return accessTokenData;
   }
 };
