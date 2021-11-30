@@ -71,4 +71,25 @@
 }
 
 @include desktop {
+  .menuBox-container {
+    border: 3px solid black;
+    margin: 0 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 1000px;
+    top: 70px;
+    width: fit-content;
+    height: fit-content;
+  }
+  .menuBox-menu-container {
+    display: flex;
+    justify-content: flex-start;
+    border: 3px solid #ffcc1d;
+    margin: 5px 15px 10px 15px;
+    width: 800px;
+    height: 150px;
+    padding: 0 15px 0 15px;
+    background-color: white;
+  }
 }

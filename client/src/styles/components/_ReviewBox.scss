@@ -14,7 +14,7 @@
 .reviewBox-review-container {
   display: flex;
   justify-content: flex-start;
-  border: 3px solid blue;
+  border: 3px solid #ffcc1d;
   height: 70px;
   margin: 5px 15px 10px 15px;
   padding: 0 15px 0 15px;
@@ -48,4 +48,15 @@
 }
 
 @include desktop {
+  .reviewBox-container {
+    border: 3px solid black;
+    height: 100%;
+    margin: 0 10px 0 30px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 450px;
+    width: 800px;
+    height: 250px;
+  }
 }
