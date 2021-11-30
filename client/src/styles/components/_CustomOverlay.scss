@@ -1,0 +1,112 @@
+.customOverlay-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  height: fit-content;
+  background-color: white;
+  position: absolute;
+  bottom: -355px;
+  right: -151px;
+  border: 2px solid;
+  border-radius: 20px;
+  font-size: 10px;
+}
+
+.fa-map-marker-alt,
+.fa-utensils,
+.fa-heart,
+.fa-business-time {
+  font-size: 8px;
+  color: #ffcc1d;
+  cursor: default;
+}
+
+.fa-times {
+  margin-right: 250px;
+  font-size: 25px;
+  transition: 100ms ease all;
+
+  &:hover {
+    color: #ffcc1d;
+  }
+}
+
+.customOverlay-img {
+  width: 78%;
+  height: 150px;
+  margin-bottom: 15px;
+  box-shadow: gray 3px 3px 3px 3px;
+  border-radius: 15px;
+}
+
+.customOverlay-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 10px 0 10px;
+}
+
+.customOverlay-info-left-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 150px;
+}
+
+.customOverlay-title-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.customOverlay-title {
+  margin-right: 10px;
+  font-size: 13px;
+  font-weight: bolder;
+}
+
+.customOverlay-category {
+  font-size: 8px;
+}
+
+.customOverlay-place-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+// 위치 아이콘
+// .customOverlay-place-info
+
+.customOverlay-description-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+// 설명 아이콘
+// .customOverlay-donation-info
+
+.customOverlay-info-right-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.customOverlay-businesshour-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 23px;
+}
+
+// 시간 아이콘
+// .customOverlay-businesshour-info
+
+.customOverlay-donation-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+// 기부 아이콘
+// .customOverlay-donation-info
