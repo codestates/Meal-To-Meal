@@ -1,4 +1,5 @@
 @import '../mixin/mixin';
+@import '../components/LoginModal';
 
 .underbar-container {
   position: fixed;
@@ -6,7 +7,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 999;
+  z-index: 997;
   background-color: #f7f1e3;
   height: 60px;
   display: flex;

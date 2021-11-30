@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Underbar_Not_Login() {
+function UnderbarNotLogin({ openLoginModalHandler }) {
   return (
     <div className="underbar-container">
       <div className="underbar-menu-container">
-        <i className="fas fa-key" />
+        <i className="fas fa-key" onClick={openLoginModalHandler} />
       </div>
       <div className="underbar-menu-container">
         <i className="fas fa-user-plus" />
@@ -16,4 +16,4 @@ function Underbar_Not_Login() {
   );
 }
 
-export default Underbar_Not_Login;
+export default UnderbarNotLogin;

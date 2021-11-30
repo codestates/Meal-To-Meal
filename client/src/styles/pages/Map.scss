@@ -1,12 +1,8 @@
 @import '../../styles/components/Search';
 @import '../components/Underbar';
+@import '../components/CustomOverlay';
 
-.kakaomap-pagecontainer {
-  border: none;
-  height: 100%;
-}
-
-.kakaomap-container {
+#map {
   width: 100%;
   height: 100vh;
 }
