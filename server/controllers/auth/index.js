@@ -1,5 +1,5 @@
 module.exports = {
   tokenAuth: require('./tokenAuth'),
-  auth: require('./auth'),
+  auth: require('./emailAuth'),
   oauth: require('./oauth'),
 };
