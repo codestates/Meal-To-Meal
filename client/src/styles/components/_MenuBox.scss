@@ -1,0 +1,96 @@
+@import '../mixin/mixin';
+
+.menuBox-container {
+  border: 3px solid black;
+  margin: 0 10px 0 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+.menuBox-title {
+  font-size: 17px;
+  margin: 10px 0 0 15px;
+}
+.menuBox-menu-container {
+  display: flex;
+  justify-content: flex-start;
+  border: 3px solid #ffcc1d;
+  margin: 5px 15px 10px 15px;
+  height: 100px;
+  padding: 0 15px 0 15px;
+  background-color: white;
+}
+.menuBox-info-container {
+  display: flex;
+  flex-direction: column;
+}
+.storeinfo-food-image {
+  width: 100px;
+  height: 60px;
+  margin-right: 15px;
+}
+.storeinfo-icon {
+  height: 10px;
+}
+
+.menuBox-food-name {
+  font-size: 13px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.menuBox-food-price {
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+.menuBox-donation-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.menuBox-food-remain {
+  font-size: 13px;
+}
+.menuBox-button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.menuBox-Donatebutton {
+  width: 70px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.menuBox-Eatbutton {
+  width: 50px;
+  height: 25px;
+}
+
+@include tablet {
+}
+
+@include desktop {
+  .menuBox-container {
+    border: 3px solid black;
+    margin: 0 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 1000px;
+    top: 70px;
+    width: fit-content;
+    height: fit-content;
+  }
+  .menuBox-menu-container {
+    display: flex;
+    justify-content: flex-start;
+    border: 3px solid #ffcc1d;
+    margin: 5px 15px 10px 15px;
+    width: 800px;
+    height: 150px;
+    padding: 0 15px 0 15px;
+    background-color: white;
+  }
+}
