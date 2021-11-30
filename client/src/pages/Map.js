@@ -5,14 +5,12 @@ import { get } from 'fast-levenshtein';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-
+import Search from '../components/Search';
 import Markerdata from '../static/kakao_markerdata';
 
 const { kakao } = window;
 
 const Map = ({ isLogin, setIsLogin, openLoginModalHandler }) => {
-  const [isLogin, setIsLogin] = useState(false);
-
   useEffect(() => {
     let container = document.getElementById('map');
 

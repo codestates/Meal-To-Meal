@@ -55,6 +55,7 @@ const Markerdummy = [
     store_lat: 37.496511,
     store_lng: 127.02483,
     business_hours: '10:00 ~ 23:00',
+    //business_hour로 수정
     created_at: '2021-08-13T16:17:27.000Z',
     updated_at: '2021-08-13T16:17:27.000Z',
   },
