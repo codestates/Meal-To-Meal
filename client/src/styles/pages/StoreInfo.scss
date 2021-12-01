@@ -2,17 +2,18 @@
 @import '../components/MenuBox';
 @import '../components/ReviewBox';
 
-.storeinfo-container {
+.storeinfo-page-container {
   padding: 10px;
-  overflow: scroll;
   margin-bottom: 80px;
+  overflow: auto;
 }
 
 .storeinfo-title-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px 0 10px 0;
+  width: 95%;
+  margin: 10px;
 }
 
 .store-title-container {
@@ -44,6 +45,7 @@
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 10px;
+  width: 80%;
 }
 
 .fa-map-marker-alt,
@@ -67,33 +69,102 @@
 
 .storeinfo-button-container {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: 150x 15px 40px 15px;
+  justify-content: space-between;
+  margin: 15px;
 }
 
-.cart-button {
-  margin-right: 40px;
-  font-size: 15px;
-  border: 3px solid;
-  &:hover {
-    cursor: pointer;
-    border: 3px solid #ffcc1d;
+@include tablet {
+  .storeinfo-info-container {
+    margin-top: 20px;
+    font-size: 30px;
   }
-  &:active {
-    text-shadow: none;
+
+  .storeinfo-title-container {
+    margin: 15px;
+  }
+
+  .store-category-icon {
+    height: 45px;
+  }
+
+  .store-img {
+    width: 650px;
+  }
+
+  .fa-map-marker-alt,
+  .fa-clock,
+  .fa-utensils {
+    font-size: 40px;
+  }
+
+  .store-detail-info-text {
+    font-size: 35px;
+    margin: 15px;
+  }
+
+  .box-title {
+    font-size: 30px;
+  }
+
+  .cart-button,
+  .back-button {
+    font-size: 30px;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
   }
 }
 
-.back-button {
-  font-size: 15px;
-  border: 3px solid;
-  &:hover {
-    cursor: pointer;
-    border: 3px solid #ffcc1d;
+footer {
+  position: static;
+}
+
+@include desktop {
+  .storeinfo-page-container {
+    margin-top: 60px;
   }
-  &:active {
-    text-shadow: none;
+
+  .storeinfo-info-menu-review-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .storeinfo-info-container {
+    font-size: 30px;
+  }
+
+  .storeinfo-title-container {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: 10px;
+  }
+
+  .store-category-text {
+    font-size: 20px;
+  }
+
+  .store-img {
+    width: 50%;
+    margin: 15px 0 10px 10px;
+  }
+
+  .store-detail-info-container {
+    margin-top: 15px;
+  }
+
+  .fa-map-marker-alt,
+  .fa-clock,
+  .fa-utensils {
+    font-size: 30px;
+  }
+
+  .store-detail-info-text {
+    font-size: 25px;
+    margin-left: 15px;
+  }
+
+  .box-title {
+    font-size: 30px;
   }
 }

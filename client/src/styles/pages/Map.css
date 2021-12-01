@@ -599,7 +599,6 @@ button:active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  max-width: 150px;
 }
 
 .customOverlay-title-container {
@@ -624,6 +623,30 @@ button:active {
   font-size: 8px;
 }
 
+.customOverlay-businesshour-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.customOverlay-donation-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .customOverlay-place-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -646,41 +669,69 @@ button:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 10px;
 }
 
-.customOverlay-info-right-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+@media (min-width: 758px) and (max-width: 1023px) {
+  .customOverlay-container {
+    width: 430px;
+    bottom: -555px;
+    right: -205px;
+    font-size: 18px;
+  }
+  .fa-times {
+    margin-right: 390px;
+  }
+  .fa-map-marker-alt,
+  .fa-utensils,
+  .fa-heart,
+  .fa-business-time {
+    font-size: 30px;
+  }
+  .customOverlay-img {
+    height: 230px;
+  }
+  .customOverlay-title {
+    font-size: 30px;
+  }
+  .customOverlay-category {
+    font-size: 18px;
+  }
+  .customOverlay-businesshour-container {
+    margin-left: 15px;
+    margin-right: 10px;
+  }
 }
 
-.customOverlay-businesshour-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 23px;
-}
-
-.customOverlay-donation-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+@media (min-width: 1024px) {
+  .customOverlay-container {
+    width: 530px;
+    bottom: -585px;
+    right: -265px;
+    font-size: 18px;
+  }
+  .fa-times {
+    margin-right: 490px;
+  }
+  .fa-map-marker-alt,
+  .fa-utensils,
+  .fa-heart,
+  .fa-business-time {
+    font-size: 30px;
+  }
+  .customOverlay-img {
+    height: 280px;
+  }
+  .customOverlay-title {
+    font-size: 30px;
+  }
+  .customOverlay-category {
+    font-size: 18px;
+  }
+  .customOverlay-businesshour-container {
+    margin-left: 15px;
+    margin-right: 10px;
+  }
 }
 
 #map {

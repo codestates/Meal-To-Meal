@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-
 import SignupModal from './SignupModal';
 
 function LoginModal({ openLoginModalHandler, isOpenSignupModal, openSignupModalHandler }) {
@@ -9,7 +8,7 @@ function LoginModal({ openLoginModalHandler, isOpenSignupModal, openSignupModalH
     password: '',
   });
 
-  const loginButtonHandler = () => {
+  const loginButtonHandler = ({ setIsLogin }) => {
     alert('로그인 성공!......이었으면 좋겠지만, 아직 서버와 연결 되지 않았습니다!');
     const { userEmail, password } = loginInfo;
     axios
@@ -20,7 +19,7 @@ function LoginModal({ openLoginModalHandler, isOpenSignupModal, openSignupModalH
       )
       .then(res => {
         // setAccessToken(res.data.accessToken);
-        // setIsLogin(true);
+        setIsLogin(true);
       })
       .catch(err => {
         console.log(err);

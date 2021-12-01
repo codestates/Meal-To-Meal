@@ -25,6 +25,8 @@ function App() {
     setIsOpenSigupModal(!isOpenSignupModal);
   };
 
+  const logoutBtnHandler = () => {};
+
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}`, {
@@ -59,6 +61,7 @@ function App() {
           openLoginModalHandler={openLoginModalHandler}
           isOpenSignupModal={isOpenSignupModal}
           openSignupModalHandler={openSignupModalHandler}
+          setIsLogin={setIsLogin}
         />
       ) : null}
     </div>
