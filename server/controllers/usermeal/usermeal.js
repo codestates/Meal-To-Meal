@@ -1,6 +1,6 @@
 module.exports = {
   post: data => {},
-  getStoreReview: data => {},
-  getUserReview: data => {},
+  patch: data => {},
+  get: data => {},
   delete: data => {},
 };

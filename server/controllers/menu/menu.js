@@ -1,4 +1,5 @@
 module.exports = {
   post: data => {},
-  getEmailAuth: data => {},
+  get: data => {},
+  delete: data => {},
 };

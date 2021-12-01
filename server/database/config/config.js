@@ -8,6 +8,14 @@ module.exports = {
     database: 'mealtomeal',
     host: '127.0.0.1',
     dialect: 'mysql',
+    define: {
+      underscored: true,
+      freezeTableName: true,
+    },
+    timezone: '+09:00',
+    dialectOptions: {
+      timezone: '+09:00',
+    },
   },
   production: {
     username: process.env.DATABASE_USER,
@@ -16,5 +24,13 @@ module.exports = {
     host: process.env.DATABASE_HOST,
     port: process.env.DATABASE_PORT,
     dialect: 'mysql',
+    define: {
+      underscored: true,
+      freezeTableName: true,
+    },
+    timezone: '+09:00',
+    dialectOptions: {
+      timezone: '+09:00',
+    },
   },
 };

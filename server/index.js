@@ -4,7 +4,7 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 
-const { sequelize } = require('./models');
+const { sequelize } = require('./database/models');
 
 const authRouter = require('./router/authRouter');
 const cartRouter = require('./router/cartRouter');
@@ -27,9 +27,11 @@ const HTTPS_PORT = process.env.HTTPS_PORT || 4000;
 sequelize
   .sync({ force: false })
   .then(() => {
-    console.log(':point_right::point_left: Database connection successfully!');
+    // eslint-disable-next-line no-console
+    console.log('Database connected!');
   })
   .catch(err => {
+    // eslint-disable-next-line no-console
     console.error(':file_cabinet:  Database Error! ' + err);
   });
 
@@ -37,23 +39,21 @@ app.use(
   cors({
     origin: true,
     credentials: true,
-    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'authorization'],
   })
 );
 
 app.use('/auth', authRouter);
+app.use('/oauth', authRouter);
 app.use('/cart', cartRouter);
 app.use('/menu', menuRouter);
 app.use('/payment', paymentRouter);
 app.use('/ranking', rankingRouter);
 app.use('/review', reviewRouter);
 app.use('/store', storeRouter);
-app.use('/usermeal', usermealRouter);
 app.use('/user', userRouter);
-
-app.get('/', (req, res) => {
-  res.send('우리는 서버배포에 성공한 노서정 진성준이다');
-});
+app.use('/usermeal', usermealRouter);
 
 let server = app.listen(HTTPS_PORT);
 // eslint-disable-next-line no-console
