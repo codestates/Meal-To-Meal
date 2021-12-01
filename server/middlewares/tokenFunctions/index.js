@@ -16,9 +16,9 @@ module.exports = {
     });
   },
   sendAccessToken: (res, accessToken) => {
-    res.json({ data: accessToken, message: '엑세스 토큰 보내기 성공' });
+    res.json({ accessToken: accessToken, message: '로그인 되었습니다' });
   },
-  isAuthorized: req => {
+  checkAccessToken: req => {
     const authorization = req.headers['authorization'];
     if (!authorization) {
       return null;
