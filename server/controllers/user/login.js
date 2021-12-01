@@ -1,3 +1,15 @@
-const { generateAccessToken, generateRefreshToken, sendRefreshToken } = require('../../middlewares/tokenFunctions');
+const { user } = require('../../database/models');
+const bcrypt = require('bcrypt');
+const {
+  generateAccessToken,
+  generateRefreshToken,
+  sendAccessToken,
+  sendRefreshToken,
+} = require('../../middlewares/tokenFunctions');
 
-module.exports = (req, res) => {};
+module.exports = (req, res) => {
+  // const { user_nickname, user_password } = req.body;
+  // bcrypt.compare(user_password, hash, (err, result) => {
+  //   //result boolean
+  // });
+};
