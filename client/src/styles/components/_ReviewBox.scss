@@ -1,0 +1,39 @@
+@import '../mixin/mixin';
+
+.reviewBox-container {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  border: 3px solid #ffcc1d;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.storeinfo-food-image {
+  height: 180px;
+}
+
+.reviewBox-info-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.reviewBox-reviewer-name {
+  margin-bottom: 5px;
+  font-weight: bolder;
+}
+
+.reviewBox-reviewer-review {
+  border: 3px solid #ffcc1d;
+  border-radius: 15px;
+  padding: 10px;
+  word-break: keep-all;
+  margin: 10px;
+}
+
+@include tablet {
+}
+
+@include desktop {
+}

@@ -1,0 +1,59 @@
+@import '../mixin/mixin';
+
+.menuBox-container {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #ffcc1d;
+  height: 315px;
+  padding: 10px;
+}
+
+.menu-food-image {
+  height: 180px;
+}
+
+.menu-info-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.menu-text {
+  margin-bottom: 10px;
+}
+
+.menu-donation-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu-donation-icon {
+  height: 14px;
+  margin-right: 5px;
+  margin-bottom: 14px;
+}
+
+.menu-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.menu-donate-button,
+.menu-eat-button {
+  width: 90px;
+}
+
+@include tablet {
+}
+
+@include desktop {
+}
