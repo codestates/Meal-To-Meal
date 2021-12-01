@@ -2,8 +2,8 @@ const { user } = require('../../database/models');
 const bcrypt = require('bcrypt');
 
 module.exports = (req, res) => {
-  const { user_password, user_phone_number, user_email, user_nickname } = req.body;
-  if (!user_password || !user_phone_number || !user_email || !user_nickname) {
+  const { user_password, user_email, user_nickname } = req.body;
+  if (!user_password || !user_email || !user_nickname) {
     res.status(400).json({ message: '잘못된 요청입니다' });
   } else {
     const saltRounds = 10;
@@ -11,7 +11,6 @@ module.exports = (req, res) => {
       try {
         await user.create({
           user_password: hash,
-          user_phone_number: user_phone_number,
           user_email: user_email,
           user_nickname: user_nickname,
         });
