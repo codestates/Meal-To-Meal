@@ -44,6 +44,9 @@ app.use(
   })
 );
 
+app.get('/', (req, res, next) => {
+  res.send('나는 서버다');
+});
 app.use('/auth', authRouter);
 app.use('/oauth', authRouter);
 app.use('/cart', cartRouter);
