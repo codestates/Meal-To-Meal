@@ -1,84 +1,65 @@
 @import '../mixin/mixin';
 
 footer {
-  position: absolute;
-  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
   width: 100%;
-  z-index: 998;
+  height: fit-content;
+  background-color: #f7f1e3;
+  position: static;
+  bottom: 0;
+  z-index: 999;
 }
 
 .footer-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  background-color: #f7f1e3;
+  padding: 5px 10px 5px 10px;
+  width: 97%;
+}
+
+.footer-logo-info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
-  width: 60px;
-  height: 50px;
-  margin-bottom: 2px;
-  padding-top: 15px;
-}
-
-.footer-our-info-container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  height: 65px;
+  margin: 5px;
 }
 
 .footer-title-text {
   font-weight: bolder;
-  font-size: 5px;
-  margin-bottom: 5px;
+  padding: 5px 10px 5px 5px;
 }
 
 .footer-text {
-  font-size: 12px;
-}
-
-.footer-copyright-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 13px;
-  background-color: #f7f1e3;
+  margin-right: 10px;
+  margin-left: 5px;
 }
 
 .footer-copyright {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-end;
-  padding: 10px 0 10px 0;
-  background-color: #f7f1e3;
-  font-size: 10px;
+  padding-bottom: 15px;
 }
 
 @include mobile {
-  .footer-container {
-    display: none;
-  }
-  .footer-copyright {
+  footer {
     display: none;
   }
 }
 
 @include tablet {
-  .footer-title-text {
-    font-size: 18px;
-  }
-  .footer-text {
-    font-size: 16px;
+  footer {
+    font-size: 12px;
   }
 }
+
 @include desktop {
-  .footer-title-text {
-    font-size: 20px;
-  }
-  .footer-text {
+  footer {
     font-size: 16px;
-  }
-  .footer-copyright {
-    font-size: 14px;
   }
 }

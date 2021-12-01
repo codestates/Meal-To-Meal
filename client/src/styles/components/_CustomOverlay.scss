@@ -1,3 +1,5 @@
+@import '../mixin/mixin';
+
 .customOverlay-container {
   display: flex;
   flex-direction: column;
@@ -50,7 +52,6 @@
 .customOverlay-info-left-container {
   display: flex;
   flex-direction: column;
-  max-width: 150px;
 }
 
 .customOverlay-title-container {
@@ -69,34 +70,10 @@
   font-size: 8px;
 }
 
-.customOverlay-place-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-// 위치 아이콘
-// .customOverlay-place-info
-
-.customOverlay-description-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-// 설명 아이콘
-// .customOverlay-donation-info
-
-.customOverlay-info-right-container {
-  display: flex;
-  flex-direction: column;
-}
-
 .customOverlay-businesshour-container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 23px;
 }
 
 // 시간 아이콘
@@ -110,3 +87,94 @@
 
 // 기부 아이콘
 // .customOverlay-donation-info
+
+.customOverlay-place-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+// 위치 아이콘
+// .customOverlay-place-info
+
+.customOverlay-description-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+// 설명 아이콘
+// .customOverlay-donation-info
+
+@include tablet {
+  .customOverlay-container {
+    width: 430px;
+    bottom: -555px;
+    right: -205px;
+    font-size: 18px;
+  }
+
+  .fa-times {
+    margin-right: 390px;
+  }
+
+  .fa-map-marker-alt,
+  .fa-utensils,
+  .fa-heart,
+  .fa-business-time {
+    font-size: 30px;
+  }
+
+  .customOverlay-img {
+    height: 230px;
+  }
+
+  .customOverlay-title {
+    font-size: 30px;
+  }
+  .customOverlay-category {
+    font-size: 18px;
+  }
+
+  .customOverlay-businesshour-container {
+    margin-left: 15px;
+    margin-right: 10px;
+  }
+}
+
+@include desktop {
+  .customOverlay-container {
+    width: 530px;
+    bottom: -585px;
+    right: -265px;
+    font-size: 18px;
+  }
+
+  .fa-times {
+    margin-right: 490px;
+  }
+
+  .fa-map-marker-alt,
+  .fa-utensils,
+  .fa-heart,
+  .fa-business-time {
+    font-size: 30px;
+  }
+
+  .customOverlay-img {
+    height: 280px;
+  }
+
+  .customOverlay-title {
+    font-size: 30px;
+  }
+  .customOverlay-category {
+    font-size: 18px;
+  }
+
+  .customOverlay-businesshour-container {
+    margin-left: 15px;
+    margin-right: 10px;
+  }
+}

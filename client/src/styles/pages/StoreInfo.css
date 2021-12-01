@@ -1,14 +1,3 @@
-.menuBox-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  overflow: scroll;
-}
-
 .menu-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -20,6 +9,7 @@
   border: 3px solid #ffcc1d;
   height: 315px;
   padding: 10px;
+  margin-bottom: 15px;
 }
 
 .menu-food-image {
@@ -75,6 +65,95 @@
   width: 90px;
 }
 
+@media (min-width: 758px) and (max-width: 1023px) {
+  .menu-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-orient: initial;
+    -webkit-box-direction: initial;
+        -ms-flex-direction: initial;
+            flex-direction: initial;
+    height: 320px;
+  }
+  .menu-food-image {
+    height: 270px;
+    display: inline-block;
+    border-radius: 30px;
+    -webkit-box-shadow: gray 4px 4px 4px 4px;
+            box-shadow: gray 4px 4px 4px 4px;
+    margin: 10px;
+  }
+  .menu-info-container {
+    font-size: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .menu-donation-icon {
+    height: 20px;
+  }
+  .menu-button-container {
+    margin-top: 20px;
+  }
+  .menu-donate-button,
+  .menu-eat-button {
+    font-size: 20px;
+    width: 100px;
+    height: 35px;
+    margin: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu-box-container {
+    width: 50vw;
+  }
+  .menu-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-orient: initial;
+    -webkit-box-direction: initial;
+        -ms-flex-direction: initial;
+            flex-direction: initial;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin: 15px 40px 15px 0;
+  }
+  .menu-food-image {
+    max-width: 300px;
+    display: inline-block;
+    border-radius: 30px;
+    -webkit-box-shadow: gray 4px 4px 4px 4px;
+            box-shadow: gray 4px 4px 4px 4px;
+    margin: 10px 45px 10px 10px;
+  }
+  .menu-info-container {
+    font-size: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .menu-donation-icon {
+    height: 20px;
+  }
+  .menu-button-container {
+    margin-top: 20px;
+  }
+  .menu-donate-button,
+  .menu-eat-button {
+    font-size: 25px;
+    width: 110px;
+    height: 45px;
+    margin: 10px;
+  }
+}
+
 .reviewBox-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -83,7 +162,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  overflow: scroll;
   border: 3px solid #ffcc1d;
   padding: 10px;
   margin-bottom: 15px;
@@ -117,10 +195,65 @@
   margin: 10px;
 }
 
-.storeinfo-container {
+@media (min-width: 758px) and (max-width: 1023px) {
+  .reviewBox-container {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: initial;
+    -webkit-box-direction: initial;
+        -ms-flex-direction: initial;
+            flex-direction: initial;
+  }
+  .storeinfo-food-image {
+    width: 300px;
+    border-radius: 30px;
+    -webkit-box-shadow: gray 4px 4px 4px 4px;
+            box-shadow: gray 4px 4px 4px 4px;
+    margin: 10px;
+  }
+  .reviewBox-info-container {
+    margin: 15px;
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .reviewBox-container {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: initial;
+    -webkit-box-direction: initial;
+        -ms-flex-direction: initial;
+            flex-direction: initial;
+  }
+  .storeinfo-food-image {
+    width: 300px;
+    border-radius: 30px;
+    -webkit-box-shadow: gray 4px 4px 4px 4px;
+            box-shadow: gray 4px 4px 4px 4px;
+    margin: 10px;
+  }
+  .reviewBox-info-container {
+    margin: 15px;
+    font-size: 25px;
+  }
+  .menu-box-container {
+    width: 100%;
+  }
+}
+
+.storeinfo-page-container {
   padding: 10px;
-  overflow: scroll;
   margin-bottom: 80px;
+  overflow: auto;
 }
 
 .storeinfo-title-container {
@@ -133,7 +266,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 10px 0 10px 0;
+  width: 95%;
+  margin: 10px;
 }
 
 .store-title-container {
@@ -183,6 +317,7 @@
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 10px;
+  width: 80%;
 }
 
 .fa-map-marker-alt,
@@ -202,5 +337,107 @@
   font-size: 20px;
   font-weight: bolder;
   margin: 35px 0 5px 5px;
+}
+
+.storeinfo-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 15px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .storeinfo-info-container {
+    margin-top: 20px;
+    font-size: 30px;
+  }
+  .storeinfo-title-container {
+    margin: 15px;
+  }
+  .store-category-icon {
+    height: 45px;
+  }
+  .store-img {
+    width: 650px;
+  }
+  .fa-map-marker-alt,
+  .fa-clock,
+  .fa-utensils {
+    font-size: 40px;
+  }
+  .store-detail-info-text {
+    font-size: 35px;
+    margin: 15px;
+  }
+  .box-title {
+    font-size: 30px;
+  }
+  .cart-button,
+  .back-button {
+    font-size: 30px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 10px;
+  }
+}
+
+footer {
+  position: static;
+}
+
+@media (min-width: 1024px) {
+  .storeinfo-page-container {
+    margin-top: 60px;
+  }
+  .storeinfo-info-menu-review-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .storeinfo-info-container {
+    font-size: 30px;
+  }
+  .storeinfo-title-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 95%;
+    margin: 10px;
+  }
+  .store-category-text {
+    font-size: 20px;
+  }
+  .store-img {
+    width: 50%;
+    margin: 15px 0 10px 10px;
+  }
+  .store-detail-info-container {
+    margin-top: 15px;
+  }
+  .fa-map-marker-alt,
+  .fa-clock,
+  .fa-utensils {
+    font-size: 30px;
+  }
+  .store-detail-info-text {
+    font-size: 25px;
+    margin-left: 15px;
+  }
+  .box-title {
+    font-size: 30px;
+  }
 }
 /*# sourceMappingURL=StoreInfo.css.map */

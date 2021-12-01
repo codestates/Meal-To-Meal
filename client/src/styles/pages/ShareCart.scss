@@ -1,0 +1,108 @@
+@import '../mixin/mixin';
+@import '../components/Sharecart_item';
+
+.sharecart-container {
+  padding: 10px;
+  margin-bottom: 80px;
+}
+
+.sharecart-title {
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 15px 0 5px 5px;
+}
+.sharecart-allcheck-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.sharecart-allcheck-input {
+  cursor: pointer;
+}
+.sharecart-allcheck-text {
+}
+.sharecart-order-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 10px;
+}
+.sharecart-order-text {
+  font-size: 15;
+}
+.sharecart-order-count-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 5px;
+}
+.sharecount-count-text {
+  font-size: 13px;
+}
+.sharecart-submit-button-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 50px 15px 50px;
+}
+.sharecart-donation-button {
+  width: 90px;
+  &:hover {
+    cursor: pointer;
+    border: 3px solid #ffcc1d;
+  }
+}
+.sharecart-back-button {
+  width: 90px;
+  &:hover {
+    cursor: pointer;
+    border: 3px solid #ffcc1d;
+  }
+}
+
+@include tablet {
+  .sharecart-container {
+    padding: 10px;
+    margin-top: 60px;
+    margin-bottom: 80px;
+  }
+  .sharecart-order-text {
+    font-size: 20;
+    margin-bottom: 10px;
+  }
+  .sharecart-order-count-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 5px;
+  }
+  .sharecount-count-text {
+    font-size: 15px;
+  }
+  .sharecart-submit-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 150px 15px 150px;
+  }
+  .sharecart-donation-button {
+    width: 90px;
+    &:hover {
+      cursor: pointer;
+      border: 3px solid #ffcc1d;
+    }
+  }
+  .sharecart-back-button {
+    width: 90px;
+    &:hover {
+      cursor: pointer;
+      border: 3px solid #ffcc1d;
+    }
+  }
+}
+@include desktop {
+}

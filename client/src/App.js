@@ -10,6 +10,7 @@ import Landing from '../src/pages/Landing';
 import Map from '../src/pages/Map';
 import LoginModal from './components/LoginModal';
 import StoreInfo from '../src/pages/StoreInfo';
+import ShareCart from '../src/pages/ShareCart';
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -23,6 +24,8 @@ function App() {
   const openSignupModalHandler = () => {
     setIsOpenSigupModal(!isOpenSignupModal);
   };
+
+  const logoutBtnHandler = () => {};
 
   useEffect(() => {
     axios
@@ -45,6 +48,7 @@ function App() {
             element={<Map isLogin={isLogin} setIsLogin={setIsLogin} openLoginModalHandler={openLoginModalHandler} />}
           />
           <Route path="/storeinfo" element={<StoreInfo isLogin={isLogin} setIsLogin={setIsLogin} />} />
+          <Route path="/sharecart" element={<ShareCart isLogin={isLogin} setIsLogin={setIsLogin} />} />
         </Routes>
       </BrowserRouter>
       {isLogin ? (
@@ -57,6 +61,7 @@ function App() {
           openLoginModalHandler={openLoginModalHandler}
           isOpenSignupModal={isOpenSignupModal}
           openSignupModalHandler={openSignupModalHandler}
+          setIsLogin={setIsLogin}
         />
       ) : null}
     </div>

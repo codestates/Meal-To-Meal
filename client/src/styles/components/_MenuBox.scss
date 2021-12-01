@@ -1,17 +1,12 @@
 @import '../mixin/mixin';
 
-.menuBox-container {
-  display: flex;
-  flex-direction: column;
-  overflow: scroll;
-}
-
 .menu-container {
   display: flex;
   flex-direction: column;
   border: 3px solid #ffcc1d;
   height: 315px;
   padding: 10px;
+  margin-bottom: 15px;
 }
 
 .menu-food-image {
@@ -53,7 +48,84 @@
 }
 
 @include tablet {
+  .menu-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: initial;
+    height: 320px;
+  }
+
+  .menu-food-image {
+    height: 270px;
+    display: inline-block;
+    border-radius: 30px;
+    box-shadow: gray 4px 4px 4px 4px;
+    margin: 10px;
+  }
+
+  .menu-info-container {
+    font-size: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .menu-donation-icon {
+    height: 20px;
+  }
+
+  .menu-button-container {
+    margin-top: 20px;
+  }
+
+  .menu-donate-button,
+  .menu-eat-button {
+    font-size: 20px;
+    width: 100px;
+    height: 35px;
+    margin: 10px;
+  }
 }
 
 @include desktop {
+  .menu-box-container {
+    width: 50vw;
+  }
+
+  .menu-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: initial;
+    height: fit-content;
+    margin: 15px 40px 15px 0;
+  }
+
+  .menu-food-image {
+    max-width: 300px;
+    display: inline-block;
+    border-radius: 30px;
+    box-shadow: gray 4px 4px 4px 4px;
+    margin: 10px 45px 10px 10px;
+  }
+
+  .menu-info-container {
+    font-size: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .menu-donation-icon {
+    height: 20px;
+  }
+
+  .menu-button-container {
+    margin-top: 20px;
+  }
+
+  .menu-donate-button,
+  .menu-eat-button {
+    font-size: 25px;
+    width: 110px;
+    height: 45px;
+    margin: 10px;
+  }
 }
