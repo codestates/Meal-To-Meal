@@ -1,9 +1,24 @@
 import React from 'react';
+import axios from 'axios';
 
-function SidebarLogin() {
+function SidebarLogin({ openisLoginOpenSidebarHandler, setIsLogin, setAccessToken, navigate }) {
+  const LogoutButtonHandler = () => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/user-logout`, { withCredentials: true })
+      .then(res => {
+        setAccessToken('');
+        setIsLogin(false);
+        alert('잘 가십셔~');
+        navigate('/');
+      })
+      .catch(err => {
+        alert('몬가...몬가 잘 못 되었엉!');
+      });
+  };
+
   return (
     <div className="sidebar-container">
-      <div className="sidebar-menu-container">
+      <div className="sidebar-menu-container" onclick={LogoutButtonHandler}>
         <div className="sidebar-icon">&#x1F35A;</div>
         <div className="sidebar-text">로그아웃</div>
       </div>
