@@ -11,7 +11,7 @@ function StoreInfo({ isLogin, setIsLogin }) {
 
   return (
     <>
-      <Header />
+      <Header isLogin={isLogin} setIsLogin={setIsLogin} />
       <div className="storeinfo-container">
         <div className="storeinfo-title">가게 정보</div>
         <div className="storeinfo-title-container">
@@ -43,6 +43,24 @@ function StoreInfo({ isLogin, setIsLogin }) {
         <MenuBox />
         <div className="box-title">리뷰</div>
         <ReviewBox />
+        <div className="storeinfo-button-container">
+          <button
+            className="cart-button"
+            onClick={() => {
+              navigate('/sharecart');
+            }}
+          >
+            장바구니 (1)
+          </button>
+          <button
+            className="back-button"
+            onClick={() => {
+              navigate('/map');
+            }}
+          >
+            뒤로 가기
+          </button>
+        </div>
       </div>
       <Footer />
     </>

@@ -203,4 +203,50 @@
   font-weight: bolder;
   margin: 35px 0 5px 5px;
 }
+
+.storeinfo-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 150x 15px 40px 15px;
+}
+
+.cart-button {
+  margin-right: 40px;
+  font-size: 15px;
+  border: 3px solid;
+}
+
+.cart-button:hover {
+  cursor: pointer;
+  border: 3px solid #ffcc1d;
+}
+
+.cart-button:active {
+  text-shadow: none;
+}
+
+.back-button {
+  font-size: 15px;
+  border: 3px solid;
+}
+
+.back-button:hover {
+  cursor: pointer;
+  border: 3px solid #ffcc1d;
+}
+
+.back-button:active {
+  text-shadow: none;
+}
 /*# sourceMappingURL=StoreInfo.css.map */
