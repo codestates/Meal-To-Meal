@@ -18,20 +18,20 @@ module.exports = {
 
     let mailOptions = {
       from: 'seojung19@gmail.com',
-      to: req.params.email,
+      to: req.body.user_email,
       // 'hgud55@naver.com'
       subject: '이 편지는 영국에서부터 시작되었습니다....',
       text: '이 편지를 받은 사람은 2주 안에 9명 이상에게 발송해야 하며...',
     };
     transporter.sendMail(mailOptions, (err, data) => {
       if (err) {
-        console.log('Error' + err);
+        console.log(err);
+        res.status(400).send(err);
       } else {
-        console.log('Email sent successfully');
+        console.log(data);
+        res.status(200).json({ message: '이메일을 발송했습니다' });
       }
     });
-
-    res.send();
   },
   getEmailAuth: data => {},
 };
