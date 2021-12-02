@@ -3,13 +3,12 @@
 import React, { useEffect } from 'react';
 import '../styles/pages/Map.css';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 import Search from '../components/Search';
 import StoreDummydata from '../static/store_dummydata';
 
 const { kakao } = window;
 
-const Map = ({ isLogin, setIsLogin, openLoginModalHandler }) => {
+const Map = ({ isLogin, setIsLogin, openLoginModalHandler, openSignupModalHandler, setAccessToken, navigate }) => {
   useEffect(() => {
     const container = document.getElementById('map');
 
@@ -147,7 +146,14 @@ const Map = ({ isLogin, setIsLogin, openLoginModalHandler }) => {
 
   return (
     <>
-      <Header isLogin={isLogin} setIsLogin={setIsLogin} openLoginModalHandler={openLoginModalHandler} />
+      <Header
+        isLogin={isLogin}
+        setIsLogin={setIsLogin}
+        openLoginModalHandler={openLoginModalHandler}
+        openSignupModalHandler={openSignupModalHandler}
+        setAccessToken={setAccessToken}
+        navigate={navigate}
+      />
       <div id="map" />
       <Search />
     </>
