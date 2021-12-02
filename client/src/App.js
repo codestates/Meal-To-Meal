@@ -16,6 +16,13 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
   const [isOpenSignupModal, setIsOpenSigupModal] = useState(false);
+  const [cartItem, setCartItem] = useState([]);
+
+  const donationClickhandler = item => {
+    setCartItem([...cartItem, item]);
+    alert('장바구니에 추가되었습니다');
+    // '/cart'
+  };
 
   const openLoginModalHandler = () => {
     setIsOpenLoginModal(!isOpenLoginModal);
@@ -47,8 +54,18 @@ function App() {
             path="/map"
             element={<Map isLogin={isLogin} setIsLogin={setIsLogin} openLoginModalHandler={openLoginModalHandler} />}
           />
-          <Route path="/storeinfo" element={<StoreInfo isLogin={isLogin} setIsLogin={setIsLogin} />} />
-          <Route path="/sharecart" element={<ShareCart isLogin={isLogin} setIsLogin={setIsLogin} />} />
+          <Route
+            path="/storeinfo"
+            element={
+              <StoreInfo isLogin={isLogin} setIsLogin={setIsLogin} donationClickhandler={donationClickhandler} />
+            }
+          />
+          <Route
+            path="/sharecart"
+            element={
+              <ShareCart isLogin={isLogin} setIsLogin={setIsLogin} cartItem={cartItem} setCartItem={setCartItem} />
+            }
+          />
         </Routes>
       </BrowserRouter>
       {isLogin ? (

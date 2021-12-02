@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Sharecart_item from '../components/Sharecart_item';
+import SharecartItem from '../components/SharecartItem';
 import '../styles/pages/ShareCart.css';
 
-function ShareCart({ isLogin, setIsLogin }) {
+function ShareCart({ isLogin, setIsLogin, cartItem, setCartItem }) {
   const navigate = useNavigate();
   const [ordernum, setOrderNum] = useState(1);
 
   useEffect(() => {
     setOrderNum(ordernum);
   });
+  console.log(cartItem);
   const onIncrease = () => {
     setOrderNum(ordernum + 1);
   };
@@ -22,7 +23,11 @@ function ShareCart({ isLogin, setIsLogin }) {
       setOrderNum(1);
     }
   };
-  const deleteBtnHandler = () => {};
+  const deleteBtnHandler = () => {
+    setCartItem({});
+    navigate('/storeinfo');
+  };
+
   return (
     <>
       <Header />
@@ -32,10 +37,11 @@ function ShareCart({ isLogin, setIsLogin }) {
           <input className="sharecart-allcheck-input" type="checkbox" />
           <div className="sharecart-allcheck-text">전체 선택</div>
         </div>
-        <Sharecart_item
+        <SharecartItem
           ordernum={ordernum}
           onIncrease={onIncrease}
           onDecrease={onDecrease}
+          cartItem={cartItem}
           deleteBtnHandler={deleteBtnHandler}
         />
         <div className="sharecart-order-info-container">
