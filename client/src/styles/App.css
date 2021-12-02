@@ -290,7 +290,7 @@ footer {
 
 @media (min-width: 758px) and (max-width: 1023px) {
   .sidebar-container {
-    width: 150px;
+    width: 160px;
   }
   .sidebar-menu-container {
     font-size: 16px;
