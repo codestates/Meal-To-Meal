@@ -50,7 +50,6 @@ function LoginModal({
         <div className="login-modal-window" onClick={e => e.stopPropagation()}>
           <div className="login-info-container">
             <img className="login-logo" src={require('../img/meal-to-meal-logo-192.png').default} alt="" />
-            <div className="login-title-text">로그인</div>
             <div className="login-input-container">
               <div className="login-text">이메일</div>
               <input
@@ -77,7 +76,6 @@ function LoginModal({
                 </div>
               </div>
               <div className="login-kakao-container">
-                <div className="login-kakao-text">카카오 로그인</div>
                 <img
                   className="login-kakao-button"
                   src={require('../img/kakao_login_medium_narrow.png').default}
