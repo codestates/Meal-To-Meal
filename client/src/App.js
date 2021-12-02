@@ -10,7 +10,10 @@ import Landing from '../src/pages/Landing';
 import Map from '../src/pages/Map';
 import LoginModal from './components/LoginModal';
 import StoreInfo from '../src/pages/StoreInfo';
+const dotenv = require('dotenv');
+dotenv.config();
 import ShareCart from '../src/pages/ShareCart';
+
 
 function App() {
   const [accessToken, setAccessToken] = useState('');
@@ -50,7 +53,7 @@ function App() {
         withCredentials: true,
       })
       .then(res => {
-        console.log('나는 클라다');
+        console.log(res.data);
       })
       .catch(err => console.log(err));
   }, []);
