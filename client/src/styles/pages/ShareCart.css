@@ -1,0 +1,363 @@
+.sharecart-item-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  margin: 10px 0 20px 0;
+  border: 3px solid #ffcc1d;
+}
+
+.sharecart-checkbox {
+  cursor: pointer;
+}
+
+.sharecart-item-img {
+  display: block;
+  margin: 0 10px 0 10px;
+  width: 70px;
+  border-radius: 15px;
+  -webkit-box-shadow: gray 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px;
+}
+
+.sharecart-item-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.sharecart-item-name {
+  font-size: 12px;
+}
+
+.sharecart-item-price {
+  font-size: 12px;
+}
+
+.sharecart-item-count-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 10px;
+}
+
+.sharecart-plus-minus-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.shartcart-cart-number {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.fa-plus,
+.fa-minus {
+  font-size: 15px;
+  color: #ffcc1d;
+}
+
+.fa-plus:hover,
+.fa-minus:hover {
+  cursor: pointer;
+  font-size: 3px solid #ffcc1d;
+  text-shadow: 1px 1px 1px gray;
+  -webkit-transition: ease all 200ms;
+  transition: ease all 200ms;
+}
+
+.sharecart-delete-button {
+  font-size: 11px;
+  width: 45px;
+  height: 25px;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .sharecart-item-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 3px solid #ffcc1d;
+  }
+  .sharecart-item-img {
+    display: block;
+    margin: 0 10px 0 10px;
+    width: 120px;
+    border-radius: 15px;
+    -webkit-box-shadow: gray 3px 3px 3px;
+            box-shadow: gray 3px 3px 3px;
+  }
+  .sharecart-item-info-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin-left: 20px;
+  }
+  .sharecart-item-name {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .sharecart-item-price {
+    font-size: 15px;
+  }
+  .sharecart-item-count-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-left: 160px;
+  }
+  .sharecart-plus-minus-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-left: 50px;
+    margin-right: 120px;
+  }
+  .shartcart-cart-number {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  .fa-plus,
+  .fa-minus {
+    font-size: 20px;
+    color: #ffcc1d;
+  }
+  .sharecart-delete-button {
+    font-size: 15px;
+    width: 70px;
+    height: 30px;
+    margin-top: 5px;
+  }
+}
+
+.sharecart-container {
+  padding: 10px;
+  margin-bottom: 80px;
+}
+
+.sharecart-title {
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 15px 0 5px 5px;
+}
+
+.sharecart-allcheck-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sharecart-allcheck-input {
+  cursor: pointer;
+}
+
+.sharecart-order-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 10px;
+}
+
+.sharecart-order-text {
+  font-size: 15;
+}
+
+.sharecart-order-count-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  margin: 5px;
+}
+
+.sharecount-count-text {
+  font-size: 13px;
+}
+
+.sharecart-submit-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 15px 50px 15px 50px;
+}
+
+.sharecart-donation-button {
+  width: 90px;
+}
+
+.sharecart-donation-button:hover {
+  cursor: pointer;
+  border: 3px solid #ffcc1d;
+}
+
+.sharecart-back-button {
+  width: 90px;
+}
+
+.sharecart-back-button:hover {
+  cursor: pointer;
+  border: 3px solid #ffcc1d;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .sharecart-container {
+    padding: 10px;
+    margin-top: 60px;
+    margin-bottom: 80px;
+  }
+  .sharecart-order-text {
+    font-size: 20;
+    margin-bottom: 10px;
+  }
+  .sharecart-order-count-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+    margin: 5px;
+  }
+  .sharecount-count-text {
+    font-size: 15px;
+  }
+  .sharecart-submit-button-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 30px 150px 15px 150px;
+  }
+  .sharecart-donation-button {
+    width: 90px;
+  }
+  .sharecart-donation-button:hover {
+    cursor: pointer;
+    border: 3px solid #ffcc1d;
+  }
+  .sharecart-back-button {
+    width: 90px;
+  }
+  .sharecart-back-button:hover {
+    cursor: pointer;
+    border: 3px solid #ffcc1d;
+  }
+}
+/*# sourceMappingURL=ShareCart.css.map */

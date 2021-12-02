@@ -3,13 +3,12 @@
 import React, { useEffect } from 'react';
 import '../styles/pages/Map.css';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 import Search from '../components/Search';
 import StoreDummydata from '../static/store_dummydata';
 
 const { kakao } = window;
 
-const Map = ({ isLogin, setIsLogin, openLoginModalHandler }) => {
+const Map = ({ isLogin, setIsLogin, openLoginModalHandler, openSignupModalHandler, setAccessToken, navigate }) => {
   useEffect(() => {
     const container = document.getElementById('map');
 
@@ -69,6 +68,32 @@ const Map = ({ isLogin, setIsLogin, openLoginModalHandler }) => {
         infoCategory.appendChild(document.createTextNode(el.store_category));
         infoTitleContainer.appendChild(infoCategory);
 
+        var infoBusinesshourContainer = document.createElement('div');
+        infoBusinesshourContainer.classList.add('customOverlay-businesshour-container');
+        infoTitleContainer.appendChild(infoBusinesshourContainer);
+
+        var infoBusinesshourIcon = document.createElement('i');
+        infoBusinesshourIcon.classList.add('fas', 'fa-business-time');
+        infoBusinesshourContainer.appendChild(infoBusinesshourIcon);
+
+        var infoBusinesshourInfo = document.createElement('div');
+        infoBusinesshourInfo.classList.add('customOverlay-businesshour-info');
+        infoBusinesshourInfo.appendChild(document.createTextNode(el.business_hour));
+        infoBusinesshourContainer.appendChild(infoBusinesshourInfo);
+
+        var infoDonationContainer = document.createElement('div');
+        infoDonationContainer.classList.add('customOverlay-donation-container');
+        infoTitleContainer.appendChild(infoDonationContainer);
+
+        var infoDonationIcon = document.createElement('i');
+        infoDonationIcon.classList.add('fas', 'fa-heart');
+        infoDonationContainer.appendChild(infoDonationIcon);
+
+        var infoDonationInfo = document.createElement('div');
+        infoDonationInfo.classList.add('customOverlay-donation-info');
+        infoDonationInfo.appendChild(document.createTextNode(el.store_order_quantity));
+        infoDonationContainer.appendChild(infoDonationInfo);
+
         var infoPlaceContainer = document.createElement('div');
         infoPlaceContainer.classList.add('customOverlay-place-container');
         infoLeftContainer.appendChild(infoPlaceContainer);
@@ -103,36 +128,6 @@ const Map = ({ isLogin, setIsLogin, openLoginModalHandler }) => {
         }
         infoDescriptionContainer.appendChild(infoDescriptionInfo);
 
-        var infoRightContainer = document.createElement('div');
-        infoRightContainer.classList.add('customOverlay-info-right-container');
-        infoContainer.appendChild(infoRightContainer);
-
-        var infoBusinesshourContainer = document.createElement('div');
-        infoBusinesshourContainer.classList.add('customOverlay-businesshour-container');
-        infoRightContainer.appendChild(infoBusinesshourContainer);
-
-        var infoBusinesshourIcon = document.createElement('i');
-        infoBusinesshourIcon.classList.add('fas', 'fa-business-time');
-        infoBusinesshourContainer.appendChild(infoBusinesshourIcon);
-
-        var infoBusinesshourInfo = document.createElement('div');
-        infoBusinesshourInfo.classList.add('customOverlay-businesshour-info');
-        infoBusinesshourInfo.appendChild(document.createTextNode(el.business_hour));
-        infoBusinesshourContainer.appendChild(infoBusinesshourInfo);
-
-        var infoDonationContainer = document.createElement('div');
-        infoDonationContainer.classList.add('customOverlay-donation-container');
-        infoRightContainer.appendChild(infoDonationContainer);
-
-        var infoDonationIcon = document.createElement('i');
-        infoDonationIcon.classList.add('fas', 'fa-heart');
-        infoDonationContainer.appendChild(infoDonationIcon);
-
-        var infoDonationInfo = document.createElement('div');
-        infoDonationInfo.classList.add('customOverlay-donation-info');
-        infoDonationInfo.appendChild(document.createTextNode(el.store_order_quantity));
-        infoDonationContainer.appendChild(infoDonationInfo);
-
         const customOverlay = new kakao.maps.CustomOverlay({
           content: content,
           position: new kakao.maps.LatLng(el.store_lat, el.store_lng),
@@ -151,10 +146,16 @@ const Map = ({ isLogin, setIsLogin, openLoginModalHandler }) => {
 
   return (
     <>
-      <Header isLogin={isLogin} setIsLogin={setIsLogin} openLoginModalHandler={openLoginModalHandler} />
+      <Header
+        isLogin={isLogin}
+        setIsLogin={setIsLogin}
+        openLoginModalHandler={openLoginModalHandler}
+        openSignupModalHandler={openSignupModalHandler}
+        setAccessToken={setAccessToken}
+        navigate={navigate}
+      />
       <div id="map" />
       <Search />
-      <Footer />
     </>
   );
 };
