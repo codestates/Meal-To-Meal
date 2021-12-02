@@ -18,6 +18,16 @@ module.exports = {
       user_phone_number: {
         type: Sequelize.STRING,
       },
+      kakao_oauth_token: {
+        type: Sequelize.STRING,
+      },
+      email_verified: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
+      signup_method: {
+        type: Sequelize.STRING,
+      },
       user_email: {
         allowNull: false,
         type: Sequelize.STRING,

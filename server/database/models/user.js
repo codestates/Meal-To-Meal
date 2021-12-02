@@ -33,6 +33,16 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },
+      kakao_oauth_token: {
+        type: DataTypes.STRING,
+      },
+      email_verified: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
+      signup_method: {
+        type: DataTypes.STRING,
+      },
     },
     {
       sequelize,
