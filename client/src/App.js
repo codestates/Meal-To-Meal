@@ -10,10 +10,9 @@ import Landing from '../src/pages/Landing';
 import Map from '../src/pages/Map';
 import LoginModal from './components/LoginModal';
 import StoreInfo from '../src/pages/StoreInfo';
+import ShareCart from '../src/pages/ShareCart';
 const dotenv = require('dotenv');
 dotenv.config();
-import ShareCart from '../src/pages/ShareCart';
-
 
 function App() {
   const [accessToken, setAccessToken] = useState('');
