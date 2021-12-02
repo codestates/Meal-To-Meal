@@ -337,6 +337,12 @@ button:active {
   outline: none;
 }
 
+.login-error-message {
+  margin: 3px;
+  font-size: 12px;
+  color: red;
+}
+
 .login-button-container {
   padding-top: 25px;
   display: -webkit-box;
@@ -427,7 +433,7 @@ button:active {
 
 @media (min-width: 758px) and (max-width: 1023px) {
   .login-modal-window {
-    width: 50vw;
+    width: 65vw;
     font-size: 25px;
   }
   .login-logo {
@@ -441,11 +447,18 @@ button:active {
     width: 180px;
     padding: 5px 0 5px 15px;
   }
+  .login-error-message {
+    margin: 5px;
+    font-size: 13px;
+  }
   .login-button-container {
     font-size: 14px;
   }
   .login-kakao-button {
     width: 180px;
+  }
+  .login-modal-img {
+    height: 230px;
   }
 }
 
@@ -471,8 +484,17 @@ button:active {
     font-size: 20px;
     padding-right: 50px;
   }
+  .login-button {
+    font-size: 20px;
+    height: 33px;
+    padding-top: 3px;
+  }
   .login-kakao-button {
     width: 220px;
+  }
+  .login-error-message {
+    margin: 5px;
+    font-size: 18px;
   }
   .login-modal-img {
     height: 480px;

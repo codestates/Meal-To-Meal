@@ -50,32 +50,34 @@ function LoginModal({
         <div className="login-modal-window" onClick={e => e.stopPropagation()}>
           <div className="login-info-container">
             <img className="login-logo" src={require('../img/meal-to-meal-logo-192.png').default} alt="" />
-            <div className="login-title-text">Login</div>
+            <div className="login-title-text">로그인</div>
             <div className="login-input-container">
-              <div className="login-text">E-Mail</div>
+              <div className="login-text">이메일</div>
               <input
                 className="login-input"
                 placeholder="E-Mail"
                 onKeyPress={enterKey}
                 onChange={handleInputValue('user_email')}
               />
-              <div className="login-text">Password</div>
+              <div className="login-text">비밀번호</div>
               <input
                 className="login-input"
                 placeholder="Password"
                 onKeyPress={enterKey}
                 onChange={handleInputValue('user_password')}
               />
+              <div className="login-error-message">{errorMessage}</div>
               <div className="login-button-container">
-                <div className="login-error-message">{errorMessage}</div>
-                <button onClick={loginButtonHandler}>Login</button>
-                <div className="login-signup-text">New user?</div>
+                <button className="login-button" onClick={loginButtonHandler}>
+                  로그인
+                </button>
+                <div className="login-signup-text">아직 회원이 아니신가요?</div>
                 <div className="login-signup-link" onClick={openSignupModalHandler}>
-                  Sign up
+                  회원가입
                 </div>
               </div>
               <div className="login-kakao-container">
-                <div className="login-kakao-text">Or Login with</div>
+                <div className="login-kakao-text">카카오 로그인</div>
                 <img
                   className="login-kakao-button"
                   src={require('../img/kakao_login_medium_narrow.png').default}
