@@ -1,16 +1,16 @@
-const { isAuthorized, checkRefreshToken } = require('../tokenFunctions');
+const { isAuthorized, checkRefreshToken } = require('../../middlewares/tokenFunctions');
 
-module.exports = req => {
+module.exports = (req, res) => {
   const accessTokenData = isAuthorized(req);
   const refreshToken = req.cookies.refreshToken;
   if (!accessTokenData) {
     const userInfo = checkRefreshToken(refreshToken);
     if (!userInfo) {
-      return null;
+      res.status(400).json({ message: '잘못된 요청입니다' });
     } else {
-      return userInfo;
+      res.status(200).json({ userInfo: userInfo });
     }
   } else {
-    return accessTokenData;
+    res.status(200).json({ userInfo: accessTokenData });
   }
 };

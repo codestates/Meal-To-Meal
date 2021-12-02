@@ -2,10 +2,6 @@
 @import '../components/SignupModal';
 @import '../mixin/mixin';
 
-.login-modal-container {
-  height: 100vh;
-}
-
 .login-modal-backdrop {
   position: fixed;
   z-index: 998;

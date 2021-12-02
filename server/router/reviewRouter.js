@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const controllers = require('../controllers/review');
+const reviewController = require('../controllers/review/review');
 
-router.post('/review', controllers.review.post);
-router.get('/review-list/:storeid', controllers.review.get);
-router.get('/review-list', controllers.review.get);
-//엔드포인트 두 개 미분리. 수정 필요
-router.delete('/review/:reviewid', controllers.review.delete);
+router.post('/review', reviewController.post);
+router.get('/review-list/:storeid', reviewController.getStoreReview);
+router.get('/review-list', reviewController.getUserReview);
+router.delete('/review/:reviewid', reviewController.delete);
 
 module.exports = router;

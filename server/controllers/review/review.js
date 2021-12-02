@@ -1,3 +1,6 @@
-module.exports = (req, res) => {
-  return res.send('리뷰');
+module.exports = {
+  post: data => {},
+  getStoreReview: data => {},
+  getUserReview: data => {},
+  delete: data => {},
 };

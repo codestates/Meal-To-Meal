@@ -3,7 +3,7 @@ module.exports = {
   login: require('./login'),
   logout: require('./logout'),
   mypage: require('./mypage'),
-  password: require('./password'),
+  emailCheck: require('./emailCheck'),
   nickname: require('./nickname'),
   withdrawal: require('./withdrawal'),
 };

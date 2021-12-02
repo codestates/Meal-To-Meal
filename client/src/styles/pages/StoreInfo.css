@@ -1,9 +1,4 @@
-.storeinfo-pagecontainer {
-  border: none;
-  height: 100%;
-}
-
-.storeinfo-box {
+.menuBox-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,198 +6,201 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: fixed;
-  z-index: 1000;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  padding: 20px;
-  background-color: white;
+  overflow: scroll;
 }
 
-.box-container {
+.menu-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  margin-top: 6px;
-  margin-bottom: 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 3px solid #ffcc1d;
+  height: 315px;
+  padding: 10px;
 }
 
-.storeinfo-title {
+.menu-food-image {
+  height: 180px;
+}
+
+.menu-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-size: 18px;
+  margin-top: 10px;
 }
 
-.storeinfo-categoryimage {
-  width: 15px;
-  height: 15px;
-  margin-right: 5px;
-}
-
-.storeinfo-storename {
-  margin-right: 200px;
-  font-size: 15px;
-}
-
-.storeinfo-category {
-  font-size: 15px;
-}
-
-.storeinfo-storeimage {
-  width: 340px;
-  height: 150px;
-  margin-top: 5px;
+.menu-text {
   margin-bottom: 10px;
 }
 
-.storeinfo-address {
-  margin-right: 40px;
-  font-size: 13px;
+.menu-donation-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.storeinfo-businesshour {
-  font-size: 13px;
+.menu-donation-icon {
+  height: 14px;
+  margin-right: 5px;
+  margin-bottom: 14px;
 }
 
-.storeinfo-description {
-  font-size: 13px;
+.menu-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 10px;
 }
 
-@media (min-width: 758px) and (max-width: 1023px) {
-  .storeinfo-box {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    position: fixed;
-    top: 50px;
-    z-index: 1000;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    padding: 20px;
-    background-color: white;
-  }
-  .box-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: left;
-        -ms-flex-pack: left;
-            justify-content: left;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
-    margin-top: 6px;
-    margin-left: 15px;
-    margin-bottom: 5px;
-  }
-  .storeinfo-title {
-    font-size: 20px;
-  }
-  .storeinfo-storename {
-    margin-right: 550px;
-    font-size: 18px;
-  }
-  .storeinfo-category {
-    font-size: 18px;
-  }
-  .storeinfo-storeimage {
-    width: 700px;
-    height: 200px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-  }
-  .storeinfo-address {
-    margin-right: 330px;
-    font-size: 16px;
-  }
-  .storeinfo-businesshour {
-    font-size: 16px;
-  }
-  .storeinfo-description {
-    font-size: 16px;
-  }
+.menu-donate-button,
+.menu-eat-button {
+  width: 90px;
 }
 
-@media (min-width: 1024px) {
-  .storeinfo-box {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    position: fixed;
-    top: 50px;
-    z-index: 1000;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    height: -webkit-fit-content;
-    height: -moz-fit-content;
-    height: fit-content;
-    padding: 20px;
-    background-color: white;
-  }
-  .box-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: left;
-        -ms-flex-pack: left;
-            justify-content: left;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
-    margin-top: 6px;
-    margin-left: 15px;
-    margin-bottom: 5px;
-  }
-  .storeinfo-title {
-    font-size: 20px;
-  }
-  .storeinfo-categoryimage {
-    width: 15px;
-    height: 15px;
-  }
-  .storeinfo-storename {
-    margin-right: 550px;
-    font-size: 18px;
-  }
-  .storeinfo-category {
-    font-size: 18px;
-  }
-  .storeinfo-storeimage {
-    width: 700px;
-    height: 200px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-  }
-  .storeinfo-address {
-    margin-right: 330px;
-    font-size: 16px;
-  }
-  .storeinfo-businesshour {
-    font-size: 16px;
-  }
-  .storeinfo-description {
-    font-size: 16px;
-  }
+.reviewBox-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: scroll;
+  border: 3px solid #ffcc1d;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.storeinfo-food-image {
+  height: 180px;
+}
+
+.reviewBox-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 15px;
+}
+
+.reviewBox-reviewer-name {
+  margin-bottom: 5px;
+  font-weight: bolder;
+}
+
+.reviewBox-reviewer-review {
+  border: 3px solid #ffcc1d;
+  border-radius: 15px;
+  padding: 10px;
+  word-break: keep-all;
+  margin: 10px;
+}
+
+.storeinfo-container {
+  padding: 10px;
+  overflow: scroll;
+  margin-bottom: 80px;
+}
+
+.storeinfo-title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px 0 10px 0;
+}
+
+.store-title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.store-category-icon {
+  height: 30px;
+  margin-right: 5px;
+}
+
+.store-img {
+  display: block;
+  margin: 0 auto 10px auto;
+  width: 295px;
+  border-radius: 15px;
+  -webkit-box-shadow: gray 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px;
+}
+
+.store-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.store-detail-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.fa-map-marker-alt,
+.fa-clock,
+.fa-utensils {
+  font-size: 20px;
+  color: #ffcc1d;
+  margin-right: 10px;
+}
+
+.store-detail-info-text {
+  font-size: 16px;
+  word-break: keep-all;
+}
+
+.box-title {
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 35px 0 5px 5px;
 }
 /*# sourceMappingURL=StoreInfo.css.map */

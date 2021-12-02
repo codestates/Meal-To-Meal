@@ -1,173 +1,66 @@
 @import '../mixin/mixin';
+@import '../components/MenuBox';
+@import '../components/ReviewBox';
 
-.storeinfo-pagecontainer {
-  border: none;
-  height: 100%;
+.storeinfo-container {
+  padding: 10px;
+  overflow: scroll;
+  margin-bottom: 80px;
 }
 
-.storeinfo-box {
+.storeinfo-title-container {
   display: flex;
-  flex-direction: column;
-  position: fixed;
-  z-index: 1000;
-  width: fit-content;
-  height: fit-content;
-  padding: 20px;
-  background-color: white;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0 10px 0;
 }
 
-.box-container {
+.store-title-container {
   display: flex;
-  justify-content: left;
-  align-items: flex-end;
-  margin-top: 6px;
-  margin-bottom: 5px;
+  justify-content: center;
+  align-items: center;
 }
 
-.storeinfo-title {
-  font-size: 18px;
-}
-.storeinfo-categoryimage {
-  width: 15px;
-  height: 15px;
+.store-category-icon {
+  height: 30px;
   margin-right: 5px;
 }
-.storeinfo-storename {
-  margin-right: 200px;
-  font-size: 15px;
+
+.store-img {
+  display: block;
+  margin: 0 auto 10px auto;
+  width: 295px;
+  border-radius: 15px;
+  box-shadow: gray 3px 3px 3px;
 }
 
-.storeinfo-category {
-  font-size: 15px;
+.store-info-container {
+  display: flex;
+  flex-direction: column;
 }
 
-.storeinfo-storeimage {
-  width: 340px;
-  height: 150px;
-  margin-top: 5px;
+.store-detail-info-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   margin-bottom: 10px;
 }
 
-.storeinfo-address {
-  margin-right: 40px;
-  font-size: 13px;
+.fa-map-marker-alt,
+.fa-clock,
+.fa-utensils {
+  font-size: 20px;
+  color: #ffcc1d;
+  margin-right: 10px;
 }
 
-.storeinfo-businesshour {
-  font-size: 13px;
-}
-.storeinfo-description {
-  font-size: 13px;
+.store-detail-info-text {
+  font-size: 16px;
+  word-break: keep-all;
 }
 
-@include tablet {
-  .storeinfo-box {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 50px;
-    z-index: 1000;
-    width: fit-content;
-    height: fit-content;
-    padding: 20px;
-    background-color: white;
-  }
-  .box-container {
-    display: flex;
-    justify-content: left;
-    align-items: flex-end;
-    margin-top: 6px;
-    margin-left: 15px;
-    margin-bottom: 5px;
-  }
-
-  .storeinfo-title {
-    font-size: 20px;
-  }
-
-  .storeinfo-storename {
-    margin-right: 550px;
-    font-size: 18px;
-  }
-
-  .storeinfo-category {
-    font-size: 18px;
-  }
-
-  .storeinfo-storeimage {
-    width: 700px;
-    height: 200px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-  }
-
-  .storeinfo-address {
-    margin-right: 330px;
-    font-size: 16px;
-  }
-
-  .storeinfo-businesshour {
-    font-size: 16px;
-  }
-  .storeinfo-description {
-    font-size: 16px;
-  }
-}
-
-@include desktop {
-  .storeinfo-box {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 50px;
-    z-index: 1000;
-    width: fit-content;
-    height: fit-content;
-    padding: 20px;
-    background-color: white;
-  }
-  .box-container {
-    display: flex;
-    justify-content: left;
-    align-items: flex-end;
-    margin-top: 6px;
-    margin-left: 15px;
-    margin-bottom: 5px;
-  }
-
-  .storeinfo-title {
-    font-size: 20px;
-  }
-
-  .storeinfo-categoryimage {
-    width: 15px;
-    height: 15px;
-  }
-  .storeinfo-storename {
-    margin-right: 550px;
-    font-size: 18px;
-  }
-
-  .storeinfo-category {
-    font-size: 18px;
-  }
-
-  .storeinfo-storeimage {
-    width: 700px;
-    height: 200px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-  }
-
-  .storeinfo-address {
-    margin-right: 330px;
-    font-size: 16px;
-  }
-
-  .storeinfo-businesshour {
-    font-size: 16px;
-  }
-  .storeinfo-description {
-    font-size: 16px;
-  }
+.box-title {
+  font-size: 20px;
+  font-weight: bolder;
+  margin: 35px 0 5px 5px;
 }
