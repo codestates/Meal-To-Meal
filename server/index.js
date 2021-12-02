@@ -43,7 +43,9 @@ app.use(
     allowedHeaders: ['Content-Type', 'authorization'],
   })
 );
-
+app.get('/', (req, res) => {
+  res.send('우리는 서버배포에 성공한 노서정 진성준이다');
+});
 app.use('/auth', authRouter);
 app.use('/oauth', authRouter);
 app.use('/cart', cartRouter);
