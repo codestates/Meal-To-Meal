@@ -4,7 +4,7 @@ import MenuDummydata from '../static/menu_dummydata';
 function MenuBox({ setCartItem, donationClickhandler }) {
   return (
     <>
-      {MenuDummydata.filter(el => el.store_id === 6).map(el => (
+      {MenuDummydata.filter(el => el.store_id === 3).map(el => (
         <div className="menu-box-container">
           <div className="menu-container">
             <img className="menu-food-image" src={el.menu_image} alt="" />

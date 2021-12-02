@@ -80,6 +80,7 @@ function LoginModal({
                   className="login-kakao-button"
                   src={require('../img/kakao_login_medium_narrow.png').default}
                   alt=""
+                  href={`${process.env.KAKAO_AUTH_URL}`}
                 />
               </div>
             </div>

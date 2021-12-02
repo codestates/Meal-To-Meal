@@ -17,7 +17,7 @@ function StoreInfo({ isLogin, setIsLogin, cartItem, setCartItem, donationClickha
   return (
     <>
       <Header />
-      {StoreDummydata.filter(el => el.id === 2).map(el => (
+      {StoreDummydata.filter(el => el.id === 3).map(el => (
         <div className="storeinfo-page-container">
           <div className="storeinfo-info-menu-review-container">
             <div className="storeinfo-info-container">
