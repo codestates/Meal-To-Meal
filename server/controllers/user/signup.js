@@ -1,5 +1,5 @@
 const { user } = require('../../database/models');
-const bcrypt = require('bcrypt');
+// const bcrypt = require('bcrypt');
 
 module.exports = (req, res) => {
   const { user_password, user_email, user_nickname } = req.body;
