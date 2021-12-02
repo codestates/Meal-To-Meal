@@ -1,6 +1,6 @@
 import './styles/App.css';
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import UnderbarLogin from './components/UnderbarLogin';
@@ -24,7 +24,6 @@ function App() {
   const donationClickhandler = item => {
     setCartItem([...cartItem, item]);
     alert('장바구니에 추가되었습니다');
-    // '/cart'
   };
 
   const navigate = useNavigate();
@@ -41,8 +40,8 @@ function App() {
       .catch(err => {
         setIsLogin(false);
         alert('토크니가 만료 되옷오용! 헤헷! ^^');
+        navigate('/');
       });
-    navigate('/');
   };
 
   const openLoginModalHandler = () => {
@@ -53,16 +52,6 @@ function App() {
     setIsOpenSigupModal(!isOpenSignupModal);
   };
 
-  useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}`, {
-        withCredentials: true,
-      })
-      .then(res => {
-        console.log(res.data);
-      })
-      .catch(err => console.log(err));
-  }, []);
   return (
     <div className="App">
       <Routes>
@@ -76,7 +65,9 @@ function App() {
               setIsLogin={setIsLogin}
               openLoginModalHandler={openLoginModalHandler}
               openSignupModalHandler={openSignupModalHandler}
+              accessToken={accessToken}
               setAccessToken={setAccessToken}
+              issueTokens={issueTokens}
               navigate={navigate}
             />
           }

@@ -8,7 +8,16 @@ import StoreDummydata from '../static/store_dummydata';
 
 const { kakao } = window;
 
-const Map = ({ isLogin, setIsLogin, openLoginModalHandler, openSignupModalHandler, setAccessToken, navigate }) => {
+const Map = ({
+  isLogin,
+  setIsLogin,
+  openLoginModalHandler,
+  openSignupModalHandler,
+  accessToken,
+  setAccessToken,
+  issueTokens,
+  navigate,
+}) => {
   useEffect(() => {
     const container = document.getElementById('map');
 
@@ -151,7 +160,9 @@ const Map = ({ isLogin, setIsLogin, openLoginModalHandler, openSignupModalHandle
         setIsLogin={setIsLogin}
         openLoginModalHandler={openLoginModalHandler}
         openSignupModalHandler={openSignupModalHandler}
+        accessToken={accessToken}
         setAccessToken={setAccessToken}
+        issueTokens={issueTokens}
         navigate={navigate}
       />
       <div id="map" />
