@@ -11,7 +11,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       menu_price: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       menu_image: {
         type: Sequelize.STRING,
