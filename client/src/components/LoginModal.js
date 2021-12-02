@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import SignupModal from './SignupModal';
 
+const { Kakao } = window;
+
 function LoginModal({
   openLoginModalHandler,
   isOpenSignupModal,
@@ -45,6 +47,62 @@ function LoginModal({
     setLoginInfo({ ...loginInfo, [key]: e.target.value.toLowerCase() });
     setErrorMessage('');
   };
+  const loginWithKakao = () => {
+    console.log('hello');
+    Kakao.Auth.authorize({
+      redirectUri: 'http://localhost:3000/oauth/redirect/kakao',
+    });
+  };
+  // const loginWithKakao = () => {
+  //   const scope = 'profile_nickname,account_email';
+  //   Kakao.Auth.login({
+  //     scope,
+  //     success: function (response) {
+  //       window.Kakao.Auth.setAccessToken(response.access_token);
+  //       console.log(`is set?: ${window.Kakao.Auth.getAccessToken()}`);
+
+  //       var ACCESS_TOKEN = window.Kakao.Auth.getAccessToken();
+
+  //       window.Kakao.API.request({
+  //         url: '/v2/user/me',
+  //         success: function ({ kakao_account }) {
+  //           console.log(kakao_account);
+  //           const { email, profile } = kakao_account;
+
+  //           console.log(email);
+  //           console.log(profile.nickname);
+
+  //           axios({
+  //             method: 'post',
+  //             url: `${process.env.REACT_APP_API_URL}/oauth/kakao/login`,
+  //             data: {
+  //               user_email: email,
+  //               user_nickname: profile.nickname,
+  //             },
+  //           })
+  //             .then(res => {
+  //               console.log(res);
+  //               setAccessToken(res.data.accessToken);
+  //               setIsLogin(true);
+  //               alert('로긴 성공! 끼얏호!!');
+  //               navigate('/map');
+  //               openLoginModalHandler();
+  //             })
+  //             .catch(error => {
+  //               console.error(error);
+  //               alert('카카오 로그인 에러?');
+  //             });
+  //         },
+  //         fail: function (error) {
+  //           console.log(error);
+  //         },
+  //       });
+  //     },
+  //     fail: function (error) {
+  //       console.log(error);
+  //     },
+  //   });
+  // };
 
   return (
     <div className="login-modal-container">
@@ -82,7 +140,7 @@ function LoginModal({
                   className="login-kakao-button"
                   src={require('../img/kakao_login_medium_narrow.png').default}
                   alt=""
-                  href={`${process.env.KAKAO_AUTH_URL}`}
+                  onClick={loginWithKakao}
                 />
               </div>
             </div>
