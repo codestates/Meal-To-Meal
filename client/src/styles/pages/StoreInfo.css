@@ -14,6 +14,10 @@
 
 .menu-food-image {
   height: 180px;
+  max-width: 265px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .menu-info-container {
@@ -76,10 +80,14 @@
     -webkit-box-direction: initial;
         -ms-flex-direction: initial;
             flex-direction: initial;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     height: 320px;
   }
   .menu-food-image {
     height: 270px;
+    max-width: 400px;
     display: inline-block;
     border-radius: 30px;
     -webkit-box-shadow: gray 4px 4px 4px 4px;
@@ -127,7 +135,8 @@
     margin: 15px 40px 15px 0;
   }
   .menu-food-image {
-    max-width: 300px;
+    width: 330px;
+    max-height: 300px;
     display: inline-block;
     border-radius: 30px;
     -webkit-box-shadow: gray 4px 4px 4px 4px;
@@ -169,6 +178,9 @@
 
 .storeinfo-food-image {
   height: 180px;
+  max-width: 270px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .reviewBox-info-container {
@@ -291,9 +303,11 @@
   display: block;
   margin: 0 auto 10px auto;
   width: 295px;
+  max-height: 210px;
   border-radius: 15px;
   -webkit-box-shadow: gray 3px 3px 3px;
           box-shadow: gray 3px 3px 3px;
+  overflow: hidden;
 }
 
 .store-info-container {
@@ -349,6 +363,12 @@
   margin: 15px;
 }
 
+.cart-button:hover,
+.back-button:hover {
+  color: #ffcc1d;
+  cursor: pointer;
+}
+
 @media (min-width: 758px) and (max-width: 1023px) {
   .storeinfo-info-container {
     margin-top: 20px;
@@ -361,7 +381,10 @@
     height: 45px;
   }
   .store-img {
-    width: 650px;
+    width: 395px;
+    max-height: 330px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .fa-map-marker-alt,
   .fa-clock,
@@ -422,6 +445,7 @@ footer {
   }
   .store-img {
     width: 50%;
+    max-height: 400px;
     margin: 15px 0 10px 10px;
   }
   .store-detail-info-container {
@@ -438,6 +462,11 @@ footer {
   }
   .box-title {
     font-size: 30px;
+  }
+  .cart-button,
+  .back-button {
+    font-size: 30px;
+    height: 45px;
   }
 }
 /*# sourceMappingURL=StoreInfo.css.map */

@@ -71,6 +71,7 @@ function LoginModal({
               <div className="login-text">비밀번호</div>
               <input
                 className="login-input"
+                type="password"
                 placeholder="Password"
                 onKeyPress={enterKey}
                 onChange={handleInputValue('user_password')}
