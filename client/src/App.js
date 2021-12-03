@@ -6,6 +6,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import UnderbarLogin from './components/UnderbarLogin';
 import UnderbarNotLogin from './components/UnderbarNotLogin';
 import NotFound from './pages/NotFound';
+import EmptyShareCart from './pages/EmptyShareCart';
 import Landing from '../src/pages/Landing';
 import Map from '../src/pages/Map';
 import LoginModal from './components/LoginModal';
@@ -19,12 +20,7 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
   const [isOpenSignupModal, setIsOpenSigupModal] = useState(false);
-  const [cartItem, setCartItem] = useState([]);
-
-  const donationClickhandler = item => {
-    setCartItem([...cartItem, item]);
-    alert('장바구니에 추가되었습니다');
-  };
+  const [cartItems, setCartItems] = useState([]);
 
   const navigate = useNavigate();
 
@@ -44,6 +40,31 @@ function App() {
       });
   };
 
+  const removeFromCart = item => {
+    const found = cartItems.filter(el => el.id === item.id);
+    const index = cartItems.findIndex(el => el.id === found[0].id);
+    setCartItems([...cartItems.slice(0, index), ...cartItems.slice(index + 1, cartItems.length)]);
+  };
+
+  const setQuantity = found => {
+    if (found[0].quantity > 0 && found[0].quantity < 100) {
+      found[0].quantity++;
+    }
+    setCartItems([...cartItems]);
+  };
+
+  const addToCart = item => {
+    const found = cartItems.filter(el => el.id === item.id);
+    if (found[0]) {
+      setQuantity(found);
+    } else {
+      setCartItems([
+        ...cartItems,
+        { id: item.id, name: item.menu_name, price: item.menu_price, img: item.menu_image, quantity: 1 },
+      ]);
+    }
+  };
+
   const openLoginModalHandler = () => {
     setIsOpenLoginModal(!isOpenLoginModal);
   };
@@ -57,6 +78,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Landing />} />
         <Route path="/notfound" element={<NotFound />} />
+        <Route path="/empty" element={<EmptyShareCart />} />
         <Route
           path="/map"
           element={
@@ -75,12 +97,26 @@ function App() {
         />
         <Route
           path="/storeinfo"
-          element={<StoreInfo isLogin={isLogin} setIsLogin={setIsLogin} donationClickhandler={donationClickhandler} />}
+          element={
+            <StoreInfo
+              isLogin={isLogin}
+              setIsLogin={setIsLogin}
+              removeFromCart={removeFromCart}
+              addToCart={addToCart}
+              setQuantity={setQuantity}
+            />
+          }
         />
         <Route
           path="/sharecart"
           element={
-            <ShareCart isLogin={isLogin} setIsLogin={setIsLogin} cartItem={cartItem} setCartItem={setCartItem} />
+            <ShareCart
+              isLogin={isLogin}
+              setIsLogin={setIsLogin}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+              removeFromCart={removeFromCart}
+            />
           }
         />
       </Routes>
