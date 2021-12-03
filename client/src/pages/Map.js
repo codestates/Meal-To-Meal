@@ -9,16 +9,7 @@ import StoreDummydata from '../static/store_dummydata';
 
 const { kakao } = window;
 
-const Map = ({
-  isLogin,
-  setIsLogin,
-  openLoginModalHandler,
-  openSignupModalHandler,
-  accessToken,
-  setAccessToken,
-  issueTokens,
-  navigate,
-}) => {
+const Map = ({ isLogin, setIsLogin, openLoginModalHandler, openSignupModalHandler, issueTokens, navigate }) => {
   useEffect(() => {
     const container = document.getElementById('map');
 
@@ -162,8 +153,7 @@ const Map = ({
             authorizationCode,
           })
           .then(res => {
-            localStorage.setItem('AC_Token', res.data.accessToken);
-            setAccessToken(res.data.accessToken);
+            localStorage.setItem('accessToken', res.data.accessToken);
             alert('로그인');
             setIsLogin(true);
           })
@@ -174,10 +164,10 @@ const Map = ({
     };
     const url = new URL(window.location.href);
     const authorizationCode = url.searchParams.get('code');
-    console.log('--------------------인증 코드', authorizationCode);
     if (authorizationCode) {
       getAccessToken(authorizationCode);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -187,11 +177,8 @@ const Map = ({
         setIsLogin={setIsLogin}
         openLoginModalHandler={openLoginModalHandler}
         openSignupModalHandler={openSignupModalHandler}
-        accessToken={accessToken}
-        setAccessToken={setAccessToken}
         issueTokens={issueTokens}
         navigate={navigate}
-        issueTokens={issueTokens}
       />
       <div id="map" />
       <Search />

@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuDummydata from '../static/menu_dummydata';
 
-function MenuBox({ setCartItem, donationClickhandler }) {
+function MenuBox({ cartItem, setCartItem, removeFromCart, addToCart, setQuantity }) {
   return (
     <>
       {MenuDummydata.filter(el => el.store_id === 3).map(el => (
@@ -10,7 +10,9 @@ function MenuBox({ setCartItem, donationClickhandler }) {
             <img className="menu-food-image" src={el.menu_image} alt="" />
             <div className="menu-info-container">
               <span className="menu-text">{el.menu_name}</span>
-              <span className="menu-text">{el.menu_price}</span>
+              <span className="menu-text">
+                {el.menu_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')}원
+              </span>
               <div className="menu-donation-container">
                 <img className="menu-donation-icon" src={require('../img/donation.png').default} alt="" />
                 <span className="menu-text">기부받은 그릇 : {el.menu_order_quantity}</span>
@@ -19,7 +21,7 @@ function MenuBox({ setCartItem, donationClickhandler }) {
                 <button
                   className="menu-donate-button"
                   onClick={() => {
-                    donationClickhandler(el);
+                    addToCart(el);
                   }}
                 >
                   기부하기

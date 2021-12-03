@@ -31,8 +31,10 @@
   display: block;
   margin: 0 auto 10px auto;
   width: 295px;
+  max-height: 210px;
   border-radius: 15px;
   box-shadow: gray 3px 3px 3px;
+  overflow: hidden;
 }
 
 .store-info-container {
@@ -73,6 +75,14 @@
   margin: 15px;
 }
 
+.cart-button,
+.back-button {
+  &:hover {
+    color: #ffcc1d;
+    cursor: pointer;
+  }
+}
+
 @include tablet {
   .storeinfo-info-container {
     margin-top: 20px;
@@ -88,7 +98,10 @@
   }
 
   .store-img {
-    width: 650px;
+    width: 395px;
+    max-height: 330px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .fa-map-marker-alt,
@@ -146,6 +159,7 @@ footer {
 
   .store-img {
     width: 50%;
+    max-height: 400px;
     margin: 15px 0 10px 10px;
   }
 
@@ -166,5 +180,11 @@ footer {
 
   .box-title {
     font-size: 30px;
+  }
+
+  .cart-button,
+  .back-button {
+    font-size: 30px;
+    height: 45px;
   }
 }

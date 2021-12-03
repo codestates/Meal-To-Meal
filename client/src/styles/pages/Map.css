@@ -101,6 +101,7 @@ button {
   -webkit-transition: 100ms ease;
   transition: 100ms ease;
   padding: 0 10px 0 10px;
+  cursor: pointer;
 }
 
 button:hover {

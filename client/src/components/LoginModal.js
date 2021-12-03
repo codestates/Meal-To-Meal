@@ -1,18 +1,8 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import SignupModal from './SignupModal';
 
-const { Kakao } = window;
-
-function LoginModal({
-  openLoginModalHandler,
-  isOpenSignupModal,
-  openSignupModalHandler,
-  accessToken,
-  setAccessToken,
-  setIsLogin,
-  navigate,
-}) {
+function LoginModal({ openLoginModalHandler, isOpenSignupModal, openSignupModalHandler, setIsLogin, navigate }) {
   const [loginInfo, setLoginInfo] = useState({
     user_email: '',
     user_password: '',
@@ -27,8 +17,7 @@ function LoginModal({
         { withCredentials: true, ContentType: 'application/json' }
       )
       .then(res => {
-        setAccessToken(res.data.accessToken);
-        console.log(res.data.accessToken);
+        localStorage.setItem('accessToken', res.data.accessToken);
         setIsLogin(true);
         alert('로긴 성공! 끼얏호!!');
         navigate('/map');
@@ -75,6 +64,7 @@ function LoginModal({
               <div className="login-text">비밀번호</div>
               <input
                 className="login-input"
+                type="password"
                 placeholder="Password"
                 onKeyPress={enterKey}
                 onChange={handleInputValue('user_password')}

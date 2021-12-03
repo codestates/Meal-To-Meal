@@ -1,44 +1,25 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
-const { Kakao } = window;
 
-function SidebarLogin({
-  openisLoginOpenSidebarHandler,
-  setIsLogin,
-  accessToken,
-  setAccessToken,
-  issueTokens,
-  navigate,
-}) {
-  useEffect(() => {
-    issueTokens();
-  }, []);
+function SidebarLogin({ openisLoginOpenSidebarHandler, setIsLogin, issueTokens, navigate }) {
   const LogoutButtonHandler = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/user/logout`, {
-        headers: { authorization: `Bearer ${accessToken}` },
+        headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` },
         withCredentials: true,
       })
       .then(res => {
-        setAccessToken('');
+        localStorage.clear();
         setIsLogin(false);
         alert('잘 가십셔~');
         openisLoginOpenSidebarHandler();
-        navigate('/map');
+        navigate('/');
       })
       .catch(err => {
         alert('몬가...몬가 잘 못 되었엉!');
+        console.log(err);
       });
   };
-
-  // const logoutWithKakao = () => {
-  //   const KAKAO_CLIENT_ID = '5c27007dfe0386c450a85c3aa7231b45';
-  //   const KAKAO_LOGOUT_REDIRECT_URI = 'http://localhost:3000/';
-  //   window.location.assign(
-  //     `https://kauth.kakao.com/oauth/logout?client_id={KAKAO_CLIENT_ID}&logout_redirect_uri={KAKAO_LOGOUT_REDIRECT_URI}`
-  //   );
-  //   alert('록아웃!');
-  // };
 
   return (
     <div className="sidebar-container">
