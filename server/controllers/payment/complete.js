@@ -1,8 +1,9 @@
-//결제 성공
-// /payment/complete
 module.exports = async (req, res) =>{
     try {
-        const { imp_uid, merchant_uid } = req.body; // req의 body에서 imp_uid, merchant_uid 추출
+        const { imp_uid, merchant_uid } = req.body; 
+        // req의 body에서 imp_uid, merchant_uid 추출 
+        //imp_uid => 우리가 지정해둔 영수증 번호 ex) sudo_hired_1 ~~~
+        // merchant_uid_
         const getToken = await axios({
             url: "https://api.iamport.kr/users/getToken", // 이 주소로 보내야함.
             method: "post", // POST method
@@ -13,34 +14,38 @@ module.exports = async (req, res) =>{
             }
           });
           // accessToken 받기 (결제용임)
-          const { access_token } = getToken.data.response
+          const { access_token } = getToken.data.response // 우리 엑세스 토큰과 겹치지는 않는가? 
+
           const getPaymentData = await axios({
             url: `https://api.iamport.kr/payments/${imp_uid}`, // imp_uid 전달
             method: "get", // GET method
             headers: { "Authorization": access_token } // 인증 토큰 Authorization header에 추가
           });
-          console.log(getPaymentData);
+
           // 조회한 결제정보 
           const paymentData = getPaymentData.data.response;
-          const cart = await carts.findById(paymentData.merchant_uid);// // 클라에서 보내주는 가맹점 아이디를 carts 테이블에서 검색해서 받아온다.
-          const amountToBePaid = cart.total_price; //db carts 테이블에 저장된 결제해야하는 금액 
+
+          const cartInfo = await carts.findOne({where:{merchant_uid}});
+          // 카트에서 결제하기 버튼을 눌렀을때 db에 저장되는 자료를 찾아서 오는것
+
+          const amountToBePaid = Number(cartInfo.amount);
+          // find cart로 찾은 컬럼에서 amount 즉 결제해야하는 금액만 가져온다.
           const { amount, status } = paymentData;
-      if (amount === amountToBePaid) { // 결제금액 일치. 결제 된 금액 === 결제 되어야 하는 금액
-        // await Orders.findByIdAndUpdate(merchant_uid, { $set: paymentData }); // DB에 결제 정보 저장 몽구스 문법임 mysql로 변환이 필요하다 $set 이 뭘까
-        // set이라는건 대충 몽구스 문법으로 paymentData 컬럼만 바꾸는거임
+        if (amount !== amountToBePaid) { 
+        // paymentData.amount는 iamport 서버에 요청해서 받은 실제 결제되는 가격에
+        // amountToBePaid 는 우리 db에 저장된 결제해야하는 가격
+        // 일치하지않으면 위조된 결제시도라고 보내준다.
+        return res.status(200).json({status: 'forgery',message: '위조된 결제시도'});
+        // await cart.findByIdAndUpdate(merchant_uid, { $set: paymentData }); // DB에 결제 정보 저장 
+        //몽구스 문법임 mysql로 변환이 필요하다 $set  이 뭘까
+        // 대충 저 merchant_uid에 해당하는 자료를 cart 테이블에서 찾아서  payments를 바꿔준느듯
 
-      } else { // 결제금액 불일치. 위/변조 된 결제
-        throw { status: "forgery", message: "위조된 결제시도" };
-      }
+        } 
+        //일치했을땐  payments 로 오는 데이터들을 cart에 넣어서 업데이트 해준다.
+        // 왜? cart가 사실상 구매내역 
 
-          
       } catch (e) {
         res.status(400).send(e);
       }
 
 }
-
-//대충 구동순서
-// 클라이언트에서 보내는 body에서 imp_uid 와 merchant_uid를 빼낸다.
-// 그다음에 비동기로 토큰을 발급받는다 -> 아임포트 서버로 보내서 토큰인증을 받는것임 왜냐하면 아임포트를 이용하니까
-// 
