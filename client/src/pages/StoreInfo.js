@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -9,6 +9,16 @@ import StoreDummydata from '../static/store_dummydata';
 
 function StoreInfo({ isLogin, setIsLogin, cartItem, setCartItem, removeFromCart, addToCart, setQuantity }) {
   const navigate = useNavigate();
+
+  const goToShareCart = () => {
+    console.log(cartItem);
+    if (cartItem === undefined) {
+      navigate('/empty');
+    } else {
+      navigate('/sharecart');
+    }
+  };
+
   //카테고리 아이콘 연결하기
   // useEffect(() => {
   //   setCartItem();
@@ -17,7 +27,7 @@ function StoreInfo({ isLogin, setIsLogin, cartItem, setCartItem, removeFromCart,
   return (
     <>
       <Header />
-      {StoreDummydata.filter(el => el.id === 3).map(el => (
+      {StoreDummydata.filter(el => el.id === 1).map(el => (
         <div className="storeinfo-page-container">
           <div className="storeinfo-info-menu-review-container">
             <div className="storeinfo-info-container">
@@ -47,7 +57,6 @@ function StoreInfo({ isLogin, setIsLogin, cartItem, setCartItem, removeFromCart,
                 </div>
               </div>
               <div className="box-title">메뉴</div>
-
               <MenuBox
                 cartItem={cartItem}
                 setCartItem={setCartItem}
@@ -70,12 +79,7 @@ function StoreInfo({ isLogin, setIsLogin, cartItem, setCartItem, removeFromCart,
             >
               장바구니
             </button>
-            <button
-              className="back-button"
-              onClick={() => {
-                navigate('/map');
-              }}
-            >
+            <button className="back-button" onClick={() => navigate('/storeinfo')}>
               뒤로 가기
             </button>
           </div>

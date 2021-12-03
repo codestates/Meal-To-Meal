@@ -6,6 +6,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import UnderbarLogin from './components/UnderbarLogin';
 import UnderbarNotLogin from './components/UnderbarNotLogin';
 import NotFound from './pages/NotFound';
+import EmptyShareCart from './pages/EmptyShareCart';
 import Landing from '../src/pages/Landing';
 import Map from '../src/pages/Map';
 import LoginModal from './components/LoginModal';
@@ -46,7 +47,7 @@ function App() {
   };
 
   const setQuantity = found => {
-    if (found[0].quantity > 0) {
+    if (found[0].quantity > 0 && found[0].quantity < 100) {
       found[0].quantity++;
     }
     setCartItems([...cartItems]);
@@ -77,6 +78,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Landing />} />
         <Route path="/notfound" element={<NotFound />} />
+        <Route path="/empty" element={<EmptyShareCart />} />
         <Route
           path="/map"
           element={

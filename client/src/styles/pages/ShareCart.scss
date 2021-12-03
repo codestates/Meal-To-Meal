@@ -2,8 +2,7 @@
 @import '../components/SharecartItem';
 
 .sharecart-container {
-  padding: 10px;
-  margin-bottom: 80px;
+  min-height: 73.2vh;
 }
 
 .sharecart-title {
@@ -11,6 +10,7 @@
   font-weight: bolder;
   margin: 15px 0 5px 5px;
 }
+
 .sharecart-allcheck-container {
   display: flex;
   flex-direction: row;
@@ -20,8 +20,7 @@
 .sharecart-allcheck-input {
   cursor: pointer;
 }
-.sharecart-allcheck-text {
-}
+
 .sharecart-order-info-container {
   display: flex;
   flex-direction: column;
@@ -48,19 +47,35 @@
   align-items: center;
   margin: 15px 50px 15px 50px;
 }
-.sharecart-donation-button {
-  width: 90px;
+.sharecart-button-donation {
+  transition: 300ms ease all;
+
   &:hover {
-    cursor: pointer;
-    border: 3px solid #ffcc1d;
+    box-shadow: gray 4px 4px 4px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
   }
 }
-.sharecart-back-button {
-  width: 90px;
-  &:hover {
-    cursor: pointer;
-    border: 3px solid #ffcc1d;
-  }
+
+.empty-sharecart-button {
+  width: 100px;
+  height: 40px;
 }
 
 @include tablet {
@@ -70,7 +85,7 @@
     margin-bottom: 80px;
   }
   .sharecart-order-text {
-    font-size: 20;
+    font-size: 30px;
     margin-bottom: 10px;
   }
   .sharecart-order-count-container {
@@ -80,29 +95,66 @@
     margin: 5px;
   }
   .sharecount-count-text {
-    font-size: 15px;
+    font-size: 20px;
   }
   .sharecart-submit-button-container {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    margin: 30px 150px 15px 150px;
+    margin: 30px 150px 30px 150px;
   }
-  .sharecart-donation-button {
-    width: 90px;
-    &:hover {
-      cursor: pointer;
-      border: 3px solid #ffcc1d;
-    }
+
+  .sharecart-button-donation {
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
   }
-  .sharecart-back-button {
-    width: 90px;
-    &:hover {
-      cursor: pointer;
-      border: 3px solid #ffcc1d;
-    }
+
+  .sharecart-button {
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
   }
 }
 @include desktop {
+  .sharecart-container {
+    min-height: 71.5vh;
+  }
+
+  .sharecart-container {
+    padding: 10px;
+    margin-top: 60px;
+    margin-bottom: 80px;
+  }
+
+  .sharecart-order-text {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .sharecart-order-count-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 5px;
+  }
+  .sharecount-count-text {
+    font-size: 20px;
+  }
+  .sharecart-submit-button-container {
+    margin: 30px 150px 30px 150px;
+  }
+
+  .sharecart-button-donation {
+    width: 140px;
+    height: 35px;
+    font-size: 25px;
+    padding-top: 3px;
+  }
+
+  .sharecart-button {
+    width: 140px;
+    height: 35px;
+    font-size: 25px;
+    padding-top: 3px;
+  }
 }
