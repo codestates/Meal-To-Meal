@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SignupModal from './SignupModal';
 
 function LoginModal({
@@ -26,7 +26,9 @@ function LoginModal({
       .then(res => {
         setAccessToken(res.data.accessToken);
         setIsLogin(true);
-        navigate('map');
+        alert('로긴 성공! 끼얏호!!');
+        navigate('/map');
+        openLoginModalHandler();
       })
       .catch(err => {
         setErrorMessage('아이디와 비밀번호를 확인해주세요.');
@@ -42,6 +44,14 @@ function LoginModal({
   const handleInputValue = key => e => {
     setLoginInfo({ ...loginInfo, [key]: e.target.value.toLowerCase() });
     setErrorMessage('');
+  };
+
+  const loginWithKakao = () => {
+    const KAKAO_CLIENT_ID = '5c27007dfe0386c450a85c3aa7231b45';
+    const KAKAO_REDIRECT_URI = 'http://localhost:3000/map';
+    window.location.assign(
+      `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_CLIENT_ID}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`
+    );
   };
 
   return (
@@ -80,6 +90,7 @@ function LoginModal({
                   className="login-kakao-button"
                   src={require('../img/kakao_login_medium_narrow.png').default}
                   alt=""
+                  onClick={loginWithKakao}
                 />
               </div>
             </div>

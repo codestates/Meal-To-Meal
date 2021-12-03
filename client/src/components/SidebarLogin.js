@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 
-function SidebarLogin({ openisLoginOpenSidebarHandler, setIsLogin, setAccessToken, navigate }) {
+function SidebarLogin({
+  openisLoginOpenSidebarHandler,
+  setIsLogin,
+  accessToken,
+  setAccessToken,
+  issueTokens,
+  navigate,
+}) {
+  useEffect(() => {
+    issueTokens();
+  }, []);
   const LogoutButtonHandler = () => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/user-logout`, { withCredentials: true })
+      .get(`${process.env.REACT_APP_API_URL}/user/logout`, {
+        headers: { authorization: `Bearer ${accessToken}` },
+        withCredentials: true,
+      })
       .then(res => {
         setAccessToken('');
         setIsLogin(false);
         alert('잘 가십셔~');
-        navigate('/');
+        openisLoginOpenSidebarHandler();
+        navigate('/map');
       })
       .catch(err => {
         alert('몬가...몬가 잘 못 되었엉!');
@@ -18,7 +32,7 @@ function SidebarLogin({ openisLoginOpenSidebarHandler, setIsLogin, setAccessToke
 
   return (
     <div className="sidebar-container">
-      <div className="sidebar-menu-container" onclick={LogoutButtonHandler}>
+      <div className="sidebar-menu-container" onClick={LogoutButtonHandler}>
         <div className="sidebar-icon">&#x1F35A;</div>
         <div className="sidebar-text">로그아웃</div>
       </div>

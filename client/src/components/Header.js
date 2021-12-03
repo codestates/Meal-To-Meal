@@ -3,7 +3,16 @@ import React, { useState } from 'react';
 import SidebarLogin from './SidebarLogin';
 import SidebarNotLogin from './SidebarNotLogin';
 
-function Header({ isLogin, setIsLogin, openLoginModalHandler, openSignupModalHandler, setAccessToken, navigate }) {
+function Header({
+  isLogin,
+  setIsLogin,
+  openLoginModalHandler,
+  openSignupModalHandler,
+  accessToken,
+  setAccessToken,
+  issueTokens,
+  navigate,
+}) {
   const [isLoginOpenSidebar, setIsLoginOpenSidebar] = useState(false);
   const [isNotLoginOpenSidebar, setIsNotLoginOpenSidebar] = useState(false);
 
@@ -26,8 +35,11 @@ function Header({ isLogin, setIsLogin, openLoginModalHandler, openSignupModalHan
         <SidebarLogin
           openisLoginOpenSidebarHandler={openisLoginOpenSidebarHandler}
           setIsLogin={setIsLogin}
+          accessToken={accessToken}
           setAccessToken={setAccessToken}
+          issueTokens={issueTokens}
           navigate={navigate}
+          issueTokens={issueTokens}
         />
       ) : null}
       {isNotLoginOpenSidebar ? (
