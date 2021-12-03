@@ -39,11 +39,11 @@ function Header({
           setAccessToken={setAccessToken}
           issueTokens={issueTokens}
           navigate={navigate}
-          issueTokens={issueTokens}
         />
       ) : null}
       {isNotLoginOpenSidebar ? (
         <SidebarNotLogin
+          issueTokens={issueTokens}
           openLoginModalHandler={openLoginModalHandler}
           openisNotLoginOpenSidebarHandler={openisNotLoginOpenSidebarHandler}
           openSignupModalHandler={openSignupModalHandler}
