@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       user_password: {
-        allowNull: false,
+        defaultValue: '',
         type: Sequelize.STRING,
       },
       user_phone_number: {

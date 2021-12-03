@@ -78,11 +78,20 @@ function App() {
               openSignupModalHandler={openSignupModalHandler}
               setAccessToken={setAccessToken}
               navigate={navigate}
+              issueTokens={issueTokens}
             />
           }
         />
-        <Route path="/storeinfo" element={<StoreInfo isLogin={isLogin} setIsLogin={setIsLogin} donationClickhandler={donationClickhandler}/>} />
-        <Route path="/sharecart" element={<ShareCart isLogin={isLogin} setIsLogin={setIsLogin} cartItem={cartItem} setCartItem={setCartItem}/>} />
+        <Route
+          path="/storeinfo"
+          element={<StoreInfo isLogin={isLogin} setIsLogin={setIsLogin} donationClickhandler={donationClickhandler} />}
+        />
+        <Route
+          path="/sharecart"
+          element={
+            <ShareCart isLogin={isLogin} setIsLogin={setIsLogin} cartItem={cartItem} setCartItem={setCartItem} />
+          }
+        />
       </Routes>
       {isLogin ? (
         <UnderbarLogin />
