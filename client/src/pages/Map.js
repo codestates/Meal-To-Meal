@@ -5,6 +5,7 @@ import '../styles/pages/Map.css';
 import Header from '../components/Header';
 import Search from '../components/Search';
 import StoreDummydata from '../static/store_dummydata';
+import axios from 'axios';
 
 const { kakao } = window;
 
@@ -153,6 +154,32 @@ const Map = ({
     }
   }, []);
 
+  useEffect(() => {
+    const getAccessToken = authorizationCode => {
+      if (authorizationCode) {
+        axios
+          .post(`${process.env.REACT_APP_API_URL}/oauth/kakao/login`, {
+            authorizationCode,
+          })
+          .then(res => {
+            localStorage.setItem('AC_Token', res.data.accessToken);
+            setAccessToken(res.data.accessToken);
+            alert('로그인');
+            setIsLogin(true);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
+    };
+    const url = new URL(window.location.href);
+    const authorizationCode = url.searchParams.get('code');
+    console.log('--------------------인증 코드', authorizationCode);
+    if (authorizationCode) {
+      getAccessToken(authorizationCode);
+    }
+  }, []);
+
   return (
     <>
       <Header
@@ -164,6 +191,7 @@ const Map = ({
         setAccessToken={setAccessToken}
         issueTokens={issueTokens}
         navigate={navigate}
+        issueTokens={issueTokens}
       />
       <div id="map" />
       <Search />

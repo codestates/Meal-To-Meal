@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SignupModal from './SignupModal';
 
 function LoginModal({
@@ -46,6 +46,14 @@ function LoginModal({
     setErrorMessage('');
   };
 
+  const loginWithKakao = () => {
+    const KAKAO_CLIENT_ID = '5c27007dfe0386c450a85c3aa7231b45';
+    const KAKAO_REDIRECT_URI = 'http://localhost:3000/map';
+    window.location.assign(
+      `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_CLIENT_ID}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`
+    );
+  };
+
   return (
     <div className="login-modal-container">
       <div className="login-modal-backdrop" onClick={openLoginModalHandler}>
@@ -82,6 +90,7 @@ function LoginModal({
                   className="login-kakao-button"
                   src={require('../img/kakao_login_medium_narrow.png').default}
                   alt=""
+                  onClick={loginWithKakao}
                 />
               </div>
             </div>

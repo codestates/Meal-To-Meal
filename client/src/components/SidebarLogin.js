@@ -12,7 +12,6 @@ function SidebarLogin({
   useEffect(() => {
     issueTokens();
   }, []);
-
   const LogoutButtonHandler = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/user/logout`, {
