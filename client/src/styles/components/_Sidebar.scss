@@ -24,6 +24,10 @@
   margin: 15px;
   font-size: 25px;
   cursor: pointer;
+
+  &:hover {
+    color: red;
+  }
 }
 
 .sidebar-icon {

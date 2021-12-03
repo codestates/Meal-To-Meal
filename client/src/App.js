@@ -1,6 +1,6 @@
 import './styles/App.css';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import UnderbarLogin from './components/UnderbarLogin';
@@ -16,10 +16,9 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 function App() {
-  const [accessToken, setAccessToken] = useState('');
   const [isLogin, setIsLogin] = useState(false);
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
-  const [isOpenSignupModal, setIsOpenSigupModal] = useState(false);
+  const [isOpenSignupModal, setIsOpenSignupModal] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
   const navigate = useNavigate();
@@ -27,19 +26,25 @@ function App() {
   const issueTokens = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/auth`, {
-        headers: { authorization: `Bearer ${accessToken}` },
+        headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` },
         withCredentials: true,
       })
       .then(res => {
         setIsLogin(true);
+        console.log('--------------작동', res);
       })
       .catch(err => {
+        console.log('-------------------', err);
         setIsLogin(false);
         alert('토크니가 만료 되옷오용! 헤헷! ^^');
         navigate('/');
       });
   };
 
+  useEffect(() => {
+    issueTokens();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const removeFromCart = item => {
     const found = cartItems.filter(el => el.id === item.id);
     const index = cartItems.findIndex(el => el.id === found[0].id);
@@ -70,7 +75,7 @@ function App() {
   };
 
   const openSignupModalHandler = () => {
-    setIsOpenSigupModal(!isOpenSignupModal);
+    setIsOpenSignupModal(!isOpenSignupModal);
   };
 
   return (
@@ -87,11 +92,8 @@ function App() {
               setIsLogin={setIsLogin}
               openLoginModalHandler={openLoginModalHandler}
               openSignupModalHandler={openSignupModalHandler}
-              accessToken={accessToken}
-              setAccessToken={setAccessToken}
               issueTokens={issueTokens}
               navigate={navigate}
-              issueTokens={issueTokens}
             />
           }
         />
@@ -104,6 +106,8 @@ function App() {
               removeFromCart={removeFromCart}
               addToCart={addToCart}
               setQuantity={setQuantity}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
             />
           }
         />
@@ -123,19 +127,14 @@ function App() {
       {isLogin ? (
         <UnderbarLogin />
       ) : (
-        <UnderbarNotLogin
-          isOpenLoginModal={isOpenLoginModal}
-          openLoginModalHandler={openLoginModalHandler}
-          accessToken={accessToken}
-          setAccessToken={setAccessToken}
-        />
+        <UnderbarNotLogin isOpenLoginModal={isOpenLoginModal} openLoginModalHandler={openLoginModalHandler} />
       )}
       {isOpenLoginModal ? (
         <LoginModal
           openLoginModalHandler={openLoginModalHandler}
           isOpenSignupModal={isOpenSignupModal}
           openSignupModalHandler={openSignupModalHandler}
-          setAccessToken={setAccessToken}
+          isLogin={isLogin}
           setIsLogin={setIsLogin}
           navigate={navigate}
         />

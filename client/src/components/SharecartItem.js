@@ -1,14 +1,14 @@
 import React from 'react';
 
 function SharecartItem({ cartItems, setCartItems, removeFromCart }) {
-  const quantityMinusHendrler = item => {
+  const quantityMinusHandler = item => {
     if (item.quantity > 1) {
       item.quantity--;
     }
     setCartItems([...cartItems]);
   };
 
-  const quantityPlusHendrler = item => {
+  const quantityPlusHandler = item => {
     if (item.quantity < 100) {
       item.quantity++;
     }
@@ -27,9 +27,9 @@ function SharecartItem({ cartItems, setCartItems, removeFromCart }) {
             </div>
             <div className="sharecart-item-count-container">
               <div className="sharecart-plus-minus-container">
-                <i className="fas fa-minus" onClick={() => quantityMinusHendrler(el)} />
+                <i className="fas fa-minus" onClick={() => quantityMinusHandler(el)} />
                 <div className="shartcart-cart-number">{el.quantity}</div>
-                <i className="fas fa-plus" onClick={() => quantityPlusHendrler(el)} />
+                <i className="fas fa-plus" onClick={() => quantityPlusHandler(el)} />
               </div>
             </div>
             <div className="delete-button-container">

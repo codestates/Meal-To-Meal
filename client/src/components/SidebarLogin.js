@@ -1,32 +1,23 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
 
-function SidebarLogin({
-  openisLoginOpenSidebarHandler,
-  setIsLogin,
-  accessToken,
-  setAccessToken,
-  issueTokens,
-  navigate,
-}) {
-  useEffect(() => {
-    issueTokens();
-  }, []);
+function SidebarLogin({ openisLoginOpenSidebarHandler, setIsLogin, issueTokens, navigate }) {
   const LogoutButtonHandler = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/user/logout`, {
-        headers: { authorization: `Bearer ${accessToken}` },
+        headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` },
         withCredentials: true,
       })
       .then(res => {
-        setAccessToken('');
+        localStorage.clear();
         setIsLogin(false);
         alert('잘 가십셔~');
         openisLoginOpenSidebarHandler();
-        navigate('/map');
+        navigate('/');
       })
       .catch(err => {
         alert('몬가...몬가 잘 못 되었엉!');
+        console.log(err);
       });
   };
 
