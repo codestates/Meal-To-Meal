@@ -1,28 +1,30 @@
 import React from 'react';
 
-function SharecartItem({ ordernum, onIncrease, onDecrease, deleteBtnHandler, cartItem }) {
+function SharecartItem({ removeFromCart, cartItems }) {
+  console.log(cartItems);
+
   return (
     <>
-      {cartItem.map(el => {
+      {cartItems.map(el => (
         <div className="sharecart-item-container">
           <input className="sharecart-checkbox" type="checkbox" />
-          <img className="sharecart-item-img" src={el.menu_image} alt="" />
+          <img className="sharecart-item-img" src={el.img} alt="" />
           <div className="sharecart-item-info-container">
-            <div className="sharecart-item-name">{el.menu_name}</div>
-            <div className="sharecart-item-price">{el.menu_price}</div>
+            <div className="sharecart-item-name">{el.name}</div>
+            <div className="sharecart-item-price">{el.price}</div>
           </div>
           <div className="sharecart-item-count-container">
             <div className="sharecart-plus-minus-container">
-              <i className="fas fa-minus" onClick={onDecrease} />
-              <div className="shartcart-cart-number">{ordernum}</div>
-              <i className="fas fa-plus" onClick={onIncrease} />
+              <i className="fas fa-minus" onClick={() => el.quantity--} />
+              <div className="shartcart-cart-number">{el.quantity}</div>
+              <i className="fas fa-plus" onClick={() => el.quantity++} />
             </div>
-            <button className="sharecart-delete-button" onClick={deleteBtnHandler}>
+            <button className="sharecart-delete-button" onClick={() => removeFromCart(el)}>
               삭제
             </button>
           </div>
-        </div>;
-      })}
+        </div>
+      ))}
     </>
   );
 }

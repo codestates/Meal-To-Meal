@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuDummydata from '../static/menu_dummydata';
 
-function MenuBox({ setCartItem, donationClickhandler }) {
+function MenuBox({ cartItem, setCartItem, removeFromCart, addToCart, setQuantity }) {
   return (
     <>
       {MenuDummydata.filter(el => el.store_id === 6).map(el => (
@@ -19,7 +19,7 @@ function MenuBox({ setCartItem, donationClickhandler }) {
                 <button
                   className="menu-donate-button"
                   onClick={() => {
-                    donationClickhandler(el);
+                    addToCart(el);
                   }}
                 >
                   기부하기

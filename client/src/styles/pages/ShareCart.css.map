@@ -5,7 +5,7 @@
         "ShareCart.scss",
         "../mixin/_mixin.scss",
         "../_variables.scss",
-        "../components/_Sharecart_item.scss",
+        "../components/_SharecartItem.scss",
         "../mixin/_mixin.scss",
         "../_variables.scss"
     ],
