@@ -14,9 +14,10 @@ const Map = ({
   setIsLogin,
   openLoginModalHandler,
   openSignupModalHandler,
+  accessToken,
   setAccessToken,
-  navigate,
   issueTokens,
+  navigate,
 }) => {
   useEffect(() => {
     const container = document.getElementById('map');
@@ -155,21 +156,21 @@ const Map = ({
 
   useEffect(() => {
     const getAccessToken = authorizationCode => {
-      axios
-        .post(`${process.env.REACT_APP_API_URL}/oauth/kakao/login`, {
-          authorizationCode,
-        })
-        .then(res => {
-          console.log(res.data);
-          let accessToken = res.data.accessToken;
-          setAccessToken(accessToken);
-          console.log(accessToken);
-          alert('로그인');
-          setIsLogin(true);
-        })
-        .catch(err => {
-          console.log(err);
-        });
+      if (authorizationCode) {
+        axios
+          .post(`${process.env.REACT_APP_API_URL}/oauth/kakao/login`, {
+            authorizationCode,
+          })
+          .then(res => {
+            localStorage.setItem('AC_Token', res.data.accessToken);
+            setAccessToken(res.data.accessToken);
+            alert('로그인');
+            setIsLogin(true);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
     };
     const url = new URL(window.location.href);
     const authorizationCode = url.searchParams.get('code');
@@ -186,7 +187,9 @@ const Map = ({
         setIsLogin={setIsLogin}
         openLoginModalHandler={openLoginModalHandler}
         openSignupModalHandler={openSignupModalHandler}
+        accessToken={accessToken}
         setAccessToken={setAccessToken}
+        issueTokens={issueTokens}
         navigate={navigate}
         issueTokens={issueTokens}
       />

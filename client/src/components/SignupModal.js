@@ -3,10 +3,10 @@ import axios from 'axios';
 
 function SignupModal({ openSignupModalHandler }) {
   const [signupInfo, setSignupInfo] = useState({
-    email: '',
-    password: '',
+    user_email: '',
+    user_password: '',
     verifyPassword: '',
-    nickname: '',
+    user_nickname: '',
   });
 
   const [validation, setValidation] = useState({
@@ -41,12 +41,12 @@ function SignupModal({ openSignupModalHandler }) {
   }
 
   const handleOnblurEmail = key => e => {
-    if (!isEmail(signupInfo.email)) {
+    if (!isEmail(signupInfo.user_email)) {
       setMessage({ ...message, email: '올바른 이메일 주소가 아닙니다.' });
       return;
     }
     axios
-      .post(`${process.env.REACT_APP_API_URL}/user/signup`, {
+      .post(`${process.env.REACT_APP_API_URL}/user/email`, {
         [key]: e.target.value,
       })
       .then(res => {
@@ -60,16 +60,16 @@ function SignupModal({ openSignupModalHandler }) {
   };
 
   const handleOnblurName = key => e => {
-    if (!isNickname(signupInfo.nickname)) {
+    if (!isNickname(signupInfo.user_nickname)) {
       setMessage({ ...message, nickname: '특수문자는 입력이 불가능 합니다.' });
       return;
     }
-    if (signupInfo.nickname.length > 20 || signupInfo.nickname.length < 2) {
+    if (signupInfo.user_nickname.length > 20 || signupInfo.user_nickname.length < 2) {
       setMessage({ ...message, nickname: '2 ~ 20 글자이어야 합니다.' });
       return;
     }
     axios
-      .post(`${process.env.REACT_APP_API_URL}/user/signup`, {
+      .post(`${process.env.REACT_APP_API_URL}/user/nickname`, {
         [key]: e.target.value,
       })
       .then(res => {
@@ -87,16 +87,15 @@ function SignupModal({ openSignupModalHandler }) {
   };
 
   const handleSignup = () => {
-    const { email, password, verifyPassword, nickname } = signupInfo;
+    const { user_email, user_password, user_nickname } = signupInfo;
     axios
-      .post(`${process.env.REACT_APP_API_URL}/auth`, {
-        email,
-        password,
-        verifyPassword,
-        nickname,
-        type: 'web',
+      .post(`${process.env.REACT_APP_API_URL}/user/signup`, {
+        user_email,
+        user_password,
+        user_nickname,
       })
       .then(res => {
+        alert('회갑 됨. 로긴하셈');
         openSignupModalHandler();
       })
       .catch(err => {
@@ -120,24 +119,27 @@ function SignupModal({ openSignupModalHandler }) {
     setMessage({
       ...message,
       password:
-        signupInfo.password.length >= 8
-          ? isPassword(signupInfo.password)
+        signupInfo.user_password.length >= 8
+          ? isPassword(signupInfo.user_password)
             ? '사용할 수 있는 비밀번호 입니다.'
             : '비밀번호는 영문, 숫자 조합이어야 합니다.'
           : '비밀번호는 8글자 이상, 영문, 숫자 조합이어야 합니다.',
       verifyPassword:
-        signupInfo.verifyPassword.length >= signupInfo.password.length && signupInfo.verifyPassword.length >= 8
-          ? signupInfo.verifyPassword === signupInfo.password
+        signupInfo.verifyPassword.length >= signupInfo.user_password.length && signupInfo.verifyPassword.length >= 8
+          ? signupInfo.verifyPassword === signupInfo.user_password
             ? '비밀번호가 일치합니다.'
             : '비밀번호가 불일치합니다.'
           : '비밀번호를 확인해주세요.',
     });
     setValidation({
       ...validation,
-      email: isEmail(signupInfo.email),
-      nickname: isNickname(signupInfo.nickname) && signupInfo.nickname.length >= 2 && signupInfo.nickname.length < 20,
-      password: isPassword(signupInfo.password),
-      verifyPassword: signupInfo.password === signupInfo.verifyPassword,
+      email: isEmail(signupInfo.user_email),
+      nickname:
+        isNickname(signupInfo.user_nickname) &&
+        signupInfo.user_nickname.length >= 2 &&
+        signupInfo.user_nickname.length < 20,
+      password: isPassword(signupInfo.user_password),
+      verifyPassword: signupInfo.user_password === signupInfo.verifyPassword,
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [signupInfo]);
@@ -156,8 +158,8 @@ function SignupModal({ openSignupModalHandler }) {
                   className="signup-input"
                   placeholder="E-mail"
                   onKeyPress={enterKey}
-                  onChange={handleInputValue('email')}
-                  onBlur={handleOnblurEmail('email')}
+                  onChange={handleInputValue('user_email')}
+                  onBlur={handleOnblurEmail('user_email')}
                 />
                 {message.email === '이메일을 입력해주세요.' ? (
                   <div className="signup-validation-message">{message.email}</div>
@@ -173,7 +175,7 @@ function SignupModal({ openSignupModalHandler }) {
                   placeholder="password"
                   type="password"
                   onKeyPress={enterKey}
-                  onChange={handleInputValue('password')}
+                  onChange={handleInputValue('user_password')}
                 />
                 {message.password === '비밀번호는 8글자 이상, 영문, 숫자 조합이어야 합니다.' ? (
                   <div className="signup-validation-message">{message.password}</div>
@@ -202,8 +204,8 @@ function SignupModal({ openSignupModalHandler }) {
                   className="signup-input"
                   placeholder="Nickname"
                   onKeyPress={enterKey}
-                  onChange={handleInputValue('nickname')}
-                  onBlur={handleOnblurName('nickname')}
+                  onChange={handleInputValue('user_nickname')}
+                  onBlur={handleOnblurName('user_nickname')}
                 />
                 {message.nickname === '닉네임은 특수문자를 제외한 2 ~ 20 글자이어야 합니다.' ? (
                   <div className="signup-validation-message">{message.nickname}</div>

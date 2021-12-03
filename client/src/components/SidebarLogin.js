@@ -32,7 +32,7 @@ function SidebarLogin({
 
   return (
     <div className="sidebar-container">
-      <div className="sidebar-menu-container" onclick={LogoutButtonHandler}>
+      <div className="sidebar-menu-container" onClick={LogoutButtonHandler}>
         <div className="sidebar-icon">&#x1F35A;</div>
         <div className="sidebar-text">로그아웃</div>
       </div>

@@ -8,9 +8,10 @@ function Header({
   setIsLogin,
   openLoginModalHandler,
   openSignupModalHandler,
+  accessToken,
   setAccessToken,
-  navigate,
   issueTokens,
+  navigate,
 }) {
   const [isLoginOpenSidebar, setIsLoginOpenSidebar] = useState(false);
   const [isNotLoginOpenSidebar, setIsNotLoginOpenSidebar] = useState(false);
@@ -34,7 +35,9 @@ function Header({
         <SidebarLogin
           openisLoginOpenSidebarHandler={openisLoginOpenSidebarHandler}
           setIsLogin={setIsLogin}
+          accessToken={accessToken}
           setAccessToken={setAccessToken}
+          issueTokens={issueTokens}
           navigate={navigate}
           issueTokens={issueTokens}
         />
