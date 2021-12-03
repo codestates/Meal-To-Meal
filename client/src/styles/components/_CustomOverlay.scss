@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 300px;
+  width: fit-content;
   height: fit-content;
   background-color: white;
   position: absolute;
@@ -25,8 +25,8 @@
 }
 
 .fa-times {
-  margin-right: 250px;
-  font-size: 25px;
+  margin-right: 85%;
+  font-size: 20px;
   transition: 100ms ease all;
 
   &:hover {
@@ -109,14 +109,9 @@
 
 @include tablet {
   .customOverlay-container {
-    width: 430px;
     bottom: -555px;
     right: -205px;
     font-size: 18px;
-  }
-
-  .fa-times {
-    margin-right: 390px;
   }
 
   .fa-map-marker-alt,
@@ -124,6 +119,11 @@
   .fa-heart,
   .fa-business-time {
     font-size: 30px;
+  }
+
+  .fa-times {
+    margin-right: 90%;
+    font-size: 25px;
   }
 
   .customOverlay-img {
@@ -145,20 +145,20 @@
 
 @include desktop {
   .customOverlay-container {
-    width: 530px;
     bottom: -585px;
     right: -265px;
     font-size: 18px;
-  }
-
-  .fa-times {
-    margin-right: 490px;
   }
 
   .fa-map-marker-alt,
   .fa-utensils,
   .fa-heart,
   .fa-business-time {
+    font-size: 30px;
+  }
+
+  .fa-times {
+    margin-right: 93%;
     font-size: 30px;
   }
 
