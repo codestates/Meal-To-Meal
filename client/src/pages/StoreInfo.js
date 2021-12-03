@@ -7,12 +7,12 @@ import ReviewBox from '../components/ReviewBox';
 import '../styles/pages/StoreInfo.css';
 import StoreDummydata from '../static/store_dummydata';
 
-function StoreInfo({ isLogin, setIsLogin, cartItem, setCartItem, removeFromCart, addToCart, setQuantity }) {
+function StoreInfo({ isLogin, setIsLogin, cartItems, setCartItems, removeFromCart, addToCart, setQuantity }) {
   const navigate = useNavigate();
 
   const goToShareCart = () => {
-    console.log(cartItem);
-    if (cartItem === undefined) {
+    console.log(cartItems);
+    if (cartItems.length === 0) {
       navigate('/empty');
     } else {
       navigate('/sharecart');
@@ -58,8 +58,8 @@ function StoreInfo({ isLogin, setIsLogin, cartItem, setCartItem, removeFromCart,
               </div>
               <div className="box-title">메뉴</div>
               <MenuBox
-                cartItem={cartItem}
-                setCartItem={setCartItem}
+                cartItems={cartItems}
+                setCartItems={setCartItems}
                 removeFromCart={removeFromCart}
                 addToCart={addToCart}
                 setQuantity={setQuantity}
@@ -71,12 +71,7 @@ function StoreInfo({ isLogin, setIsLogin, cartItem, setCartItem, removeFromCart,
             </div>
           </div>
           <div className="storeinfo-button-container">
-            <button
-              className="cart-button"
-              onClick={() => {
-                navigate('/sharecart');
-              }}
-            >
+            <button className="cart-button" onClick={() => goToShareCart(el)}>
               장바구니
             </button>
             <button className="back-button" onClick={() => navigate('/storeinfo')}>
