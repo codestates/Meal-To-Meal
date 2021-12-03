@@ -15,6 +15,9 @@ module.exports = {
           created_at: Sequelize.literal('CURRENT_TIMESTAMP'),
           updated_at: Sequelize.literal('CURRENT_TIMESTAMP'),
           is_admin: false,
+          kakao_oauth_token: '',
+          email_verified: true,
+          signup_method: '',
         },
       ],
       {}

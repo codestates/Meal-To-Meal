@@ -14,7 +14,10 @@ module.exports = (sequelize, DataTypes) => {
   user.init(
     {
       user_nickname: DataTypes.STRING,
-      user_password: DataTypes.STRING,
+      user_password: {
+        type: DataTypes.STRING,
+        defaultValue: '',
+      },
       user_phone_number: DataTypes.STRING,
       user_email: DataTypes.STRING,
       user_donation_count: {
@@ -32,6 +35,16 @@ module.exports = (sequelize, DataTypes) => {
       is_admin: {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
+      },
+      kakao_oauth_token: {
+        type: DataTypes.STRING,
+      },
+      email_verified: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false,
+      },
+      signup_method: {
+        type: DataTypes.STRING,
       },
     },
     {

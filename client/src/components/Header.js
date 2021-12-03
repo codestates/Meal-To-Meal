@@ -39,6 +39,7 @@ function Header({
           setAccessToken={setAccessToken}
           issueTokens={issueTokens}
           navigate={navigate}
+          issueTokens={issueTokens}
         />
       ) : null}
       {isNotLoginOpenSidebar ? (

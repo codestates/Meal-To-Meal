@@ -56,7 +56,6 @@ function LoginModal({
     window.location.assign(
       `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_CLIENT_ID}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`
     );
-    alert('ㅋㅏ카오!');
   };
 
   return (
