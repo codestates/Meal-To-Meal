@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Policy from './Policy';
 
 function SignupModal({ openSignupModalHandler }) {
+  const [policyOpen, setPolicyOpen] = useState(false);
   const [signupInfo, setSignupInfo] = useState({
     user_email: '',
     user_password: '',
@@ -115,6 +117,11 @@ function SignupModal({ openSignupModalHandler }) {
     validation.nickname &&
     validation.checkNickname;
 
+  const openPolicyHandler = () => {
+    setPolicyOpen(!policyOpen);
+    console.log(policyOpen);
+  };
+
   useEffect(() => {
     setMessage({
       ...message,
@@ -222,7 +229,7 @@ function SignupModal({ openSignupModalHandler }) {
                   ) : (
                     <button className="signup-button">Sign Up</button>
                   )}
-                  <button className="signup-policy-button" onClick={openSignupModalHandler}>
+                  <button className="signup-policy-button" onClick={openPolicyHandler}>
                     이용약관
                   </button>
                   <button className="signup-goback-button" onClick={openSignupModalHandler}>
@@ -233,6 +240,7 @@ function SignupModal({ openSignupModalHandler }) {
             </form>
           </div>
         </div>
+        {policyOpen ? <Policy onClick={e => e.stopPropagation()} openPolicyHandler={openPolicyHandler} /> : null}
       </div>
     </div>
   );

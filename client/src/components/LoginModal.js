@@ -28,7 +28,7 @@ function LoginModal({
       )
       .then(res => {
         setAccessToken(res.data.accessToken);
-        console.log(accessToken);
+        console.log(res.data.accessToken);
         setIsLogin(true);
         alert('로긴 성공! 끼얏호!!');
         navigate('/map');

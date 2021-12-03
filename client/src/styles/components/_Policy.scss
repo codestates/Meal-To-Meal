@@ -1,0 +1,38 @@
+@import '../mixin/mixin';
+
+.policy-modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 500px;
+  height: 800px;
+}
+
+.policy-title-container {
+}
+
+.policy-title-icon {
+}
+
+.policy-title-text {
+}
+
+.policy-content-container {
+}
+
+.policy-content-text {
+}
+
+.policy-button-container {
+}
+
+.policy-close-button {
+}
+
+@include mobile {
+}
+@include tablet {
+}
+@include desktop {
+}
