@@ -91,7 +91,6 @@ function App() {
               setAccessToken={setAccessToken}
               issueTokens={issueTokens}
               navigate={navigate}
-              issueTokens={issueTokens}
             />
           }
         />

@@ -15,7 +15,10 @@ module.exports = (sequelize, DataTypes) => {
       menu_name: DataTypes.STRING,
       menu_price: DataTypes.STRING,
       menu_image: DataTypes.STRING,
-      menu_order_quantity: DataTypes.INTEGER,
+      menu_order_quantity: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+      },
     },
     {
       sequelize,

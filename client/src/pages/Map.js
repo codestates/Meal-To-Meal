@@ -191,7 +191,6 @@ const Map = ({
         setAccessToken={setAccessToken}
         issueTokens={issueTokens}
         navigate={navigate}
-        issueTokens={issueTokens}
       />
       <div id="map" />
       <Search />

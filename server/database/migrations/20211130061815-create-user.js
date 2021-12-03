@@ -18,6 +18,7 @@ module.exports = {
       user_phone_number: {
         type: Sequelize.STRING,
       },
+      //폰번호 db삭제 여부 확인 요망
       kakao_oauth_token: {
         type: Sequelize.STRING,
       },
