@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 /* global kakao */
 import React, { useEffect } from 'react';
+import axios from 'axios';
 import '../styles/pages/Map.css';
 import Header from '../components/Header';
 import Search from '../components/Search';
@@ -150,6 +151,31 @@ const Map = ({
           customOverlay.setMap(map);
         });
       });
+    }
+  }, []);
+
+  useEffect(() => {
+    const getAccessToken = authorizationCode => {
+      axios
+        .post(`${process.env.REACT_APP_API_URL}/oauth/kakao/login`, {
+          authorizationCode,
+        })
+        .then(res => {
+          let accessToken = res.data.accessToken;
+          localStorage.setItem('AC_Token', accessToken);
+          setAccessToken(accessToken);
+          alert('로그인');
+          setIsLogin(true);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    };
+    const url = new URL(window.location.href);
+    const authorizationCode = url.searchParams.get('code');
+    console.log('--------------------인증 코드', authorizationCode);
+    if (authorizationCode) {
+      getAccessToken(authorizationCode);
     }
   }, []);
 

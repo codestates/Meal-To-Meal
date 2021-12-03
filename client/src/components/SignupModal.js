@@ -222,6 +222,9 @@ function SignupModal({ openSignupModalHandler }) {
                   ) : (
                     <button className="signup-button">Sign Up</button>
                   )}
+                  <button className="signup-policy-button" onClick={openSignupModalHandler}>
+                    이용약관
+                  </button>
                   <button className="signup-goback-button" onClick={openSignupModalHandler}>
                     닫기
                   </button>

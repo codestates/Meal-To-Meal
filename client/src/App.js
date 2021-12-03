@@ -98,7 +98,9 @@ function App() {
           openLoginModalHandler={openLoginModalHandler}
           isOpenSignupModal={isOpenSignupModal}
           openSignupModalHandler={openSignupModalHandler}
+          accessToken={accessToken}
           setAccessToken={setAccessToken}
+          isLogin={isLogin}
           setIsLogin={setIsLogin}
           navigate={navigate}
         />

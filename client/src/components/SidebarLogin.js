@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
+const { Kakao } = window;
 
 function SidebarLogin({
   openisLoginOpenSidebarHandler,
@@ -30,6 +31,15 @@ function SidebarLogin({
         alert('몬가...몬가 잘 못 되었엉!');
       });
   };
+
+  // const logoutWithKakao = () => {
+  //   const KAKAO_CLIENT_ID = '5c27007dfe0386c450a85c3aa7231b45';
+  //   const KAKAO_LOGOUT_REDIRECT_URI = 'http://localhost:3000/';
+  //   window.location.assign(
+  //     `https://kauth.kakao.com/oauth/logout?client_id={KAKAO_CLIENT_ID}&logout_redirect_uri={KAKAO_LOGOUT_REDIRECT_URI}`
+  //   );
+  //   alert('록아웃!');
+  // };
 
   return (
     <div className="sidebar-container">

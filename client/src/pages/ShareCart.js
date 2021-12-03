@@ -7,20 +7,20 @@ import '../styles/pages/ShareCart.css';
 
 function ShareCart({ isLogin, setIsLogin, cartItem, setCartItem }) {
   const navigate = useNavigate();
-  const [ordernum, setOrderNum] = useState(1);
+  const [orderNumber, setOrderNumber] = useState(1);
 
   useEffect(() => {
-    setOrderNum(ordernum);
+    setOrderNumber(orderNumber);
   });
   console.log(cartItem);
   const onIncrease = () => {
-    setOrderNum(ordernum + 1);
+    setOrderNumber(orderNumber + 1);
   };
   const onDecrease = () => {
-    if (ordernum > 1) {
-      setOrderNum(ordernum - 1);
+    if (orderNumber > 1) {
+      setOrderNumber(orderNumber - 1);
     } else {
-      setOrderNum(1);
+      setOrderNumber(1);
     }
   };
   const deleteBtnHandler = () => {
@@ -38,7 +38,7 @@ function ShareCart({ isLogin, setIsLogin, cartItem, setCartItem }) {
           <div className="sharecart-allcheck-text">전체 선택</div>
         </div>
         <SharecartItem
-          ordernum={ordernum}
+          orderNumber={orderNumber}
           onIncrease={onIncrease}
           onDecrease={onDecrease}
           cartItem={cartItem}
