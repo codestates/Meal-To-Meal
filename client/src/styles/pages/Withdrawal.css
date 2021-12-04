@@ -1,0 +1,248 @@
+.withdrawal-container {
+  padding: 20px;
+  margin-bottom: 80px;
+  min-height: 73.2vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.withdrawal-title {
+  margin-top: 20px;
+  margin-left: 5px;
+  margin-bottom: 30px;
+  font-weight: bolder;
+}
+
+.withdrawal-content-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border: 3px solid #ffcc1d;
+  padding: 15px;
+}
+
+.withdrawal-content-text {
+  margin: 20px;
+  font-size: 13px;
+  word-break: keep-all;
+  line-height: 25px;
+}
+
+.withdrawal-checkbox-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0 0 20px;
+}
+
+.checkbox-agree-text {
+  font-size: 15px;
+}
+
+.withdrawal-fillin-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 40px 0 0 20px;
+}
+
+.fillin-text {
+  margin-bottom: 10px;
+}
+
+.withdrawal-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin: 30px 100px 30px 100px;
+}
+
+.withdrawal-submit-button {
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+}
+
+.withdrawal-submit-button:hover {
+  background-color: red;
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
+}
+
+.withdrawal-submit-button:before, .withdrawal-submit-button:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.withdrawal-submit-button:hover:before, .withdrawal-submit-button:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.withdrawal-submit-button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.withdrawal-cancel-button {
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+}
+
+.withdrawal-cancel-button:hover {
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
+}
+
+.withdrawal-cancel-button:before, .withdrawal-cancel-button:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.withdrawal-cancel-button:hover:before, .withdrawal-cancel-button:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.withdrawal-cancel-button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .withdrawal-container {
+    margin-top: 40px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin-bottom: 15px;
+  }
+  .withdrawal-content-text {
+    margin: 20px 20px 20px 20px;
+    font-size: 15px;
+    word-break: keep-all;
+    line-height: 40px;
+  }
+  .withdrawal-checkbox-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 20px 0 20px 20px;
+  }
+  .withdrawal-fillin-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 20px 0 0 20px;
+  }
+  .withdrawal-button-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    margin: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .withdrawal-container {
+    margin-top: 40px;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin-bottom: 15px;
+  }
+  .withdrawal-content-text {
+    margin: 20px 20px 20px 20px;
+    font-size: 15px;
+    word-break: keep-all;
+    line-height: 45px;
+  }
+  .withdrawal-button-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    margin: 50px;
+  }
+}
+/*# sourceMappingURL=Withdrawal.css.map */
