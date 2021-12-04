@@ -13,6 +13,7 @@ import LoginModal from './components/LoginModal';
 import StoreInfo from '../src/pages/StoreInfo';
 import ShareCart from '../src/pages/ShareCart';
 import Withdrawal from '../src/pages/Withdrawal';
+import Mypage from '../src/pages/Mypage';
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -31,11 +32,9 @@ function App() {
         withCredentials: true,
       })
       .then(res => {
-        console.log('-------------- 토큰 작동 로그인 여전히 온!');
         setIsLogin(true);
       })
       .catch(err => {
-        console.log('------------------- 토큰 만료!');
         setIsLogin(false);
       });
   };
@@ -49,12 +48,9 @@ function App() {
         .then(res => {
           localStorage.setItem('accessToken', res.data.accessToken);
           issueTokens();
-          // setIsLogin(true);
-          console.log('accessToken', res.data.accessToken);
-          console.log('카카오 로그인 유지 중');
         })
         .catch(err => {
-          console.log(err, '카카오 로그인 풀림');
+          console.log(err);
         });
     }
   };
@@ -107,9 +103,6 @@ function App() {
     <div className="App">
       <Routes>
         <Route exact path="/" element={<Landing />} />
-        <Route path="/notfound" element={<NotFound />} />
-        <Route path="/empty" element={<EmptyShareCart />} />
-        <Route path="/withdrawal" element={<Withdrawal />} />
         <Route
           path="/map"
           element={
@@ -123,6 +116,10 @@ function App() {
             />
           }
         />
+        <Route path="/mypage" element={<Mypage />} />
+        <Route path="/notfound" element={<NotFound />} />
+        <Route path="/empty" element={<EmptyShareCart />} />
+        <Route path="/withdrawal" element={<Withdrawal />} />
         <Route
           path="/storeinfo"
           element={
