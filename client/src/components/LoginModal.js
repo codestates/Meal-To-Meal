@@ -2,14 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import SignupModal from './SignupModal';
 
-function LoginModal({
-  openLoginModalHandler,
-  isOpenSignupModal,
-  openSignupModalHandler,
-  setAccessToken,
-  setIsLogin,
-  navigate,
-}) {
+function LoginModal({ openLoginModalHandler, isOpenSignupModal, openSignupModalHandler, setIsLogin, navigate }) {
   const [loginInfo, setLoginInfo] = useState({
     user_email: '',
     user_password: '',
@@ -24,7 +17,7 @@ function LoginModal({
         { withCredentials: true, ContentType: 'application/json' }
       )
       .then(res => {
-        setAccessToken(res.data.accessToken);
+        localStorage.setItem('accessToken', res.data.accessToken);
         setIsLogin(true);
         alert('로긴 성공! 끼얏호!!');
         navigate('/map');

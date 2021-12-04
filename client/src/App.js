@@ -16,10 +16,9 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 function App() {
-  const [accessToken, setAccessToken] = useState('');
   const [isLogin, setIsLogin] = useState(false);
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
-  const [isOpenSignupModal, setIsOpenSigupModal] = useState(false);
+  const [isOpenSignupModal, setIsOpenSignupModal] = useState(false);
   const [cartItems, setCartItems] = useState([]);
 
   const navigate = useNavigate();
@@ -33,9 +32,10 @@ function App() {
       .then(res => {
         console.log('-------------- 토큰 작동 로그인 여전히 온!');
         setIsLogin(true);
+        console.log('--------------작동', res);
       })
       .catch(err => {
-        console.log('------------------- 토큰 만료!');
+        console.log('-------------------', err);
         setIsLogin(false);
       });
   };
@@ -44,7 +44,6 @@ function App() {
     issueTokens();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   const removeFromCart = item => {
     const found = cartItems.filter(el => el.id === item.id);
     const index = cartItems.findIndex(el => el.id === found[0].id);
@@ -75,7 +74,7 @@ function App() {
   };
 
   const openSignupModalHandler = () => {
-    setIsOpenSigupModal(!isOpenSignupModal);
+    setIsOpenSignupModal(!isOpenSignupModal);
   };
 
   return (
@@ -92,8 +91,6 @@ function App() {
               setIsLogin={setIsLogin}
               openLoginModalHandler={openLoginModalHandler}
               openSignupModalHandler={openSignupModalHandler}
-              accessToken={accessToken}
-              setAccessToken={setAccessToken}
               issueTokens={issueTokens}
               navigate={navigate}
             />
@@ -108,6 +105,8 @@ function App() {
               removeFromCart={removeFromCart}
               addToCart={addToCart}
               setQuantity={setQuantity}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
             />
           }
         />
@@ -127,19 +126,14 @@ function App() {
       {isLogin ? (
         <UnderbarLogin />
       ) : (
-        <UnderbarNotLogin
-          isOpenLoginModal={isOpenLoginModal}
-          openLoginModalHandler={openLoginModalHandler}
-          accessToken={accessToken}
-          setAccessToken={setAccessToken}
-        />
+        <UnderbarNotLogin isOpenLoginModal={isOpenLoginModal} openLoginModalHandler={openLoginModalHandler} />
       )}
       {isOpenLoginModal ? (
         <LoginModal
           openLoginModalHandler={openLoginModalHandler}
           isOpenSignupModal={isOpenSignupModal}
           openSignupModalHandler={openSignupModalHandler}
-          setAccessToken={setAccessToken}
+          isLogin={isLogin}
           setIsLogin={setIsLogin}
           navigate={navigate}
         />

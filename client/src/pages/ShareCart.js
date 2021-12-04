@@ -9,9 +9,9 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
   const navigate = useNavigate();
 
   const itemQuantity = cartItems.map(el => el.quantity);
-  const totalQuantity = itemQuantity.reduce((acc, cur) => acc + cur);
+  const totalQuantity = itemQuantity.reduce((acc, cur) => acc + cur, 0);
   const itemTotalPrice = cartItems.map(el => el.price * el.quantity);
-  const totalPrice = itemTotalPrice.reduce((acc, cur) => acc + cur);
+  const totalPrice = itemTotalPrice.reduce((acc, cur) => acc + cur, 0);
   const totalPriceToString = totalPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 
   return (
