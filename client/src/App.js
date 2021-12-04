@@ -108,6 +108,8 @@ function App() {
               removeFromCart={removeFromCart}
               addToCart={addToCart}
               setQuantity={setQuantity}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
             />
           }
         />
