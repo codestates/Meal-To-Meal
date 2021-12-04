@@ -162,7 +162,7 @@ const Map = ({
             authorizationCode,
           })
           .then(res => {
-            localStorage.setItem('AC_Token', res.data.accessToken);
+            localStorage.setItem('accessToken', res.data.accessToken);
             setAccessToken(res.data.accessToken);
             alert('로그인');
             setIsLogin(true);

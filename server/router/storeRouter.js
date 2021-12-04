@@ -4,8 +4,7 @@ const storeController = require('../controllers/store/store');
 
 router.post('/', storeController.post);
 router.get('/:storeid', storeController.getOne);
-router.get('/:view', storeController.getStoreList);
-//엔드 포인트 확인 필요
+router.get('/', storeController.getStoreList);
 router.put('/:storeid', storeController.put);
 router.delete('/:storeid', storeController.delete);
 

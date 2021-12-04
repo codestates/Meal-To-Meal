@@ -1,6 +1,6 @@
 import './styles/App.css';
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import UnderbarLogin from './components/UnderbarLogin';
@@ -27,18 +27,23 @@ function App() {
   const issueTokens = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/auth`, {
-        headers: { authorization: `Bearer ${accessToken}` },
+        headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` },
         withCredentials: true,
       })
       .then(res => {
+        console.log('-------------- 토큰 작동 로그인 여전히 온!');
         setIsLogin(true);
       })
       .catch(err => {
+        console.log('------------------- 토큰 만료!');
         setIsLogin(false);
-        alert('토크니가 만료 되옷오용! 헤헷! ^^');
-        navigate('/');
       });
   };
+
+  useEffect(() => {
+    issueTokens();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const removeFromCart = item => {
     const found = cartItems.filter(el => el.id === item.id);
