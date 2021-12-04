@@ -260,6 +260,10 @@ footer {
   cursor: pointer;
 }
 
+.sidebar-menu-container:hover {
+  color: red;
+}
+
 .sidebar-icon {
   margin-right: 10px;
   font-size: 30px;

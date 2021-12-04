@@ -1,0 +1,178 @@
+@import '../mixin/mixin';
+
+.withdrawal-container {
+  padding: 20px;
+  margin-bottom: 80px;
+  min-height: 73.2vh;
+  height: fit-content;
+}
+
+.withdrawal-title {
+  margin-top: 20px;
+  margin-left: 5px;
+  margin-bottom: 30px;
+  font-weight: bolder;
+}
+
+.withdrawal-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  border: 3px solid #ffcc1d;
+  padding: 15px;
+}
+
+.withdrawal-content-text {
+  margin: 20px;
+  font-size: 13px;
+  word-break: keep-all;
+  line-height: 25px;
+}
+
+.withdrawal-checkbox-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0 0 20px;
+}
+
+.checkbox-input-check {
+}
+
+.checkbox-agree-text {
+  font-size: 15px;
+}
+
+.withdrawal-fillin-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0 0 20px;
+}
+
+.fillin-text {
+  margin-bottom: 10px;
+}
+
+.fillin-input {
+}
+
+.withdrawal-button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 30px 100px 30px 100px;
+}
+
+.withdrawal-submit-button {
+  transition: 300ms ease all;
+
+  &:hover {
+    background-color: red;
+    box-shadow: gray 4px 4px 4px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.withdrawal-cancel-button {
+  transition: 300ms ease all;
+
+  &:hover {
+    box-shadow: gray 4px 4px 4px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+@include tablet {
+  .withdrawal-container {
+    margin-top: 40px;
+    height: fit-content;
+    margin-bottom: 15px;
+  }
+  .withdrawal-content-text {
+    margin: 20px 20px 20px 20px;
+    font-size: 15px;
+    word-break: keep-all;
+    line-height: 40px;
+  }
+  .withdrawal-checkbox-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 20px 20px;
+  }
+  .withdrawal-fillin-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 0 20px;
+  }
+  .withdrawal-button-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin: 30px;
+  }
+}
+@include desktop {
+  .withdrawal-container {
+    margin-top: 40px;
+    height: fit-content;
+    margin-bottom: 15px;
+  }
+  .withdrawal-content-text {
+    margin: 20px 20px 20px 20px;
+    font-size: 15px;
+    word-break: keep-all;
+    line-height: 45px;
+  }
+  .withdrawal-button-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin: 50px;
+  }
+}

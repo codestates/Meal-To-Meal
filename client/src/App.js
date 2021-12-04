@@ -12,6 +12,7 @@ import Map from '../src/pages/Map';
 import LoginModal from './components/LoginModal';
 import StoreInfo from '../src/pages/StoreInfo';
 import ShareCart from '../src/pages/ShareCart';
+import Withdrawal from '../src/pages/Withdrawal';
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -32,10 +33,9 @@ function App() {
       .then(res => {
         console.log('-------------- 토큰 작동 로그인 여전히 온!');
         setIsLogin(true);
-        console.log('--------------작동', res);
       })
       .catch(err => {
-        console.log('-------------------', err);
+        console.log('------------------- 토큰 만료!');
         setIsLogin(false);
       });
   };
@@ -109,6 +109,7 @@ function App() {
         <Route exact path="/" element={<Landing />} />
         <Route path="/notfound" element={<NotFound />} />
         <Route path="/empty" element={<EmptyShareCart />} />
+        <Route path="/withdrawal" element={<Withdrawal />} />
         <Route
           path="/map"
           element={
