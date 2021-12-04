@@ -43,7 +43,6 @@ function Header({
       ) : null}
       {isNotLoginOpenSidebar ? (
         <SidebarNotLogin
-          issueTokens={issueTokens}
           openLoginModalHandler={openLoginModalHandler}
           openisNotLoginOpenSidebarHandler={openisNotLoginOpenSidebarHandler}
           openSignupModalHandler={openSignupModalHandler}
