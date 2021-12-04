@@ -52,10 +52,12 @@ app.use('/auth', authRouter);
 app.use('/oauth', authRouter);
 app.use('/cart', cartRouter);
 app.use('/menu', menuRouter);
+app.use('/menu-list', menuRouter);
 app.use('/payment', paymentRouter);
 app.use('/ranking', rankingRouter);
 app.use('/review', reviewRouter);
 app.use('/store', storeRouter);
+app.use('/store-list', storeRouter);
 app.use('/user', userRouter);
 app.use('/usermeal', usermealRouter);
 
