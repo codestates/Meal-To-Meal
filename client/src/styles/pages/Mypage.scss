@@ -1,9 +1,15 @@
 @import '../mixin/mixin';
+@import '../components/Review';
 
 .mypage-container {
   margin: 15px;
   display: flex;
   flex-direction: column;
+  min-height: 80vh;
+}
+
+.mypage-title {
+  margin-bottom: 3px;
 }
 
 .mypage-myinfo-container {
@@ -23,6 +29,7 @@
 .mypage-fix-myinfo-toggle-button {
   margin: 5px 0 10px 0;
   opacity: 50%;
+  cursor: pointer;
 }
 
 .mypage-fix-toggle-container {
@@ -66,7 +73,19 @@
 }
 
 .mypage-review-container {
+  display: flex;
+  flex-direction: column;
   border: 3px solid #ffcc1d;
+}
+
+@include mobile {
+  .mypage-fix-toggle-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .mypage-review-container {
+    margin-bottom: 60px;
+  }
 }
 
 @include tablet {
@@ -112,4 +131,45 @@
   }
 }
 @include desktop {
+  .mypage-container {
+    margin-top: 80px;
+    min-height: 78.2vh;
+  }
+
+  .mypage-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .mypage-myinfo-nickname {
+    font-size: 25px;
+  }
+
+  .mypage-fix-myinfo-toggle-button {
+    font-size: 18px;
+  }
+
+  .fix-toggle-title {
+    font-size: 20px;
+  }
+
+  .fix-toggle-input {
+    width: 180px;
+    height: 30px;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  .mypage-myinfo-email {
+    font-size: 25px;
+  }
+
+  .fix-toggle-validation-message {
+    font-size: 15px;
+  }
+
+  .mypage-withdrawal-button {
+    width: 100px;
+    font-size: 20px;
+  }
 }

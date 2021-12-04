@@ -74,7 +74,7 @@ function StoreInfo({ isLogin, setIsLogin, cartItems, setCartItems, removeFromCar
             <button className="cart-button" onClick={() => goToShareCart(el)}>
               장바구니
             </button>
-            <button className="back-button" onClick={() => navigate('/storeinfo')}>
+            <button className="back-button" onClick={() => navigate('/map')}>
               뒤로 가기
             </button>
           </div>

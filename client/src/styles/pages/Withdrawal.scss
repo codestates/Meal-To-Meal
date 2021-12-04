@@ -2,16 +2,11 @@
 
 .withdrawal-container {
   padding: 20px;
-  margin-bottom: 80px;
   min-height: 73.2vh;
-  height: fit-content;
 }
 
 .withdrawal-title {
-  margin-top: 20px;
-  margin-left: 5px;
-  margin-bottom: 30px;
-  font-weight: bolder;
+  margin-bottom: 10px;
 }
 
 .withdrawal-content-container {
@@ -19,9 +14,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: fit-content;
   border: 3px solid #ffcc1d;
-  padding: 15px;
 }
 
 .withdrawal-content-text {
@@ -40,6 +33,7 @@
 }
 
 .checkbox-input-check {
+  margin-right: 15px;
 }
 
 .checkbox-agree-text {
@@ -49,9 +43,8 @@
 .withdrawal-fillin-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin: 40px 0 0 20px;
+  margin-top: 30px;
 }
 
 .fillin-text {
@@ -70,10 +63,11 @@
 }
 
 .withdrawal-submit-button {
-  transition: 300ms ease all;
+  transition: 210ms ease all;
 
   &:hover {
-    background-color: red;
+    color: white;
+    background-color: rgb(224, 105, 105);
     box-shadow: gray 4px 4px 4px;
   }
 
@@ -124,160 +118,105 @@
 
 @include tablet {
   .withdrawal-container {
-    margin-top: 40px;
-    height: fit-content;
-    margin-bottom: 15px;
+    margin-top: 60px;
+    min-height: 79.1vh;
   }
+
+  .withdrawal-title {
+    font-size: 28px;
+  }
+
   .withdrawal-content-text {
-    margin: 20px 20px 20px 20px;
-    font-size: 15px;
-    word-break: keep-all;
-    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 50px;
   }
-  .withdrawal-checkbox-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0 20px 20px;
+
+  .checkbox-input-check {
+    width: 20px;
+    height: 20px;
   }
-  .withdrawal-fillin-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0 0 20px;
+
+  .checkbox-agree-text {
+    font-size: 25px;
+    margin-left: 10px;
   }
-  .withdrawal-button-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    margin: 30px;
+
+  .fillin-text {
+    font-size: 25px;
+    margin-bottom: 25px;
   }
-  .withdrawal-submit-button {
-    width: 120px;
-    transition: 300ms ease all;
 
-    &:hover {
-      background-color: red;
-      box-shadow: gray 4px 4px 4px;
-    }
+  .fillin-input {
+    width: 150px;
+    height: 30px;
+    font-size: 24px;
+    padding: 5px 0 5px 15px;
+    color: red;
+    transition: 100ms ease all;
 
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
-      width: 0;
-      transition: ease all;
-    }
-
-    &:hover:before,
-    &:hover:after {
-      width: 100%;
-      transition: ease all;
-    }
-
-    &:active {
-      box-shadow: none;
+    &:focus {
+      border: 2px solid #ffcc1d;
+      outline: none;
     }
   }
 
+  .withdrawal-submit-button,
   .withdrawal-cancel-button {
-    transition: 300ms ease all;
-    width: 120px;
-    &:hover {
-      box-shadow: gray 4px 4px 4px;
-    }
-
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
-      width: 0;
-      transition: ease all;
-    }
-
-    &:hover:before,
-    &:hover:after {
-      width: 100%;
-      transition: ease all;
-    }
-
-    &:active {
-      box-shadow: none;
-    }
+    width: 100px;
+    height: 35px;
+    font-size: 20px;
   }
 }
 @include desktop {
   .withdrawal-container {
-    margin-top: 40px;
-    height: fit-content;
-    margin-bottom: 15px;
+    margin-top: 60px;
+    min-height: 77.6vh;
   }
+
+  .withdrawal-title {
+    font-size: 28px;
+  }
+
   .withdrawal-content-text {
-    margin: 20px 20px 20px 20px;
-    font-size: 15px;
-    word-break: keep-all;
-    line-height: 45px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 50px;
   }
-  .withdrawal-button-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    margin: 50px;
+
+  .checkbox-input-check {
+    width: 20px;
+    height: 20px;
   }
-  .withdrawal-submit-button {
-    transition: 300ms ease all;
-    width: 120px;
-    &:hover {
-      background-color: red;
-      box-shadow: gray 4px 4px 4px;
-    }
 
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
-      width: 0;
-      transition: ease all;
-    }
+  .checkbox-agree-text {
+    font-size: 25px;
+    margin-left: 10px;
+  }
 
-    &:hover:before,
-    &:hover:after {
-      width: 100%;
-      transition: ease all;
-    }
+  .fillin-text {
+    font-size: 25px;
+    margin-bottom: 25px;
+  }
 
-    &:active {
-      box-shadow: none;
+  .fillin-input {
+    width: 150px;
+    height: 30px;
+    font-size: 24px;
+    padding: 5px 0 5px 15px;
+    color: red;
+    transition: 100ms ease all;
+
+    &:focus {
+      border: 2px solid #ffcc1d;
+      outline: none;
     }
   }
 
+  .withdrawal-submit-button,
   .withdrawal-cancel-button {
-    transition: 300ms ease all;
-    width: 120px;
-    &:hover {
-      box-shadow: gray 4px 4px 4px;
-    }
-
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
-      width: 0;
-      transition: ease all;
-    }
-
-    &:hover:before,
-    &:hover:after {
-      width: 100%;
-      transition: ease all;
-    }
-
-    &:active {
-      box-shadow: none;
-    }
+    width: 100px;
+    height: 35px;
+    font-size: 20px;
   }
 }

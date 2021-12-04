@@ -465,6 +465,7 @@ footer {
   }
   .cart-button,
   .back-button {
+    width: 150px;
     font-size: 30px;
     height: 45px;
   }

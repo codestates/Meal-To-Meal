@@ -48,7 +48,11 @@ function Withdrawal({ setIsLogin }) {
           </div>
           <div className="withdrawal-checkbox-container">
             <input className="checkbox-input-check" type="checkbox" onClick={agreeCheckHandler} />
-            <div className="checkbox-agree-text">안내사항을 모두 확인하였으며, 이에 동의합니다</div>
+            <div className="checkbox-agree-text">
+              안내사항을 모두 확인하였으며,
+              <br />
+              이에 동의합니다
+            </div>
           </div>
           <div className="withdrawal-fillin-container">
             <div className="fillin-text">"탈퇴합니다"를 정확히 입력해주세요</div>
@@ -64,8 +68,8 @@ function Withdrawal({ setIsLogin }) {
                 탈퇴하기
               </button>
             )}
-            <button className="withdrawal-cancel-button" onClick={() => navigate('/map')}>
-              취소 (홈으로)
+            <button className="withdrawal-cancel-button" onClick={() => navigate(-1)}>
+              취소
             </button>
           </div>
         </div>
