@@ -41,7 +41,7 @@ function LoginModal({ openLoginModalHandler, isOpenSignupModal, openSignupModalH
 
   const loginWithKakao = () => {
     const KAKAO_CLIENT_ID = '5c27007dfe0386c450a85c3aa7231b45';
-    const KAKAO_REDIRECT_URI = 'http://localhost:3000/map';
+    const KAKAO_REDIRECT_URI = 'http://localhost:3000/kakao/map';
     window.location.assign(
       `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_CLIENT_ID}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`
     );

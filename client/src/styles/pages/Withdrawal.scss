@@ -155,6 +155,59 @@
     width: 100%;
     margin: 30px;
   }
+  .withdrawal-submit-button {
+    width: 120px;
+    transition: 300ms ease all;
+
+    &:hover {
+      background-color: red;
+      box-shadow: gray 4px 4px 4px;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      transition: ease all;
+    }
+
+    &:hover:before,
+    &:hover:after {
+      width: 100%;
+      transition: ease all;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  .withdrawal-cancel-button {
+    transition: 300ms ease all;
+    width: 120px;
+    &:hover {
+      box-shadow: gray 4px 4px 4px;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      transition: ease all;
+    }
+
+    &:hover:before,
+    &:hover:after {
+      width: 100%;
+      transition: ease all;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+  }
 }
 @include desktop {
   .withdrawal-container {
@@ -174,5 +227,57 @@
     align-items: center;
     width: 100%;
     margin: 50px;
+  }
+  .withdrawal-submit-button {
+    transition: 300ms ease all;
+    width: 120px;
+    &:hover {
+      background-color: red;
+      box-shadow: gray 4px 4px 4px;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      transition: ease all;
+    }
+
+    &:hover:before,
+    &:hover:after {
+      width: 100%;
+      transition: ease all;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  .withdrawal-cancel-button {
+    transition: 300ms ease all;
+    width: 120px;
+    &:hover {
+      box-shadow: gray 4px 4px 4px;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      transition: ease all;
+    }
+
+    &:hover:before,
+    &:hover:after {
+      width: 100%;
+      transition: ease all;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
   }
 }
