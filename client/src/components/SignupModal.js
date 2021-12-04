@@ -239,6 +239,7 @@ function SignupModal({ openSignupModalHandler }) {
               </div>
             </form>
           </div>
+          <img className="signup-modal-img" src={require('../img/Eating together-bro.png').default} alt="" />
         </div>
         {policyOpen ? <Policy onClick={e => e.stopPropagation()} openPolicyHandler={openPolicyHandler} /> : null}
       </div>
