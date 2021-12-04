@@ -32,10 +32,9 @@ function App() {
       .then(res => {
         console.log('-------------- 토큰 작동 로그인 여전히 온!');
         setIsLogin(true);
-        console.log('--------------작동', res);
       })
       .catch(err => {
-        console.log('-------------------', err);
+        console.log('------------------- 토큰 만료!');
         setIsLogin(false);
       });
   };
