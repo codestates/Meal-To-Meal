@@ -17,6 +17,7 @@ import Withdrawal from '../src/pages/Withdrawal';
 const dotenv = require('dotenv');
 dotenv.config();
 
+axios.defaults.withCredentials = true;
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
@@ -26,28 +27,38 @@ function App() {
   const navigate = useNavigate();
 
   const issueTokens = () => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/auth`, {
-        headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` },
-        withCredentials: true,
-      })
-      .then(res => {
-        setIsLogin(true);
-      })
-      .catch(err => {
-        setIsLogin(false);
-      });
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken) {
+      return;
+    } else {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/auth`, {
+          headers: { authorization: `Bearer ${accessToken}` },
+          withCredentials: true,
+        })
+        .then(res => {
+          setIsLogin(true);
+        })
+        .catch(err => {
+          setIsLogin(false);
+        });
+    }
   };
 
   const getAccessToken = authorizationCode => {
     if (authorizationCode) {
       axios
-        .post(`${process.env.REACT_APP_API_URL}/oauth/kakao/login`, {
-          authorizationCode,
-        })
+        .post(
+          `${process.env.REACT_APP_API_URL}/oauth/kakao/login`,
+          {
+            authorizationCode,
+          },
+          {
+            withCredentials: true,
+          }
+        )
         .then(res => {
           localStorage.setItem('accessToken', res.data.accessToken);
-          // issueTokens();
           setIsLogin(true);
           navigate('/map');
         })

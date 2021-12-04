@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/auth');
 
-router.get('/', authController.tokenAuth);
+router.get('/', authController.auth);
 router.post('/:email', authController.email.postEmailAuth);
 router.get('/:email', authController.email.getEmailAuth);
 

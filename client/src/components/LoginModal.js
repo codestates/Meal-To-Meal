@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import SignupModal from './SignupModal';
 
+axios.defaults.withCredentials = true;
+
 function LoginModal({ openLoginModalHandler, isOpenSignupModal, openSignupModalHandler, setIsLogin, navigate }) {
   const [loginInfo, setLoginInfo] = useState({
     user_email: '',
@@ -14,7 +16,7 @@ function LoginModal({ openLoginModalHandler, isOpenSignupModal, openSignupModalH
       .post(
         `${process.env.REACT_APP_API_URL}/user/login`,
         { user_email: user_email, user_password: user_password },
-        { withCredentials: true, ContentType: 'application/json' }
+        { headers: { 'Content-Type': 'application/json' } }
       )
       .then(res => {
         localStorage.setItem('accessToken', res.data.accessToken);
