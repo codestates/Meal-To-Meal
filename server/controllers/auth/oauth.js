@@ -24,7 +24,7 @@ module.exports = {
           headers: {
             'Content-type': 'application/x-www-form-urlencoded',
           },
-        });
+        }).catch(err => console.log(err));
 
         const { access_token } = response.data;
 
@@ -35,27 +35,29 @@ module.exports = {
             Authorization: `Bearer ${access_token}`,
             'Content-type': 'application/x-www-form-urlencoded',
           },
-        });
+        }).catch(err => console.log(err));
 
         const { email, profile } = kakaoUserInfo.data.kakao_account;
 
-        const [newUserInfo, created] = await user.findOrCreate({
-          where: { user_nickname: profile.nickname },
-          defaults: {
-            user_nickname: profile.nickname,
-            user_email: email || profile.nickname,
-            kakao_oauth_token: access_token,
-            //* db에서 삭제해도 되는지 검토 필요
-            user_donation_count: 0,
-            user_donation_money: 0,
-            today_used: false,
-            is_admin: false,
-            // profile_url: profile.profile_image_url,
-            signup_method: 'kakao',
-            email_verified: false,
-            //* db에 스키마 업데이트
-          },
-        });
+        const [newUserInfo, created] = await user
+          .findOrCreate({
+            where: { user_nickname: profile.nickname },
+            defaults: {
+              user_nickname: profile.nickname,
+              user_email: email || profile.nickname,
+              kakao_oauth_token: access_token,
+              //* db에서 삭제해도 되는지 검토 필요
+              user_donation_count: 0,
+              user_donation_money: 0,
+              today_used: false,
+              is_admin: false,
+              // profile_url: profile.profile_image_url,
+              signup_method: 'kakao',
+              email_verified: false,
+              //* db에 스키마 업데이트
+            },
+          })
+          .catch(err => console.log(err));
 
         delete newUserInfo.dataValues.password;
 

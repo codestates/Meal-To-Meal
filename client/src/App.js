@@ -40,10 +40,36 @@ function App() {
       });
   };
 
+  const getAccessToken = authorizationCode => {
+    if (authorizationCode) {
+      axios
+        .post(`${process.env.REACT_APP_API_URL}/oauth/kakao/login`, {
+          authorizationCode,
+        })
+        .then(res => {
+          localStorage.setItem('accessToken', res.data.accessToken);
+          issueTokens();
+          // setIsLogin(true);
+          console.log('accessToken', res.data.accessToken);
+          console.log('카카오 로그인 유지 중');
+        })
+        .catch(err => {
+          console.log(err, '카카오 로그인 풀림');
+        });
+    }
+  };
+  const url = new URL(window.location.href);
+  const authorizationCode = url.searchParams.get('code');
+  if (authorizationCode) {
+    getAccessToken(authorizationCode);
+  }
+
   useEffect(() => {
+    getAccessToken();
     issueTokens();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   const removeFromCart = item => {
     const found = cartItems.filter(el => el.id === item.id);
     const index = cartItems.findIndex(el => el.id === found[0].id);

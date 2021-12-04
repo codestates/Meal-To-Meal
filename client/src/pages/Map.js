@@ -145,31 +145,6 @@ const Map = ({ isLogin, setIsLogin, openLoginModalHandler, openSignupModalHandle
     }
   }, []);
 
-  useEffect(() => {
-    const getAccessToken = authorizationCode => {
-      if (authorizationCode) {
-        axios
-          .post(`${process.env.REACT_APP_API_URL}/oauth/kakao/login`, {
-            authorizationCode,
-          })
-          .then(res => {
-            localStorage.setItem('accessToken', res.data.accessToken);
-            alert('로그인');
-            setIsLogin(true);
-          })
-          .catch(err => {
-            console.log(err);
-          });
-      }
-    };
-    const url = new URL(window.location.href);
-    const authorizationCode = url.searchParams.get('code');
-    if (authorizationCode) {
-      getAccessToken(authorizationCode);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   return (
     <>
       <Header
