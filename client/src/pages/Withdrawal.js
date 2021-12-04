@@ -3,12 +3,34 @@ import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import '../styles/pages/Withdrawal.css';
+import axios from 'axios';
 
-function Withdrawal() {
+function Withdrawal({ setIsLogin }) {
   const navigate = useNavigate();
   const [agreeChecked, setAgreeChecked] = useState(false);
   const [fillinText, setFillinText] = useState('');
 
+  const agreeCheckHandler = () => {
+    setAgreeChecked(!agreeChecked);
+  };
+  const fillinCheckHandler = e => {
+    setFillinText(e.target.value);
+  };
+
+  const withdrawalSubmitHandler = () => {
+    axios
+      .delete(`${process.env.REACT_APP_API_URL}/user/withdrawal`, {
+        headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` },
+        withCredentials: true,
+      })
+      .then(res => {
+        setIsLogin(false);
+        navigate('/');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
   return (
     <>
       <Header />
@@ -25,15 +47,23 @@ function Withdrawal() {
             그동안 사용해주셔서 감사합니다.
           </div>
           <div className="withdrawal-checkbox-container">
-            <input className="checkbox-input-check" type="checkbox" />
+            <input className="checkbox-input-check" type="checkbox" onClick={agreeCheckHandler} />
             <div className="checkbox-agree-text">안내사항을 모두 확인하였으며, 이에 동의합니다</div>
           </div>
           <div className="withdrawal-fillin-container">
             <div className="fillin-text">"탈퇴합니다"를 정확히 입력해주세요</div>
-            <input className="fillin-input" />
+            <input className="fillin-input" onChange={fillinCheckHandler} />
           </div>
           <div className="withdrawal-button-container">
-            <button className="withdrawal-submit-button">탈퇴하기</button>
+            {agreeChecked === true && fillinText === '탈퇴합니다' ? (
+              <button className="withdrawal-submit-button" disabled={false} onClick={withdrawalSubmitHandler}>
+                탈퇴하기
+              </button>
+            ) : (
+              <button className="withdrawal-submit-button" disabled={true}>
+                탈퇴하기
+              </button>
+            )}
             <button className="withdrawal-cancel-button" onClick={() => navigate('/map')}>
               취소 (홈으로)
             </button>

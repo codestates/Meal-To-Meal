@@ -7,6 +7,7 @@ import UnderbarLogin from './components/UnderbarLogin';
 import UnderbarNotLogin from './components/UnderbarNotLogin';
 import NotFound from './pages/NotFound';
 import EmptyShareCart from './pages/EmptyShareCart';
+import EmptyOrderHistory from './pages/EmptyOrderHistory';
 import Landing from '../src/pages/Landing';
 import Map from '../src/pages/Map';
 import LoginModal from './components/LoginModal';
@@ -17,6 +18,7 @@ import Mypage from '../src/pages/Mypage';
 const dotenv = require('dotenv');
 dotenv.config();
 
+axios.defaults.withCredentials = true;
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
@@ -26,43 +28,55 @@ function App() {
   const navigate = useNavigate();
 
   const issueTokens = () => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/auth`, {
-        headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` },
-        withCredentials: true,
-      })
-      .then(res => {
-        setIsLogin(true);
-      })
-      .catch(err => {
-        setIsLogin(false);
-      });
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken) {
+      return;
+    } else {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/auth`, {
+          headers: { authorization: `Bearer ${accessToken}` },
+          withCredentials: true,
+        })
+        .then(res => {
+          setIsLogin(true);
+        })
+        .catch(err => {
+          setIsLogin(false);
+        });
+    }
   };
 
   const getAccessToken = authorizationCode => {
     if (authorizationCode) {
       axios
-        .post(`${process.env.REACT_APP_API_URL}/oauth/kakao/login`, {
-          authorizationCode,
-        })
+        .post(
+          `${process.env.REACT_APP_API_URL}/oauth/kakao/login`,
+          {
+            authorizationCode,
+          },
+          {
+            withCredentials: true,
+          }
+        )
         .then(res => {
           localStorage.setItem('accessToken', res.data.accessToken);
-          issueTokens();
+          setIsLogin(true);
+          navigate('/map');
         })
         .catch(err => {
           console.log(err);
         });
     }
   };
-  const url = new URL(window.location.href);
-  const authorizationCode = url.searchParams.get('code');
-  if (authorizationCode) {
-    getAccessToken(authorizationCode);
-  }
 
   useEffect(() => {
-    getAccessToken();
-    issueTokens();
+    const url = new URL(window.location.href);
+    const authorizationCode = url.searchParams.get('code');
+    if (authorizationCode) {
+      getAccessToken(authorizationCode);
+    } else {
+      issueTokens();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -103,6 +117,10 @@ function App() {
     <div className="App">
       <Routes>
         <Route exact path="/" element={<Landing />} />
+        <Route path="/notfound" element={<NotFound />} />
+        <Route path="/empty" element={<EmptyShareCart />} />
+        <Route path="/emptyhistory" element={<EmptyOrderHistory />} />
+        <Route path="/withdrawal" element={<Withdrawal setIsLogin={setIsLogin} />} />
         <Route
           path="/map"
           element={
@@ -116,10 +134,6 @@ function App() {
             />
           }
         />
-        <Route path="/mypage" element={<Mypage />} />
-        <Route path="/notfound" element={<NotFound />} />
-        <Route path="/empty" element={<EmptyShareCart />} />
-        <Route path="/withdrawal" element={<Withdrawal />} />
         <Route
           path="/storeinfo"
           element={

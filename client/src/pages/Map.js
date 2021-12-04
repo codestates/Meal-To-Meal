@@ -9,7 +9,15 @@ import StoreDummydata from '../static/store_dummydata';
 
 const { kakao } = window;
 
-const Map = ({ isLogin, setIsLogin, openLoginModalHandler, openSignupModalHandler, issueTokens, navigate }) => {
+const Map = ({
+  isLogin,
+  setIsLogin,
+  openLoginModalHandler,
+  openSignupModalHandler,
+  issueTokens,
+  navigate,
+  getAccessToken,
+}) => {
   useEffect(() => {
     const container = document.getElementById('map');
 
