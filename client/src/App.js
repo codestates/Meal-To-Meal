@@ -7,6 +7,7 @@ import UnderbarLogin from './components/UnderbarLogin';
 import UnderbarNotLogin from './components/UnderbarNotLogin';
 import NotFound from './pages/NotFound';
 import EmptyShareCart from './pages/EmptyShareCart';
+import EmptyOrderHistory from './pages/EmptyOrderHistory';
 import Landing from '../src/pages/Landing';
 import Map from '../src/pages/Map';
 import LoginModal from './components/LoginModal';
@@ -31,11 +32,9 @@ function App() {
         withCredentials: true,
       })
       .then(res => {
-        console.log('-------------- 토큰 작동 로그인 여전히 온!');
         setIsLogin(true);
       })
       .catch(err => {
-        console.log('------------------- 토큰 만료!');
         setIsLogin(false);
       });
   };
@@ -48,25 +47,24 @@ function App() {
         })
         .then(res => {
           localStorage.setItem('accessToken', res.data.accessToken);
-          issueTokens();
-          // setIsLogin(true);
-          console.log('accessToken', res.data.accessToken);
-          console.log('카카오 로그인 유지 중');
+          // issueTokens();
+          setIsLogin(true);
+          navigate('/map');
         })
         .catch(err => {
           console.log(err, '카카오 로그인 풀림');
         });
     }
   };
-  const url = new URL(window.location.href);
-  const authorizationCode = url.searchParams.get('code');
-  if (authorizationCode) {
-    getAccessToken(authorizationCode);
-  }
 
   useEffect(() => {
-    getAccessToken();
-    issueTokens();
+    const url = new URL(window.location.href);
+    const authorizationCode = url.searchParams.get('code');
+    if (authorizationCode) {
+      getAccessToken(authorizationCode);
+    } else {
+      issueTokens();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -109,7 +107,8 @@ function App() {
         <Route exact path="/" element={<Landing />} />
         <Route path="/notfound" element={<NotFound />} />
         <Route path="/empty" element={<EmptyShareCart />} />
-        <Route path="/withdrawal" element={<Withdrawal />} />
+        <Route path="/emptyhistory" element={<EmptyOrderHistory />} />
+        <Route path="/withdrawal" element={<Withdrawal setIsLogin={setIsLogin} />} />
         <Route
           path="/map"
           element={

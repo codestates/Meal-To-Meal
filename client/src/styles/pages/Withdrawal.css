@@ -215,6 +215,57 @@
     width: 100%;
     margin: 30px;
   }
+  .withdrawal-submit-button {
+    width: 120px;
+    -webkit-transition: 300ms ease all;
+    transition: 300ms ease all;
+  }
+  .withdrawal-submit-button:hover {
+    background-color: red;
+    -webkit-box-shadow: gray 4px 4px 4px;
+            box-shadow: gray 4px 4px 4px;
+  }
+  .withdrawal-submit-button:before, .withdrawal-submit-button:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    -webkit-transition: ease all;
+    transition: ease all;
+  }
+  .withdrawal-submit-button:hover:before, .withdrawal-submit-button:hover:after {
+    width: 100%;
+    -webkit-transition: ease all;
+    transition: ease all;
+  }
+  .withdrawal-submit-button:active {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .withdrawal-cancel-button {
+    -webkit-transition: 300ms ease all;
+    transition: 300ms ease all;
+    width: 120px;
+  }
+  .withdrawal-cancel-button:hover {
+    -webkit-box-shadow: gray 4px 4px 4px;
+            box-shadow: gray 4px 4px 4px;
+  }
+  .withdrawal-cancel-button:before, .withdrawal-cancel-button:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    -webkit-transition: ease all;
+    transition: ease all;
+  }
+  .withdrawal-cancel-button:hover:before, .withdrawal-cancel-button:hover:after {
+    width: 100%;
+    -webkit-transition: ease all;
+    transition: ease all;
+  }
+  .withdrawal-cancel-button:active {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -243,6 +294,57 @@
             align-items: center;
     width: 100%;
     margin: 50px;
+  }
+  .withdrawal-submit-button {
+    -webkit-transition: 300ms ease all;
+    transition: 300ms ease all;
+    width: 120px;
+  }
+  .withdrawal-submit-button:hover {
+    background-color: red;
+    -webkit-box-shadow: gray 4px 4px 4px;
+            box-shadow: gray 4px 4px 4px;
+  }
+  .withdrawal-submit-button:before, .withdrawal-submit-button:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    -webkit-transition: ease all;
+    transition: ease all;
+  }
+  .withdrawal-submit-button:hover:before, .withdrawal-submit-button:hover:after {
+    width: 100%;
+    -webkit-transition: ease all;
+    transition: ease all;
+  }
+  .withdrawal-submit-button:active {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .withdrawal-cancel-button {
+    -webkit-transition: 300ms ease all;
+    transition: 300ms ease all;
+    width: 120px;
+  }
+  .withdrawal-cancel-button:hover {
+    -webkit-box-shadow: gray 4px 4px 4px;
+            box-shadow: gray 4px 4px 4px;
+  }
+  .withdrawal-cancel-button:before, .withdrawal-cancel-button:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    -webkit-transition: ease all;
+    transition: ease all;
+  }
+  .withdrawal-cancel-button:hover:before, .withdrawal-cancel-button:hover:after {
+    width: 100%;
+    -webkit-transition: ease all;
+    transition: ease all;
+  }
+  .withdrawal-cancel-button:active {
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
 }
 /*# sourceMappingURL=Withdrawal.css.map */
