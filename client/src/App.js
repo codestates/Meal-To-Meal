@@ -14,6 +14,7 @@ import LoginModal from './components/LoginModal';
 import StoreInfo from '../src/pages/StoreInfo';
 import ShareCart from '../src/pages/ShareCart';
 import Withdrawal from '../src/pages/Withdrawal';
+import Mypage from '../src/pages/Mypage';
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -63,7 +64,7 @@ function App() {
           navigate('/map');
         })
         .catch(err => {
-          console.log(err, '카카오 로그인 풀림');
+          console.log(err);
         });
     }
   };
