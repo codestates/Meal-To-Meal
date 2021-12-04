@@ -254,6 +254,12 @@ button:active {
   background-color: #ffcc1d;
 }
 
+.signup-policy-button {
+  margin-right: 30px;
+  -webkit-transition: 120ms ease all;
+  transition: 120ms ease all;
+}
+
 .signup-goback-button {
   margin-right: 30px;
   -webkit-transition: 120ms ease all;

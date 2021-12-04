@@ -12,6 +12,7 @@ import Map from '../src/pages/Map';
 import LoginModal from './components/LoginModal';
 import StoreInfo from '../src/pages/StoreInfo';
 import ShareCart from '../src/pages/ShareCart';
+import Withdrawal from '../src/pages/Withdrawal';
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -84,6 +85,7 @@ function App() {
         <Route exact path="/" element={<Landing />} />
         <Route path="/notfound" element={<NotFound />} />
         <Route path="/empty" element={<EmptyShareCart />} />
+        <Route path="/withdrawal" element={<Withdrawal />} />
         <Route
           path="/map"
           element={
