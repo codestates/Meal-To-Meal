@@ -8,7 +8,6 @@ module.exports = {
       const storeInfo = await store.findOne({ where: { id: storeid } });
       res.status(200).json({ storeInfo: storeInfo });
     } catch (err) {
-      console.log(err);
       res.status(400).json({ message: '잘못된 요청입니다' });
     }
   },

@@ -16,6 +16,7 @@ import Withdrawal from '../src/pages/Withdrawal';
 const dotenv = require('dotenv');
 dotenv.config();
 
+axios.defaults.withCredentials = true;
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
@@ -25,31 +26,42 @@ function App() {
   const navigate = useNavigate();
 
   const issueTokens = () => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/auth`, {
-        headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` },
-        withCredentials: true,
-      })
-      .then(res => {
-        console.log('-------------- 토큰 작동 로그인 여전히 온!');
-        setIsLogin(true);
-      })
-      .catch(err => {
-        console.log('------------------- 토큰 만료!');
-        setIsLogin(false);
-      });
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken) {
+      return;
+    } else {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/auth`, {
+          headers: { authorization: `Bearer ${accessToken}` },
+          withCredentials: true,
+        })
+        .then(res => {
+          console.log('-------------- 토큰 작동 로그인 여전히 온!');
+          setIsLogin(true);
+        })
+        .catch(err => {
+          console.log('------------------- 토큰 만료!');
+          setIsLogin(false);
+        });
+    }
   };
 
   const getAccessToken = authorizationCode => {
     if (authorizationCode) {
       axios
-        .post(`${process.env.REACT_APP_API_URL}/oauth/kakao/login`, {
-          authorizationCode,
-        })
+        .post(
+          `${process.env.REACT_APP_API_URL}/oauth/kakao/login`,
+          {
+            authorizationCode,
+          },
+          {
+            withCredentials: true,
+          }
+        )
         .then(res => {
           localStorage.setItem('accessToken', res.data.accessToken);
-          issueTokens();
-          // setIsLogin(true);
+          setIsLogin(true);
+          navigate('/map');
           console.log('accessToken', res.data.accessToken);
           console.log('카카오 로그인 유지 중');
         })
@@ -58,15 +70,15 @@ function App() {
         });
     }
   };
-  const url = new URL(window.location.href);
-  const authorizationCode = url.searchParams.get('code');
-  if (authorizationCode) {
-    getAccessToken(authorizationCode);
-  }
 
   useEffect(() => {
-    getAccessToken();
-    issueTokens();
+    const url = new URL(window.location.href);
+    const authorizationCode = url.searchParams.get('code');
+    if (authorizationCode) {
+      getAccessToken(authorizationCode);
+    } else {
+      issueTokens();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
