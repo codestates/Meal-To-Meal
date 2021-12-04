@@ -1,24 +1,38 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('menu', {
+    await queryInterface.createTable('store', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      menu_name: {
+      store_name: {
         type: Sequelize.STRING,
       },
-      menu_price: {
+      store_image: {
         type: Sequelize.STRING,
       },
-      menu_image: {
+      store_description: {
         type: Sequelize.STRING,
       },
-      menu_order_quantity: {
+      store_address: {
+        type: Sequelize.STRING,
+      },
+      store_category: {
+        type: Sequelize.STRING,
+      },
+      store_order_quantity: {
         type: Sequelize.INTEGER,
-        defaultValue: 0,
+      },
+      store_lat: {
+        type: Sequelize.STRING,
+      },
+      store_lng: {
+        type: Sequelize.STRING,
+      },
+      business_hour: {
+        type: Sequelize.STRING,
       },
       created_at: {
         allowNull: false,
@@ -31,6 +45,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('menu');
+    await queryInterface.dropTable('store');
   },
 };
