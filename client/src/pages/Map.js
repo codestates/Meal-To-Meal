@@ -2,14 +2,13 @@
 /* global kakao */
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import '../styles/pages/Map.css';
-import Header from '../components/Header';
 import Search from '../components/Search';
+import '../styles/pages/Map.css';
 import StoreDummydata from '../static/store_dummydata';
 
 const { kakao } = window;
 
-const Map = ({ isLogin, setIsLogin, openLoginModalHandler, openSignupModalHandler, issueTokens, navigate }) => {
+const Map = () => {
   useEffect(() => {
     const container = document.getElementById('map');
 
@@ -155,14 +154,6 @@ const Map = ({ isLogin, setIsLogin, openLoginModalHandler, openSignupModalHandle
 
   return (
     <>
-      <Header
-        isLogin={isLogin}
-        setIsLogin={setIsLogin}
-        openLoginModalHandler={openLoginModalHandler}
-        openSignupModalHandler={openSignupModalHandler}
-        issueTokens={issueTokens}
-        navigate={navigate}
-      />
       <div id="map" />
       <Search />
     </>

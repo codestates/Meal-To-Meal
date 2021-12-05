@@ -3,6 +3,11 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
+import Alert from './components/Alert';
+import WarningAlert from './components/WarningAlert';
+import Loading from './components/Loading';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import UnderbarLogin from './components/UnderbarLogin';
 import UnderbarNotLogin from './components/UnderbarNotLogin';
 import NotFound from './pages/NotFound';
@@ -20,9 +25,17 @@ dotenv.config();
 
 axios.defaults.withCredentials = true;
 function App() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const [isLogin, setIsLogin] = useState(false);
+
+  const [isOpenAlert, setIsOpenAlert] = useState(false);
+  const [isOpenWarningAlert, setIsOpenWarningAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
+
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
   const [isOpenSignupModal, setIsOpenSignupModal] = useState(false);
+
   const [cartItems, setCartItems] = useState([]);
 
   const navigate = useNavigate();
@@ -42,6 +55,8 @@ function App() {
         })
         .catch(err => {
           setIsLogin(false);
+          setAlertMessage('잘못된 요청입니다.');
+          openWarningAlertHandler();
         });
     }
   };
@@ -64,6 +79,8 @@ function App() {
           navigate('/map');
         })
         .catch(err => {
+          setAlertMessage('잘못된 요청입니다.');
+          openWarningAlertHandler();
           console.log(err);
         });
     }
@@ -113,8 +130,29 @@ function App() {
     setIsOpenSignupModal(!isOpenSignupModal);
   };
 
+  const openAlertHandler = () => {
+    setIsOpenAlert(!isOpenAlert);
+    setTimeout(() => setIsOpenAlert(false), 2000);
+  };
+
+  const openWarningAlertHandler = () => {
+    setIsOpenWarningAlert(!isOpenWarningAlert);
+    setTimeout(() => setIsOpenWarningAlert(false), 2000);
+  };
+
   return (
     <div className="App">
+      <Header
+        isLogin={isLogin}
+        setIsLogin={setIsLogin}
+        openLoginModalHandler={openLoginModalHandler}
+        openSignupModalHandler={openSignupModalHandler}
+        issueTokens={issueTokens}
+        navigate={navigate}
+        openAlertHandler={openAlertHandler}
+        openWarningAlertHandler={openWarningAlertHandler}
+        setAlertMessage={setAlertMessage}
+      />
       <Routes>
         <Route exact path="/" element={<Landing />} />
         <Route path="/notfound" element={<NotFound />} />
@@ -132,6 +170,9 @@ function App() {
               openSignupModalHandler={openSignupModalHandler}
               issueTokens={issueTokens}
               navigate={navigate}
+              openAlertHandler={openAlertHandler}
+              openWarningAlertHandler={openWarningAlertHandler}
+              setAlertMessage={setAlertMessage}
             />
           }
         />
@@ -146,6 +187,8 @@ function App() {
               setQuantity={setQuantity}
               cartItems={cartItems}
               setCartItems={setCartItems}
+              openLoginModalHandler={openLoginModalHandler}
+              openSignupModalHandler={openSignupModalHandler}
             />
           }
         />
@@ -163,9 +206,20 @@ function App() {
         />
       </Routes>
       {isLogin ? (
-        <UnderbarLogin />
+        <UnderbarLogin
+          setIsLogin={setIsLogin}
+          navigate={navigate}
+          openAlertHandler={openAlertHandler}
+          openWarningAlertHandler={openWarningAlertHandler}
+          setAlertMessage={setAlertMessage}
+        />
       ) : (
-        <UnderbarNotLogin isOpenLoginModal={isOpenLoginModal} openLoginModalHandler={openLoginModalHandler} />
+        <UnderbarNotLogin
+          isOpenLoginModal={isOpenLoginModal}
+          openLoginModalHandler={openLoginModalHandler}
+          openWarningAlertHandler={openWarningAlertHandler}
+          setAlertMessage={setAlertMessage}
+        />
       )}
       {isOpenLoginModal ? (
         <LoginModal
@@ -175,8 +229,16 @@ function App() {
           isLogin={isLogin}
           setIsLogin={setIsLogin}
           navigate={navigate}
+          openAlertHandler={openAlertHandler}
+          openWarningAlertHandler={openWarningAlertHandler}
+          setAlertMessage={setAlertMessage}
         />
       ) : null}
+      {isOpenAlert ? <Alert openAlertHandler={openAlertHandler} alertMessage={alertMessage} /> : null}
+      {isOpenWarningAlert ? (
+        <WarningAlert openWarningAlertHandler={openWarningAlertHandler} alertMessage={alertMessage} />
+      ) : null}
+      <Footer />
     </div>
   );
 }

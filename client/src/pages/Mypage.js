@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/pages/Mypage.css';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import Review from '../components/Review';
 
 function Mypage({ navigate }) {
@@ -19,7 +17,6 @@ function Mypage({ navigate }) {
 
   return (
     <>
-      <Header />
       <div className="mypage-container">
         <div className="mypage-title">내 정보</div>
         <div className="mypage-myinfo-container">
@@ -67,7 +64,6 @@ function Mypage({ navigate }) {
           <Review />
         </div>
       </div>
-      <Footer />
     </>
   );
 }

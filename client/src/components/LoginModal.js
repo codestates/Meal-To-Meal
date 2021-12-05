@@ -4,7 +4,16 @@ import SignupModal from './SignupModal';
 
 axios.defaults.withCredentials = true;
 
-function LoginModal({ openLoginModalHandler, isOpenSignupModal, openSignupModalHandler, setIsLogin, navigate }) {
+function LoginModal({
+  openLoginModalHandler,
+  isOpenSignupModal,
+  openSignupModalHandler,
+  setIsLogin,
+  navigate,
+  openAlertHandler,
+  openWarningAlertHandler,
+  setAlertMessage,
+}) {
   const [loginInfo, setLoginInfo] = useState({
     user_email: '',
     user_password: '',
@@ -21,7 +30,8 @@ function LoginModal({ openLoginModalHandler, isOpenSignupModal, openSignupModalH
       .then(res => {
         localStorage.setItem('accessToken', res.data.accessToken);
         setIsLogin(true);
-        alert('로긴 성공! 끼얏호!!');
+        setAlertMessage('로그인 되었습니다!');
+        openAlertHandler();
         navigate('/map');
         openLoginModalHandler();
       })
@@ -77,9 +87,9 @@ function LoginModal({ openLoginModalHandler, isOpenSignupModal, openSignupModalH
                   로그인
                 </button>
                 <div className="login-signup-text">아직 회원이 아니신가요?</div>
-                <div className="login-signup-link" onClick={openSignupModalHandler}>
-                  회원가입
-                </div>
+              </div>
+              <div className="login-signup-link" onClick={openSignupModalHandler}>
+                회원가입
               </div>
               <div className="login-kakao-container">
                 <img
@@ -94,7 +104,13 @@ function LoginModal({ openLoginModalHandler, isOpenSignupModal, openSignupModalH
           <img className="login-modal-img" src={require('../img/Coffee shop-bro.png').default} alt="" />
         </div>
         {isOpenSignupModal ? (
-          <SignupModal onClick={e => e.stopPropagation()} openSignupModalHandler={openSignupModalHandler} />
+          <SignupModal
+            onClick={e => e.stopPropagation()}
+            openSignupModalHandler={openSignupModalHandler}
+            openAlertHandler={openAlertHandler}
+            openWarningAlertHandler={openWarningAlertHandler}
+            setAlertMessage={setAlertMessage}
+          />
         ) : null}
       </div>
     </div>

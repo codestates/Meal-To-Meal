@@ -12,6 +12,10 @@ function Header({
   setAccessToken,
   issueTokens,
   navigate,
+  openAlertHandler,
+  openWarningAlertHandler,
+  setAlertMessage,
+  loginAlertOpenHandler,
 }) {
   const [isLoginOpenSidebar, setIsLoginOpenSidebar] = useState(false);
   const [isNotLoginOpenSidebar, setIsNotLoginOpenSidebar] = useState(false);
@@ -22,6 +26,8 @@ function Header({
   const openisNotLoginOpenSidebarHandler = () => {
     setIsNotLoginOpenSidebar(!isNotLoginOpenSidebar);
   };
+
+  if (window.location.pathname === '/') return null;
 
   return (
     <div className="header-container">
@@ -39,6 +45,9 @@ function Header({
           setAccessToken={setAccessToken}
           issueTokens={issueTokens}
           navigate={navigate}
+          openAlertHandler={openAlertHandler}
+          openWarningAlertHandler={openWarningAlertHandler}
+          setAlertMessage={setAlertMessage}
         />
       ) : null}
       {isNotLoginOpenSidebar ? (

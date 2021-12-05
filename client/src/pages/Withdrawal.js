@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import '../styles/pages/Withdrawal.css';
 import axios from 'axios';
 
@@ -33,7 +31,6 @@ function Withdrawal({ setIsLogin }) {
   };
   return (
     <>
-      <Header />
       <div className="withdrawal-container">
         <div className="withdrawal-title">탈퇴 안내</div>
         <div className="withdrawal-content-container">
@@ -74,7 +71,6 @@ function Withdrawal({ setIsLogin }) {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

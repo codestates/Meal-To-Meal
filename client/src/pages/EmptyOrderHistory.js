@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 
 function EmptyOrderHistory() {
   const navigate = useNavigate();
@@ -18,7 +16,6 @@ function EmptyOrderHistory() {
   }, []);
   return (
     <>
-      <Header />
       <div className="empty-order-container">
         <div className="empty-order-title">예약 내역</div>
         <div className="empty-order-content-container">
@@ -27,7 +24,6 @@ function EmptyOrderHistory() {
           <button className="empty-back-button">뒤로 가기</button>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Policy from './Policy';
 
-function SignupModal({ openSignupModalHandler }) {
+function SignupModal({ openSignupModalHandler, openAlertHandler, openWarningAlertHandler, setAlertMessage }) {
   const [isOpenPolicyModal, setIsOpenPolicyModal] = useState(false);
   const [signupInfo, setSignupInfo] = useState({
     user_email: '',
@@ -97,10 +97,13 @@ function SignupModal({ openSignupModalHandler }) {
         user_nickname,
       })
       .then(res => {
-        alert('회갑 됨. 로긴하셈');
+        setAlertMessage('회원가입이 완료되었습니다!');
+        openAlertHandler();
         openSignupModalHandler();
       })
       .catch(err => {
+        setAlertMessage('잘못된 요청입니다.');
+        openWarningAlertHandler();
         console.log(err);
       });
   };

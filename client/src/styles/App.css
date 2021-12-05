@@ -181,9 +181,9 @@ footer {
           align-items: center;
 }
 
-.logo {
-  height: 65px;
-  margin: 5px;
+.footer-logo-img {
+  height: 50px;
+  margin: 5px 10px 5px 5px;
 }
 
 .footer-title-text {
@@ -206,15 +206,10 @@ footer {
   }
 }
 
-@media (min-width: 758px) and (max-width: 1023px) {
-  footer {
-    font-size: 12px;
-  }
-}
-
 @media (min-width: 1024px) {
-  footer {
-    font-size: 16px;
+  .footer-logo-img {
+    height: 70px;
+    margin: 5px 10px 5px 5px;
   }
 }
 
@@ -635,6 +630,129 @@ button {
   .policy-content-text {
     font-size: 18px;
     padding: 15px;
+  }
+}
+
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.alert-backdrop {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.alert-window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 250px;
+  background-color: white;
+  border: 8px solid #ffcc1d;
+  border-radius: 45px;
+  padding: 10px;
+  -webkit-animation: appear 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+          animation: appear 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.alert-animation {
+  height: 120px;
+  padding-bottom: 15px;
+}
+
+.alert-message {
+  font-size: 20px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .alert-window {
+    width: 340px;
+    padding: 15px;
+  }
+  .alert-animation {
+    height: 160px;
+  }
+  .alert-message {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .alert-window {
+    width: 440px;
+    padding: 30px;
+  }
+  .alert-animation {
+    height: 200px;
+  }
+  .alert-message {
+    font-size: 35px;
+  }
+}
+
+.loading-backdrop {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.loading-animation {
+  height: 120px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .loading-animation {
+    height: 180px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .loading-animation {
+    height: 220px;
   }
 }
 /*# sourceMappingURL=App.css.map */

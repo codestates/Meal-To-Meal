@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import MenuBox from '../components/MenuBox';
 import ReviewBox from '../components/ReviewBox';
 import '../styles/pages/StoreInfo.css';
 import StoreDummydata from '../static/store_dummydata';
 
-function StoreInfo({ isLogin, setIsLogin, cartItems, setCartItems, removeFromCart, addToCart, setQuantity }) {
+function StoreInfo({
+  isLogin,
+  setIsLogin,
+  cartItems,
+  setCartItems,
+  removeFromCart,
+  addToCart,
+  setQuantity,
+  openLoginModalHandler,
+  openSignupModalHandler,
+}) {
   const navigate = useNavigate();
 
   const goToShareCart = () => {
-    console.log(cartItems);
     if (cartItems.length === 0) {
       navigate('/empty');
     } else {
@@ -26,7 +33,6 @@ function StoreInfo({ isLogin, setIsLogin, cartItems, setCartItems, removeFromCar
 
   return (
     <>
-      <Header />
       {StoreDummydata.filter(el => el.id === 1).map(el => (
         <div className="storeinfo-page-container">
           <div className="storeinfo-info-menu-review-container">
@@ -63,6 +69,9 @@ function StoreInfo({ isLogin, setIsLogin, cartItems, setCartItems, removeFromCar
                 removeFromCart={removeFromCart}
                 addToCart={addToCart}
                 setQuantity={setQuantity}
+                isLogin={isLogin}
+                openLoginModalHandler={openLoginModalHandler}
+                openSignupModalHandler={openSignupModalHandler}
               />
             </div>
             <div className="menu-box-container">
@@ -80,7 +89,6 @@ function StoreInfo({ isLogin, setIsLogin, cartItems, setCartItems, removeFromCar
           </div>
         </div>
       ))}
-      <Footer />
     </>
   );
 }
