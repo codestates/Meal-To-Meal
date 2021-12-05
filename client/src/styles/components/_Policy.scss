@@ -2,36 +2,65 @@
 
 .policy-modal-container {
   display: flex;
+  flex-direction: column;
+}
+.policy-modal-backdrop {
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: grid;
+  place-items: center;
+}
+.policy-modal-window {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: white;
+  border: 4px solid #ffcc1d;
+  padding: 20px;
+  margin-bottom: 230px;
+  margin-top: 20px;
+}
+.policy-title-container {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  width: 500px;
-  height: 800px;
-}
-
-.policy-title-container {
+  border: 2px solid black;
 }
 
 .policy-title-icon {
+  width: 15px;
 }
 
 .policy-title-text {
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .policy-content-container {
 }
 
 .policy-content-text {
+  word-break: keep-all;
+  font-size: 13px;
+  overflow: auto;
 }
 
 .policy-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .policy-close-button {
+  width: 100px;
 }
 
-@include mobile {
-}
 @include tablet {
 }
 @include desktop {

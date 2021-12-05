@@ -15,6 +15,7 @@ import StoreInfo from '../src/pages/StoreInfo';
 import ShareCart from '../src/pages/ShareCart';
 import Withdrawal from '../src/pages/Withdrawal';
 import Mypage from '../src/pages/Mypage';
+import ReviewUploadModal from './components/ReviewUploadModal';
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -121,6 +122,8 @@ function App() {
         <Route path="/empty" element={<EmptyShareCart />} />
         <Route path="/emptyhistory" element={<EmptyOrderHistory />} />
         <Route path="/withdrawal" element={<Withdrawal setIsLogin={setIsLogin} />} />
+        <Route path="/mypage" element={<Mypage />} />
+        <Route path="/reviewmodal" element={<ReviewUploadModal />} />
         <Route
           path="/map"
           element={

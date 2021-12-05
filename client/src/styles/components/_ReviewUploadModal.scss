@@ -1,0 +1,102 @@
+@import '../mixin/mixin';
+
+.review-modal-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-modal-backdrop {
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: grid;
+  place-items: center;
+}
+
+.review-modal-window {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: white;
+  border: 4px solid #ffcc1d;
+  padding: 20px;
+  margin-bottom: 230px;
+  margin-top: 20px;
+  height: 220px;
+}
+
+.review-modal-title-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.review-title-text {
+  margin-right: 100px;
+}
+
+.review-submit-button {
+  height: 20px;
+}
+
+.review-store-info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.review-store-category-icon {
+  width: 15px;
+}
+
+.review-store-name {
+  font-size: 13px;
+}
+
+.review-food-name {
+  font-weight: bolder;
+  font-size: 13px;
+}
+
+.review-user-content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-food-image {
+  width: 100px;
+}
+
+.review-food-text {
+  border: 2px solid grey;
+  margin: 15px 0 15px 15px;
+  padding: 5px;
+  font-size: 13px;
+  height: 60px;
+  resize: none;
+  transition: 100ms ease all;
+  &:focus {
+    outline: none;
+    border: 2px solid black;
+    box-shadow: 2px 2px 2px gray;
+  }
+}
+
+.review-image-upload-button {
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+@include tablet {
+}
+
+@include desktop {
+}
