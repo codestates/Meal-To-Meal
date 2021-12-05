@@ -65,8 +65,8 @@ function Withdrawal({ setIsLogin }) {
                 탈퇴하기
               </button>
             )}
-            <button className="withdrawal-cancel-button" onClick={() => navigate(-1)}>
-              취소
+            <button className="withdrawal-cancel-button" onClick={() => navigate('/map')}>
+              취소 (홈으로)
             </button>
           </div>
         </div>

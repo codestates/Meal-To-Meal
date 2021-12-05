@@ -224,7 +224,7 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: fixed;
+  position: absolute;
   top: 65px;
   left: 1;
   bottom: 0;
@@ -697,8 +697,66 @@ button {
   padding-bottom: 15px;
 }
 
+.alert-title {
+  font-size: 25px;
+  word-break: keep-all;
+}
+
 .alert-message {
   font-size: 20px;
+  word-break: keep-all;
+}
+
+.alert-ownstore-animation {
+  height: 180px;
+}
+
+.alert-ownstore-title {
+  font-size: 16px;
+  text-align: center;
+  word-break: keep-all;
+  margin-bottom: 10px;
+}
+
+.alert-ownstore-message {
+  font-size: 12px;
+  word-break: keep-all;
+  text-align: center;
+}
+
+.alert-ownstore-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+  margin: 10px;
+}
+
+.alert-ownstore-donation-button:hover {
+  color: #ffcc1d;
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
+}
+
+.alert-ownstore-donation-button:before, .alert-ownstore-donation-button:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.alert-ownstore-donation-button:hover:before, .alert-ownstore-donation-button:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.alert-ownstore-donation-button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
@@ -712,6 +770,20 @@ button {
   .alert-message {
     font-size: 30px;
   }
+  .alert-ownstore-animation {
+    height: 280px;
+  }
+  .alert-ownstore-title {
+    font-size: 22px;
+  }
+  .alert-ownstore-message {
+    font-size: 18px;
+  }
+  .alert-ownstore-donation-button {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -724,6 +796,30 @@ button {
   }
   .alert-message {
     font-size: 35px;
+  }
+  .alert-window {
+    width: 340px;
+    padding: 15px;
+  }
+  .alert-animation {
+    height: 160px;
+  }
+  .alert-message {
+    font-size: 30px;
+  }
+  .alert-ownstore-animation {
+    height: 380px;
+  }
+  .alert-ownstore-title {
+    font-size: 22px;
+  }
+  .alert-ownstore-message {
+    font-size: 18px;
+  }
+  .alert-ownstore-donation-button {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
   }
 }
 

@@ -52,6 +52,15 @@
 }
 
 .fillin-input {
+  font-weight: bolder;
+  transition: 100ms ease all;
+  border: 3px solid;
+
+  &:focus {
+    border: 3px solid #ffcc1d;
+    box-shadow: gray 2px 2px 2px 2px;
+    outline: none;
+  }
 }
 
 .withdrawal-button-container {
@@ -64,10 +73,11 @@
 
 .withdrawal-submit-button {
   transition: 210ms ease all;
+  width: fit-content;
 
   &:hover {
     color: white;
-    background-color: rgb(224, 105, 105);
+    background-color: red;
     box-shadow: gray 4px 4px 4px;
   }
 
@@ -92,6 +102,7 @@
 
 .withdrawal-cancel-button {
   transition: 300ms ease all;
+  width: fit-content;
 
   &:hover {
     box-shadow: gray 4px 4px 4px;
@@ -119,7 +130,7 @@
 @include tablet {
   .withdrawal-container {
     margin-top: 60px;
-    min-height: 79.1vh;
+    min-height: 80.6vh;
   }
 
   .withdrawal-title {
@@ -152,18 +163,10 @@
     height: 30px;
     font-size: 24px;
     padding: 5px 0 5px 15px;
-    color: red;
-    transition: 100ms ease all;
-
-    &:focus {
-      border: 2px solid #ffcc1d;
-      outline: none;
-    }
   }
 
   .withdrawal-submit-button,
   .withdrawal-cancel-button {
-    width: 100px;
     height: 35px;
     font-size: 20px;
   }
@@ -171,7 +174,7 @@
 @include desktop {
   .withdrawal-container {
     margin-top: 60px;
-    min-height: 77.6vh;
+    min-height: 77.4vh;
   }
 
   .withdrawal-title {
@@ -204,18 +207,10 @@
     height: 30px;
     font-size: 24px;
     padding: 5px 0 5px 15px;
-    color: red;
-    transition: 100ms ease all;
-
-    &:focus {
-      border: 2px solid #ffcc1d;
-      outline: none;
-    }
   }
 
   .withdrawal-submit-button,
   .withdrawal-cancel-button {
-    width: 100px;
     height: 35px;
     font-size: 20px;
   }

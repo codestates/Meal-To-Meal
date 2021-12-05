@@ -74,6 +74,20 @@
   margin-bottom: 10px;
 }
 
+.fillin-input {
+  font-weight: bolder;
+  -webkit-transition: 100ms ease all;
+  transition: 100ms ease all;
+  border: 3px solid;
+}
+
+.fillin-input:focus {
+  border: 3px solid #ffcc1d;
+  -webkit-box-shadow: gray 2px 2px 2px 2px;
+          box-shadow: gray 2px 2px 2px 2px;
+  outline: none;
+}
+
 .withdrawal-button-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -90,11 +104,14 @@
 .withdrawal-submit-button {
   -webkit-transition: 210ms ease all;
   transition: 210ms ease all;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .withdrawal-submit-button:hover {
   color: white;
-  background-color: #e06969;
+  background-color: red;
   -webkit-box-shadow: gray 4px 4px 4px;
           box-shadow: gray 4px 4px 4px;
 }
@@ -121,6 +138,9 @@
 .withdrawal-cancel-button {
   -webkit-transition: 300ms ease all;
   transition: 300ms ease all;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .withdrawal-cancel-button:hover {
@@ -150,7 +170,7 @@
 @media (min-width: 758px) and (max-width: 1023px) {
   .withdrawal-container {
     margin-top: 60px;
-    min-height: 79.1vh;
+    min-height: 80.6vh;
   }
   .withdrawal-title {
     font-size: 28px;
@@ -177,17 +197,9 @@
     height: 30px;
     font-size: 24px;
     padding: 5px 0 5px 15px;
-    color: red;
-    -webkit-transition: 100ms ease all;
-    transition: 100ms ease all;
-  }
-  .fillin-input:focus {
-    border: 2px solid #ffcc1d;
-    outline: none;
   }
   .withdrawal-submit-button,
   .withdrawal-cancel-button {
-    width: 100px;
     height: 35px;
     font-size: 20px;
   }
@@ -196,7 +208,7 @@
 @media (min-width: 1024px) {
   .withdrawal-container {
     margin-top: 60px;
-    min-height: 77.6vh;
+    min-height: 77.4vh;
   }
   .withdrawal-title {
     font-size: 28px;
@@ -223,17 +235,9 @@
     height: 30px;
     font-size: 24px;
     padding: 5px 0 5px 15px;
-    color: red;
-    -webkit-transition: 100ms ease all;
-    transition: 100ms ease all;
-  }
-  .fillin-input:focus {
-    border: 2px solid #ffcc1d;
-    outline: none;
   }
   .withdrawal-submit-button,
   .withdrawal-cancel-button {
-    width: 100px;
     height: 35px;
     font-size: 20px;
   }
