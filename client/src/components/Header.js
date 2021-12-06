@@ -12,6 +12,10 @@ function Header({
   setAccessToken,
   issueTokens,
   navigate,
+  openAlertHandler,
+  openWarningAlertHandler,
+  setAlertMessage,
+  loginAlertOpenHandler,
 }) {
   const [isLoginOpenSidebar, setIsLoginOpenSidebar] = useState(false);
   const [isNotLoginOpenSidebar, setIsNotLoginOpenSidebar] = useState(false);
@@ -23,9 +27,16 @@ function Header({
     setIsNotLoginOpenSidebar(!isNotLoginOpenSidebar);
   };
 
+  if (window.location.pathname === '/') return null;
+
   return (
     <div className="header-container">
-      <img className="header-logo" src={require('../img/meal-to-meal-logo-192.png').default} alt="" />
+      <img
+        className="header-logo"
+        src={require('../img/meal-to-meal-logo-192.png').default}
+        alt=""
+        onClick={() => navigate('/map')}
+      />
       {isLogin ? (
         <i className="fas fa-bars" onClick={openisLoginOpenSidebarHandler} />
       ) : (
@@ -39,11 +50,13 @@ function Header({
           setAccessToken={setAccessToken}
           issueTokens={issueTokens}
           navigate={navigate}
+          openAlertHandler={openAlertHandler}
+          openWarningAlertHandler={openWarningAlertHandler}
+          setAlertMessage={setAlertMessage}
         />
       ) : null}
       {isNotLoginOpenSidebar ? (
         <SidebarNotLogin
-          issueTokens={issueTokens}
           openLoginModalHandler={openLoginModalHandler}
           openisNotLoginOpenSidebarHandler={openisNotLoginOpenSidebarHandler}
           openSignupModalHandler={openSignupModalHandler}

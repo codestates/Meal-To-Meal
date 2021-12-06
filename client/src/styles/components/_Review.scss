@@ -1,0 +1,122 @@
+@import '../mixin/mixin';
+
+.review-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  margin: 10px;
+}
+
+.review-title-info-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+}
+
+.review-icon-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-title-icon {
+  width: 40px;
+  margin-right: 5px;
+}
+
+.fa-calendar-alt {
+  margin: 0 5px 5px 0;
+  font-size: 30px;
+}
+
+.review-img-info-container {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+
+.review-store-img {
+  height: 170px;
+  max-width: 232px;
+  border-radius: 30px;
+  box-shadow: gray 4px 4px 4px 4px;
+}
+
+.review-store-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  word-break: keep-all;
+}
+
+.review-menu-title {
+  font-weight: bolder;
+  margin: 20px 0 5px 0;
+}
+
+.review-delete-button {
+  margin: 0;
+  margin: 0 10px 10px auto;
+}
+
+@include tablet {
+  .review-title-info-container {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 25px;
+  }
+
+  .review-icon-text-container {
+    margin-right: 30px;
+  }
+
+  .review-img-info-container {
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 20px;
+  }
+
+  .review-store-img {
+    height: 210px;
+    max-width: 265px;
+  }
+
+  .review-store-info-container {
+    margin-left: 30px;
+  }
+}
+
+@include desktop {
+  .review-title-info-container {
+    display: flex;
+    justify-content: flex-start;
+    font-size: 25px;
+  }
+
+  .review-icon-text-container {
+    margin-right: 30px;
+  }
+
+  .review-img-info-container {
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 23px;
+  }
+
+  .review-store-img {
+    height: 260px;
+    max-width: 365px;
+  }
+
+  .review-store-info-container {
+    margin-left: 30px;
+  }
+
+  .review-delete-button {
+    width: 90px;
+    height: 40px;
+    font-size: 20px;
+    margin: 0 20px 20px auto;
+  }
+}

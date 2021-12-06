@@ -162,7 +162,7 @@
 }
 
 .sharecart-container {
-  min-height: 73.2vh;
+  min-height: 74.8vh;
 }
 
 .sharecart-title {
@@ -327,7 +327,7 @@
 
 @media (min-width: 1024px) {
   .sharecart-container {
-    min-height: 71.5vh;
+    min-height: 71.2vh;
   }
   .sharecart-container {
     padding: 10px;

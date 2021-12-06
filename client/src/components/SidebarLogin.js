@@ -1,7 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
-function SidebarLogin({ openisLoginOpenSidebarHandler, setIsLogin, issueTokens, navigate }) {
+function SidebarLogin({
+  openisLoginOpenSidebarHandler,
+  setIsLogin,
+  navigate,
+  openAlertHandler,
+  openWarningAlertHandler,
+  setAlertMessage,
+}) {
   const LogoutButtonHandler = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/user/logout`, {
@@ -11,12 +18,14 @@ function SidebarLogin({ openisLoginOpenSidebarHandler, setIsLogin, issueTokens, 
       .then(res => {
         localStorage.clear();
         setIsLogin(false);
-        alert('잘 가십셔~');
         openisLoginOpenSidebarHandler();
+        setAlertMessage('로그아웃 되었습니다.');
+        openAlertHandler();
         navigate('/');
       })
       .catch(err => {
-        alert('몬가...몬가 잘 못 되었엉!');
+        setAlertMessage('잘못된 요청입니다');
+        openWarningAlertHandler();
         console.log(err);
       });
   };
@@ -31,7 +40,13 @@ function SidebarLogin({ openisLoginOpenSidebarHandler, setIsLogin, issueTokens, 
         <div className="sidebar-icon">&#x1F35D;</div>
         <div className="sidebar-text">내 기부내역</div>
       </div>
-      <div className="sidebar-menu-container">
+      <div
+        className="sidebar-menu-container"
+        onClick={() => {
+          openisLoginOpenSidebarHandler();
+          navigate('/mypage');
+        }}
+      >
         <div className="sidebar-icon">&#x1F96A;</div>
         <div className="sidebar-text">내 회원정보</div>
       </div>
@@ -47,7 +62,13 @@ function SidebarLogin({ openisLoginOpenSidebarHandler, setIsLogin, issueTokens, 
         <div className="sidebar-icon">&#x1F370;</div>
         <div className="sidebar-text">사장님 페이지</div>
       </div>
-      <div className="sidebar-menu-container">
+      <div
+        className="sidebar-menu-container"
+        onClick={() => {
+          openisLoginOpenSidebarHandler();
+          navigate('/map');
+        }}
+      >
         <div className="sidebar-icon">&#x1F5FA;</div>
         <div className="sidebar-text">지도보기</div>
       </div>
