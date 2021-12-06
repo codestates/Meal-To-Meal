@@ -26,4 +26,15 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+const { user, store, menu, cart, cart_menu } = sequelize.models;
+store.belongsTo(user);
+user.hasMany(store);
+menu.belongsTo(store);
+store.hasMany(menu);
+cart.belongsTo(user, { foreignKey: 'buyer_id' });
+user.hasMany(cart);
+menu.belongsToMany(cart, { foreignKey: 'cart_id', through: cart_menu });
+cart.belongsToMany(menu, { foreignKey: 'menu_id', through: cart_menu });
+//다대다 관계설정
+
 module.exports = db;

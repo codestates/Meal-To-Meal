@@ -57,7 +57,6 @@ module.exports = {
 
         const newAccessToken = generateAccessToken(newUserInfo.dataValues);
         const refreshToken = generateRefreshToken(newUserInfo.dataValues);
-        console.log('refreshtoken oauth 60', refreshToken);
         if (created) {
           return res
             .cookie('refreshToken', refreshToken, {
