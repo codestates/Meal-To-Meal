@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/pages/Withdrawal.css';
 import axios from 'axios';
 
-function Withdrawal({ setIsLogin }) {
+function Withdrawal({ setIsLogin, openAlertHandler, openWarningAlertHandler, setAlertMessage }) {
   const navigate = useNavigate();
   const [agreeChecked, setAgreeChecked] = useState(false);
   const [fillinText, setFillinText] = useState('');
@@ -23,9 +23,13 @@ function Withdrawal({ setIsLogin }) {
       })
       .then(res => {
         setIsLogin(false);
+        setAlertMessage('회원 탈퇴가 완료되었습니다. 다음에 또 만나요!');
+        openAlertHandler();
         navigate('/');
       })
       .catch(err => {
+        setAlertMessage('잘못된 요청입니다');
+        openWarningAlertHandler();
         console.log(err);
       });
   };
