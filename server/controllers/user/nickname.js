@@ -1,4 +1,5 @@
 const { user } = require('../../database/models');
+const checkTokens = require('../../middlewares/tokenAuth');
 
 module.exports = {
   post: async (req, res) => {
@@ -13,5 +14,14 @@ module.exports = {
       res.status(200).json({ message: '사용가능한 닉네임입니다' });
     }
   },
-  patch: (req, res) => {},
+  patch: async (req, res) => {
+    const userInfo = checkTokens(req);
+    if (!userInfo) {
+      res.status(401).json({ message: '로그인이 필요합니다' });
+    } else {
+      const matchedUser = await user.findOne({ where: { id: userInfo.id } });
+      await matchedUser.update({ user_nickname: req.body.user_nickname });
+      res.status(200).json({ user_nickname: matchedUser.user_nickname, message: '닉네임이 수정되었습니다' });
+    }
+  },
 };

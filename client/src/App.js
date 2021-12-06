@@ -121,6 +121,7 @@ function App() {
         <Route path="/empty" element={<EmptyShareCart />} />
         <Route path="/emptyhistory" element={<EmptyOrderHistory />} />
         <Route path="/withdrawal" element={<Withdrawal setIsLogin={setIsLogin} />} />
+        <Route path="/mypage" element={<Mypage />} />
         <Route
           path="/map"
           element={
