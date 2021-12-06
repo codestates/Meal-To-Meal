@@ -40,7 +40,13 @@ function SidebarLogin({
         <div className="sidebar-icon">&#x1F35D;</div>
         <div className="sidebar-text">내 기부내역</div>
       </div>
-      <div className="sidebar-menu-container">
+      <div
+        className="sidebar-menu-container"
+        onClick={() => {
+          openisLoginOpenSidebarHandler();
+          navigate('/mypage');
+        }}
+      >
         <div className="sidebar-icon">&#x1F96A;</div>
         <div className="sidebar-text">내 회원정보</div>
       </div>
@@ -56,7 +62,13 @@ function SidebarLogin({
         <div className="sidebar-icon">&#x1F370;</div>
         <div className="sidebar-text">사장님 페이지</div>
       </div>
-      <div className="sidebar-menu-container">
+      <div
+        className="sidebar-menu-container"
+        onClick={() => {
+          openisLoginOpenSidebarHandler();
+          navigate('/map');
+        }}
+      >
         <div className="sidebar-icon">&#x1F5FA;</div>
         <div className="sidebar-text">지도보기</div>
       </div>

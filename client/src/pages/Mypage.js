@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import '../styles/pages/Mypage.css';
 
 import Review from '../components/Review';
@@ -14,6 +15,32 @@ function Mypage({ navigate }) {
   const openFixPasswordToggleHandler = () => {
     setIsOpenFixPasswordToggle(!isOpenFixPasswordToggle);
   };
+
+  const [userInfo, setUserInfo] = useState({});
+
+  const userInfoHandler = () => {
+    const accessToken = localStorage.getItem('accessToken');
+    if (!accessToken) {
+      return;
+    } else {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/mypage`, {
+          headers: { authorization: `Bearer ${accessToken}` },
+          withCredentials: true,
+        })
+        .then(res => {
+          console.log(res);
+          // setUserInfo로 유저정보를 클라도 가질 수 있다!
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  };
+
+  useEffect(() => {
+    userInfoHandler();
+  }, []);
 
   return (
     <>

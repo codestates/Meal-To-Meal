@@ -217,10 +217,9 @@ function App() {
         />
       ) : (
         <UnderbarNotLogin
-          isOpenLoginModal={isOpenLoginModal}
           openLoginModalHandler={openLoginModalHandler}
-          openWarningAlertHandler={openWarningAlertHandler}
-          setAlertMessage={setAlertMessage}
+          openSignupModalHandler={openSignupModalHandler}
+          navigate={navigate}
         />
       )}
       {isOpenLoginModal ? (

@@ -31,7 +31,12 @@ function Header({
 
   return (
     <div className="header-container">
-      <img className="header-logo" src={require('../img/meal-to-meal-logo-192.png').default} alt="" />
+      <img
+        className="header-logo"
+        src={require('../img/meal-to-meal-logo-192.png').default}
+        alt=""
+        onClick={() => navigate('/map')}
+      />
       {isLogin ? (
         <i className="fas fa-bars" onClick={openisLoginOpenSidebarHandler} />
       ) : (
