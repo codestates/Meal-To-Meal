@@ -27,9 +27,9 @@ footer {
   align-items: center;
 }
 
-.logo {
-  height: 65px;
-  margin: 5px;
+.footer-logo-img {
+  height: 50px;
+  margin: 5px 10px 5px 5px;
 }
 
 .footer-title-text {
@@ -52,14 +52,9 @@ footer {
   }
 }
 
-@include tablet {
-  footer {
-    font-size: 12px;
-  }
-}
-
 @include desktop {
-  footer {
-    font-size: 16px;
+  .footer-logo-img {
+    height: 70px;
+    margin: 5px 10px 5px 5px;
   }
 }

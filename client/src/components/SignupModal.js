@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Policy from './Policy';
 
-function SignupModal({ openSignupModalHandler }) {
-  const [policyOpen, setPolicyOpen] = useState(false);
+function SignupModal({ openSignupModalHandler, openAlertHandler, openWarningAlertHandler, setAlertMessage }) {
+  const [isOpenPolicyModal, setIsOpenPolicyModal] = useState(false);
   const [signupInfo, setSignupInfo] = useState({
     user_email: '',
     user_password: '',
@@ -97,10 +97,13 @@ function SignupModal({ openSignupModalHandler }) {
         user_nickname,
       })
       .then(res => {
-        alert('회갑 됨. 로긴하셈');
+        setAlertMessage('회원가입이 완료되었습니다!');
+        openAlertHandler();
         openSignupModalHandler();
       })
       .catch(err => {
+        setAlertMessage('잘못된 요청입니다.');
+        openWarningAlertHandler();
         console.log(err);
       });
   };
@@ -117,9 +120,8 @@ function SignupModal({ openSignupModalHandler }) {
     validation.nickname &&
     validation.checkNickname;
 
-  const openPolicyHandler = () => {
-    setPolicyOpen(!policyOpen);
-    console.log(policyOpen);
+  const openPolicyModalHandler = () => {
+    setIsOpenPolicyModal(!isOpenPolicyModal);
   };
 
   useEffect(() => {
@@ -229,7 +231,7 @@ function SignupModal({ openSignupModalHandler }) {
                   ) : (
                     <button className="signup-button">Sign Up</button>
                   )}
-                  <button className="signup-policy-button" onClick={openPolicyHandler}>
+                  <button className="signup-policy-button" onClick={openPolicyModalHandler}>
                     이용약관
                   </button>
                   <button className="signup-goback-button" onClick={openSignupModalHandler}>
@@ -241,7 +243,7 @@ function SignupModal({ openSignupModalHandler }) {
           </div>
           <img className="signup-modal-img" src={require('../img/Eating together-bro.png').default} alt="" />
         </div>
-        {policyOpen ? <Policy onClick={e => e.stopPropagation()} openPolicyHandler={openPolicyHandler} /> : null}
+        {isOpenPolicyModal ? <Policy openPolicyModalHandler={openPolicyModalHandler} /> : null}
       </div>
     </div>
   );

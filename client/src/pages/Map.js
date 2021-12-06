@@ -2,22 +2,13 @@
 /* global kakao */
 import React, { useEffect } from 'react';
 import axios from 'axios';
-import '../styles/pages/Map.css';
-import Header from '../components/Header';
 import Search from '../components/Search';
+import '../styles/pages/Map.css';
 import StoreDummydata from '../static/store_dummydata';
 
 const { kakao } = window;
 
-const Map = ({
-  isLogin,
-  setIsLogin,
-  openLoginModalHandler,
-  openSignupModalHandler,
-  issueTokens,
-  navigate,
-  getAccessToken,
-}) => {
+const Map = () => {
   useEffect(() => {
     const container = document.getElementById('map');
 
@@ -27,6 +18,8 @@ const Map = ({
     };
 
     const map = new kakao.maps.Map(container, options);
+
+    var clickedOverlay = null;
 
     // eslint-disable-next-line no-lone-blocks
     {
@@ -141,13 +134,19 @@ const Map = ({
           content: content,
           position: new kakao.maps.LatLng(el.store_lat, el.store_lng),
         });
+
         kakao.maps.event.addListener(marker, 'click', function panTo() {
+          if (clickedOverlay) {
+            clickedOverlay.setMap(null);
+          }
+
           var moveLatLon = new kakao.maps.LatLng(el.store_lat - 0.02, el.store_lng);
           map.setLevel(7, {
             anchor: new kakao.maps.LatLng(el.store_lat - 0.03, el.store_lng + 0.02),
           });
           map.panTo(moveLatLon);
           customOverlay.setMap(map);
+          clickedOverlay = customOverlay;
         });
       });
     }
@@ -155,14 +154,6 @@ const Map = ({
 
   return (
     <>
-      <Header
-        isLogin={isLogin}
-        setIsLogin={setIsLogin}
-        openLoginModalHandler={openLoginModalHandler}
-        openSignupModalHandler={openSignupModalHandler}
-        issueTokens={issueTokens}
-        navigate={navigate}
-      />
       <div id="map" />
       <Search />
     </>

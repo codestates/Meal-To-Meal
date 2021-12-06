@@ -30,6 +30,10 @@
   margin-top: 20px;
 }
 
+.login-info-container {
+  z-index: 105;
+}
+
 .login-logo {
   height: 30px;
 }
@@ -81,10 +85,12 @@
 }
 
 .login-signup-link {
-  padding-top: 3px;
+  padding-top: 5px;
   text-decoration: underline;
   transition: 120ms ease all;
   cursor: pointer;
+  font-size: 14px;
+  text-align: center;
 
   &:hover {
     color: #2d9bf0;
@@ -93,6 +99,7 @@
 
 .login-button {
   font-size: 10px;
+  margin: 0;
 }
 
 .login-signup-text {
@@ -100,7 +107,7 @@
 }
 
 .login-kakao-container {
-  padding-top: 35px;
+  padding-top: 20px;
   font-weight: bolder;
 }
 
@@ -108,12 +115,12 @@
   padding-top: 3px;
   width: 130px;
   margin-top: 4px;
-  box-shadow: gray 2px 2px 2px;
+  box-shadow: gray 4px 4px 4px;
   border-radius: 7px;
-  transition: 100ms ease;
+  transition: 120ms ease;
 
   &:hover {
-    box-shadow: gray 2px 2px 2px;
+    box-shadow: gray 6px 6px 6px;
   }
 
   &:before,
@@ -179,7 +186,12 @@
   }
 
   .login-modal-img {
-    height: 230px;
+    height: 290px;
+    position: absolute;
+    left: 360px;
+    top: 330px;
+    opacity: 60%;
+    z-index: 101;
   }
 }
 @include desktop {
@@ -211,6 +223,10 @@
     font-size: 20px;
     height: 33px;
     padding-top: 3px;
+  }
+
+  .login-signup-link {
+    font-size: 20px;
   }
 
   .login-kakao-button {

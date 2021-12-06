@@ -1,10 +1,7 @@
 @import '../mixin/mixin';
 
-.policy-modal-container {
-  display: flex;
-  flex-direction: column;
-}
 .policy-modal-backdrop {
+  position: fixed;
   z-index: 999;
   top: 0;
   left: 0;
@@ -14,54 +11,68 @@
   display: grid;
   place-items: center;
 }
+
 .policy-modal-window {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
+  position: absolute;
   background-color: white;
   border: 4px solid #ffcc1d;
-  padding: 20px;
-  margin-bottom: 230px;
-  margin-top: 20px;
-}
-.policy-title-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid black;
+  height: 530px;
+  width: 265px;
 }
 
-.policy-title-icon {
-  width: 15px;
-}
-
-.policy-title-text {
-  font-size: 15px;
-  font-weight: bold;
-}
-
-.policy-content-container {
-}
-
-.policy-content-text {
-  word-break: keep-all;
-  font-size: 13px;
-  overflow: auto;
-}
-
-.policy-button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.policy-close-button {
+.logo {
+  height: 100px;
   width: 100px;
 }
 
-@include tablet {
+.policy-title-text {
+  margin-bottom: 15px;
 }
+
+.policy-content-text {
+  font-size: 14px;
+  padding: 5px;
+}
+
+.policy-close-button {
+  margin: 5px 0 0 0;
+}
+
+@include tablet {
+  .policy-modal-window {
+    width: 350px;
+    height: 590px;
+  }
+
+  .logo {
+    height: 120px;
+    width: 120px;
+  }
+
+  .policy-title-text,
+  .policy-content-text {
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+
 @include desktop {
+  .policy-modal-window {
+    width: 450px;
+    height: 590px;
+  }
+
+  .logo {
+    height: 130px;
+    width: 130px;
+  }
+
+  .policy-title-text,
+  .policy-content-text {
+    font-size: 18px;
+    padding: 15px;
+  }
 }

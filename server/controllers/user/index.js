@@ -5,5 +5,6 @@ module.exports = {
   mypage: require('./mypage'),
   emailCheck: require('./emailCheck'),
   nickname: require('./nickname'),
+  password: require('./password'),
   withdrawal: require('./withdrawal'),
 };

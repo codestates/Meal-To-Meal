@@ -5,7 +5,7 @@ module.exports = {
       [
         {
           id: 1,
-          // user_id: 1,
+          user_id: 1,
           store_name: '9와 3/4번지 피자',
           store_image: 'client/src/img/dummy/원조할매국밥.png',
           store_order_quantity: '21',
@@ -21,7 +21,7 @@ module.exports = {
         },
         {
           id: 2,
-          // user_id: 2,
+          user_id: 2,
           store_name: '샐러디',
           store_image: 'client/src/img/dummy/store1.png',
           store_order_quantity: '7',
@@ -37,7 +37,7 @@ module.exports = {
         },
         {
           id: 3,
-          // user_id: 3,
+          user_id: 1,
           store_name: '한잔할래',
           store_image: 'client/src/img/dummy/store2.png',
           store_order_quantity: '10',
@@ -53,7 +53,7 @@ module.exports = {
         },
         {
           id: 4,
-          // user_id: 4,
+          user_id: 3,
           store_name: '떡볶이 묵을래?',
           store_image: 'client/src/img/dummy/store4.png',
           store_order_quantity: '17',
@@ -69,7 +69,7 @@ module.exports = {
         },
         {
           id: 5,
-          // user_id: 5,
+          user_id: 4,
           store_name: 'K-타운',
           store_image: 'client/src/img/dummy/store5.png',
           store_order_quantity: '30',
@@ -85,7 +85,7 @@ module.exports = {
         },
         {
           id: 6,
-          // user_id: 6,
+          user_id: 5,
           store_name: '프랑스파슷하',
           store_image: 'client/src/img/찌개.png',
           store_order_quantity: '5',
@@ -101,7 +101,7 @@ module.exports = {
         },
         {
           id: 7,
-          // user_id: 7,
+          user_id: 1,
           store_name: '버거401',
           store_image: 'client/src/img/찌개.png',
           store_order_quantity: '14',
@@ -117,7 +117,7 @@ module.exports = {
         },
         {
           id: 8,
-          // user_id: 8,
+          user_id: 2,
           store_name: '앳하노이',
           store_image: 'client/src/img/찌개.png',
           store_order_quantity: '24',
@@ -133,7 +133,7 @@ module.exports = {
         },
         {
           id: 9,
-          // user_id: 9,
+          user_id: 3,
           store_name: '덕수궁',
           store_image: 'client/src/img/찌개.png',
           store_order_quantity: '8',
@@ -149,7 +149,7 @@ module.exports = {
         },
         {
           id: 10,
-          // user_id: 10,
+          user_id: 4,
           store_name: '옛날할무니짜장',
           store_image: 'client/src/img/찌개.png',
           store_order_quantity: '15',
