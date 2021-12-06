@@ -18,7 +18,7 @@ function Withdrawal({ setIsLogin }) {
   const withdrawalSubmitHandler = () => {
     axios
       .delete(`${process.env.REACT_APP_API_URL}/user/withdrawal`, {
-        headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}` },
+        headers: { authorization: `Bearer ${localStorage.getItem('accessToken')}`, 'Content-Type': 'application/json' },
         withCredentials: true,
       })
       .then(res => {
