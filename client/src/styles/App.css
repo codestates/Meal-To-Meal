@@ -599,9 +599,6 @@ button {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   background-color: white;
   border: 4px solid #ffcc1d;
   padding: 20px;
@@ -692,7 +689,6 @@ button {
   font-size: 13px;
   margin-top: 10px;
 }
-
 
 @media (min-width: 758px) and (max-width: 1023px) {
   .review-upload-food-text {
@@ -892,6 +888,7 @@ button {
 .alert-message {
   font-size: 20px;
   word-break: keep-all;
+  text-align: center;
 }
 
 .alert-ownstore-animation {
