@@ -7,7 +7,6 @@ function Alert({ alertMessage, openAlertHandler }) {
     lottie.loadAnimation({
       container: alertContainer.current,
       renderer: 'svg',
-      loop: true,
       autoplay: true,
       animationData: require('../img/meat.json'),
     });

@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 /* global kakao */
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Search from '../components/Search';
 import '../styles/pages/Map.css';
@@ -150,6 +150,26 @@ const Map = () => {
         });
       });
     }
+  }, []);
+
+  const [storeList, setStoreList] = useState({});
+
+  const storeListHandler = () => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/store-list`, {
+        withCredentials: true,
+      })
+      // TODO: 이거 App에서 받아서 뿌려라~~
+      .then(res => {
+        setStoreList(res.data.storeList);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    storeListHandler();
   }, []);
 
   return (

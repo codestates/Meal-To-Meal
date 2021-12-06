@@ -142,8 +142,8 @@
     font-size: 23px;
   }
   .review-store-img {
-    height: 260px;
-    max-width: 365px;
+    height: 235px;
+    max-width: 310px;
   }
   .review-store-info-container {
     margin-left: 30px;
@@ -165,7 +165,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-height: 80vh;
+  min-height: 81vh;
 }
 
 .mypage-title {
@@ -195,6 +195,9 @@
   margin: 5px 0 10px 0;
   opacity: 50%;
   cursor: pointer;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .mypage-fix-toggle-container {
@@ -306,7 +309,7 @@
 @media (min-width: 1024px) {
   .mypage-container {
     margin-top: 80px;
-    min-height: 78.2vh;
+    min-height: 77.2vh;
   }
   .mypage-title {
     font-size: 28px;

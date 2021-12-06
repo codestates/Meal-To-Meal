@@ -171,7 +171,18 @@ function App() {
           }
         />
         <Route path="/reviewmodal" element={<ReviewUploadModal />} />
-        <Route path="/mypage" element={<Mypage navigate={navigate} />} />
+        <Route
+          path="/mypage"
+          element={
+            <Mypage
+              navigate={navigate}
+              setAlertMessage={setAlertMessage}
+              openAlertHandler={openAlertHandler}
+              openWarningAlertHandler={openWarningAlertHandler}
+              alertMessage={alertMessage}
+            />
+          }
+        />
         <Route
           path="/map"
           element={
