@@ -132,12 +132,12 @@ function App() {
 
   const openAlertHandler = () => {
     setIsOpenAlert(!isOpenAlert);
-    setTimeout(() => setIsOpenAlert(false), 2000);
+    setTimeout(() => setIsOpenAlert(false), 1800);
   };
 
   const openWarningAlertHandler = () => {
     setIsOpenWarningAlert(!isOpenWarningAlert);
-    setTimeout(() => setIsOpenWarningAlert(false), 2000);
+    setTimeout(() => setIsOpenWarningAlert(false), 1800);
   };
 
   return (
