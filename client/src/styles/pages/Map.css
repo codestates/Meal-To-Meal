@@ -699,6 +699,7 @@ button:active {
   border: 2px solid;
   border-radius: 20px;
   font-size: 10px;
+  cursor: Default;
 }
 
 .fa-map-marker-alt,
@@ -735,6 +736,7 @@ button:active {
   -webkit-box-shadow: gray 3px 3px 3px 3px;
           box-shadow: gray 3px 3px 3px 3px;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .customOverlay-info-container {
@@ -776,6 +778,7 @@ button:active {
   margin-right: 10px;
   font-size: 13px;
   font-weight: bolder;
+  cursor: pointer;
 }
 
 .customOverlay-category {

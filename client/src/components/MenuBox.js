@@ -1,18 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import LoginAlert from '../components/LoginAlert';
 import ClickOwnStoreAlert from '../components/ClickOwnStoreAlert';
 import MenuDummydata from '../static/menu_dummydata';
 
-function MenuBox({
-  isLogin,
-  cartItem,
-  setCartItem,
-  removeFromCart,
-  addToCart,
-  setQuantity,
-  openLoginModalHandler,
-  openSignupModalHandler,
-}) {
+function MenuBox({ isLogin, addToCart, openLoginModalHandler, openSignupModalHandler }) {
   const [isOpenLoginAlert, setIsOpenLoginAlert] = useState(false);
   const loginAlertOpenHandler = () => {
     setIsOpenLoginAlert(!isOpenLoginAlert);
@@ -25,6 +17,26 @@ function MenuBox({
   // TODO: 서버에서 가게 주인 아이디 확인해서 누른 사람이랑 같으면 openClickOwnStoreAlertHandler를 true로
   // TODO: 즉 먹기를 눌렀을때 분기를 나눠야 한다.
 
+  const [storeMenu, setStoreMenu] = useState([]);
+
+  const getStoreMenuHandler = () => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/menu-list/${Number(localStorage.getItem('clickedMarker'))}`, {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+      })
+      .then(res => {
+        setStoreMenu(res.data.menuList);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getStoreMenuHandler();
+  }, []);
+
   const goToorderHistory = () => {
     if (!isLogin) {
       loginAlertOpenHandler();
@@ -35,7 +47,7 @@ function MenuBox({
 
   return (
     <>
-      {MenuDummydata.filter(el => el.store_id === 3).map(el => (
+      {storeMenu.map(el => (
         <div className="menu-box-container">
           <div className="menu-container">
             <img className="menu-food-image" src={el.menu_image} alt="" />
