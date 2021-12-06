@@ -25,25 +25,32 @@ function UnderbarLogin({ setIsLogin, navigate, openAlertHandler, openWarningAler
   return (
     <div className="underbar-container">
       <div className="underbar-menu-container">
+        {/* 로그아웃 */}
         <i className="fas fa-sign-out-alt" onClick={LogoutButtonHandler} />
       </div>
       <div className="underbar-menu-container">
+        {/* 기부내역 */}
         <i class="fas fa-hand-holding-usd" />
       </div>
       <div className="underbar-menu-container">
-        <i className="fas fa-user" />
+        {/* 마이 페이지 */}
+        <i className="fas fa-user" onClick={() => navigate('/mypage')} />
       </div>
       <div className="underbar-menu-container">
+        {/* 예약내역 */}
         <i className="fas fa-file-signature" />
       </div>
       <div className="underbar-menu-container">
+        {/* 랭킹 */}
         <i className="fas fa-trophy" />
       </div>
       <div className="underbar-menu-container">
+        {/* 사장님 페이지 */}
         <i className="fas fa-cash-register" />
       </div>
       <div className="underbar-menu-container">
-        <i className="fas fa-map-marked-alt" />
+        {/* 지도보기 */}
+        <i className="fas fa-map-marked-alt" onClick={() => navigate('/map')} />
       </div>
     </div>
   );
