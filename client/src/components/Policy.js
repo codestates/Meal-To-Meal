@@ -11,9 +11,7 @@ function Policy({ openPolicyHandler }) {
           </div>
           <div className="policy-content-container">
             <div className="policy-content-text">
-              제 1 장 환영합니다!
-              <br />
-              제 1 조 (목적 및 정의)
+              제 1 장 환영합니다! 제 1 조 (목적 및 정의)
               <br />
               주식회사 HIRED(이하 ‘회사’)가 제공하는 서비스를 이용해 주셔서 감사합니다.
               <br />
