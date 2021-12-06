@@ -161,7 +161,18 @@ function App() {
         <Route path="/emptyhistory" element={<EmptyOrderHistory />} />
         <Route path="/withdrawal" element={<Withdrawal setIsLogin={setIsLogin} />} />
         <Route path="/reviewmodal" element={<ReviewUploadModal />} />
-        <Route path="/mypage" element={<Mypage navigate={navigate} />} />
+        <Route
+          path="/mypage"
+          element={
+            <Mypage
+              navigate={navigate}
+              setAlertMessage={setAlertMessage}
+              openAlertHandler={openAlertHandler}
+              openWarningAlertHandler={openWarningAlertHandler}
+              alertMessage={alertMessage}
+            />
+          }
+        />
         <Route
           path="/map"
           element={

@@ -22,6 +22,10 @@
   font-size: 8px;
   color: #ffcc1d;
   cursor: default;
+
+  &:hover {
+    opacity: 100%;
+  }
 }
 
 .fa-times {

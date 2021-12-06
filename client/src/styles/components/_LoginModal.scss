@@ -73,24 +73,25 @@
 }
 
 .login-button-container {
-  padding-top: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 13px;
+  padding-top: 15px;
 }
 
-.login-signup-text {
-  padding-top: 3px;
+.login-signup-link-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .login-signup-link {
-  padding-top: 5px;
   text-decoration: underline;
   transition: 120ms ease all;
   cursor: pointer;
   font-size: 14px;
-  text-align: center;
+  margin-top: 5px;
 
   &:hover {
     color: #2d9bf0;
@@ -98,12 +99,8 @@
 }
 
 .login-button {
-  font-size: 10px;
-  margin: 0;
-}
-
-.login-signup-text {
-  margin: 0 5px 0 10px;
+  font-size: 12px;
+  margin: 0 10px 0 0;
 }
 
 .login-kakao-container {
@@ -178,7 +175,16 @@
   }
 
   .login-button-container {
-    font-size: 14px;
+    font-size: 16px;
+  }
+
+  .login-button {
+    font-size: 16px;
+    padding-top: 4px;
+  }
+
+  .login-signup-link {
+    font-size: 16px;
   }
 
   .login-kakao-button {
@@ -186,11 +192,7 @@
   }
 
   .login-modal-img {
-    height: 290px;
-    position: absolute;
-    left: 360px;
-    top: 330px;
-    opacity: 60%;
+    height: 250px;
     z-index: 101;
   }
 }
@@ -239,6 +241,6 @@
   }
 
   .login-modal-img {
-    height: 480px;
+    height: 580px;
   }
 }

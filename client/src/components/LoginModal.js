@@ -86,10 +86,12 @@ function LoginModal({
                 <button className="login-button" onClick={loginButtonHandler}>
                   로그인
                 </button>
-                <div className="login-signup-text">아직 회원이 아니신가요?</div>
-              </div>
-              <div className="login-signup-link" onClick={openSignupModalHandler}>
-                회원가입
+                <div className="login-signup-link-container">
+                  <div className="login-signup-text">아직 회원이 아니신가요?</div>
+                  <div className="login-signup-link" onClick={openSignupModalHandler}>
+                    회원가입
+                  </div>
+                </div>
               </div>
               <div className="login-kakao-container">
                 <img

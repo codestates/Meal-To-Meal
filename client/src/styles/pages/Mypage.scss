@@ -5,7 +5,7 @@
   margin: 15px;
   display: flex;
   flex-direction: column;
-  min-height: 80vh;
+  min-height: 81vh;
 }
 
 .mypage-title {
@@ -30,6 +30,7 @@
   margin: 5px 0 10px 0;
   opacity: 50%;
   cursor: pointer;
+  width: fit-content;
 }
 
 .mypage-fix-toggle-container {
@@ -133,7 +134,7 @@
 @include desktop {
   .mypage-container {
     margin-top: 80px;
-    min-height: 78.2vh;
+    min-height: 77.2vh;
   }
 
   .mypage-title {

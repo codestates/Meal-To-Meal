@@ -831,6 +831,26 @@ button {
   place-items: center;
 }
 
+.alert-warning-window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 250px;
+  background-color: white;
+  border: 8px solid #ffcc1d;
+  border-radius: 45px;
+  padding: 10px;
+  -webkit-animation: appear 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+          animation: appear 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
 .alert-window {
   display: -webkit-box;
   display: -ms-flexbox;
