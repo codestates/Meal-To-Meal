@@ -1,5 +1,5 @@
 module.exports = {
-  post: async (req, res) => {
+  post: (req, res) => {
     //이런 식으로 보내준다.
     const cart = [
       {
@@ -13,8 +13,8 @@ module.exports = {
     ];
     const orderList = req.body.cart;
     const total_price = req.body.total_price;
-    for (let order of orderList) {
-    }
+    // for (let order of orderList) {
+    // }
   },
   get: async (req, res) => {},
 };
