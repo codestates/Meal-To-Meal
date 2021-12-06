@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import '../styles/pages/Withdrawal.css';
 import axios from 'axios';
 
@@ -33,7 +31,6 @@ function Withdrawal({ setIsLogin }) {
   };
   return (
     <>
-      <Header />
       <div className="withdrawal-container">
         <div className="withdrawal-title">탈퇴 안내</div>
         <div className="withdrawal-content-container">
@@ -48,7 +45,11 @@ function Withdrawal({ setIsLogin }) {
           </div>
           <div className="withdrawal-checkbox-container">
             <input className="checkbox-input-check" type="checkbox" onClick={agreeCheckHandler} />
-            <div className="checkbox-agree-text">안내사항을 모두 확인하였으며, 이에 동의합니다</div>
+            <div className="checkbox-agree-text">
+              안내사항을 모두 확인하였으며,
+              <br />
+              이에 동의합니다
+            </div>
           </div>
           <div className="withdrawal-fillin-container">
             <div className="fillin-text">"탈퇴합니다"를 정확히 입력해주세요</div>
@@ -70,7 +71,6 @@ function Withdrawal({ setIsLogin }) {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

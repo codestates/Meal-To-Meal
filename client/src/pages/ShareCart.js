@@ -1,7 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import SharecartItem from '../components/SharecartItem';
 import '../styles/pages/ShareCart.css';
 
@@ -16,7 +14,6 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
 
   return (
     <>
-      <Header />
       <div className="sharecart-container">
         <div className="sharecart-title">나눔카트</div>
         <SharecartItem cartItems={cartItems} setCartItems={setCartItems} removeFromCart={removeFromCart} />
@@ -43,7 +40,6 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
           </button>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

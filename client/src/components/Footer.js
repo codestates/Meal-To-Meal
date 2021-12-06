@@ -1,11 +1,13 @@
 import React from 'react';
 
 function Footer() {
+  if (window.location.pathname === '/map') return null;
+
   return (
     <footer>
       <div className="footer-container">
         <div className="footer-logo-info-container">
-          <img className="logo" src={require('../img/meal-to-meal-logo-192.png').default} alt="" />
+          <img className="footer-logo-img" src={require('../img/meal-to-meal-logo-192.png').default} alt="" />
           <div className="footer-our-info-container">
             <div className="footer-title-text">Sudo_Hired</div>
             <div className="footer-text">문의사항: hgud55@naver.com</div>

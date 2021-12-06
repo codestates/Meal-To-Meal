@@ -1,7 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
-function SidebarLogin({ openisLoginOpenSidebarHandler, setIsLogin, issueTokens, navigate }) {
+function SidebarLogin({
+  openisLoginOpenSidebarHandler,
+  setIsLogin,
+  navigate,
+  openAlertHandler,
+  openWarningAlertHandler,
+  setAlertMessage,
+}) {
   const LogoutButtonHandler = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/user/logout`, {
@@ -11,12 +18,14 @@ function SidebarLogin({ openisLoginOpenSidebarHandler, setIsLogin, issueTokens, 
       .then(res => {
         localStorage.clear();
         setIsLogin(false);
-        alert('잘 가십셔~');
         openisLoginOpenSidebarHandler();
+        setAlertMessage('로그아웃 되었습니다.');
+        openAlertHandler();
         navigate('/');
       })
       .catch(err => {
-        alert('몬가...몬가 잘 못 되었엉!');
+        setAlertMessage('잘못된 요청입니다');
+        openWarningAlertHandler();
         console.log(err);
       });
   };

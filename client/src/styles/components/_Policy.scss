@@ -1,38 +1,78 @@
 @import '../mixin/mixin';
 
-.policy-modal-container {
+.policy-modal-backdrop {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: grid;
+  place-items: center;
+}
+
+.policy-modal-window {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  position: absolute;
   background-color: white;
-  width: 500px;
-  height: 800px;
+  border: 4px solid #ffcc1d;
+  height: 530px;
+  width: 265px;
 }
 
-.policy-title-container {
-}
-
-.policy-title-icon {
+.logo {
+  height: 100px;
+  width: 100px;
 }
 
 .policy-title-text {
-}
-
-.policy-content-container {
+  margin-bottom: 15px;
 }
 
 .policy-content-text {
-}
-
-.policy-button-container {
+  font-size: 14px;
+  padding: 5px;
 }
 
 .policy-close-button {
+  margin: 5px 0 0 0;
 }
 
-@include mobile {
-}
 @include tablet {
+  .policy-modal-window {
+    width: 350px;
+    height: 590px;
+  }
+
+  .logo {
+    height: 120px;
+    width: 120px;
+  }
+
+  .policy-title-text,
+  .policy-content-text {
+    font-size: 16px;
+    padding: 10px;
+  }
 }
+
 @include desktop {
+  .policy-modal-window {
+    width: 450px;
+    height: 590px;
+  }
+
+  .logo {
+    height: 130px;
+    width: 130px;
+  }
+
+  .policy-title-text,
+  .policy-content-text {
+    font-size: 18px;
+    padding: 15px;
+  }
 }

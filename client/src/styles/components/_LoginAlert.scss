@@ -1,0 +1,114 @@
+@import '../mixin/mixin';
+
+.login-alert-backdrop {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: grid;
+  place-items: center;
+}
+
+.login-alert-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+  background-color: white;
+  border: 8px solid #ffcc1d;
+  border-radius: 45px;
+  padding: 10px;
+  animation: appear 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.login-alert-logo {
+  height: 50px;
+  margin: 15px;
+}
+
+.login-alert-text {
+  font-size: 15px;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.login-alert-button-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+@include tablet {
+  .login-alert-window {
+    width: 320px;
+  }
+
+  .login-alert-logo {
+    height: 80px;
+  }
+
+  .login-alert-text {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  .login-alert-button {
+    width: fit-content;
+    height: 40px;
+    margin: 10px;
+    font-size: 20px;
+    padding: 5px;
+  }
+}
+
+@include desktop {
+  .login-alert-window {
+    width: 420px;
+  }
+
+  .login-alert-logo {
+    height: 95px;
+  }
+
+  .login-alert-text {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+
+  .login-alert-button {
+    width: fit-content;
+    height: 45px;
+    margin: 15px;
+    font-size: 25px;
+    padding: 10px;
+    transition: 180ms ease all;
+
+    &:hover {
+      box-shadow: gray 4px 4px 4px;
+      color: #ffcc1d;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      transition: ease all;
+    }
+
+    &:hover:before,
+    &:hover:after {
+      width: 100%;
+      transition: ease all;
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+  }
+}

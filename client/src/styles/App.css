@@ -181,9 +181,9 @@ footer {
           align-items: center;
 }
 
-.logo {
-  height: 65px;
-  margin: 5px;
+.footer-logo-img {
+  height: 50px;
+  margin: 5px 10px 5px 5px;
 }
 
 .footer-title-text {
@@ -206,15 +206,10 @@ footer {
   }
 }
 
-@media (min-width: 758px) and (max-width: 1023px) {
-  footer {
-    font-size: 12px;
-  }
-}
-
 @media (min-width: 1024px) {
-  footer {
-    font-size: 16px;
+  .footer-logo-img {
+    height: 70px;
+    margin: 5px 10px 5px 5px;
   }
 }
 
@@ -229,7 +224,7 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  position: fixed;
+  position: absolute;
   top: 65px;
   left: 1;
   bottom: 0;
@@ -554,6 +549,306 @@ button {
     width: 100px;
     margin: 20px;
     font-size: 20px;
+  }
+}
+
+.policy-modal-backdrop {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.policy-modal-window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  background-color: white;
+  border: 4px solid #ffcc1d;
+  height: 530px;
+  width: 265px;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+}
+
+.policy-title-text {
+  margin-bottom: 15px;
+}
+
+.policy-content-text {
+  font-size: 14px;
+  padding: 5px;
+}
+
+.policy-close-button {
+  margin: 5px 0 0 0;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .policy-modal-window {
+    width: 350px;
+    height: 590px;
+  }
+  .logo {
+    height: 120px;
+    width: 120px;
+  }
+  .policy-title-text,
+  .policy-content-text {
+    font-size: 16px;
+    padding: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .policy-modal-window {
+    width: 450px;
+    height: 590px;
+  }
+  .logo {
+    height: 130px;
+    width: 130px;
+  }
+  .policy-title-text,
+  .policy-content-text {
+    font-size: 18px;
+    padding: 15px;
+  }
+}
+
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.alert-backdrop {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.alert-window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 250px;
+  background-color: white;
+  border: 8px solid #ffcc1d;
+  border-radius: 45px;
+  padding: 10px;
+  -webkit-animation: appear 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+          animation: appear 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.alert-animation {
+  height: 120px;
+  padding-bottom: 15px;
+}
+
+.alert-title {
+  font-size: 25px;
+  word-break: keep-all;
+}
+
+.alert-message {
+  font-size: 20px;
+  word-break: keep-all;
+}
+
+.alert-ownstore-animation {
+  height: 180px;
+}
+
+.alert-ownstore-title {
+  font-size: 16px;
+  text-align: center;
+  word-break: keep-all;
+  margin-bottom: 10px;
+}
+
+.alert-ownstore-message {
+  font-size: 12px;
+  word-break: keep-all;
+  text-align: center;
+}
+
+.alert-ownstore-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+  margin: 10px;
+}
+
+.alert-ownstore-donation-button:hover {
+  color: #ffcc1d;
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
+}
+
+.alert-ownstore-donation-button:before, .alert-ownstore-donation-button:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.alert-ownstore-donation-button:hover:before, .alert-ownstore-donation-button:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.alert-ownstore-donation-button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .alert-window {
+    width: 340px;
+    padding: 15px;
+  }
+  .alert-animation {
+    height: 160px;
+  }
+  .alert-message {
+    font-size: 30px;
+  }
+  .alert-ownstore-animation {
+    height: 280px;
+  }
+  .alert-ownstore-title {
+    font-size: 22px;
+  }
+  .alert-ownstore-message {
+    font-size: 18px;
+  }
+  .alert-ownstore-donation-button {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+
+@media (min-width: 1024px) {
+  .alert-window {
+    width: 440px;
+    padding: 30px;
+  }
+  .alert-animation {
+    height: 200px;
+  }
+  .alert-message {
+    font-size: 35px;
+  }
+  .alert-window {
+    width: 340px;
+    padding: 15px;
+  }
+  .alert-animation {
+    height: 160px;
+  }
+  .alert-message {
+    font-size: 30px;
+  }
+  .alert-ownstore-animation {
+    height: 380px;
+  }
+  .alert-ownstore-title {
+    font-size: 22px;
+  }
+  .alert-ownstore-message {
+    font-size: 18px;
+  }
+  .alert-ownstore-donation-button {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+
+.loading-backdrop {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.loading-animation {
+  height: 120px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .loading-animation {
+    height: 180px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .loading-animation {
+    height: 220px;
   }
 }
 /*# sourceMappingURL=App.css.map */
