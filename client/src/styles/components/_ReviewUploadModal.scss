@@ -1,81 +1,70 @@
 @import '../mixin/mixin';
 
-.review-modal-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.review-modal-backdrop {
-  z-index: 999;
+.review-upload-backdrop {
+  position: fixed;
+  z-index: 998;
   top: 0;
-  left: 0;
   bottom: 0;
+  left: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0.4);
   display: grid;
   place-items: center;
 }
 
-.review-modal-window {
+.review-upload-window {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
   background-color: white;
   border: 4px solid #ffcc1d;
   padding: 20px;
   margin-bottom: 230px;
   margin-top: 20px;
-  height: 220px;
+  height: 210px;
+  font-size: 13px;
 }
 
-.review-modal-title-container {
-  display: flex;
-  flex-direction: row;
-}
-
-.review-title-text {
+.review-upload-title {
   margin-right: 100px;
+  font-size: 15px;
 }
 
-.review-submit-button {
+.review-upload-submit-button {
   height: 20px;
 }
 
-.review-store-info-container {
+.review-upload-store-info-container {
   display: flex;
-  flex-direction: row;
   justify-content: flex-start;
-  align-items: center;
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-
-.review-store-category-icon {
+.review-upload-store-category-icon {
   width: 15px;
+  margin-right: 5px;
 }
 
-.review-store-name {
-  font-size: 13px;
+.review-upload-store-name {
 }
 
-.review-food-name {
+.review-upload-food-name {
   font-weight: bolder;
-  font-size: 13px;
 }
 
-.review-user-content-container {
+.review-upload-content-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.review-food-image {
+.review-upload-food-image {
   width: 100px;
 }
 
-.review-food-text {
+.review-upload-food-text {
   border: 2px solid grey;
   margin: 15px 0 15px 15px;
   padding: 5px;
@@ -90,13 +79,49 @@
   }
 }
 
-.review-image-upload-button {
+.review-upload-button-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.review-upload-image-upload-button {
   font-size: 13px;
   margin-top: 10px;
 }
 
 @include tablet {
+  .review-upload-food-text {
+    border: 2px solid grey;
+    margin: 15px 0 15px 15px;
+    padding: 5px;
+    font-size: 13px;
+    width: 250px;
+    height: 60px;
+    resize: none;
+    transition: 100ms ease all;
+    &:focus {
+      outline: none;
+      border: 2px solid black;
+      box-shadow: 2px 2px 2px gray;
+    }
+  }
 }
 
 @include desktop {
+  .review-upload-food-text {
+    border: 2px solid grey;
+    margin: 15px 0 15px 15px;
+    padding: 5px;
+    font-size: 13px;
+    width: 350px;
+    height: 60px;
+    resize: none;
+    transition: 100ms ease all;
+    &:focus {
+      outline: none;
+      border: 2px solid black;
+      box-shadow: 2px 2px 2px gray;
+    }
+  }
 }
