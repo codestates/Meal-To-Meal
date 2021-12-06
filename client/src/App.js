@@ -159,7 +159,17 @@ function App() {
         <Route path="/notfound" element={<NotFound />} />
         <Route path="/empty" element={<EmptyShareCart />} />
         <Route path="/emptyhistory" element={<EmptyOrderHistory />} />
-        <Route path="/withdrawal" element={<Withdrawal setIsLogin={setIsLogin} />} />
+        <Route
+          path="/withdrawal"
+          element={
+            <Withdrawal
+              setIsLogin={setIsLogin}
+              openAlertHandler={openAlertHandler}
+              openWarningAlertHandler={openWarningAlertHandler}
+              setAlertMessage={setAlertMessage}
+            />
+          }
+        />
         <Route path="/reviewmodal" element={<ReviewUploadModal />} />
         <Route
           path="/mypage"

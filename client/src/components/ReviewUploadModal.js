@@ -11,28 +11,32 @@ function ReviewUploadModal() {
   //     const response = await apiClient.post('', formData);
   //   };
   return (
-    <div className="review-modal-container">
-      <div className="review-modal-backdrop">
-        <div className="review-modal-window">
-          <div className="review-modal-title-container">
-            <div className="review-title-text">음식점 리뷰</div>
-            <button className="review-submit-button">등록하기</button>
+    <div className="review-upload-container">
+      <div className="review-upload-backdrop">
+        <div className="review-upload-window">
+          <div className="review-upload-title">음식점 리뷰</div>
+          <div className="review-upload-store-info-container">
+            <img className="review-upload-store-category-icon" src={require('../img/찌개.png').default} alt=""></img>
+            <div className="review-upload-store-name">국밥무라</div>
           </div>
-          <div className="review-store-info-container">
-            <img className="review-store-category-icon" src={require('../img/찌개.png').default} alt=""></img>
-            <div className="review-store-name">원조할매국밥</div>
+          <div className="review-upload-food-name">원조 할매 국밥</div>
+          <div className="review-upload-content-container">
+            <img
+              className="review-upload-food-image"
+              src={require('../img/dummy/menu_dummy/김치전.jpg').default}
+              alt=""
+            ></img>
+            <textarea className="review-upload-food-text" placeholder="리뷰를 적어주세요" onChange={handleChange} />
           </div>
-          <div className="review-food-name">원조 할매 국밥</div>
-          <div className="review-user-content-container">
-            <img className="review-food-image" src={require('../img/dummy/menu_dummy/김치전.jpg').default} alt=""></img>
-            <textarea className="review-food-text" placeholder="리뷰를 적어주세요" onChange={handleChange} />
+          <div className="review-upload-button-container">
+            <input
+              className="review-upload-image-upload-button"
+              type="file"
+              accept="image/x-png, image/gif, image/jpeg"
+              //     onChange={onFoodChange}
+            />
+            <button className="review-upload-submit-button">등록하기</button>
           </div>
-          <input
-            className="review-image-upload-button"
-            type="file"
-            accept="image/x-png, image/gif, image/jpeg"
-            //     onChange={onFoodChange}
-          />
         </div>
       </div>
     </div>
