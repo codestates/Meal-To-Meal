@@ -1,7 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
+import LoginAlert from '../components/LoginAlert';
+import ClickOwnStoreAlert from '../components/ClickOwnStoreAlert';
 import MenuDummydata from '../static/menu_dummydata';
 
-function MenuBox({ cartItem, setCartItem, removeFromCart, addToCart, setQuantity }) {
+function MenuBox({
+  isLogin,
+  cartItem,
+  setCartItem,
+  removeFromCart,
+  addToCart,
+  setQuantity,
+  openLoginModalHandler,
+  openSignupModalHandler,
+}) {
+  const [isOpenLoginAlert, setIsOpenLoginAlert] = useState(false);
+  const loginAlertOpenHandler = () => {
+    setIsOpenLoginAlert(!isOpenLoginAlert);
+  };
+
+  const [isOpneClickOwnStoreAlert, setIsOpneClickOwnStoreAlert] = useState(false);
+  const openClickOwnStoreAlertHandler = () => {
+    setIsOpneClickOwnStoreAlert(!isOpneClickOwnStoreAlert);
+  };
+  // TODO: 서버에서 가게 주인 아이디 확인해서 누른 사람이랑 같으면 openClickOwnStoreAlertHandler를 true로
+  // TODO: 즉 먹기를 눌렀을때 분기를 나눠야 한다.
+
+  const goToorderHistory = () => {
+    if (!isLogin) {
+      loginAlertOpenHandler();
+    } else {
+      console.log('로그인 되어있는 상태이면 먹기 페이지로 가시오');
+    }
+  };
+
   return (
     <>
       {MenuDummydata.filter(el => el.store_id === 3).map(el => (
@@ -26,12 +57,21 @@ function MenuBox({ cartItem, setCartItem, removeFromCart, addToCart, setQuantity
                 >
                   기부하기
                 </button>
-                <button className="menu-eat-button">먹기</button>
+                <button className="menu-eat-button" onClick={goToorderHistory}>
+                  먹기
+                </button>
               </div>
             </div>
           </div>
         </div>
       ))}
+      {isOpenLoginAlert ? (
+        <LoginAlert
+          loginAlertOpenHandler={loginAlertOpenHandler}
+          openLoginModalHandler={openLoginModalHandler}
+          openSignupModalHandler={openSignupModalHandler}
+        />
+      ) : null}
     </>
   );
 }

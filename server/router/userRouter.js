@@ -8,6 +8,7 @@ router.get('/logout', userController.logout);
 router.get('/mypage', userController.mypage);
 router.post('/email', userController.emailCheck);
 router.patch('/nickname', userController.nickname.patch);
+router.patch('/password', userController.password);
 router.post('/nickname', userController.nickname.post);
 router.delete('/withdrawal', userController.withdrawal);
 

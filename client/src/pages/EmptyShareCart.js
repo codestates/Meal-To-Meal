@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import lottie from 'lottie-web';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 
 function EmptyShareCart() {
   const navigate = useNavigate();
@@ -18,7 +16,6 @@ function EmptyShareCart() {
   }, []);
   return (
     <>
-      <Header />
       <div className="sharecart-container">
         <div className="sharecart-title">나눔카트</div>
         <div className="animation-container">
@@ -34,7 +31,6 @@ function EmptyShareCart() {
           </button>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

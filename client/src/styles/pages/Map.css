@@ -410,6 +410,10 @@ button:active {
   margin-top: 20px;
 }
 
+.login-info-container {
+  z-index: 105;
+}
+
 .login-logo {
   height: 30px;
 }
@@ -468,11 +472,13 @@ button:active {
 }
 
 .login-signup-link {
-  padding-top: 3px;
+  padding-top: 5px;
   text-decoration: underline;
   -webkit-transition: 120ms ease all;
   transition: 120ms ease all;
   cursor: pointer;
+  font-size: 14px;
+  text-align: center;
 }
 
 .login-signup-link:hover {
@@ -481,6 +487,7 @@ button:active {
 
 .login-button {
   font-size: 10px;
+  margin: 0;
 }
 
 .login-signup-text {
@@ -488,7 +495,7 @@ button:active {
 }
 
 .login-kakao-container {
-  padding-top: 35px;
+  padding-top: 20px;
   font-weight: bolder;
 }
 
@@ -496,16 +503,16 @@ button:active {
   padding-top: 3px;
   width: 130px;
   margin-top: 4px;
-  -webkit-box-shadow: gray 2px 2px 2px;
-          box-shadow: gray 2px 2px 2px;
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
   border-radius: 7px;
-  -webkit-transition: 100ms ease;
-  transition: 100ms ease;
+  -webkit-transition: 120ms ease;
+  transition: 120ms ease;
 }
 
 .login-kakao-button:hover {
-  -webkit-box-shadow: gray 2px 2px 2px;
-          box-shadow: gray 2px 2px 2px;
+  -webkit-box-shadow: gray 6px 6px 6px;
+          box-shadow: gray 6px 6px 6px;
 }
 
 .login-kakao-button:before, .login-kakao-button:after {
@@ -564,7 +571,12 @@ button:active {
     width: 180px;
   }
   .login-modal-img {
-    height: 230px;
+    height: 290px;
+    position: absolute;
+    left: 360px;
+    top: 330px;
+    opacity: 60%;
+    z-index: 101;
   }
 }
 
@@ -594,6 +606,9 @@ button:active {
     font-size: 20px;
     height: 33px;
     padding-top: 3px;
+  }
+  .login-signup-link {
+    font-size: 20px;
   }
   .login-kakao-button {
     width: 220px;
@@ -861,6 +876,132 @@ button:active {
   .customOverlay-businesshour-container {
     margin-left: 15px;
     margin-right: 10px;
+  }
+}
+
+.login-alert-backdrop {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.login-alert-window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 250px;
+  background-color: white;
+  border: 8px solid #ffcc1d;
+  border-radius: 45px;
+  padding: 10px;
+  -webkit-animation: appear 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+          animation: appear 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.login-alert-logo {
+  height: 50px;
+  margin: 15px;
+}
+
+.login-alert-text {
+  font-size: 15px;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.login-alert-button-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .login-alert-window {
+    width: 320px;
+  }
+  .login-alert-logo {
+    height: 80px;
+  }
+  .login-alert-text {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  .login-alert-button {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 40px;
+    margin: 10px;
+    font-size: 20px;
+    padding: 5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .login-alert-window {
+    width: 420px;
+  }
+  .login-alert-logo {
+    height: 95px;
+  }
+  .login-alert-text {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+  .login-alert-button {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    height: 45px;
+    margin: 15px;
+    font-size: 25px;
+    padding: 10px;
+    -webkit-transition: 180ms ease all;
+    transition: 180ms ease all;
+  }
+  .login-alert-button:hover {
+    -webkit-box-shadow: gray 4px 4px 4px;
+            box-shadow: gray 4px 4px 4px;
+    color: #ffcc1d;
+  }
+  .login-alert-button:before, .login-alert-button:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    -webkit-transition: ease all;
+    transition: ease all;
+  }
+  .login-alert-button:hover:before, .login-alert-button:hover:after {
+    width: 100%;
+    -webkit-transition: ease all;
+    transition: ease all;
+  }
+  .login-alert-button:active {
+    -webkit-box-shadow: none;
+            box-shadow: none;
   }
 }
 
