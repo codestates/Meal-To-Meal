@@ -31,13 +31,19 @@ module.exports = async (req, res) =>{
 
           // 조회한 결제정보 
           const paymentData = getPaymentData.data.response;
-
+          const userInfo = checkTokens(req);
+          const matchedUser = await user.findOne({ where: { id: userInfo.id } });
           let calculatedPrice = 0;
           order.forEach((el, idx, arr) => {
-            menu.findOne({ where: { id: el.menu_id } }).then(found => {
+            console.log('el--------------',el)
+            console.log('idx--------------',idx)
+            console.log('arr--------------',arr)
+            
+            menu.findOne({ where: { id: el.id } }).then(found => {
               // console.log('price', el.dataValues.menu_price, 'order_quantity', cur.order_quantity);
               if (idx === arr.length - 1) {
-                calculatedPrice += found.dataValues.menu_price * el.order_quantity;
+                console.log("found----------------",found.dataValues)
+                calculatedPrice += found.dataValues.menu_price * el.quantity;
                 cart
                   .create({
                     merchant_uid: merchant_uid,
@@ -50,11 +56,14 @@ module.exports = async (req, res) =>{
                     order.forEach(el => {
                       cart_menu.create({
                         cart_id: newCart.dataValues.id,
-                        menu_id: el.menu_id,
-                        order_quantity: el.order_quantity,
+                        menu_id: el.id,
+                        order_quantity: el.quantity,
                       });
                     });
                     const { amount, status } = paymentData;
+                    console.log("amount------------",amount)
+                    console.log("calcul------------",calculatedPrice)
+
         if (amount !== calculatedPrice) { 
           console.log("hi------------------------------")
         // paymentData.amount는 iamport 서버에 요청해서 받은 실제 결제되는 가격에
@@ -66,8 +75,7 @@ module.exports = async (req, res) =>{
         }
                   })
                   .catch(err =>console.log("newcarterr----------------",err))
-              }
-              calculatedPrice += found.dataValues.menu_price * el.order_quantity;
+              }else{ calculatedPrice += found.dataValues.menu_price * el.quantity}
             }).catch(err =>console.log("findmenuerr--------------",err))
           });
 

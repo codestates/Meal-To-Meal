@@ -1,0 +1,341 @@
+.ordered-food-container {
+  border: 2px solid #ffcc1d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.ordered-food-image {
+  height: 90px;
+}
+
+.ordered-food-info-container {
+  padding: 10px;
+}
+
+.ordered-food-info-title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.ordered-food-name {
+  margin-right: 15px;
+}
+
+.ordered-order-date {
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+.review-upload-backdrop {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.review-upload-window {
+  font-size: 13px;
+  width: 200px;
+  height: 405px;
+  border: 3px solid #ffcc1d;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: white;
+  padding: 20px;
+}
+
+.review-upload-title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 100%;
+}
+
+.review-upload-title {
+  font-size: 18px;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  margin-bottom: 10px;
+  font-weight: bolder;
+}
+
+.fa-times {
+  margin-left: 53%;
+}
+
+.review-upload-store-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.review-upload-store-category-icon {
+  height: 18px;
+  margin-right: 5px;
+}
+
+.review-upload-store-name {
+  font-size: 15px;
+}
+
+.review-upload-food-name {
+  font-size: 15px;
+}
+
+.review-upload-content-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.review-upload-food-image {
+  height: 140px;
+  max-width: 200px;
+  margin: 10px auto 15px auto;
+  border-radius: 15px;
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
+}
+
+.review-upload-food-text {
+  resize: none;
+  padding: 5px;
+  margin-bottom: 10px;
+  word-break: keep-all;
+  height: 80px;
+  -webkit-transition: 220ms ease all;
+  transition: 220ms ease all;
+  border: 2px solid;
+}
+
+.review-upload-food-text:focus {
+  outline: none;
+  border: 2px solid #ffcc1d;
+}
+
+.review-upload-submit-button {
+  margin-left: 65%;
+  width: 70px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .review-upload-window {
+    width: 500px;
+    height: 430px;
+    padding: 15px;
+  }
+  .review-upload-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .fa-times {
+    margin-left: 78%;
+  }
+  .review-upload-store-info-container {
+    margin-bottom: 10px;
+  }
+  .review-upload-store-name {
+    font-size: 17px;
+  }
+  .review-upload-food-name {
+    margin-top: 5px;
+    margin-left: 15px;
+  }
+  .review-upload-food-image {
+    height: 160px;
+    max-width: 215px;
+  }
+  .review-upload-submit-button {
+    margin-left: 80%;
+    width: 100px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .review-upload-window {
+    width: 650px;
+    height: 400px;
+    padding: 15px;
+  }
+  .review-upload-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .fa-times {
+    margin-left: 80%;
+  }
+  .review-upload-store-info-container {
+    margin-bottom: 10px;
+  }
+  .review-upload-store-name {
+    font-size: 19px;
+  }
+  .review-upload-food-name {
+    margin-top: 5px;
+    margin-left: 15px;
+  }
+  .review-upload-content-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .review-upload-food-image {
+    height: 200px;
+    max-width: 270px;
+  }
+  .review-upload-food-text {
+    margin-top: 20px;
+    width: 300px;
+    height: 170px;
+    font-size: 15px;
+    -webkit-transition: 120ms ease all;
+    transition: 120ms ease all;
+  }
+  .review-upload-button-container {
+    margin-top: 15px;
+    margin-left: 40px;
+  }
+  .review-upload-submit-button {
+    margin-left: 80%;
+    width: 100px;
+  }
+}
+
+.ordercart-container {
+  padding: 15px;
+  font-size: 13px;
+}
+
+.ordercart-title {
+  font-size: 14px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.ordercart-store-title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-bottom: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ordercart-category-icon {
+  width: 15px;
+}
+
+.ordercart-store-image {
+  height: 150px;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 2px 2px 2px gray;
+          box-shadow: 2px 2px 2px 2px gray;
+}
+
+.ordercart-address-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ordercart-description-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ordercart-ordered-container {
+  margin-top: 15px;
+}
+
+.ordercart-ordered-title {
+  font-size: 14px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.ordercart-userinfo-container {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.ordercart-userinfo-title {
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.ordercart-username {
+  margin-bottom: 10px;
+}
+
+.ordercart-user-email {
+  margin-bottom: 10px;
+}
+
+.order-user-phone-number {
+  margin-bottom: 10px;
+}
+
+.ordercart-confirm-button {
+  width: 90%;
+}
+/*# sourceMappingURL=OrderCart.css.map */

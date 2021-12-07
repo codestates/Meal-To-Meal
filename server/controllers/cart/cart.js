@@ -63,13 +63,12 @@ module.exports = {
     }
   },
   get: async (req, res) => {
-    //기부내역 조회에 보여야할 정보: 가게 정보, + 기부 날짜(cart의 created_at) + 메뉴 정보 + 수량(order_quantity)
     const userInfo = checkTokens(req);
     if (!userInfo) {
       res.status(401).json({ message: '로그인이 필요합니다' });
     } else {
       try {
-        const matchedCart = await cart.findAll({
+        const donationList = await cart.findAll({
           include: [
             {
               model: cart_menu,
@@ -86,9 +85,9 @@ module.exports = {
               ],
             },
           ],
-          where: { user_id: userInfo.id },
+          where: { buyer_id: userInfo.id },
         });
-        res.stauts(200).json({ donationList: matchedCart });
+        res.status(200).json({ donationList: donationList });
       } catch (err) {
         res.status(400).json({ message: err.message });
       }

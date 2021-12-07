@@ -2,13 +2,32 @@
 /* global kakao */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Search from '../components/Search';
+import Search from '../components/Map/Search';
 import '../styles/pages/Map.css';
-import StoreDummydata from '../static/store_dummydata';
 
 const { kakao } = window;
 
-const Map = () => {
+const Map = ({ navigate }) => {
+  const [storeList, setStoreList] = useState([]);
+
+  const storeListHandler = () => {
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/store-list`, {
+        headers: { 'Content-Type': 'application/json' },
+        withCredentials: true,
+      })
+      .then(res => {
+        setStoreList(res.data.storeList);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    storeListHandler();
+  }, []);
+
   useEffect(() => {
     const container = document.getElementById('map');
 
@@ -23,13 +42,7 @@ const Map = () => {
 
     // eslint-disable-next-line no-lone-blocks
     {
-      StoreDummydata.forEach(el => {
-        const marker = new kakao.maps.Marker({
-          map: map,
-          position: new kakao.maps.LatLng(el.store_lat, el.store_lng),
-          clickable: true,
-        });
-
+      storeList.forEach(el => {
         var content = document.createElement('div');
         content.classList.add('customOverlay-container');
         content.style.position = 'absolute';
@@ -46,6 +59,10 @@ const Map = () => {
         img.classList.add('customOverlay-img');
         img.src = el.store_image;
         img.alt = '';
+        img.onclick = function () {
+          localStorage.setItem('clickedMarker', el.id);
+          navigate(`/store/:${el.id}`);
+        };
         content.appendChild(img);
 
         var infoContainer = document.createElement('div');
@@ -63,6 +80,10 @@ const Map = () => {
         var infoTitle = document.createElement('div');
         infoTitle.classList.add('customOverlay-title');
         infoTitle.appendChild(document.createTextNode(el.store_name));
+        infoTitle.onclick = function () {
+          localStorage.setItem('clickedMarker', el.id);
+          navigate(`/store/:${el.id}`);
+        };
         infoTitleContainer.appendChild(infoTitle);
 
         var infoCategory = document.createElement('div');
@@ -135,6 +156,12 @@ const Map = () => {
           position: new kakao.maps.LatLng(el.store_lat, el.store_lng),
         });
 
+        const marker = new kakao.maps.Marker({
+          map: map,
+          position: new kakao.maps.LatLng(el.store_lat, el.store_lng),
+          clickable: true,
+        });
+
         kakao.maps.event.addListener(marker, 'click', function panTo() {
           if (clickedOverlay) {
             clickedOverlay.setMap(null);
@@ -150,27 +177,7 @@ const Map = () => {
         });
       });
     }
-  }, []);
-
-  const [storeList, setStoreList] = useState({});
-
-  const storeListHandler = () => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/store-list`, {
-        withCredentials: true,
-      })
-      // TODO: 이거 App에서 받아서 뿌려라~~
-      .then(res => {
-        setStoreList(res.data.storeList);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
-  useEffect(() => {
-    storeListHandler();
-  }, []);
+  }, [storeList]);
 
   return (
     <>

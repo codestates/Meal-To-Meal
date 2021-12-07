@@ -3,31 +3,28 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import Alert from './components/Alert';
-import WarningAlert from './components/WarningAlert';
-import Loading from './components/Loading';
+import Alert from './components/Alert/Alert';
+import WarningAlert from './components/Alert/WarningAlert';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import UnderbarLogin from './components/UnderbarLogin';
-import UnderbarNotLogin from './components/UnderbarNotLogin';
+import UnderbarLogin from './components/Underbar/UnderbarLogin';
+import UnderbarNotLogin from './components/Underbar/UnderbarNotLogin';
 import NotFound from './pages/NotFound';
-import EmptyShareCart from './pages/EmptyShareCart';
 import EmptyOrderHistory from './pages/EmptyOrderHistory';
 import Landing from '../src/pages/Landing';
 import Map from '../src/pages/Map';
-import LoginModal from './components/LoginModal';
+import LoginModal from './components/Login/LoginModal';
 import StoreInfo from '../src/pages/StoreInfo';
 import ShareCart from '../src/pages/ShareCart';
+import OrderCart from '../src/pages/OrderCart';
 import Withdrawal from '../src/pages/Withdrawal';
 import Mypage from '../src/pages/Mypage';
-import ReviewUploadModal from './components/ReviewUploadModal';
+import ReviewUploadModal from './components/OrderCart/ReviewUploadModal';
 const dotenv = require('dotenv');
 dotenv.config();
 
 axios.defaults.withCredentials = true;
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
-
   const [isLogin, setIsLogin] = useState(false);
 
   const [isOpenAlert, setIsOpenAlert] = useState(false);
@@ -80,8 +77,7 @@ function App() {
           navigate('/map');
         })
         .catch(err => {
-          setAlertMessage('잘못된 요청입니다.');
-          openWarningAlertHandler();
+          setIsLogin(false);
           console.log(err);
         });
     }
@@ -157,8 +153,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Landing />} />
         <Route path="/notfound" element={<NotFound />} />
-        <Route path="/empty" element={<EmptyShareCart />} />
-        <Route path="/emptyhistory" element={<EmptyOrderHistory />} />
+        <Route path="/emptyhistory" element={<EmptyOrderHistory navigate={navigate} />} />
         <Route
           path="/withdrawal"
           element={
@@ -183,24 +178,9 @@ function App() {
             />
           }
         />
+        <Route path="/map" element={<Map navigate={navigate} />} />
         <Route
-          path="/map"
-          element={
-            <Map
-              isLogin={isLogin}
-              setIsLogin={setIsLogin}
-              openLoginModalHandler={openLoginModalHandler}
-              openSignupModalHandler={openSignupModalHandler}
-              issueTokens={issueTokens}
-              navigate={navigate}
-              openAlertHandler={openAlertHandler}
-              openWarningAlertHandler={openWarningAlertHandler}
-              setAlertMessage={setAlertMessage}
-            />
-          }
-        />
-        <Route
-          path="/storeinfo"
+          path="/store/:storeid"
           element={
             <StoreInfo
               isLogin={isLogin}
@@ -227,6 +207,7 @@ function App() {
             />
           }
         />
+        <Route path="/ordercart" element={<OrderCart />} />
       </Routes>
       {isLogin ? (
         <UnderbarLogin

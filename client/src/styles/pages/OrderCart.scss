@@ -1,0 +1,93 @@
+@import '../mixin/mixin';
+@import '../components/OrderCart/OrderedFoodBox';
+@import '../components/OrderCart/ReviewUploadModal';
+
+.ordercart-container {
+  padding: 15px;
+  font-size: 13px;
+}
+
+.ordercart-title {
+  font-size: 14px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.ordercart-store-title-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.ordercart-category-icon {
+  width: 15px;
+}
+
+.ordercart-store-title {
+}
+
+.ordercart-store-image {
+  height: 150px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px gray;
+}
+
+.ordercart-address-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ordercart-address-text {
+}
+
+.ordercart-description-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ordercart-description-text {
+}
+
+.ordercart-ordered-container {
+  margin-top: 15px;
+}
+
+.ordercart-ordered-title {
+  font-size: 14px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.ordercart-userinfo-container {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.ordercart-userinfo-title {
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.ordercart-username {
+  margin-bottom: 10px;
+}
+
+.ordercart-user-email {
+  margin-bottom: 10px;
+}
+
+.order-user-phone-number {
+  margin-bottom: 10px;
+}
+
+.ordercart-confirm-button {
+  width: 90%;
+}
+
+@include tablet {
+}
+@include desktop {
+}
