@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ReviewUploadModal from '../components/ReviewUploadModal';
+import OrderedFoodBox from '../components/OrderedFoodBox';
 import '../styles/pages/OrderCart.css';
 
 function OrderCart() {
@@ -32,6 +33,7 @@ function OrderCart() {
       </div>
       <div className="ordercart-ordered-container">
         <div className="ordercart-ordered-title">주문한 음식</div>
+        <OrderedFoodBox />
       </div>
       <div className="ordercart-userinfo-container">
         <div className="ordercart-userinfo-title">주문 유저 정보</div>

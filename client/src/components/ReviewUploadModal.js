@@ -28,7 +28,7 @@ function ReviewUploadModal({ openReviewModalHandler }) {
               className="review-upload-food-image"
               src={require('../img/dummy/menu_dummy/김치전.jpg').default}
               alt=""
-            ></img>
+            />
             <textarea className="review-upload-food-text" placeholder="리뷰를 적어주세요" onChange={handleChange} />
           </div>
           <div className="review-upload-button-container">
