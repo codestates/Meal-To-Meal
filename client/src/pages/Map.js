@@ -2,7 +2,7 @@
 /* global kakao */
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Search from '../components/Search';
+import Search from '../components/Map/Search';
 import '../styles/pages/Map.css';
 
 const { kakao } = window;

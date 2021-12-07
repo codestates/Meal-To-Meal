@@ -7,26 +7,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      imp_uid: {
+        type: Sequelize.STRING,
+      },
       merchant_uid: {
         type: Sequelize.STRING,
       },
-      name: {
-        type: Sequelize.STRING,
-      },
-      //이름 바꿀 수 있으면 더 구체화하기!
       total_price: {
         type: Sequelize.STRING,
       },
-      buyer_email: {
-        type: Sequelize.STRING,
-      },
-      buyer_name: {
-        type: Sequelize.STRING,
-      },
-      buyer_tel: {
-        type: Sequelize.INTEGER,
-      },
-      // buyer_email, tel 필요한지 확인!
       created_at: {
         allowNull: false,
         type: Sequelize.DATE,

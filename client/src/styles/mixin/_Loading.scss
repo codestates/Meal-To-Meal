@@ -1,0 +1,29 @@
+@import './mixin';
+
+.loading-backdrop {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: grid;
+  place-items: center;
+}
+
+.loading-animation {
+  height: 120px;
+}
+
+@include tablet {
+  .loading-animation {
+    height: 180px;
+  }
+}
+
+@include desktop {
+  .loading-animation {
+    height: 220px;
+  }
+}

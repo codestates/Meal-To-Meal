@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import ReviewUploadModal from '../components/ReviewUploadModal';
-import OrderedFoodBox from '../components/OrderedFoodBox';
+import ReviewUploadModal from '../components/OrderCart/ReviewUploadModal';
+import OrderedFoodBox from '../components/OrderCart/OrderedFoodBox';
 import '../styles/pages/OrderCart.css';
 
 function OrderCart() {
-  const navigate = useNavigate();
   const [reviewModalOpen, setReviewModalOpen] = useState(false);
 
   const openReviewModalHandler = () => {
