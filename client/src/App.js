@@ -3,22 +3,22 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
-import Alert from './components/Alert';
-import WarningAlert from './components/WarningAlert';
+import Alert from './components/Alert/Alert';
+import WarningAlert from './components/Alert/WarningAlert';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import UnderbarLogin from './components/UnderbarLogin';
-import UnderbarNotLogin from './components/UnderbarNotLogin';
+import UnderbarLogin from './components/Underbar/UnderbarLogin';
+import UnderbarNotLogin from './components/Underbar/UnderbarNotLogin';
 import NotFound from './pages/NotFound';
 import EmptyOrderHistory from './pages/EmptyOrderHistory';
 import Landing from '../src/pages/Landing';
 import Map from '../src/pages/Map';
-import LoginModal from './components/LoginModal';
+import LoginModal from './components/Login/LoginModal';
 import StoreInfo from '../src/pages/StoreInfo';
 import ShareCart from '../src/pages/ShareCart';
 import Withdrawal from '../src/pages/Withdrawal';
 import Mypage from '../src/pages/Mypage';
-import ReviewUploadModal from './components/ReviewUploadModal';
+import ReviewUploadModal from './components/OrderCart/ReviewUploadModal';
 const dotenv = require('dotenv');
 dotenv.config();
 

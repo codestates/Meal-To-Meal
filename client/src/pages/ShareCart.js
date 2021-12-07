@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import SharecartItem from '../components/SharecartItem';
+import SharecartItem from '../components/ShareCart/SharecartItem';
 import '../styles/pages/ShareCart.css';
 
 function ShareCart({ cartItems, setCartItems, removeFromCart }) {

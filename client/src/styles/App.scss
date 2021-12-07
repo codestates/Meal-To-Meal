@@ -128,12 +128,12 @@ table {
   border-spacing: 0;
 }
 
-@import '../styles/components/Footer';
-@import '../styles/components/Header';
+@import '../styles/mixin/Footer';
+@import '../styles/mixin/Header';
 @import '../styles/pages/NotFound';
-@import '../styles/components/EmptyCartAni';
+@import '../styles/components/StoreInfo/EmptyCartAni';
 @import '../styles/pages/EmptyOrderHistory';
-@import '../styles/components/ReviewUploadModal';
-@import '../styles/components/Policy';
-@import '../styles/components/Alert';
-@import '../styles/components/Loading';
+@import '../styles/components/OrderCart/ReviewUploadModal';
+@import '../styles/components/Login/Policy';
+@import '../styles/mixin/Alert';
+@import '../styles/mixin/Loading';

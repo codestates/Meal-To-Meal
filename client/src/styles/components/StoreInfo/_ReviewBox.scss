@@ -1,0 +1,79 @@
+@import '../../mixin/mixin';
+
+.reviewBox-container {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #ffcc1d;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.storeinfo-food-image {
+  height: 180px;
+  max-width: 270px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reviewBox-info-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+
+.reviewBox-reviewer-name {
+  margin-bottom: 5px;
+  font-weight: bolder;
+}
+
+.reviewBox-reviewer-review {
+  border: 3px solid #ffcc1d;
+  border-radius: 15px;
+  padding: 10px;
+  word-break: keep-all;
+  margin: 10px;
+}
+
+@include tablet {
+  .reviewBox-container {
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: initial;
+  }
+
+  .storeinfo-food-image {
+    width: 300px;
+    border-radius: 30px;
+    box-shadow: gray 4px 4px 4px 4px;
+    margin: 10px;
+  }
+
+  .reviewBox-info-container {
+    margin: 15px;
+    font-size: 25px;
+  }
+}
+
+@include desktop {
+  .reviewBox-container {
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: initial;
+  }
+
+  .storeinfo-food-image {
+    width: 300px;
+    border-radius: 30px;
+    box-shadow: gray 4px 4px 4px 4px;
+    margin: 10px;
+  }
+
+  .reviewBox-info-container {
+    margin: 15px;
+    font-size: 25px;
+  }
+
+  .menu-box-container {
+    width: 100%;
+  }
+}
