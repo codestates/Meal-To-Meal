@@ -78,8 +78,7 @@ function App() {
           navigate('/map');
         })
         .catch(err => {
-          setAlertMessage('잘못된 요청입니다.');
-          openWarningAlertHandler();
+          setIsLogin(false);
           console.log(err);
         });
     }
