@@ -42,7 +42,7 @@ function OrderCart() {
       <button className="ordercart-confirm-button" onClick={openReviewModalHandler}>
         잘 먹었습니다!
       </button>
-      {reviewModalOpen ? <ReviewUploadModal /> : null}
+      {reviewModalOpen ? <ReviewUploadModal openReviewModalHandler={openReviewModalHandler} /> : null}
     </>
   );
 }

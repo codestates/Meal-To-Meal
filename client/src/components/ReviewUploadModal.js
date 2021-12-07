@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function ReviewUploadModal() {
+function ReviewUploadModal({ openReviewModalHandler }) {
   const [review, setReview] = useState('');
   const handleChange = e => {
     setReview(e.target.value);
@@ -14,7 +14,10 @@ function ReviewUploadModal() {
     <div className="review-upload-container">
       <div className="review-upload-backdrop">
         <div className="review-upload-window">
-          <div className="review-upload-title">음식점 리뷰</div>
+          <div className="review-upload-title-container">
+            <div className="review-upload-title">음식점 리뷰</div>
+            <i className="fa fa-times" onClick={openReviewModalHandler} />
+          </div>
           <div className="review-upload-store-info-container">
             <img className="review-upload-store-category-icon" src={require('../img/찌개.png').default} alt=""></img>
             <div className="review-upload-store-name">국밥무라</div>
@@ -33,7 +36,6 @@ function ReviewUploadModal() {
               className="review-upload-image-upload-button"
               type="file"
               accept="image/x-png, image/gif, image/jpeg"
-              //     onChange={onFoodChange}
             />
             <button className="review-upload-submit-button">등록하기</button>
           </div>
