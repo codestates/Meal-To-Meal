@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../styles/pages/Mypage.css';
 
-import Review from '../components/Review';
+import Review from '../components/Mypage/Review';
 
 function Mypage({ navigate, setAlertMessage, openAlertHandler, openWarningAlertHandler, alertMessage }) {
   const [isOpenFixNicknameToggle, setIsOpenFixNicknameToggle] = useState(false);

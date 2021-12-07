@@ -1,0 +1,104 @@
+@import '../../mixin/mixin';
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 65px;
+  left: 1;
+  bottom: 0;
+  right: 0;
+  width: 220px;
+  height: fit-content;
+  border-radius: 30px 0 0 30px;
+  background-color: white;
+  box-shadow: gray 3px 3px 3px 3px;
+  z-index: 999;
+}
+
+.sidebar-menu-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  font-size: 25px;
+  cursor: pointer;
+  transition: 120ms ease all;
+
+  &:hover {
+    color: #ffcc1d;
+    text-shadow: gray 1.5px 1.5px 1.5px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.sidebar-icon {
+  margin-right: 10px;
+  font-size: 30px;
+}
+
+.sidebar-logo {
+  width: 100px;
+  height: 80px;
+  cursor: grab;
+}
+
+// 반응형
+@include mobile {
+  .sidebar-container {
+    width: 120px;
+  }
+
+  .sidebar-menu-container {
+    font-size: 12px;
+  }
+
+  .sidebar-icon {
+    font-size: 20px;
+  }
+
+  .sidebar-logo {
+    width: 50px;
+    height: 40px;
+  }
+}
+
+@include tablet {
+  .sidebar-container {
+    width: 160px;
+  }
+
+  .sidebar-menu-container {
+    font-size: 16px;
+  }
+
+  .sidebar-icon {
+    font-size: 25px;
+  }
+
+  .sidebar-logo {
+    width: 80px;
+    height: 60px;
+  }
+}
+
+@include desktop {
+}

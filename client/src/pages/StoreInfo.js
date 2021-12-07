@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import MenuBox from '../components/MenuBox';
-import ReviewBox from '../components/ReviewBox';
+import MenuBox from '../components/StoreInfo/MenuBox';
+import ReviewBox from '../components/StoreInfo/ReviewBox';
 import '../styles/pages/StoreInfo.css';
 import axios from 'axios';
 
@@ -18,14 +18,6 @@ function StoreInfo({
   const navigate = useNavigate();
 
   const [detailStoreInfo, setDetailStoreInfo] = useState({});
-
-  const goToShareCart = () => {
-    if (cartItems.length === 0) {
-      navigate('/empty');
-    } else {
-      navigate('/sharecart');
-    }
-  };
 
   const getDetailStoreInfoHandler = () => {
     axios
@@ -93,7 +85,7 @@ function StoreInfo({
           </div>
         </div>
         <div className="storeinfo-button-container">
-          <button className="cart-button" onClick={() => goToShareCart(detailStoreInfo)}>
+          <button className="cart-button" onClick={() => navigate('/sharecart')}>
             장바구니
           </button>
           <button className="back-button" onClick={() => navigate('/map')}>

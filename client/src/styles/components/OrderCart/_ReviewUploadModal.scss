@@ -1,0 +1,195 @@
+@import '../../mixin/mixin';
+
+.review-upload-backdrop {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: grid;
+  place-items: center;
+}
+
+.review-upload-window {
+  font-size: 13px;
+  width: 200px;
+  height: 405px;
+  border: 3px solid #ffcc1d;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 10px;
+}
+
+.review-upload-title-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+}
+
+.review-upload-title {
+  font-size: 18px;
+  min-width: fit-content;
+  margin-bottom: 10px;
+  font-weight: bolder;
+}
+
+.fa-times {
+  margin-left: 50%;
+}
+
+.review-upload-store-info-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.review-upload-store-category-icon {
+  height: 18px;
+  margin-right: 5px;
+}
+
+.review-upload-store-name {
+  font-size: 15px;
+}
+
+.review-upload-food-name {
+  font-size: 15px;
+}
+
+.review-upload-content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-upload-food-image {
+  height: 140px;
+  max-width: 200px;
+  margin: 10px auto 15px auto;
+  border-radius: 15px;
+  box-shadow: gray 4px 4px 4px;
+}
+.review-upload-food-text {
+  resize: none;
+  padding: 5px;
+  margin-bottom: 10px;
+  word-break: keep-all;
+  height: 80px;
+  transition: 220ms ease all;
+  border: 2px solid;
+
+  &:focus {
+    outline: none;
+    border: 2px solid #ffcc1d;
+  }
+}
+
+.review-upload-button-container {
+}
+
+.review-upload-image-upload-button {
+}
+
+.review-upload-submit-button {
+  margin-left: 65%;
+  width: 70px;
+}
+
+@include tablet {
+  .review-upload-window {
+    width: 500px;
+    height: 430px;
+    padding: 15px;
+  }
+  .review-upload-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .fa-times {
+    margin-left: 78%;
+  }
+
+  .review-upload-store-info-container {
+    margin-bottom: 10px;
+  }
+
+  .review-upload-store-name {
+    font-size: 17px;
+  }
+
+  .review-upload-food-name {
+    margin-top: 5px;
+    margin-left: 15px;
+  }
+
+  .review-upload-food-image {
+    height: 160px;
+    max-width: 215px;
+  }
+
+  .review-upload-submit-button {
+    margin-left: 80%;
+    width: 100px;
+  }
+}
+
+@include desktop {
+  .review-upload-window {
+    width: 650px;
+    height: 400px;
+    padding: 15px;
+  }
+  .review-upload-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .fa-times {
+    margin-left: 80%;
+  }
+
+  .review-upload-store-info-container {
+    margin-bottom: 10px;
+  }
+
+  .review-upload-store-name {
+    font-size: 19px;
+  }
+
+  .review-upload-food-name {
+    margin-top: 5px;
+    margin-left: 15px;
+  }
+
+  .review-upload-content-container {
+    flex-direction: row;
+  }
+
+  .review-upload-food-image {
+    height: 200px;
+    max-width: 270px;
+  }
+
+  .review-upload-food-text {
+    margin-top: 20px;
+    width: 300px;
+    height: 170px;
+    font-size: 15px;
+    transition: 120ms ease all;
+  }
+
+  .review-upload-button-container {
+    margin-top: 15px;
+    margin-left: 40px;
+  }
+
+  .review-upload-submit-button {
+    margin-left: 80%;
+    width: 100px;
+  }
+}

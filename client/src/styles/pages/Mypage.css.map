@@ -5,7 +5,7 @@
         "Mypage.scss",
         "../mixin/_mixin.scss",
         "../_variables.scss",
-        "../components/_Review.scss",
+        "../components/Mypage/_Review.scss",
         "../mixin/_mixin.scss",
         "../_variables.scss"
     ],
