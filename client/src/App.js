@@ -17,6 +17,7 @@ import Map from '../src/pages/Map';
 import LoginModal from './components/LoginModal';
 import StoreInfo from '../src/pages/StoreInfo';
 import ShareCart from '../src/pages/ShareCart';
+import OrderCart from '../src/pages/OrderCart';
 import Withdrawal from '../src/pages/Withdrawal';
 import Mypage from '../src/pages/Mypage';
 import ReviewUploadModal from './components/ReviewUploadModal';
@@ -77,8 +78,7 @@ function App() {
           navigate('/map');
         })
         .catch(err => {
-          setAlertMessage('잘못된 요청입니다.');
-          openWarningAlertHandler();
+          setIsLogin(false);
           console.log(err);
         });
     }
@@ -209,6 +209,7 @@ function App() {
             />
           }
         />
+        <Route path="/ordercart" element={<OrderCart />} />
       </Routes>
       {isLogin ? (
         <UnderbarLogin

@@ -577,7 +577,7 @@ button {
 
 .review-upload-backdrop {
   position: fixed;
-  z-index: 998;
+  z-index: 999;
   top: 0;
   bottom: 0;
   left: 0;
@@ -589,6 +589,10 @@ button {
 }
 
 .review-upload-window {
+  font-size: 13px;
+  width: 200px;
+  height: 405px;
+  border: 3px solid #ffcc1d;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -596,25 +600,31 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
   background-color: white;
-  border: 4px solid #ffcc1d;
-  padding: 20px;
-  margin-bottom: 230px;
-  margin-top: 20px;
-  height: 210px;
-  font-size: 13px;
+  padding: 10px;
+}
+
+.review-upload-title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 100%;
 }
 
 .review-upload-title {
-  margin-right: 100px;
-  font-size: 15px;
+  font-size: 18px;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  margin-bottom: 10px;
+  font-weight: bolder;
 }
 
-.review-upload-submit-button {
-  height: 20px;
+.fa-times {
+  margin-left: 50%;
 }
 
 .review-upload-store-info-container {
@@ -624,109 +634,147 @@ button {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .review-upload-store-category-icon {
-  width: 15px;
+  height: 18px;
   margin-right: 5px;
 }
 
+.review-upload-store-name {
+  font-size: 15px;
+}
+
 .review-upload-food-name {
-  font-weight: bolder;
+  font-size: 15px;
 }
 
 .review-upload-content-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .review-upload-food-image {
-  width: 100px;
+  height: 140px;
+  max-width: 200px;
+  margin: 10px auto 15px auto;
+  border-radius: 15px;
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
 }
 
 .review-upload-food-text {
-  border: 2px solid grey;
-  margin: 15px 0 15px 15px;
-  padding: 5px;
-  font-size: 13px;
-  height: 60px;
   resize: none;
-  -webkit-transition: 100ms ease all;
-  transition: 100ms ease all;
+  padding: 5px;
+  margin-bottom: 10px;
+  word-break: keep-all;
+  height: 80px;
+  -webkit-transition: 220ms ease all;
+  transition: 220ms ease all;
+  border: 2px solid;
 }
 
 .review-upload-food-text:focus {
   outline: none;
-  border: 2px solid black;
-  -webkit-box-shadow: 2px 2px 2px gray;
-          box-shadow: 2px 2px 2px gray;
+  border: 2px solid #ffcc1d;
 }
 
-.review-upload-button-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.review-upload-image-upload-button {
-  font-size: 13px;
-  margin-top: 10px;
+.review-upload-submit-button {
+  margin-left: 65%;
+  width: 70px;
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
-  .review-upload-food-text {
-    border: 2px solid grey;
-    margin: 15px 0 15px 15px;
-    padding: 5px;
-    font-size: 13px;
-    width: 250px;
-    height: 60px;
-    resize: none;
-    -webkit-transition: 100ms ease all;
-    transition: 100ms ease all;
+  .review-upload-window {
+    width: 500px;
+    height: 430px;
+    padding: 15px;
   }
-  .review-upload-food-text:focus {
-    outline: none;
-    border: 2px solid black;
-    -webkit-box-shadow: 2px 2px 2px gray;
-            box-shadow: 2px 2px 2px gray;
+  .review-upload-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .fa-times {
+    margin-left: 78%;
+  }
+  .review-upload-store-info-container {
+    margin-bottom: 10px;
+  }
+  .review-upload-store-name {
+    font-size: 17px;
+  }
+  .review-upload-food-name {
+    margin-top: 5px;
+    margin-left: 15px;
+  }
+  .review-upload-food-image {
+    height: 160px;
+    max-width: 215px;
+  }
+  .review-upload-submit-button {
+    margin-left: 80%;
+    width: 100px;
   }
 }
 
 @media (min-width: 1024px) {
-  .review-upload-food-text {
-    border: 2px solid grey;
-    margin: 15px 0 15px 15px;
-    padding: 5px;
-    font-size: 13px;
-    width: 350px;
-    height: 60px;
-    resize: none;
-    -webkit-transition: 100ms ease all;
-    transition: 100ms ease all;
+  .review-upload-window {
+    width: 650px;
+    height: 400px;
+    padding: 15px;
   }
-  .review-upload-food-text:focus {
-    outline: none;
-    border: 2px solid black;
-    -webkit-box-shadow: 2px 2px 2px gray;
-            box-shadow: 2px 2px 2px gray;
+  .review-upload-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+  .fa-times {
+    margin-left: 80%;
+  }
+  .review-upload-store-info-container {
+    margin-bottom: 10px;
+  }
+  .review-upload-store-name {
+    font-size: 19px;
+  }
+  .review-upload-food-name {
+    margin-top: 5px;
+    margin-left: 15px;
+  }
+  .review-upload-content-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .review-upload-food-image {
+    height: 200px;
+    max-width: 270px;
+  }
+  .review-upload-food-text {
+    margin-top: 20px;
+    width: 300px;
+    height: 170px;
+    font-size: 15px;
+    -webkit-transition: 120ms ease all;
+    transition: 120ms ease all;
+  }
+  .review-upload-button-container {
+    margin-top: 15px;
+    margin-left: 40px;
+  }
+  .review-upload-submit-button {
+    margin-left: 80%;
+    width: 100px;
   }
 }
 
