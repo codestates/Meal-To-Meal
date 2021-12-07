@@ -13,28 +13,39 @@ module.exports = {
     } else {
       try {
         const { order, total_price } = req.body;
-        //buyer_email, buyer_tel, buyer_name, name, merchant_uid ?
-
+        //order에 메뉴 아이디와 오더퀀티티가 들어옴.
+        // order : [{menu_id : 5,"order_quantity:3"},{menu_id:3,order_quantity:7}]
         const matchedUser = await user.findOne({ where: { id: userInfo.id } });
 
-        const newCart = await cart.create({
-          total_price: total_price,
-          merchant_uid: 'SUDO_HIRED1',
-          name: '',
-          // 여긴 뭘 넣어야 되는지
-          buyer_id: matchedUser.id,
-          buyer_email: matchedUser.user_email,
-          buyer_name: matchedUser.user_nickname,
+        let calculatedPrice = 0;
+        order.forEach((el, idx, arr) => {
+          menu.findOne({ where: { id: el.menu_id } }).then(found => {
+            // console.log('price', el.dataValues.menu_price, 'order_quantity', cur.order_quantity);
+            if (idx === arr.length - 1) {
+              calculatedPrice += found.dataValues.menu_price * el.order_quantity;
+              cart
+                .create({
+                  merchant_uid: 'Sudo_Hired_' + new Date(),
+                  total_price: calculatedPrice,
+                  imp_uid: '', // 맨처음 결제버튼을 눌렀을 당시에는 imp_uid가 없음 결제완료후 콜백으로 오는 응답에 담겨져있음.
+                  buyer_id: matchedUser.id,
+                })
+                .then(newCart => {
+                  order.forEach(el => {
+                    cart_menu.create({
+                      cart_id: newCart.dataValues.id,
+                      menu_id: el.menu_id,
+                      order_quantity: el.order_quantity,
+                    });
+                  });
+                });
+            }
+            calculatedPrice += found.dataValues.menu_price * el.order_quantity;
+          });
         });
-
-        order.map(el => {
-          console.log(el);
-          cart_menu.create({ cart_id: newCart.dataValues.id, menu_id: el.menu_id, order_quantity: el.order_quantity });
-        });
-        console.log('order', order);
-        // const cart_menu_list = await cart_menu.bulkCreate([...order, { id: newCart.dataValues.id }]);
 
         const orderSum = order.reduce((acc, cur) => acc + cur.order_quantity, 0);
+        //총 도네이션(그릇) 개수
         await matchedUser.increment({ user_donation_count: orderSum, user_donation_money: total_price });
         //order_quantity를 다 합해서 user donation_count에 그릇 개수로 업데이트를 한다
 
@@ -45,11 +56,42 @@ module.exports = {
         const matchedStore = await store.findOne({ where: { id: matchedMenu.store_id } });
         await matchedStore.increment('store_order_quantity', { by: orderSum });
         //menu_id의 store_id로 해당 store에 store_order_quantity 숫자를 업데이트한다
-        res.status(201).json({ matchedUser });
+        res.status(201).json({ message: '카트가 등록되었습니다' });
       } catch (err) {
         res.status(400).json({ message: err.message });
       }
     }
   },
-  get: async (req, res) => {},
+  get: async (req, res) => {
+    //기부내역 조회에 보여야할 정보: 가게 정보, + 기부 날짜(cart의 created_at) + 메뉴 정보 + 수량(order_quantity)
+    const userInfo = checkTokens(req);
+    if (!userInfo) {
+      res.status(401).json({ message: '로그인이 필요합니다' });
+    } else {
+      try {
+        const matchedCart = await cart.findAll({
+          include: [
+            {
+              model: cart_menu,
+              attributes: ['order_quantity', 'menu_id'],
+              include: [
+                {
+                  model: menu,
+                  include: [
+                    {
+                      model: store,
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+          where: { user_id: userInfo.id },
+        });
+        res.stauts(200).json({ donationList: matchedCart });
+      } catch (err) {
+        res.status(400).json({ message: err.message });
+      }
+    }
+  },
 };
