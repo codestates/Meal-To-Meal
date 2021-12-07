@@ -16,12 +16,13 @@ module.exports = {
         //order에 메뉴 아이디와 오더퀀티티가 들어옴.
         // order : [{menu_id : 5,"order_quantity:3"},{menu_id:3,order_quantity:7}]
         const matchedUser = await user.findOne({ where: { id: userInfo.id } });
+
         let calculatedPrice = 0;
-        order.reduce((acc, cur, idx, arr) => {
-          menu.findOne({ where: { id: cur.menu_id } }).then(el => {
+        order.forEach((el, idx, arr) => {
+          menu.findOne({ where: { id: el.menu_id } }).then(found => {
             // console.log('price', el.dataValues.menu_price, 'order_quantity', cur.order_quantity);
             if (idx === arr.length - 1) {
-              calculatedPrice += acc + el.dataValues.menu_price * cur.order_quantity;
+              calculatedPrice += found.dataValues.menu_price * el.order_quantity;
               cart
                 .create({
                   merchant_uid: 'Sudo_Hired_' + new Date(),
@@ -39,10 +40,9 @@ module.exports = {
                   });
                 });
             }
-            calculatedPrice += acc + el.dataValues.menu_price * cur.order_quantity;
+            calculatedPrice += found.dataValues.menu_price * el.order_quantity;
           });
-          return acc;
-        }, 0);
+        });
 
         const orderSum = order.reduce((acc, cur) => acc + cur.order_quantity, 0);
         //총 도네이션(그릇) 개수
@@ -62,5 +62,35 @@ module.exports = {
       }
     }
   },
-  get: async (req, res) => {},
+  get: async (req, res) => {
+    const userInfo = checkTokens(req);
+    if (!userInfo) {
+      res.status(401).json({ message: '로그인이 필요합니다' });
+    } else {
+      try {
+        const donationList = await cart.findAll({
+          include: [
+            {
+              model: cart_menu,
+              attributes: ['order_quantity', 'menu_id'],
+              include: [
+                {
+                  model: menu,
+                  include: [
+                    {
+                      model: store,
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+          where: { buyer_id: userInfo.id },
+        });
+        res.status(200).json({ donationList: donationList });
+      } catch (err) {
+        res.status(400).json({ message: err.message });
+      }
+    }
+  },
 };
