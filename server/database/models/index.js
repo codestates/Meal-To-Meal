@@ -27,14 +27,17 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 const { user, store, menu, cart, cart_menu } = sequelize.models;
-store.belongsTo(user);
-user.hasMany(store);
-menu.belongsTo(store);
-store.hasMany(menu);
+store.belongsTo(user, { foreignKey: 'user_id' });
+user.hasMany(store, { foreignKey: 'user_id' });
+menu.belongsTo(store, { foreignKey: 'store_id' });
+store.hasMany(menu, { foreignKey: 'store_id' });
 cart.belongsTo(user, { foreignKey: 'buyer_id' });
-user.hasMany(cart);
+user.hasMany(cart, { foreignKey: 'buyer_id' });
 menu.belongsToMany(cart, { foreignKey: 'cart_id', through: cart_menu });
 cart.belongsToMany(menu, { foreignKey: 'menu_id', through: cart_menu });
-//다대다 관계설정
+cart_menu.belongsTo(cart, { foreignKey: 'cart_id' });
+cart.hasMany(cart_menu, { foreignKey: 'cart_id' });
+cart_menu.belongsTo(menu, { foreignKey: 'menu_id' });
+menu.hasMany(cart_menu, { foreignKey: 'menu_id' });
 
 module.exports = db;
