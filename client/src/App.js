@@ -5,7 +5,6 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 
 import Alert from './components/Alert';
 import WarningAlert from './components/WarningAlert';
-import Loading from './components/Loading';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import UnderbarLogin from './components/UnderbarLogin';
@@ -26,8 +25,6 @@ dotenv.config();
 
 axios.defaults.withCredentials = true;
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
-
   const [isLogin, setIsLogin] = useState(false);
 
   const [isOpenAlert, setIsOpenAlert] = useState(false);
@@ -183,24 +180,9 @@ function App() {
             />
           }
         />
+        <Route path="/map" element={<Map navigate={navigate} />} />
         <Route
-          path="/map"
-          element={
-            <Map
-              isLogin={isLogin}
-              setIsLogin={setIsLogin}
-              openLoginModalHandler={openLoginModalHandler}
-              openSignupModalHandler={openSignupModalHandler}
-              issueTokens={issueTokens}
-              navigate={navigate}
-              openAlertHandler={openAlertHandler}
-              openWarningAlertHandler={openWarningAlertHandler}
-              setAlertMessage={setAlertMessage}
-            />
-          }
-        />
-        <Route
-          path="/storeinfo"
+          path="/store/:storeid"
           element={
             <StoreInfo
               isLogin={isLogin}
