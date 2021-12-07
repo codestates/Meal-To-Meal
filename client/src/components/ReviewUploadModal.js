@@ -5,11 +5,6 @@ function ReviewUploadModal() {
   const handleChange = e => {
     setReview(e.target.value);
   };
-  //   const onFoodChange = async food => {
-  //     const formData = new FormData();
-  //     formData.append('file', food.target.files[0]);
-  //     const response = await apiClient.post('', formData);
-  //   };
   return (
     <div className="review-upload-container">
       <div className="review-upload-backdrop">
@@ -33,7 +28,6 @@ function ReviewUploadModal() {
               className="review-upload-image-upload-button"
               type="file"
               accept="image/x-png, image/gif, image/jpeg"
-              //     onChange={onFoodChange}
             />
             <button className="review-upload-submit-button">등록하기</button>
           </div>

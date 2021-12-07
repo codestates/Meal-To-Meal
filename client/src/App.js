@@ -10,7 +10,6 @@ import Footer from './components/Footer';
 import UnderbarLogin from './components/UnderbarLogin';
 import UnderbarNotLogin from './components/UnderbarNotLogin';
 import NotFound from './pages/NotFound';
-import EmptyShareCart from './pages/EmptyShareCart';
 import EmptyOrderHistory from './pages/EmptyOrderHistory';
 import Landing from '../src/pages/Landing';
 import Map from '../src/pages/Map';
@@ -154,8 +153,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Landing />} />
         <Route path="/notfound" element={<NotFound />} />
-        <Route path="/empty" element={<EmptyShareCart />} />
-        <Route path="/emptyhistory" element={<EmptyOrderHistory />} />
+        <Route path="/emptyhistory" element={<EmptyOrderHistory navigate={navigate} />} />
         <Route
           path="/withdrawal"
           element={

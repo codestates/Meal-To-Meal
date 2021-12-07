@@ -15,7 +15,7 @@
         "pages/_NotFound.scss",
         "mixin/_mixin.scss",
         "_variables.scss",
-        "pages/_EmptySharecart.scss",
+        "components/_EmptyCartAni.scss",
         "mixin/_mixin.scss",
         "_variables.scss",
         "pages/_EmptyOrderHistory.scss",

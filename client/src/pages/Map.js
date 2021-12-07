@@ -60,7 +60,7 @@ const Map = ({ navigate, setMarkerStoreInfo }) => {
         img.src = el.store_image;
         img.alt = '';
         img.onclick = function () {
-          setMarkerStoreInfo(el);
+          localStorage.setItem('clickedMarker', el.id);
           navigate(`/store/:${el.id}`);
         };
         content.appendChild(img);
@@ -81,7 +81,7 @@ const Map = ({ navigate, setMarkerStoreInfo }) => {
         infoTitle.classList.add('customOverlay-title');
         infoTitle.appendChild(document.createTextNode(el.store_name));
         infoTitle.onclick = function () {
-          setMarkerStoreInfo(el);
+          localStorage.setItem('clickedMarker', el.id);
           navigate(`/store/:${el.id}`);
         };
         infoTitleContainer.appendChild(infoTitle);

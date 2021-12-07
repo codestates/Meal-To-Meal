@@ -19,14 +19,6 @@ function StoreInfo({
 
   const [detailStoreInfo, setDetailStoreInfo] = useState({});
 
-  const goToShareCart = () => {
-    if (cartItems.length === 0) {
-      navigate('/empty');
-    } else {
-      navigate('/sharecart');
-    }
-  };
-
   const getDetailStoreInfoHandler = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/store/${Number(localStorage.getItem('clickedMarker'))}`, {
@@ -93,7 +85,7 @@ function StoreInfo({
           </div>
         </div>
         <div className="storeinfo-button-container">
-          <button className="cart-button" onClick={() => goToShareCart(detailStoreInfo)}>
+          <button className="cart-button" onClick={() => navigate('/sharecart')}>
             장바구니
           </button>
           <button className="back-button" onClick={() => navigate('/map')}>
