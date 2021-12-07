@@ -1,1 +1,37 @@
 @import '../../mixin/mixin';
+
+.ordered-food-container {
+  border: 2px solid #ffcc1d;
+  display: flex;
+  flex-direction: row;
+}
+
+.ordered-food-image {
+  height: 90px;
+}
+
+.ordered-food-info-container {
+  padding: 10px;
+}
+
+.ordered-food-info-title-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.ordered-food-name {
+  margin-right: 15px;
+}
+
+.ordered-food-price {
+}
+
+.ordered-order-date {
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+.ordered-order-code {
+}

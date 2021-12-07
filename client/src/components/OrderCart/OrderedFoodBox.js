@@ -3,7 +3,7 @@ import React from 'react';
 function OrderedFoodBox() {
   return (
     <div className="ordered-food-container">
-      <img className="ordered-food-image" src={require('../img/dummy/menu_dummy/매운돈까스.jpg').default} alt="" />
+      <img className="ordered-food-image" src={require('../../img/dummy/menu_dummy/매운돈까스.jpg').default} alt="" />
       <div className="ordered-food-info-container">
         <div className="ordered-food-info-title-container">
           <div className="ordered-food-name">매운 돈까스</div>
