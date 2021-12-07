@@ -1,0 +1,139 @@
+@import '../../mixin/mixin';
+
+.sharecart-item-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 3px solid #ffcc1d;
+  margin: 10px;
+  height: 150px;
+}
+
+.sharecart-item-img {
+  height: 100px;
+  max-width: 150px;
+  border-radius: 30px;
+  box-shadow: gray 3px 3px 3px;
+  margin: 15px;
+}
+.sharecart-item-info-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.sharecart-item-name {
+  font-size: 14px;
+  font-weight: bolder;
+  width: fit-content;
+}
+.sharecart-item-price {
+  font-size: 12px;
+  margin-top: 3px;
+}
+.sharecart-item-count-container {
+  display: flex;
+  flex-direction: column;
+}
+.sharecart-plus-minus-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 10px 10px 45px 0;
+}
+.shartcart-cart-number {
+}
+.fa-plus,
+.fa-minus {
+  font-size: 15px;
+  color: #ffcc1d;
+  &:hover {
+    cursor: pointer;
+    font-size: 3px solid #ffcc1d;
+    text-shadow: 1px 1px 1px gray;
+    transition: ease all 200ms;
+  }
+}
+
+.delete-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sharecart-delete-button {
+  font-size: 11px;
+  width: 45px;
+  height: 25px;
+  margin: 0 20px 0 10px;
+}
+
+@include tablet {
+  .sharecart-item-container {
+    height: 250px;
+  }
+
+  .sharecart-item-img {
+    height: 180px;
+    max-width: 260px;
+  }
+
+  .sharecart-item-name {
+    font-size: 20px;
+  }
+
+  .sharecart-item-price {
+    font-size: 18px;
+  }
+
+  .sharecart-plus-minus-container {
+    margin-right: 30px;
+  }
+
+  .shartcart-cart-number,
+  .fa-plus,
+  .fa-minus {
+    font-size: 30px;
+    margin: 5px;
+  }
+
+  .sharecart-delete-button {
+    width: 80px;
+    height: 30px;
+    font-size: 20px;
+  }
+}
+@include desktop {
+  .sharecart-item-container {
+    height: 300px;
+  }
+
+  .sharecart-item-img {
+    height: 220px;
+    max-width: 310px;
+  }
+
+  .sharecart-item-name {
+    font-size: 30px;
+  }
+
+  .sharecart-item-price {
+    font-size: 22px;
+  }
+
+  .sharecart-plus-minus-container {
+    margin-right: 50px;
+  }
+
+  .shartcart-cart-number,
+  .fa-plus,
+  .fa-minus {
+    font-size: 40px;
+    margin: 15px;
+  }
+
+  .sharecart-delete-button {
+    width: 100px;
+    height: 35px;
+    font-size: 25px;
+    padding-top: 3px;
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import SharecartItem from '../components/SharecartItem';
+import SharecartItem from '../components/ShareCart/SharecartItem';
 import '../styles/pages/ShareCart.css';
 
 function ShareCart({ cartItems, setCartItems, removeFromCart }) {
@@ -16,7 +16,12 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
     <>
       <div className="sharecart-container">
         <div className="sharecart-title">나눔카트</div>
-        <SharecartItem cartItems={cartItems} setCartItems={setCartItems} removeFromCart={removeFromCart} />
+        <SharecartItem
+          cartItems={cartItems}
+          setCartItems={setCartItems}
+          removeFromCart={removeFromCart}
+          navigate={navigate}
+        />
         <div className="sharecart-order-info-container">
           <div className="sharecart-order-text">주문 합계</div>
           <div className="sharecart-order-count-container">
@@ -29,11 +34,17 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
           </div>
         </div>
         <div className="sharecart-submit-button-container">
-          <button className="sharecart-button-donation">기부하기</button>
+          {cartItems.length === 0 ? (
+            <button className="sharecart-button-donation" disabled="true">
+              기부하기
+            </button>
+          ) : (
+            <button className="sharecart-button-donation">기부하기</button>
+          )}
           <button
             className="sharecart-button"
             onClick={() => {
-              navigate('/storeinfo');
+              navigate(-1);
             }}
           >
             뒤로 가기

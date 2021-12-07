@@ -436,8 +436,6 @@ button {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  max-height: 30vh;
-  margin-top: 100px;
 }
 
 .sharecart-animation {

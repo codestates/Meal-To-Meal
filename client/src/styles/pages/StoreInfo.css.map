@@ -5,10 +5,10 @@
         "StoreInfo.scss",
         "../mixin/_mixin.scss",
         "../_variables.scss",
-        "../components/_MenuBox.scss",
+        "../components/StoreInfo/_MenuBox.scss",
         "../mixin/_mixin.scss",
         "../_variables.scss",
-        "../components/_ReviewBox.scss",
+        "../components/StoreInfo/_ReviewBox.scss",
         "../mixin/_mixin.scss",
         "../_variables.scss"
     ],

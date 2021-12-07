@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import SidebarLogin from './SidebarLogin';
-import SidebarNotLogin from './SidebarNotLogin';
+import SidebarLogin from './Sidebar/SidebarLogin';
+import SidebarNotLogin from './Sidebar/SidebarNotLogin';
 
 function Header({
   isLogin,
