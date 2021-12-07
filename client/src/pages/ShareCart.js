@@ -35,7 +35,7 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
           axios
             .post(
               'http://localhost:4000/payment/complete',
-              { imp_uid: rsp.imp_uid, merchant_uid: rsp.merchant_uid, order: cartItems, total_price: itemTotalPrice },
+              { imp_uid: rsp.imp_uid, merchant_uid: rsp.merchant_uid, order: cartItems, total_price: totalPrice },
               {
                 headers: {
                   'Content-Type': 'application/json',
@@ -48,15 +48,14 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
               axios
                 .post(
                   'http://localhost:4000/cart',
-                  { order: cartItems, total_price: itemTotalPrice },
+                  { order: cartItems, total_price: totalPrice },
                   { headers: { authorization: `Bearer ${accessToken}` }, withCredentials: true }
                 )
                 .then(res => {
                   console.log('-----------------------', res);
-                  alert('결제 성공!');
-                });
-              console.log('-----------------------', res);
-              alert('결제 성공!');
+                  alert('카트에 들어갔습니다.');
+                })
+                .catch(err => console.log('erer-------------------', err));
             })
             .catch(err => {
               console.log(err);

@@ -44,13 +44,13 @@ module.exports = {
         //   });
         // });
 
-        const orderSum = order.reduce((acc, cur) => acc + cur.order_quantity, 0);
+        const orderSum = order.reduce((acc, cur) => acc + cur.quantity, 0);
         //총 도네이션(그릇) 개수
         await matchedUser.increment({ user_donation_count: orderSum, user_donation_money: total_price });
         //order_quantity를 다 합해서 user donation_count에 그릇 개수로 업데이트를 한다
 
         const matchedMenu = await menu.findOne({
-          where: { id: order[0].menu_id },
+          where: { id: order[0].id },
         });
 
         const matchedStore = await store.findOne({ where: { id: matchedMenu.store_id } });
