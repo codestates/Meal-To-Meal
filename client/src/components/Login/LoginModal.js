@@ -32,7 +32,7 @@ function LoginModal({
         setIsLogin(true);
         setAlertMessage('로그인 되었습니다!');
         openAlertHandler();
-        navigate('/map');
+        navigate('/maps');
         openLoginModalHandler();
       })
       .catch(err => {
@@ -52,8 +52,6 @@ function LoginModal({
   };
 
   const loginWithKakao = () => {
-    console.log(process.env.REACT_APP_KAKAO_CLIENT_ID);
-    console.log(process.env.REACT_APP_KAKAO_REDIRECT_URI);
     window.location.assign(
       `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT_URI}&response_type=code`
     );

@@ -16,6 +16,7 @@ function Header({
   openWarningAlertHandler,
   setAlertMessage,
   loginAlertOpenHandler,
+  setKakaoLogin,
 }) {
   const [isLoginOpenSidebar, setIsLoginOpenSidebar] = useState(false);
   const [isNotLoginOpenSidebar, setIsNotLoginOpenSidebar] = useState(false);
@@ -35,7 +36,7 @@ function Header({
         className="header-logo"
         src={require('../img/meal-to-meal-logo-192.png').default}
         alt=""
-        onClick={() => navigate('/map')}
+        onClick={() => navigate('/maps')}
       />
       {isLogin ? (
         <i className="fas fa-bars" onClick={openisLoginOpenSidebarHandler} />
@@ -53,6 +54,7 @@ function Header({
           openAlertHandler={openAlertHandler}
           openWarningAlertHandler={openWarningAlertHandler}
           setAlertMessage={setAlertMessage}
+          setKakaoLogin={setKakaoLogin}
         />
       ) : null}
       {isNotLoginOpenSidebar ? (

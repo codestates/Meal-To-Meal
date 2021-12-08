@@ -1,0 +1,191 @@
+@import '../mixin/mixin';
+@import '../components/OrderCart/UserMealBox';
+@import '../components/OrderCart/ReviewUploadModal';
+
+.usermeal-container {
+  padding: 15px;
+  font-size: 13px;
+  margin-bottom: 70px;
+}
+
+.usermeal-title {
+  font-size: 14px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.usermeal-store-title-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.usermeal-category-icon {
+  width: 15px;
+}
+
+.usermeal-store-title {
+}
+
+.usermeal-store-image {
+  height: 150px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px 2px gray;
+}
+
+.usermeal-address-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.usermeal-address-text {
+}
+
+.usermeal-description-container {
+  display: flex;
+  align-items: center;
+}
+
+.usermeal-description-text {
+}
+
+.usermeal-ordered-container {
+  margin-top: 40px;
+}
+
+.usermeal-ordered-title {
+  font-size: 14px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.usermeal-userinfo-container {
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+.usermeal-userinfo-title {
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.usermeal-username {
+  margin-bottom: 10px;
+}
+
+.usermeal-user-email {
+  margin-bottom: 10px;
+}
+
+.usermeal-user-phone-number {
+  margin-bottom: 10px;
+}
+
+.usermeal-confirm-button {
+  width: 90%;
+  margin-left: 15px;
+  margin-top: 30px;
+}
+
+@include tablet {
+  .usermeal-container {
+    font-size: 17px;
+    margin-top: 70px;
+  }
+  .usermeal-store-image {
+    height: 200px;
+    margin-bottom: 20px;
+  }
+
+  .usermeal-title {
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+
+  .usermeal-ordered-container {
+    margin-top: 40px;
+  }
+
+  .usermeal-ordered-title {
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+
+  .usermeal-userinfo-title {
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+
+  .usermeal-userinfo-container {
+    margin-top: 40px;
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+
+  .usermeal-confirm-button {
+    margin-left: 35px;
+  }
+  .usermeal-username {
+    margin-bottom: 20px;
+  }
+
+  .usermeal-user-email {
+    margin-bottom: 20px;
+  }
+  .usermeal-confirm-button {
+    width: 400px;
+    margin-left: 180px;
+  }
+}
+@include desktop {
+  .usermeal-container {
+    font-size: 17px;
+    margin-top: 50px;
+    margin-left: 160px;
+    margin-bottom: 90px;
+    height: 63vh;
+  }
+
+  .usermeal-store-image {
+    height: 270px;
+    margin-bottom: 20px;
+  }
+
+  .usermeal-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .usermeal-order-food-info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .usermeal-ordered-info-container {
+    margin-right: 160px;
+  }
+
+  .usermeal-ordered-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .usermeal-userinfo-container {
+    margin-top: 60px;
+    font-size: 17px;
+  }
+
+  .usermeal-userinfo-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .usermeal-confirm-button {
+    width: 500px;
+    margin-left: 350px;
+    margin-top: 50px;
+  }
+}

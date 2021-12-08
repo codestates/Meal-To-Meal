@@ -1,0 +1,73 @@
+@import '../../mixin/mixin';
+
+.ordered-food-container {
+  border: 2px solid #ffcc1d;
+  display: flex;
+  flex-direction: row;
+  font-size: 13px;
+  word-break: keep-all;
+}
+
+.ordered-food-image {
+  height: 90px;
+}
+
+.ordered-food-info-container {
+  padding: 10px;
+}
+
+.ordered-food-info-title-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.ordered-food-name {
+  margin-right: 15px;
+}
+
+.ordered-food-price {
+}
+
+.ordered-order-date {
+  font-size: 11px;
+  margin-bottom: 10px;
+}
+
+.ordered-order-code {
+}
+
+@include tablet {
+  .ordered-food-container {
+    font-size: 17px;
+  }
+
+  .ordered-food-image {
+    height: 160px;
+  }
+
+  .ordered-food-info-container {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+
+  .ordered-food-name {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .ordered-order-date {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+}
+
+@include desktop {
+  .ordered-food-container {
+    font-size: 17px;
+  }
+
+  .ordered-food-image {
+    height: 180px;
+  }
+}

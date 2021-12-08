@@ -1,6 +1,6 @@
 import React from 'react';
 
-function OrderedFoodBox() {
+function UserMealBox() {
   return (
     <div className="ordered-food-container">
       <img className="ordered-food-image" src={require('../../img/dummy/menu_dummy/매운돈까스.jpg').default} alt="" />
@@ -16,4 +16,4 @@ function OrderedFoodBox() {
   );
 }
 
-export default OrderedFoodBox;
+export default UserMealBox;

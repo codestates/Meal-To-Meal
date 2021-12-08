@@ -8,6 +8,7 @@ function SidebarLogin({
   openAlertHandler,
   openWarningAlertHandler,
   setAlertMessage,
+  setKakaoLogin,
 }) {
   const LogoutButtonHandler = () => {
     axios
@@ -18,6 +19,7 @@ function SidebarLogin({
       .then(res => {
         localStorage.clear();
         setIsLogin(false);
+        setKakaoLogin(false);
         openisLoginOpenSidebarHandler();
         setAlertMessage('로그아웃 되었습니다.');
         openAlertHandler();
@@ -50,7 +52,12 @@ function SidebarLogin({
         <div className="sidebar-icon">&#x1F96A;</div>
         <div className="sidebar-text">내 회원정보</div>
       </div>
-      <div className="sidebar-menu-container">
+      <div
+        className="sidebar-menu-container"
+        onClick={() => {
+          navigate('/usermeal');
+        }}
+      >
         <div className="sidebar-icon">&#x1F357;</div>
         <div className="sidebar-text">예약내역</div>
       </div>
@@ -66,7 +73,7 @@ function SidebarLogin({
         className="sidebar-menu-container"
         onClick={() => {
           openisLoginOpenSidebarHandler();
-          navigate('/map');
+          navigate('/maps');
         }}
       >
         <div className="sidebar-icon">&#x1F5FA;</div>
