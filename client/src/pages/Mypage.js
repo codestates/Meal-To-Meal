@@ -223,8 +223,8 @@ function Mypage({ navigate, setAlertMessage, openAlertHandler, openWarningAlertH
           ) : null}
           <div className="mypage-myinfo-email">{userInfo.user_email}</div>
           {kakaoLogin ? (
-            <span className="mypage-fix-myinfo-toggle-button" disabled={true}>
-              비밀번호 수정
+            <span className="mypage-fix-myinfo-not-toggle-button" disabled={true}>
+              카카오 계정으로 로그인 하신 계정은 비밀번호 수정을 하실 수 없습니다
             </span>
           ) : (
             <span className="mypage-fix-myinfo-toggle-button" onClick={openFixPasswordToggleHandler}>
