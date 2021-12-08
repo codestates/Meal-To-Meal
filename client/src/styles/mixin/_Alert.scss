@@ -141,6 +141,10 @@
   .alert-ownstore-donation-button {
     width: fit-content;
   }
+
+  .alert-thank-donationlist-button {
+    width: 130px;
+  }
 }
 
 @include desktop {
@@ -184,5 +188,9 @@
 
   .alert-ownstore-donation-button {
     width: fit-content;
+  }
+
+  .alert-thank-donationlist-button {
+    width: 130px;
   }
 }

@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SharecartItem from '../components/ShareCart/SharecartItem';
+import ThankAlert from '../components/Alert/ThankAlert';
 import '../styles/pages/ShareCart.css';
 import axios from 'axios';
 
 function ShareCart({ cartItems, setCartItems, removeFromCart }) {
   const navigate = useNavigate();
 
+  const [isOpenThankAlert, setIsOpenThankAlert] = useState(false);
+
+  const openThankAlertHandler = () => {
+    setIsOpenThankAlert(!isOpenThankAlert);
+    setTimeout(() => setIsOpenThankAlert(false), 1800);
+  };
+
   const itemQuantity = cartItems.map(el => el.quantity);
   const totalQuantity = itemQuantity.reduce((acc, cur) => acc + cur, 0);
   const itemTotalPrice = cartItems.map(el => el.price * el.quantity);
   const totalPrice = itemTotalPrice.reduce((acc, cur) => acc + cur, 0);
   const totalPriceToString = totalPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
+
+  const requestPayName = cartItems[0];
+  console.log(requestPayName);
+
   function requestPay() {
     const IMP = window.IMP; // 생략 가능
     IMP.init('imp49046982');
@@ -29,7 +41,6 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
         buyer_tel: '010-8223-2312',
       },
       function (rsp) {
-        console.log('asd', rsp);
         // callback
         if (rsp.success) {
           axios
@@ -52,10 +63,9 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
                   { headers: { authorization: `Bearer ${accessToken}` }, withCredentials: true }
                 )
                 .then(res => {
-                  console.log('-----------------------', res);
-                  alert('카트에 들어갔습니다.');
+                  openThankAlertHandler();
                 })
-                .catch(err => console.log('erer-------------------', err));
+                .catch(err => console.log(err));
             })
             .catch(err => {
               console.log(err);
@@ -109,6 +119,7 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
           </button>
         </div>
       </div>
+      {isOpenThankAlert ? <ThankAlert navigate={navigate} /> : null}
     </>
   );
 }

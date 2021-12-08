@@ -13,7 +13,7 @@ function Landing() {
         <button
           className="landing-button"
           onClick={() => {
-            navigate('/map');
+            navigate('/maps');
           }}
         >
           지금 시작하기

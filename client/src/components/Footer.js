@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Footer() {
-  if (window.location.pathname === '/map') return null;
+  if (window.location.pathname === '/maps') return null;
 
   return (
     <footer>
