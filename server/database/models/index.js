@@ -26,7 +26,7 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-const { user, store, menu, cart, cart_menu, store_review } = sequelize.models;
+const { user, store, menu, cart, cart_menu, store_review, user_meal } = sequelize.models;
 store.belongsTo(user, { foreignKey: 'user_id' });
 user.hasMany(store, { foreignKey: 'user_id' });
 menu.belongsTo(store, { foreignKey: 'store_id' });
@@ -43,5 +43,9 @@ store.hasMany(store_review, { foreignKey: 'store_id' });
 store_review.belongsTo(store, { foreignKey: 'store_id' });
 user.hasMany(store_review, { foreignKey: 'reviewer_id' });
 store_review.belongsTo(user, { foreignKey: 'reviewer_id' });
+user_meal.belongsTo(user, { foreignKey: 'user_id' });
+user.hasOne(user_meal, { foreignKey: 'user_id' });
+user_meal.belongsTo(menu, { foreignKey: 'menu_id' });
+menu.hasMany(user_meal, { foreignKey: 'menu_id' });
 
 module.exports = db;
