@@ -32,7 +32,7 @@ function LoginModal({
         setIsLogin(true);
         setAlertMessage('로그인 되었습니다!');
         openAlertHandler();
-        navigate('/map');
+        navigate('/maps');
         openLoginModalHandler();
       })
       .catch(err => {
@@ -52,10 +52,8 @@ function LoginModal({
   };
 
   const loginWithKakao = () => {
-    const KAKAO_CLIENT_ID = '5c27007dfe0386c450a85c3aa7231b45';
-    const KAKAO_REDIRECT_URI = 'https://mealtomeal.shop/kakao/map';
     window.location.assign(
-      `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_CLIENT_ID}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`
+      `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT_URI}&response_type=code`
     );
   };
 

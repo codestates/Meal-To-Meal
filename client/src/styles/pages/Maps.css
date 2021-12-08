@@ -145,7 +145,7 @@ button:active {
   position: absolute;
   background-color: white;
   border: 4px solid #ffcc1d;
-  height: 530px;
+  height: 535px;
   width: 265px;
   padding: 10px 0 2px 12px;
 }
@@ -208,10 +208,10 @@ button:active {
   word-break: keep-all;
 }
 
-.validation-email-button {
+.validation-button {
   font-size: 10px;
   height: 23px;
-  margin-bottom: 10px;
+  margin: 0 0 0 15px;
 }
 
 .signup-button-container {
@@ -221,7 +221,6 @@ button:active {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin-top: 15px;
 }
 
 .signup-button-ok {
@@ -292,6 +291,11 @@ button:active {
   .signup-validation-ok {
     font-size: 14px;
   }
+  .validation-button {
+    font-size: 15px;
+    height: 30px;
+    width: 100px;
+  }
   .validation-email-button {
     height: 30px;
     width: 100px;
@@ -355,6 +359,11 @@ button:active {
     width: 100px;
     font-size: 16px;
   }
+  .validation-button {
+    font-size: 18px;
+    height: 35px;
+    width: 120px;
+  }
   button {
     width: 80px;
     margin: 10px;
@@ -373,7 +382,7 @@ button:active {
 .login-modal-backdrop {
   position: fixed;
   z-index: 998;
-  top: 0;
+  top: 50px;
   left: 0;
   bottom: 0;
   right: 0;
@@ -1022,17 +1031,10 @@ button:active {
   }
 }
 
-#map {
+.map-container {
+  display: inline;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  z-index: -100;
 }
-
-.wrap {
-  width: 400px;
-  height: 100px;
-  padding: 5px;
-  font-size: 15px;
-  border-radius: 15px;
-  color: white;
-}
-/*# sourceMappingURL=Map.css.map */
+/*# sourceMappingURL=Maps.css.map */
