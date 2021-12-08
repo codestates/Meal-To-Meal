@@ -1,0 +1,160 @@
+@import '../../mixin/mixin';
+
+// X 버튼 버그 수정
+.gm-style-iw,
+button {
+  &:focus {
+  }
+  outline: 0;
+}
+
+// css
+.infowindow-window {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  margin-left: 5px;
+  font-size: 15px;
+}
+
+.infowindow-store-img {
+  max-height: 120px;
+  cursor: pointer;
+}
+
+.infowindow-store-title-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.infowindow-store-title-text {
+  font-weight: bolder;
+  margin-right: 3px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 120ms ease all;
+
+  &:hover {
+    color: #ffcc1d;
+  }
+}
+
+.infowindow-store-category {
+  font-size: 10px;
+}
+
+.infowindow-store-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.infowindow-store-info-container-02 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.fa-map-marker-alt,
+.fa-utensils,
+.fa-heart,
+.fa-business-time {
+  color: #ffcc1d;
+  margin-right: 5px;
+}
+
+.infowindow-info-text {
+  font-size: 10px;
+  margin-right: 5px;
+}
+
+@include tablet {
+  .infowindow-window {
+    width: 500px;
+    height: 360px;
+  }
+
+  .infowindow-store-img {
+    max-width: 490px;
+    max-height: 190px;
+    margin: 10px;
+  }
+
+  .infowindow-store-title-container {
+    margin: 10px;
+  }
+
+  .infowindow-store-info-container {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+  }
+
+  .infowindow-store-title-text {
+    font-size: 25px;
+  }
+
+  .infowindow-store-category {
+    font-size: 15px;
+  }
+
+  .fa-map-marker-alt,
+  .fa-utensils,
+  .fa-heart,
+  .fa-business-time {
+    font-size: 30px;
+    margin-right: 10px;
+  }
+
+  .infowindow-info-text {
+    font-size: 18px;
+    margin-right: 5px;
+  }
+}
+
+@include desktop {
+  .infowindow-window {
+    width: 450px;
+    height: 390px;
+  }
+
+  .infowindow-store-img {
+    max-width: 440px;
+    max-height: 220px;
+    margin: 10px;
+  }
+
+  .infowindow-store-title-container {
+    margin: 10px;
+  }
+
+  .infowindow-store-info-container {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+  }
+
+  .infowindow-store-title-text {
+    font-size: 25px;
+  }
+
+  .infowindow-store-category {
+    font-size: 15px;
+  }
+
+  .fa-map-marker-alt,
+  .fa-utensils,
+  .fa-heart,
+  .fa-business-time {
+    font-size: 30px;
+    margin-right: 10px;
+  }
+
+  .infowindow-info-text {
+    font-size: 18px;
+    margin-right: 5px;
+  }
+}

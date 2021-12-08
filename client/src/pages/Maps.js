@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Search from '../components/Map/Search';
-import { GoogleMap, withScriptjs, withGoogleMap, Marker } from 'react-google-maps';
+import StoreInfoWindow from '../components/Map/StoreInfoWindow';
+import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import axios from 'axios';
 import '../styles/pages/Maps.css';
 
 const Map = () => {
-  const [target, setTarget] = useState({ lat: null, lng: null });
+  const navigate = useNavigate();
+
   const [storeList, setStoreList] = useState([]);
+  const [selected, setSelected] = useState(null);
 
   const storeListHandler = () => {
     axios
@@ -39,8 +43,21 @@ const Map = () => {
             lat: Number(el.store_lat),
             lng: Number(el.store_lng),
           }}
-          onClick={() => localStorage.setItem('clickedMarker', el.id)}
-        />
+          onClick={() => {
+            setSelected(el);
+            localStorage.setItem('clickedMarker', el.id);
+          }}
+        >
+          {selected && selected.id === el.id && (
+            <InfoWindow
+              onCloseClick={() => {
+                setSelected(null);
+              }}
+            >
+              <StoreInfoWindow storeData={el} navigate={navigate} />
+            </InfoWindow>
+          )}
+        </Marker>
       ))}
     </GoogleMap>
   );
