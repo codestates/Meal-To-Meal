@@ -60,7 +60,7 @@ app.use('/review-list', reviewRouter);
 app.use('/store', storeRouter);
 app.use('/store-list', storeRouter);
 app.use('/user', userRouter);
-app.use('/usermeal', usermealRouter);
+app.use('/user-meal', usermealRouter);
 
 let server = app.listen(HTTPS_PORT);
 // eslint-disable-next-line no-console
