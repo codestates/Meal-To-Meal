@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function ReviewUploadModal({ openReviewModalHandler, reviewSubmitHandler }) {
+function ReviewUploadModal({ openReviewModalHandler, reviewSubmitHandler, orderedMeal }) {
   const [review, setReview] = useState('');
   const handleChange = e => {
     setReview(e.target.value);
@@ -16,8 +16,10 @@ function ReviewUploadModal({ openReviewModalHandler, reviewSubmitHandler }) {
           <div className="review-upload-store-info-container">
             <img className="review-upload-store-category-icon" src={require('../../img/찌개.png').default} alt=""></img>
             <div className="review-upload-store-name">국밥무라</div>
+            {/* <div className="review-upload-store-name">{가게이름 props}</div> */}
           </div>
           <div className="review-upload-food-name">원조 할매 국밥</div>
+          {/* <div className="review-upload-store-name">{orderedMeal.menu_name}</div> */}
           <div className="review-upload-content-container">
             <img
               className="review-upload-food-image"

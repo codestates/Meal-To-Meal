@@ -29,6 +29,7 @@ function App() {
   const [isOpenAlert, setIsOpenAlert] = useState(false);
   const [isOpenWarningAlert, setIsOpenWarningAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
+  const [orderedMeal, setOrderedMeal] = useState([]);
 
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
   const [isOpenSignupModal, setIsOpenSignupModal] = useState(false);
@@ -183,6 +184,7 @@ function App() {
           path="/store/:storeid"
           element={
             <StoreInfo
+              navigate={navigate}
               isLogin={isLogin}
               setIsLogin={setIsLogin}
               removeFromCart={removeFromCart}
@@ -192,6 +194,7 @@ function App() {
               setCartItems={setCartItems}
               openLoginModalHandler={openLoginModalHandler}
               openSignupModalHandler={openSignupModalHandler}
+              setOrderedMeal={setOrderedMeal}
             />
           }
         />
@@ -207,7 +210,7 @@ function App() {
             />
           }
         />
-        <Route path="/usermeal" element={<UserMeal />} />
+        <Route path="/usermeal" element={<UserMeal orderedMeal={orderedMeal} setOrderedMeal={setOrderedMeal} />} />
       </Routes>
       {isLogin ? (
         <UnderbarLogin

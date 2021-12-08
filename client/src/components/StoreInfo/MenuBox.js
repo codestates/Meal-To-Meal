@@ -3,7 +3,7 @@ import axios from 'axios';
 import LoginAlert from '../StoreInfo/LoginAlert';
 import ClickOwnStoreAlert from '../Alert/ClickOwnStoreAlert';
 
-function MenuBox({ isLogin, addToCart, openLoginModalHandler, openSignupModalHandler }) {
+function MenuBox({ navigate, isLogin, addToCart, openLoginModalHandler, openSignupModalHandler, setOrderedMeal }) {
   const [isOpenLoginAlert, setIsOpenLoginAlert] = useState(false);
   const loginAlertOpenHandler = () => {
     setIsOpenLoginAlert(!isOpenLoginAlert);
@@ -36,11 +36,13 @@ function MenuBox({ isLogin, addToCart, openLoginModalHandler, openSignupModalHan
     getStoreMenuHandler();
   }, []);
 
-  const goToorderHistory = () => {
+  const goToOrderHistory = el => {
     if (!isLogin) {
       loginAlertOpenHandler();
     } else {
+      setOrderedMeal(el);
       console.log('로그인 되어있는 상태이면 먹기 페이지로 가시오');
+      navigate('/usermeal');
     }
   };
 
@@ -68,7 +70,13 @@ function MenuBox({ isLogin, addToCart, openLoginModalHandler, openSignupModalHan
                 >
                   기부하기
                 </button>
-                <button className="menu-eat-button" onClick={goToorderHistory}>
+                <button
+                  className="menu-eat-button"
+                  onClick={() => {
+                    goToOrderHistory(el);
+                    //이걸로 el를 usermeal 페이지로 보낸다
+                  }}
+                >
                   먹기
                 </button>
               </div>

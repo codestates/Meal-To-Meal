@@ -5,7 +5,7 @@ import UserMealBox from '../components/OrderCart/UserMealBox';
 import EmptyOrderAni from '../components/StoreInfo/EmptyOrderAni';
 import '../styles/pages/UserMeal.css';
 
-function UserMeal() {
+function UserMeal({ orderedMeal, setOrderedMeal }) {
   const [reviewModalOpen, setReviewModalOpen] = useState(false);
 
   const openReviewModalHandler = () => {
@@ -50,7 +50,7 @@ function UserMeal() {
           <div className="usermeal-ordered-info-container">
             <div className="usermeal-ordered-container">
               <div className="usermeal-ordered-title">주문한 음식</div>
-              <UserMealBox />
+              <UserMealBox orderedMeal={orderedMeal} />
             </div>
             <div className="usermeal-userinfo-container">
               <div className="usermeal-userinfo-title">주문 유저 정보</div>
@@ -68,6 +68,7 @@ function UserMeal() {
           <ReviewUploadModal
             openReviewModalHandler={openReviewModalHandler}
             reviewSubmitHandler={reviewSubmitHandler}
+            orderedMeal={orderedMeal}
           />
         ) : null}
       </div>

@@ -314,7 +314,7 @@
 @media (min-width: 1024px) {
   .mypage-container {
     margin-top: 80px;
-    min-height: 77.2vh;
+    min-height: 76vh;
   }
   .mypage-title {
     font-size: 28px;

@@ -6,6 +6,7 @@ import '../styles/pages/StoreInfo.css';
 import axios from 'axios';
 
 function StoreInfo({
+  navigate,
   isLogin,
   cartItems,
   setCartItems,
@@ -14,9 +15,8 @@ function StoreInfo({
   setQuantity,
   openLoginModalHandler,
   openSignupModalHandler,
+  setOrderedMeal,
 }) {
-  const navigate = useNavigate();
-
   const [detailStoreInfo, setDetailStoreInfo] = useState({});
 
   const getDetailStoreInfoHandler = () => {
@@ -69,6 +69,7 @@ function StoreInfo({
             </div>
             <div className="box-title">메뉴</div>
             <MenuBox
+              navigate={navigate}
               cartItems={cartItems}
               setCartItems={setCartItems}
               removeFromCart={removeFromCart}
@@ -77,6 +78,7 @@ function StoreInfo({
               isLogin={isLogin}
               openLoginModalHandler={openLoginModalHandler}
               openSignupModalHandler={openSignupModalHandler}
+              setOrderedMeal={setOrderedMeal}
             />
           </div>
           <div className="menu-box-container">
