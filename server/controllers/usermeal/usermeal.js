@@ -3,6 +3,7 @@ const checkTokens = require('../../middlewares/tokenAuth');
 
 module.exports = {
   post: async (req, res) => {
+    // const [results, metadata] = await sequelize.query("UPDATE users SET y = 42 WHERE x = 12");
     const userInfo = checkTokens(req);
     const { menu_id } = req.body;
     if (!userInfo) {

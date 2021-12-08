@@ -41,6 +41,8 @@ cart_menu.belongsTo(menu, { foreignKey: 'menu_id' });
 menu.hasMany(cart_menu, { foreignKey: 'menu_id' });
 store.hasMany(store_review, { foreignKey: 'store_id' });
 store_review.belongsTo(store, { foreignKey: 'store_id' });
+store_review.belongsTo(menu, { foreignKey: 'menu_id' });
+menu.hasMany(store_review, { foreignKey: 'menu_id' });
 user.hasMany(store_review, { foreignKey: 'reviewer_id' });
 store_review.belongsTo(user, { foreignKey: 'reviewer_id' });
 user_meal.belongsTo(user, { foreignKey: 'user_id' });
