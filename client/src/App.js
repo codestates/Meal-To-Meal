@@ -12,7 +12,7 @@ import UnderbarNotLogin from './components/Underbar/UnderbarNotLogin';
 import NotFound from './pages/NotFound';
 import EmptyOrderHistory from './pages/EmptyOrderHistory';
 import Landing from '../src/pages/Landing';
-import Map from '../src/pages/Map';
+import Maps from './pages/Maps';
 import LoginModal from './components/Login/LoginModal';
 import StoreInfo from '../src/pages/StoreInfo';
 import ShareCart from '../src/pages/ShareCart';
@@ -53,8 +53,7 @@ function App() {
         })
         .catch(err => {
           setIsLogin(false);
-          setAlertMessage('잘못된 요청입니다.');
-          openWarningAlertHandler();
+          console.log(err);
         });
     }
   };
@@ -181,7 +180,7 @@ function App() {
             />
           }
         />
-        <Route path="/map" element={<Map navigate={navigate} />} />
+        <Route path="/maps" element={<Maps navigate={navigate} />} />
         <Route
           path="/store/:storeid"
           element={

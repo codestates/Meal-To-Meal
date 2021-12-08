@@ -73,7 +73,7 @@ function SidebarLogin({
         className="sidebar-menu-container"
         onClick={() => {
           openisLoginOpenSidebarHandler();
-          navigate('/map');
+          navigate('/maps');
         }}
       >
         <div className="sidebar-icon">&#x1F5FA;</div>

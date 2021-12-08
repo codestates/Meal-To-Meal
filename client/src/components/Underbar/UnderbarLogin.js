@@ -58,7 +58,7 @@ function UnderbarLogin({
       </div>
       <div className="underbar-menu-container">
         {/* 지도보기 */}
-        <i className="fas fa-map-marked-alt" onClick={() => navigate('/map')} />
+        <i className="fas fa-map-marked-alt" onClick={() => navigate('/maps')} />
       </div>
     </div>
   );
