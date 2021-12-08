@@ -7,6 +7,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  font-size: 13px;
+  word-break: keep-all;
 }
 
 .ordered-food-image {
@@ -26,7 +28,6 @@
       -ms-flex-direction: row;
           flex-direction: row;
   margin-bottom: 10px;
-  font-size: 13px;
 }
 
 .ordered-food-name {
@@ -36,6 +37,36 @@
 .ordered-order-date {
   font-size: 11px;
   margin-bottom: 10px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .ordered-food-container {
+    font-size: 17px;
+  }
+  .ordered-food-image {
+    height: 160px;
+  }
+  .ordered-food-info-container {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  .ordered-food-name {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .ordered-order-date {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ordered-food-container {
+    font-size: 17px;
+  }
+  .ordered-food-image {
+    height: 180px;
+  }
 }
 
 .review-upload-backdrop {
@@ -82,12 +113,9 @@
   min-width: -webkit-fit-content;
   min-width: -moz-fit-content;
   min-width: fit-content;
+  margin-right: 110px;
   margin-bottom: 10px;
   font-weight: bolder;
-}
-
-.fa-times {
-  margin-left: 53%;
 }
 
 .review-upload-store-info-container {
@@ -166,9 +194,7 @@
   .review-upload-title {
     font-size: 20px;
     margin-bottom: 15px;
-  }
-  .fa-times {
-    margin-left: 78%;
+    margin-right: 380px;
   }
   .review-upload-store-info-container {
     margin-bottom: 10px;
@@ -198,10 +224,8 @@
   }
   .review-upload-title {
     font-size: 22px;
+    margin-right: 530px;
     margin-bottom: 20px;
-  }
-  .fa-times {
-    margin-left: 80%;
   }
   .review-upload-store-info-container {
     margin-bottom: 10px;
@@ -241,18 +265,19 @@
   }
 }
 
-.ordercart-container {
+.usermeal-container {
   padding: 15px;
   font-size: 13px;
+  margin-bottom: 70px;
 }
 
-.ordercart-title {
+.usermeal-title {
   font-size: 14px;
   font-weight: bolder;
   margin-bottom: 10px;
 }
 
-.ordercart-store-title-container {
+.usermeal-store-title-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -266,18 +291,18 @@
           align-items: center;
 }
 
-.ordercart-category-icon {
+.usermeal-category-icon {
   width: 15px;
 }
 
-.ordercart-store-image {
+.usermeal-store-image {
   height: 150px;
   border-radius: 10px;
   -webkit-box-shadow: 2px 2px 2px 2px gray;
           box-shadow: 2px 2px 2px 2px gray;
 }
 
-.ordercart-address-container {
+.usermeal-address-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -290,52 +315,143 @@
           align-items: center;
 }
 
-.ordercart-description-container {
+.usermeal-description-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.ordercart-ordered-container {
-  margin-top: 15px;
+.usermeal-ordered-container {
+  margin-top: 40px;
 }
 
-.ordercart-ordered-title {
+.usermeal-ordered-title {
   font-size: 14px;
   font-weight: bolder;
   margin-bottom: 10px;
 }
 
-.ordercart-userinfo-container {
-  margin-top: 20px;
+.usermeal-userinfo-container {
+  margin-top: 40px;
   font-size: 14px;
 }
 
-.ordercart-userinfo-title {
+.usermeal-userinfo-title {
   font-weight: bolder;
   margin-bottom: 10px;
 }
 
-.ordercart-username {
+.usermeal-username {
   margin-bottom: 10px;
 }
 
-.ordercart-user-email {
+.usermeal-user-email {
   margin-bottom: 10px;
 }
 
-.order-user-phone-number {
+.usermeal-user-phone-number {
   margin-bottom: 10px;
 }
 
-.ordercart-confirm-button {
+.usermeal-confirm-button {
   width: 90%;
+  margin-left: 15px;
+  margin-top: 30px;
 }
-/*# sourceMappingURL=OrderCart.css.map */
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .usermeal-container {
+    font-size: 17px;
+    margin-top: 70px;
+  }
+  .usermeal-store-image {
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  .usermeal-title {
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+  .usermeal-ordered-container {
+    margin-top: 40px;
+  }
+  .usermeal-ordered-title {
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+  .usermeal-userinfo-title {
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+  .usermeal-userinfo-container {
+    margin-top: 40px;
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+  .usermeal-confirm-button {
+    margin-left: 35px;
+  }
+  .usermeal-username {
+    margin-bottom: 20px;
+  }
+  .usermeal-user-email {
+    margin-bottom: 20px;
+  }
+  .usermeal-confirm-button {
+    width: 400px;
+    margin-left: 180px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .usermeal-container {
+    font-size: 17px;
+    margin-top: 50px;
+    margin-left: 160px;
+    margin-bottom: 90px;
+    height: 63vh;
+  }
+  .usermeal-store-image {
+    height: 270px;
+    margin-bottom: 20px;
+  }
+  .usermeal-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .usermeal-order-food-info-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .usermeal-ordered-info-container {
+    margin-right: 160px;
+  }
+  .usermeal-ordered-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .usermeal-userinfo-container {
+    margin-top: 60px;
+    font-size: 17px;
+  }
+  .usermeal-userinfo-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .usermeal-confirm-button {
+    width: 500px;
+    margin-left: 350px;
+    margin-top: 50px;
+  }
+}
+/*# sourceMappingURL=UserMeal.css.map */

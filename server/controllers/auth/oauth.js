@@ -65,7 +65,7 @@ module.exports = {
               httpOnly: true,
             })
             .status(201)
-            .json({ accessToken: newAccessToken });
+            .json({ accessToken: newAccessToken, signup_method: 'kakao' });
         } else {
           return res
             .cookie('refreshToken', refreshToken, {
@@ -74,7 +74,7 @@ module.exports = {
               httpOnly: true,
             })
             .status(200)
-            .json({ accessToken: newAccessToken });
+            .json({ accessToken: newAccessToken, signup_method: 'kakao' });
         }
       }
     } catch (err) {

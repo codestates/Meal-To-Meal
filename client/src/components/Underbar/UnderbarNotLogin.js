@@ -16,7 +16,7 @@ function UnderbarNotLogin({ openLoginModalHandler, openSignupModalHandler, navig
         />
       </div>
       <div className="underbar-menu-container">
-        <i className="fas fa-map-marked-alt" onClick={() => navigate('/map')} />
+        <i className="fas fa-map-marked-alt" onClick={() => navigate('/maps')} />
       </div>
     </div>
   );

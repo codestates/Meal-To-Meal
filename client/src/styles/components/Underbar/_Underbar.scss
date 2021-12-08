@@ -30,9 +30,6 @@
   -webkit-text-stroke: #ffcc1d 2px;
 }
 
-@include mobile {
-}
-
 @include tablet {
   .underbar-container {
     display: none;

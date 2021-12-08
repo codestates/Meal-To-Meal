@@ -32,7 +32,7 @@ function LoginModal({
         setIsLogin(true);
         setAlertMessage('로그인 되었습니다!');
         openAlertHandler();
-        navigate('/map');
+        navigate('/maps');
         openLoginModalHandler();
       })
       .catch(err => {
