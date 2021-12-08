@@ -16,6 +16,7 @@ function Header({
   openWarningAlertHandler,
   setAlertMessage,
   loginAlertOpenHandler,
+  setKakaoLogin,
 }) {
   const [isLoginOpenSidebar, setIsLoginOpenSidebar] = useState(false);
   const [isNotLoginOpenSidebar, setIsNotLoginOpenSidebar] = useState(false);
@@ -53,6 +54,7 @@ function Header({
           openAlertHandler={openAlertHandler}
           openWarningAlertHandler={openWarningAlertHandler}
           setAlertMessage={setAlertMessage}
+          setKakaoLogin={setKakaoLogin}
         />
       ) : null}
       {isNotLoginOpenSidebar ? (

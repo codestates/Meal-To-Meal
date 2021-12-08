@@ -4,7 +4,7 @@ import '../styles/pages/Mypage.css';
 
 import Review from '../components/Mypage/Review';
 
-function Mypage({ navigate, setAlertMessage, openAlertHandler, openWarningAlertHandler, alertMessage }) {
+function Mypage({ navigate, setAlertMessage, openAlertHandler, openWarningAlertHandler, alertMessage, kakaoLogin }) {
   const [isOpenFixNicknameToggle, setIsOpenFixNicknameToggle] = useState(false);
   const [isOpenFixPasswordToggle, setIsOpenFixPasswordToggle] = useState(false);
 
@@ -222,9 +222,16 @@ function Mypage({ navigate, setAlertMessage, openAlertHandler, openWarningAlertH
             </form>
           ) : null}
           <div className="mypage-myinfo-email">{userInfo.user_email}</div>
-          <span className="mypage-fix-myinfo-toggle-button" onClick={openFixPasswordToggleHandler}>
-            비밀번호 수정
-          </span>
+          {kakaoLogin ? (
+            <span className="mypage-fix-myinfo-toggle-button" disabled={true}>
+              비밀번호 수정
+            </span>
+          ) : (
+            <span className="mypage-fix-myinfo-toggle-button" onClick={openFixPasswordToggleHandler}>
+              비밀번호 수정
+            </span>
+          )}
+
           {isOpenFixPasswordToggle ? (
             <form className="mypage-fix-toggle-container" onSubmit={e => e.preventDefault()}>
               <div className="password-container">
