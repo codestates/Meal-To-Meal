@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import SignupModal from './SignupModal';
-
+require('dotenv').config();
 axios.defaults.withCredentials = true;
 
 function LoginModal({
