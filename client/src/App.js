@@ -10,7 +10,6 @@ import Footer from './components/Footer';
 import UnderbarLogin from './components/Underbar/UnderbarLogin';
 import UnderbarNotLogin from './components/Underbar/UnderbarNotLogin';
 import NotFound from './pages/NotFound';
-import EmptyOrderHistory from './pages/EmptyOrderHistory';
 import Landing from '../src/pages/Landing';
 import Maps from './pages/Maps';
 import LoginModal from './components/Login/LoginModal';
@@ -74,7 +73,7 @@ function App() {
           setKakaoLogin(true);
           localStorage.setItem('accessToken', res.data.accessToken);
           setIsLogin(true);
-          navigate('/map');
+          navigate('/maps');
         })
         .catch(err => {
           setIsLogin(false);
@@ -154,7 +153,6 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Landing />} />
         <Route path="/notfound" element={<NotFound />} />
-        <Route path="/emptyhistory" element={<EmptyOrderHistory navigate={navigate} />} />
         <Route
           path="/withdrawal"
           element={

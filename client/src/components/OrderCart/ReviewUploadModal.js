@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function ReviewUploadModal({ openReviewModalHandler }) {
+function ReviewUploadModal({ openReviewModalHandler, reviewSubmitHandler }) {
   const [review, setReview] = useState('');
   const handleChange = e => {
     setReview(e.target.value);
@@ -32,7 +32,9 @@ function ReviewUploadModal({ openReviewModalHandler }) {
               type="file"
               accept="image/x-png, image/gif, image/jpeg"
             />
-            <button className="review-upload-submit-button">등록하기</button>
+            <button className="review-upload-submit-button" onClick={reviewSubmitHandler}>
+              등록하기
+            </button>
           </div>
         </div>
       </div>

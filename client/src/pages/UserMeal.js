@@ -1,6 +1,8 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import ReviewUploadModal from '../components/OrderCart/ReviewUploadModal';
 import UserMealBox from '../components/OrderCart/UserMealBox';
+import EmptyOrderAni from '../components/StoreInfo/EmptyOrderAni';
 import '../styles/pages/UserMeal.css';
 
 function UserMeal() {
@@ -8,6 +10,22 @@ function UserMeal() {
 
   const openReviewModalHandler = () => {
     setReviewModalOpen(!reviewModalOpen);
+  };
+
+  const reviewSubmitHandler = () => {
+    const accessToken = localStorage.getItem('accessToken');
+    axios
+      .post(
+        `${process.env.REACT_APP_API_URL}/review`,
+        // { store_id, review_image, review_content },
+        { headers: { authorization: `Bearer ${accessToken}` }, withCredentials: true }
+      )
+      .then(res => {
+        alert('리뷰가 등록되었습니다');
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
   return (
     <>
@@ -46,7 +64,12 @@ function UserMeal() {
           잘 먹었습니다!
         </button>
 
-        {reviewModalOpen ? <ReviewUploadModal openReviewModalHandler={openReviewModalHandler} /> : null}
+        {reviewModalOpen ? (
+          <ReviewUploadModal
+            openReviewModalHandler={openReviewModalHandler}
+            reviewSubmitHandler={reviewSubmitHandler}
+          />
+        ) : null}
       </div>
     </>
   );
