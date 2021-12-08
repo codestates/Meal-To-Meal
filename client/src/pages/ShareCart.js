@@ -29,12 +29,10 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
         buyer_tel: '010-8223-2312',
       },
       function (rsp) {
-        console.log('asd', rsp);
-        // callback
         if (rsp.success) {
           axios
             .post(
-              'http://localhost:4000/payment/complete',
+              `${process.env.REACT_APP_API_URL}/payment/complete`,
               { imp_uid: rsp.imp_uid, merchant_uid: rsp.merchant_uid, order: cartItems, total_price: totalPrice },
               {
                 headers: {
@@ -47,12 +45,11 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
             .then(res => {
               axios
                 .post(
-                  'http://localhost:4000/cart',
+                  `${process.env.REACT_APP_API_URL}/cart`,
                   { order: cartItems, total_price: totalPrice },
                   { headers: { authorization: `Bearer ${accessToken}` }, withCredentials: true }
                 )
                 .then(res => {
-                  console.log('-----------------------', res);
                   alert('카트에 들어갔습니다.');
                 })
                 .catch(err => console.log('erer-------------------', err));
