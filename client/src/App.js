@@ -16,7 +16,7 @@ import Maps from './pages/Maps';
 import LoginModal from './components/Login/LoginModal';
 import StoreInfo from '../src/pages/StoreInfo';
 import ShareCart from '../src/pages/ShareCart';
-import OrderCart from '../src/pages/OrderCart';
+import UserMeal from '../src/pages/UserMeal';
 import Withdrawal from '../src/pages/Withdrawal';
 import Mypage from '../src/pages/Mypage';
 import ReviewUploadModal from './components/OrderCart/ReviewUploadModal';
@@ -26,7 +26,7 @@ dotenv.config();
 axios.defaults.withCredentials = true;
 function App() {
   const [isLogin, setIsLogin] = useState(false);
-
+  const [kakaoLogin, setKakaoLogin] = useState(false);
   const [isOpenAlert, setIsOpenAlert] = useState(false);
   const [isOpenWarningAlert, setIsOpenWarningAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
@@ -71,6 +71,7 @@ function App() {
           }
         )
         .then(res => {
+          setKakaoLogin(true);
           localStorage.setItem('accessToken', res.data.accessToken);
           setIsLogin(true);
           navigate('/map');
@@ -148,6 +149,7 @@ function App() {
         openAlertHandler={openAlertHandler}
         openWarningAlertHandler={openWarningAlertHandler}
         setAlertMessage={setAlertMessage}
+        setKakaoLogin={setKakaoLogin}
       />
       <Routes>
         <Route exact path="/" element={<Landing />} />
@@ -174,6 +176,7 @@ function App() {
               openAlertHandler={openAlertHandler}
               openWarningAlertHandler={openWarningAlertHandler}
               alertMessage={alertMessage}
+              kakaoLogin={kakaoLogin}
             />
           }
         />
@@ -206,7 +209,7 @@ function App() {
             />
           }
         />
-        <Route path="/ordercart" element={<OrderCart />} />
+        <Route path="/usermeal" element={<UserMeal />} />
       </Routes>
       {isLogin ? (
         <UnderbarLogin
@@ -215,6 +218,7 @@ function App() {
           openAlertHandler={openAlertHandler}
           openWarningAlertHandler={openWarningAlertHandler}
           setAlertMessage={setAlertMessage}
+          setKakaoLogin={setKakaoLogin}
         />
       ) : (
         <UnderbarNotLogin

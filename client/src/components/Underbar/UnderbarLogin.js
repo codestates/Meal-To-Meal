@@ -1,7 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 
-function UnderbarLogin({ setIsLogin, navigate, openAlertHandler, openWarningAlertHandler, setAlertMessage }) {
+function UnderbarLogin({
+  setIsLogin,
+  navigate,
+  openAlertHandler,
+  openWarningAlertHandler,
+  setAlertMessage,
+  setKakaoLogin,
+}) {
   const LogoutButtonHandler = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/user/logout`, {
@@ -10,6 +17,7 @@ function UnderbarLogin({ setIsLogin, navigate, openAlertHandler, openWarningAler
       })
       .then(res => {
         localStorage.clear();
+        setKakaoLogin(false);
         setIsLogin(false);
         setAlertMessage('로그아웃 되었습니다.');
         openAlertHandler();
@@ -38,7 +46,7 @@ function UnderbarLogin({ setIsLogin, navigate, openAlertHandler, openWarningAler
       </div>
       <div className="underbar-menu-container">
         {/* 예약내역 */}
-        <i className="fas fa-file-signature" />
+        <i className="fas fa-file-signature" onClick={() => navigate('/usermeal')} />
       </div>
       <div className="underbar-menu-container">
         {/* 랭킹 */}

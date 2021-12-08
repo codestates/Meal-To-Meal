@@ -36,7 +36,7 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
         pg: 'html5_inicis',
         pay_method: 'card',
         merchant_uid: 'Sudo_Hired_' + new Date(),
-        name: `${cartItems[0].name} 외 ${totalQuantity - 1}개`, //
+        name: `${cartItems[0].name} 외 ${totalQuantity - 1}개`,
         amount: Number(totalPrice),
         buyer_tel: '010-8223-2312',
       },
