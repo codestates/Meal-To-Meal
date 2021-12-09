@@ -16,9 +16,9 @@ function StoreInfo({
   openLoginModalHandler,
   openSignupModalHandler,
   setOrderedMeal,
+  detailStoreInfo,
+  setDetailStoreInfo,
 }) {
-  const [detailStoreInfo, setDetailStoreInfo] = useState({});
-
   const getDetailStoreInfoHandler = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/store/${Number(localStorage.getItem('clickedMarker'))}`, {

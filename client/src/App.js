@@ -30,7 +30,7 @@ function App() {
   const [isOpenWarningAlert, setIsOpenWarningAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
   const [orderedMeal, setOrderedMeal] = useState([]);
-
+  const [detailStoreInfo, setDetailStoreInfo] = useState({});
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
   const [isOpenSignupModal, setIsOpenSignupModal] = useState(false);
 
@@ -195,6 +195,8 @@ function App() {
               openLoginModalHandler={openLoginModalHandler}
               openSignupModalHandler={openSignupModalHandler}
               setOrderedMeal={setOrderedMeal}
+              detailStoreInfo={detailStoreInfo}
+              setDetailStoreInfo={setDetailStoreInfo}
             />
           }
         />
@@ -210,7 +212,17 @@ function App() {
             />
           }
         />
-        <Route path="/usermeal" element={<UserMeal orderedMeal={orderedMeal} setOrderedMeal={setOrderedMeal} />} />
+        <Route
+          path="/usermeal"
+          element={
+            <UserMeal
+              orderedMeal={orderedMeal}
+              setOrderedMeal={setOrderedMeal}
+              detailStoreInfo={detailStoreInfo}
+              setDetailStoreInfo={setDetailStoreInfo}
+            />
+          }
+        />
       </Routes>
       {isLogin ? (
         <UnderbarLogin

@@ -41,6 +41,7 @@ function MenuBox({ navigate, isLogin, addToCart, openLoginModalHandler, openSign
       loginAlertOpenHandler();
     } else {
       setOrderedMeal(el);
+      console.log(el);
       console.log('로그인 되어있는 상태이면 먹기 페이지로 가시오');
       navigate('/usermeal');
     }
