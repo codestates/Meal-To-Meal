@@ -23,14 +23,9 @@ function ReviewUploadModal({
             <img className="review-upload-store-category-icon" src={require('../../img/찌개.png').default} alt=""></img>
             <div className="review-upload-store-name">{detailStoreInfo.store_name}</div>
           </div>
-          {/* <div className="review-upload-food-name">원조 할매 국밥</div> */}
           <div className="review-upload-store-name">{orderedMeal.menu_name}</div>
           <div className="review-upload-content-container">
-            <img
-              className="review-upload-food-image"
-              src={require('../../img/dummy/menu_dummy/김치전.jpg').default}
-              alt=""
-            />
+            <img className="review-upload-food-image" src={reviewInfo.reviewImage} alt="" />
             <textarea
               className="review-upload-food-text"
               placeholder="리뷰를 적어주세요"
@@ -42,9 +37,9 @@ function ReviewUploadModal({
               className="review-upload-image-upload-button"
               type="file"
               accept="image/x-png, image/gif, image/jpeg"
-              onChange={handleChange('reviewText')}
+              onChange={handleChange('reviewImage')}
             />
-            <button className="review-upload-submit-button" onClick={reviewSubmitHandler}>
+            <button className="review-upload-submit-button" onClick={() => reviewSubmitHandler(reviewInfo)}>
               등록하기
             </button>
           </div>

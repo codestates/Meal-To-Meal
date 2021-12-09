@@ -1,4 +1,5 @@
 import axios from 'axios';
+import AWS from 'aws-sdk';
 import React, { useState } from 'react';
 import ReviewUploadModal from '../components/OrderCart/ReviewUploadModal';
 import UserMealBox from '../components/OrderCart/UserMealBox';
@@ -11,31 +12,54 @@ function UserMeal({ navigate, orderedMeal, setOrderedMeal, detailStoreInfo, setD
     reviewImage: '',
     reviewText: '',
   });
-  // const [reviewImage, setReviewImage] = useState('');
-  // const [reviewText, setReviewText] = useState('');
 
   const openReviewModalHandler = () => {
     setReviewModalOpen(!reviewModalOpen);
   };
 
-  const reviewSubmitHandler = () => {
+  AWS.config.update({
+    region: 'ap-northeast-2',
+    accessKeyId: `${process.env.REACT_APP_SDK_ACCESSKEY_ID}`,
+    secretAccessKey: `${process.env.REACT_APP_SDK_SECRETACCESS_KEY}`,
+  });
+
+  const reviewSubmitHandler = e => {
     const { reviewImage, reviewText } = reviewInfo;
-    const accessToken = localStorage.getItem('accessToken');
-    axios
-      .post(
-        `${process.env.REACT_APP_API_URL}/review`,
-        { store_id: detailStoreInfo.store_id, review_image: reviewImage, review_content: reviewText },
-        { headers: { authorization: `Bearer ${accessToken}` }, withCredentials: true }
-      )
-      .then(res => {
-        setOrderedMeal({});
-        setDetailStoreInfo({});
-        alert('리뷰가 등록되었습니다');
-        navigate('/maps');
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    const imageFile = e.reviewImage.slice(12);
+
+    const upload = new AWS.S3.ManagedUpload({
+      params: {
+        Bucket: 'meal2sdk',
+        Key: imageFile,
+        Body: imageFile,
+      },
+    });
+    const promise = upload.promise();
+    promise.then(
+      function (data) {
+        console.log(promise);
+        console.log('프로미스 성공');
+        // const accessToken = localStorage.getItem('accessToken');
+        // axios
+        //   .post(
+        //     `${process.env.REACT_APP_API_URL}/review`,
+        //     { store_id: detailStoreInfo.store_id, menu_id: orderedMeal.id, review_image: reviewImage, review_content: reviewText },
+        //     { headers: { authorization: `Bearer ${accessToken}` }, withCredentials: true }
+        //   )
+        //   .then(res => {
+        //     setOrderedMeal({});
+        //     setDetailStoreInfo({});
+        //     alert('리뷰가 등록되었습니다');
+        //     navigate('/maps');
+        //   })
+        //   .catch(err => {
+        //     console.log(err);
+        //   });
+      },
+      function (err) {
+        console.log('프로미스 깨짐');
+      }
+    );
   };
   return (
     <>

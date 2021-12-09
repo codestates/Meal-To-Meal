@@ -15,7 +15,11 @@ function Review() {
           </div>
         </div>
         <div className="review-img-info-container">
-          <img className="review-store-img" src={require('../../img/dummy/menu_dummy/삼계탕.jpg').default} alt="" />
+          <img
+            className="review-store-img"
+            src={`https://meal2sdk.s3.ap-northeast-2.amazonaws.com/제목을 입력해주세요_-001 (6).png`}
+            alt=""
+          />
           <div className="review-store-info-container">
             <div className="review-menu-title">티라노 립아이</div>
             <div className="store-text">
