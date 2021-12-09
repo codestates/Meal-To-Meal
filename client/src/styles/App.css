@@ -254,6 +254,18 @@ footer {
   }
 }
 
+.sidebar-backdrop {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
 .sidebar-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -278,7 +290,7 @@ footer {
   background-color: white;
   -webkit-box-shadow: gray 3px 3px 3px 3px;
           box-shadow: gray 3px 3px 3px 3px;
-  z-index: 999;
+  z-index: 998;
 }
 
 .sidebar-menu-container {
