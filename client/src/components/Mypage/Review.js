@@ -1,6 +1,26 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function Review() {
+  const [userReviews, setUserReviews] = useState([]);
+  const getDetailReviewHandler = () => {
+    const accessToken = localStorage.getItem('accessToken');
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/review-list`, {
+        headers: { authorization: `Bearer ${accessToken}` },
+        withCredentials: true,
+      })
+      .then(res => {
+        console.log(res.data);
+        setUserReviews(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    getDetailReviewHandler();
+  }, []);
   return (
     <>
       <div className="review-container">
@@ -17,7 +37,7 @@ function Review() {
         <div className="review-img-info-container">
           <img
             className="review-store-img"
-            src={`https://meal2sdk.s3.ap-northeast-2.amazonaws.com/제목을 입력해주세요_-001 (6).png`}
+            src={`https://meal2sdk.s3.ap-northeast-2.amazonaws.com/%E1%84%8C%E1%85%A6%E1%84%86%E1%85%A9%E1%86%A8%E1%84%8B%E1%85%B3%E1%86%AF+%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A7%E1%86%A8%E1%84%92%E1%85%A2%E1%84%8C%E1%85%AE%E1%84%89%E1%85%A6%E1%84%8B%E1%85%AD_-001+(6).png`}
             alt=""
           />
           <div className="review-store-info-container">

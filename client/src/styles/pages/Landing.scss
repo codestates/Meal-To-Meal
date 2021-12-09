@@ -19,6 +19,39 @@
   margin-bottom: 40px;
 }
 
+.landing-button {
+  padding-top: 3px;
+  width: 230px;
+  margin-top: 4px;
+  box-shadow: gray 4px 4px 4px;
+  border-radius: 7px;
+  transition: 120ms ease;
+  background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: gray 6px 6px 6px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
 .landing-img,
 .landing-img-02,
 .landing-img-03 {
@@ -135,6 +168,11 @@
     margin: -200px -80px 10px 0;
   }
 
+  .landing-button {
+    height: 40px;
+    font-size: 20px;
+  }
+
   .landing-tutorial-catchphrase {
     font-size: 30px;
   }
@@ -169,13 +207,20 @@
     z-index: -1;
   }
 
+  .landing-button {
+    height: 40px;
+    font-size: 25px;
+  }
+
   .landing-tutorial-gif {
     margin-left: 1em;
     max-width: 530px;
   }
+
   .landing-tutorial-catchphrase {
     font-size: 45px;
   }
+
   .landing-tutorial-catchphrase-sub {
     font-size: 25px;
   }

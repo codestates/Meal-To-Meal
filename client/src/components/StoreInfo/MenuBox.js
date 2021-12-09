@@ -3,7 +3,7 @@ import axios from 'axios';
 import LoginAlert from '../StoreInfo/LoginAlert';
 import ClickOwnStoreAlert from '../Alert/ClickOwnStoreAlert';
 
-function MenuBox({ navigate, isLogin, addToCart, openLoginModalHandler, openSignupModalHandler, setOrderedMeal }) {
+function MenuBox({ navigate, isLogin, addToCart, openLoginModalHandler, openSignupModalHandler }) {
   const [isOpenLoginAlert, setIsOpenLoginAlert] = useState(false);
   const loginAlertOpenHandler = () => {
     setIsOpenLoginAlert(!isOpenLoginAlert);
@@ -36,12 +36,25 @@ function MenuBox({ navigate, isLogin, addToCart, openLoginModalHandler, openSign
     getStoreMenuHandler();
   }, []);
 
-  const goToOrderHistory = el => {
+  const addUserMeal = el => {
+    const accessToken = localStorage.getItem('accessToken');
     if (!isLogin) {
       loginAlertOpenHandler();
     } else {
-      setOrderedMeal(el);
-      navigate('/usermeal');
+      axios
+        .post(
+          `${process.env.REACT_APP_API_URL}/user-meal`,
+          { menu_id: el.id },
+          { headers: { authorization: `Bearer ${accessToken}` }, withCredentials: true }
+        )
+        .then(res => {
+          alert('선택하신 음식이 예약되었습니다');
+          navigate('/usermeal');
+        })
+        .catch(err => {
+          console.log(err);
+          alert('오늘 이미 먹었자나!!!');
+        });
     }
   };
 
@@ -72,8 +85,7 @@ function MenuBox({ navigate, isLogin, addToCart, openLoginModalHandler, openSign
                 <button
                   className="menu-eat-button"
                   onClick={() => {
-                    goToOrderHistory(el);
-                    //이걸로 el를 usermeal 페이지로 보낸다
+                    addUserMeal(el);
                   }}
                 >
                   먹기

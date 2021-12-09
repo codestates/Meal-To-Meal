@@ -8,14 +8,9 @@ import axios from 'axios';
 function StoreInfo({
   navigate,
   isLogin,
-  cartItems,
-  setCartItems,
-  removeFromCart,
   addToCart,
-  setQuantity,
   openLoginModalHandler,
   openSignupModalHandler,
-  setOrderedMeal,
   detailStoreInfo,
   setDetailStoreInfo,
 }) {
@@ -70,15 +65,10 @@ function StoreInfo({
             <div className="box-title">메뉴</div>
             <MenuBox
               navigate={navigate}
-              cartItems={cartItems}
-              setCartItems={setCartItems}
-              removeFromCart={removeFromCart}
               addToCart={addToCart}
-              setQuantity={setQuantity}
               isLogin={isLogin}
               openLoginModalHandler={openLoginModalHandler}
               openSignupModalHandler={openSignupModalHandler}
-              setOrderedMeal={setOrderedMeal}
             />
           </div>
           <div className="menu-box-container">
@@ -90,7 +80,7 @@ function StoreInfo({
           <button className="cart-button" onClick={() => navigate('/sharecart')}>
             장바구니
           </button>
-          <button className="back-button" onClick={() => navigate('/maps')}>
+          <button className="cart-button" onClick={() => navigate('/maps')}>
             뒤로 가기
           </button>
         </div>

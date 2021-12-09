@@ -21,9 +21,9 @@ function SidebarLogin({
         setIsLogin(false);
         setKakaoLogin(false);
         openisLoginOpenSidebarHandler();
+        navigate('/');
         setAlertMessage('로그아웃 되었습니다.');
         openAlertHandler();
-        navigate('/');
       })
       .catch(err => {
         setAlertMessage('잘못된 요청입니다');
