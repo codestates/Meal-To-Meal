@@ -15,6 +15,7 @@ const reviewRouter = require('./router/reviewRouter');
 const storeRouter = require('./router/storeRouter');
 const usermealRouter = require('./router/usermealRouter');
 const userRouter = require('./router/userRouter');
+const searchRouter = require('./router/searchRouter');
 
 const app = express();
 app.use(express.json());
@@ -74,6 +75,7 @@ app.use('/store', storeRouter);
 app.use('/store-list', storeRouter);
 app.use('/user', userRouter);
 app.use('/user-meal', usermealRouter);
+app.use('/search', searchRouter);
 
 let server = app.listen(HTTPS_PORT);
 // eslint-disable-next-line no-console
