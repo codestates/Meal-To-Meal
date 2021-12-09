@@ -3,7 +3,7 @@ import axios from 'axios';
 import LoginAlert from '../StoreInfo/LoginAlert';
 import ClickOwnStoreAlert from '../Alert/ClickOwnStoreAlert';
 
-function MenuBox({ isLogin, addToCart, openLoginModalHandler, openSignupModalHandler }) {
+function MenuBox({ navigate, isLogin, addToCart, openLoginModalHandler, openSignupModalHandler }) {
   const [isOpenLoginAlert, setIsOpenLoginAlert] = useState(false);
   const loginAlertOpenHandler = () => {
     setIsOpenLoginAlert(!isOpenLoginAlert);
@@ -36,11 +36,25 @@ function MenuBox({ isLogin, addToCart, openLoginModalHandler, openSignupModalHan
     getStoreMenuHandler();
   }, []);
 
-  const goToorderHistory = () => {
+  const addUserMeal = el => {
+    const accessToken = localStorage.getItem('accessToken');
     if (!isLogin) {
       loginAlertOpenHandler();
     } else {
-      console.log('로그인 되어있는 상태이면 먹기 페이지로 가시오');
+      axios
+        .post(
+          `${process.env.REACT_APP_API_URL}/user-meal`,
+          { menu_id: el.id },
+          { headers: { authorization: `Bearer ${accessToken}` }, withCredentials: true }
+        )
+        .then(res => {
+          alert('선택하신 음식이 예약되었습니다');
+          navigate('/usermeal');
+        })
+        .catch(err => {
+          console.log(err);
+          alert('오늘 이미 먹었자나!!!');
+        });
     }
   };
 
@@ -68,7 +82,12 @@ function MenuBox({ isLogin, addToCart, openLoginModalHandler, openSignupModalHan
                 >
                   기부하기
                 </button>
-                <button className="menu-eat-button" onClick={goToorderHistory}>
+                <button
+                  className="menu-eat-button"
+                  onClick={() => {
+                    addUserMeal(el);
+                  }}
+                >
                   먹기
                 </button>
               </div>

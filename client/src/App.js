@@ -10,7 +10,6 @@ import Footer from './components/Footer';
 import UnderbarLogin from './components/Underbar/UnderbarLogin';
 import UnderbarNotLogin from './components/Underbar/UnderbarNotLogin';
 import NotFound from './pages/NotFound';
-import EmptyOrderHistory from './pages/EmptyOrderHistory';
 import Landing from '../src/pages/Landing';
 import Maps from './pages/Maps';
 import LoginModal from './components/Login/LoginModal';
@@ -30,7 +29,8 @@ function App() {
   const [isOpenAlert, setIsOpenAlert] = useState(false);
   const [isOpenWarningAlert, setIsOpenWarningAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
-
+  // const [orderedMeal, setOrderedMeal] = useState([]);
+  const [detailStoreInfo, setDetailStoreInfo] = useState({});
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
   const [isOpenSignupModal, setIsOpenSignupModal] = useState(false);
 
@@ -154,7 +154,6 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Landing />} />
         <Route path="/notfound" element={<NotFound />} />
-        <Route path="/emptyhistory" element={<EmptyOrderHistory navigate={navigate} />} />
         <Route
           path="/withdrawal"
           element={
@@ -185,15 +184,13 @@ function App() {
           path="/store/:storeid"
           element={
             <StoreInfo
+              navigate={navigate}
               isLogin={isLogin}
-              setIsLogin={setIsLogin}
-              removeFromCart={removeFromCart}
               addToCart={addToCart}
-              setQuantity={setQuantity}
-              cartItems={cartItems}
-              setCartItems={setCartItems}
               openLoginModalHandler={openLoginModalHandler}
               openSignupModalHandler={openSignupModalHandler}
+              detailStoreInfo={detailStoreInfo}
+              setDetailStoreInfo={setDetailStoreInfo}
             />
           }
         />
@@ -209,7 +206,7 @@ function App() {
             />
           }
         />
-        <Route path="/usermeal" element={<UserMeal />} />
+        <Route path="/usermeal" element={<UserMeal navigate={navigate} />} />
       </Routes>
       {isLogin ? (
         <UnderbarLogin

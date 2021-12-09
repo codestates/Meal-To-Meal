@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Search from '../components/Map/Search';
 import StoreInfoWindow from '../components/Map/StoreInfoWindow';
+import SearchResultSidebar from '../components/Map/SearchResultSidebar';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from 'react-google-maps';
 import axios from 'axios';
 import '../styles/pages/Maps.css';
@@ -28,6 +29,7 @@ const Map = () => {
 
   useEffect(() => {
     storeListHandler();
+    console.log(storeList);
   }, []);
 
   return (
@@ -79,10 +81,18 @@ const GoogleMaps = () => {
   );
 };
 const Maps = () => {
+  const [isOpenSearchResultSidebar, setIsOpenSearchResultSidebar] = useState(false);
+  const [searchResult, setSearchResult] = useState([]);
+
   return (
     <div className="map-container">
       <GoogleMaps />
-      <Search />
+      <Search
+        isOpenSearchResultSidebar={isOpenSearchResultSidebar}
+        setIsOpenSearchResultSidebar={setIsOpenSearchResultSidebar}
+        setSearchResult={setSearchResult}
+      />
+      {isOpenSearchResultSidebar ? <SearchResultSidebar searchResult={searchResult} /> : null}
     </div>
   );
 };

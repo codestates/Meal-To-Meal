@@ -692,7 +692,7 @@ button {
     left: 125px;
     top: 105px;
     z-index: 998;
-    opacity: 60%;
+    opacity: 0.6;
   }
 }
 
@@ -755,13 +755,13 @@ button {
     left: 225px;
     top: 115px;
     z-index: 998;
-    opacity: 80%;
+    opacity: 0.8;
   }
 }
 
 .login-modal-backdrop {
   position: fixed;
-  z-index: 998;
+  z-index: 999;
   top: 0;
   left: 0;
   bottom: 0;
@@ -1133,7 +1133,7 @@ button {
 
 .alert-backdrop {
   position: fixed;
-  z-index: 998;
+  z-index: 999;
   top: 0;
   left: 0;
   bottom: 0;

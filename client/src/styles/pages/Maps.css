@@ -3,8 +3,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   position: fixed;
   top: 100px;
   left: 20px;
@@ -14,7 +14,7 @@
   background-color: white;
   border-radius: 15px;
   -webkit-box-shadow: gray 4px 4px 4px 4px;
-  box-shadow: gray 4px 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px 4px;
 }
 
 .search-store-input {
@@ -108,18 +108,18 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 250px;
   background-color: white;
   border: 8px solid #ffcc1d;
   border-radius: 45px;
   padding: 10px;
   -webkit-animation: appear 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-  animation: appear 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+          animation: appear 0.8s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .login-alert-logo {
@@ -140,11 +140,11 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 10px;
 }
 
@@ -194,26 +194,24 @@
   }
   .login-alert-button:hover {
     -webkit-box-shadow: gray 4px 4px 4px;
-    box-shadow: gray 4px 4px 4px;
+            box-shadow: gray 4px 4px 4px;
     color: #ffcc1d;
   }
-  .login-alert-button:before,
-  .login-alert-button:after {
+  .login-alert-button:before, .login-alert-button:after {
     content: '';
     position: absolute;
     width: 0;
     -webkit-transition: ease all;
     transition: ease all;
   }
-  .login-alert-button:hover:before,
-  .login-alert-button:hover:after {
+  .login-alert-button:hover:before, .login-alert-button:hover:after {
     width: 100%;
     -webkit-transition: ease all;
     transition: ease all;
   }
   .login-alert-button:active {
     -webkit-box-shadow: none;
-    box-shadow: none;
+            box-shadow: none;
   }
 }
 
@@ -228,8 +226,8 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-top: 5px;
   margin-left: 5px;
   font-size: 15px;
@@ -245,11 +243,11 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   margin-top: 5px;
   margin-bottom: 10px;
 }
@@ -277,8 +275,8 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .infowindow-store-info-container-02 {
@@ -286,20 +284,17 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 8px;
 }
 
-.fa-map-marker-alt,
-.fa-utensils,
-.fa-heart,
-.fa-business-time {
-  color: #ffcc1d;
-  margin-right: 5px;
+.infowindow-info-icon {
+  width: 15px;
+  margin-right: 10px;
 }
 
 .infowindow-info-text {
@@ -323,11 +318,11 @@ button {
   .infowindow-store-info-container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
     -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     margin: 10px;
   }
   .infowindow-store-title-text {
@@ -336,16 +331,12 @@ button {
   .infowindow-store-category {
     font-size: 15px;
   }
-  .fa-map-marker-alt,
-  .fa-utensils,
-  .fa-heart,
-  .fa-business-time {
-    font-size: 30px;
-    margin-right: 10px;
-  }
   .infowindow-info-text {
     font-size: 18px;
     margin-right: 5px;
+  }
+  .infowindow-info-icon {
+    width: 20px;
   }
 }
 
@@ -379,17 +370,24 @@ button {
   .infowindow-store-category {
     font-size: 13px;
   }
-  .fa-map-marker-alt,
-  .fa-utensils,
-  .fa-heart,
-  .fa-business-time {
-    font-size: 20px;
-    margin-right: 10px;
-  }
   .infowindow-info-text {
     font-size: 15px;
     margin-right: 5px;
   }
+  .infowindow-info-icon {
+    width: 20px;
+  }
+}
+
+.SearchResultSidebar-window {
+  z-index: 997;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 240px;
+  height: 100%;
+  border-radius: 0 30px 0 0;
+  padding-top: 70px;
 }
 
 .map-container {
