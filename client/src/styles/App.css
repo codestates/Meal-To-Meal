@@ -761,7 +761,7 @@ button {
 
 .login-modal-backdrop {
   position: fixed;
-  z-index: 998;
+  z-index: 999;
   top: 0;
   left: 0;
   bottom: 0;
@@ -1133,7 +1133,7 @@ button {
 
 .alert-backdrop {
   position: fixed;
-  z-index: 998;
+  z-index: 999;
   top: 0;
   left: 0;
   bottom: 0;

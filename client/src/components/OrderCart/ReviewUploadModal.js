@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 
 function ReviewUploadModal({ openReviewModalHandler }) {
   const [review, setReview] = useState('');
+
   const handleChange = e => {
     setReview(e.target.value);
   };
+
   return (
     <div className="review-upload-container">
       <div className="review-upload-backdrop">
