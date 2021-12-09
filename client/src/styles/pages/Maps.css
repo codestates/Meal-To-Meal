@@ -438,6 +438,8 @@ button {
   padding-bottom: 40px;
   -webkit-animation: out ease-in-out 0.1s alternate;
           animation: out ease-in-out 0.1s alternate;
+  -webkit-box-shadow: gray 6px 6px 6px;
+          box-shadow: gray 6px 6px 6px;
 }
 
 .SearchResult-info-container {
@@ -490,6 +492,7 @@ button {
 
 .SearchResult-img {
   max-width: 50%;
+  max-height: 120px;
   border-radius: 15px;
   -webkit-box-shadow: gray 3px 3px 3px 3px;
           box-shadow: gray 3px 3px 3px 3px;
@@ -527,6 +530,7 @@ button {
   }
   .SearchResult-info-container {
     padding: 30px;
+    padding: 10px;
   }
   .SearchResult-title {
     font-size: 25px;
