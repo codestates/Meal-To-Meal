@@ -5,11 +5,14 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: fixed;
   top: 100px;
   left: 20px;
   z-index: 998;
-  width: 215px;
+  width: 265px;
   height: 40px;
   background-color: white;
   border-radius: 15px;
@@ -26,6 +29,7 @@
   margin: 0 0 5px 10px;
   -webkit-transition: 120ms all;
   transition: 120ms all;
+  font-size: 15px;
 }
 
 .search-store-input:focus {
@@ -36,7 +40,6 @@
 .fa-search {
   font-size: 28px;
   margin-left: 10px;
-  padding-top: 3px;
 }
 
 .fa-search:hover {
@@ -49,6 +52,15 @@
   text-shadow: none;
 }
 
+.search-x-icon {
+  height: 25px;
+  margin: 0 0 0 15px;
+}
+
+.search-x-icon:hover {
+  cursor: pointer;
+}
+
 @media (min-width: 300px) and (max-width: 757px) {
   .search-container {
     top: 10px;
@@ -58,27 +70,34 @@
 
 @media (min-width: 758px) and (max-width: 1023px) {
   .search-container {
-    width: 225px;
+    top: 80px;
+    left: 10px;
+    width: 370px;
     height: 45px;
   }
   .search-store-input {
-    width: 145px;
+    width: 245px;
     height: 25px;
-    font-size: 15px;
+    font-size: 20px;
   }
   .fa-search {
     font-size: 30px;
     padding-top: 3px;
   }
+  .search-x-icon {
+    height: 28px;
+  }
 }
 
 @media (min-width: 1024px) {
   .search-container {
-    width: 245px;
+    top: 80px;
+    left: 10px;
+    width: 395px;
     height: 50px;
   }
   .search-store-input {
-    width: 150px;
+    width: 250px;
     height: 30px;
     font-size: 18px;
   }
@@ -86,6 +105,10 @@
     font-size: 33px;
     margin-left: 25px;
     padding-top: 4px;
+  }
+  .search-x-icon {
+    height: 28px;
+    padding-top: 3px;
   }
 }
 
@@ -379,15 +402,142 @@ button {
   }
 }
 
+@-webkit-keyframes out {
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  0% {
+    -webkit-transform: translateX(-300px);
+            transform: translateX(-300px);
+  }
+}
+
+@keyframes out {
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+  0% {
+    -webkit-transform: translateX(-300px);
+            transform: translateX(-300px);
+  }
+}
+
 .SearchResultSidebar-window {
   z-index: 997;
   background-color: white;
   position: fixed;
   top: 0;
-  width: 240px;
-  height: 100%;
+  width: 300px;
+  height: 440px;
   border-radius: 0 30px 0 0;
-  padding-top: 70px;
+  word-break: keep-all;
+  overflow: auto;
+  padding-top: 60px;
+  padding-bottom: 40px;
+  -webkit-animation: out ease-in-out 0.1s alternate;
+          animation: out ease-in-out 0.1s alternate;
+}
+
+.SearchResult-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 10px;
+  border-bottom: 1px solid #f8f9f9;
+}
+
+.SearchResult-info-container:hover {
+  background-color: #f8f9f9;
+}
+
+.SearchResult-info {
+  width: 50%;
+  margin-right: 5px;
+}
+
+.SearchResult-title {
+  font-size: 15px;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.SearchResult-text {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.SearchResult-text-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.SearchResult-icon {
+  height: 10px;
+  margin-right: 5px;
+}
+
+.SearchResult-img {
+  max-width: 50%;
+  border-radius: 15px;
+  -webkit-box-shadow: gray 3px 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px 3px;
+  margin-right: 10px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .SearchResultSidebar-window {
+    height: 80vh;
+    width: 400px;
+    padding-top: 160px;
+    padding-bottom: 340px;
+  }
+  .SearchResult-info-container {
+    padding: 20px;
+  }
+  .SearchResult-title {
+    font-size: 25px;
+  }
+  .SearchResult-text {
+    font-size: 18px;
+  }
+  .SearchResult-icon {
+    height: 15px;
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .SearchResultSidebar-window {
+    height: 80vh;
+    width: 440px;
+    padding-top: 160px;
+    padding-bottom: 340px;
+  }
+  .SearchResult-info-container {
+    padding: 30px;
+  }
+  .SearchResult-title {
+    font-size: 25px;
+  }
+  .SearchResult-text {
+    font-size: 18px;
+  }
+  .SearchResult-icon {
+    height: 15px;
+    margin-right: 10px;
+  }
 }
 
 .map-container {
