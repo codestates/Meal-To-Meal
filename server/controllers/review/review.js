@@ -37,6 +37,7 @@ module.exports = {
   },
   getUserReview: async (req, res) => {
     const userInfo = checkTokens(req);
+    console.log('--------------', userInfo.id);
     if (!userInfo) {
       res.status(401).json({ message: '로그인이 필요합니다' });
     } else {
@@ -47,6 +48,7 @@ module.exports = {
         });
         res.status(200).json({ reviewList });
       } catch (err) {
+        console.log(err);
         res.status(400).json({ message: '잘못된 요청입니다' });
       }
     }

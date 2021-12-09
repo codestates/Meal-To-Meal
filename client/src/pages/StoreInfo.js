@@ -6,19 +6,14 @@ import '../styles/pages/StoreInfo.css';
 import axios from 'axios';
 
 function StoreInfo({
+  navigate,
   isLogin,
-  cartItems,
-  setCartItems,
-  removeFromCart,
   addToCart,
-  setQuantity,
   openLoginModalHandler,
   openSignupModalHandler,
+  detailStoreInfo,
+  setDetailStoreInfo,
 }) {
-  const navigate = useNavigate();
-
-  const [detailStoreInfo, setDetailStoreInfo] = useState({});
-
   const getDetailStoreInfoHandler = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/store/${Number(localStorage.getItem('clickedMarker'))}`, {
@@ -69,11 +64,8 @@ function StoreInfo({
             </div>
             <div className="box-title">메뉴</div>
             <MenuBox
-              cartItems={cartItems}
-              setCartItems={setCartItems}
-              removeFromCart={removeFromCart}
+              navigate={navigate}
               addToCart={addToCart}
-              setQuantity={setQuantity}
               isLogin={isLogin}
               openLoginModalHandler={openLoginModalHandler}
               openSignupModalHandler={openSignupModalHandler}

@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
+{
+  /* <Route path="/emptyhistory" element={<EmptyOrderHistory navigate={navigate} />} /> */
+}
 
-function EmptyOrderHistory({ navigate }) {
+function EmptyOrderAni({ navigate }) {
   const emptyOrderAnimation = useRef();
   useEffect(() => {
     lottie.loadAnimation({
@@ -9,7 +12,7 @@ function EmptyOrderHistory({ navigate }) {
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      animationData: require('../img/no-order-history.json'),
+      animationData: require('../../img/no-order-history.json'),
     });
   }, []);
   return (
@@ -28,4 +31,4 @@ function EmptyOrderHistory({ navigate }) {
   );
 }
 
-export default EmptyOrderHistory;
+export default EmptyOrderAni;

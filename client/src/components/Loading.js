@@ -9,7 +9,7 @@ function Loading() {
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      animationData: require('../../img/loading-food.json'),
+      animationData: require('../img/loading-food.json'),
     });
   }, []);
   return (

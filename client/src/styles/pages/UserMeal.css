@@ -4,8 +4,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   font-size: 10px;
   word-break: keep-all;
 }
@@ -21,8 +21,8 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   margin: 10px 8px 10px 0;
 }
 
@@ -32,11 +32,11 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -139,8 +139,8 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   background-color: white;
   padding: 20px;
 }
@@ -150,8 +150,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   max-width: 100%;
 }
 
@@ -170,11 +170,11 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 100%;
   margin-bottom: 5px;
 }
@@ -198,8 +198,8 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .review-upload-food-image {
@@ -208,7 +208,7 @@
   margin: 10px auto 15px auto;
   border-radius: 15px;
   -webkit-box-shadow: gray 4px 4px 4px;
-          box-shadow: gray 4px 4px 4px;
+  box-shadow: gray 4px 4px 4px;
 }
 
 .review-upload-food-text {
@@ -233,7 +233,7 @@
   padding-top: 3px;
   margin-top: 4px;
   -webkit-box-shadow: gray 4px 4px 4px;
-          box-shadow: gray 4px 4px 4px;
+  box-shadow: gray 4px 4px 4px;
   border-radius: 7px;
   -webkit-transition: 120ms ease;
   transition: 120ms ease;
@@ -242,10 +242,11 @@
 
 .review-upload-submit-button:hover {
   -webkit-box-shadow: gray 6px 6px 6px;
-          box-shadow: gray 6px 6px 6px;
+  box-shadow: gray 6px 6px 6px;
 }
 
-.review-upload-submit-button:before, .review-upload-submit-button:after {
+.review-upload-submit-button:before,
+.review-upload-submit-button:after {
   content: '';
   position: absolute;
   width: 0;
@@ -253,7 +254,8 @@
   transition: ease all;
 }
 
-.review-upload-submit-button:hover:before, .review-upload-submit-button:hover:after {
+.review-upload-submit-button:hover:before,
+.review-upload-submit-button:hover:after {
   width: 100%;
   -webkit-transition: ease all;
   transition: ease all;
@@ -261,7 +263,7 @@
 
 .review-upload-submit-button:active {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
@@ -330,11 +332,11 @@
   .review-upload-content-container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
     -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
   }
   .review-upload-food-name {
     margin-top: 5px;
@@ -374,11 +376,11 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   margin-bottom: 10px;
 }
 
@@ -393,7 +395,7 @@
   border-radius: 15px;
   margin: 0 auto 0 auto;
   -webkit-box-shadow: 4px 4px 4px gray;
-          box-shadow: 4px 4px 4px gray;
+  box-shadow: 4px 4px 4px gray;
 }
 
 .usermeal-address-container {
@@ -402,11 +404,11 @@
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .usermeal-description-container {
@@ -414,8 +416,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .usermeal-ordered-container {
@@ -456,7 +458,7 @@
   width: 230px;
   margin: 15px auto 20px auto;
   -webkit-box-shadow: gray 4px 4px 4px;
-          box-shadow: gray 4px 4px 4px;
+  box-shadow: gray 4px 4px 4px;
   border-radius: 15px;
   -webkit-transition: 120ms ease all;
   transition: 120ms ease all;
@@ -466,10 +468,11 @@
 
 .usermeal-confirm-button:hover {
   -webkit-box-shadow: gray 6px 6px 6px;
-          box-shadow: gray 6px 6px 6px;
+  box-shadow: gray 6px 6px 6px;
 }
 
-.usermeal-confirm-button:before, .usermeal-confirm-button:after {
+.usermeal-confirm-button:before,
+.usermeal-confirm-button:after {
   content: '';
   position: absolute;
   width: 0;
@@ -477,7 +480,8 @@
   transition: ease all;
 }
 
-.usermeal-confirm-button:hover:before, .usermeal-confirm-button:hover:after {
+.usermeal-confirm-button:hover:before,
+.usermeal-confirm-button:hover:after {
   width: 100%;
   -webkit-transition: ease all;
   transition: ease all;
@@ -485,7 +489,7 @@
 
 .usermeal-confirm-button:active {
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
@@ -552,8 +556,8 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
   }
   .usermeal-store-title {
     font-size: 25px;
