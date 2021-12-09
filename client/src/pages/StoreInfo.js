@@ -88,7 +88,7 @@ function StoreInfo({
           <button className="cart-button" onClick={() => navigate('/sharecart')}>
             장바구니
           </button>
-          <button className="back-button" onClick={() => navigate('/maps')}>
+          <button className="cart-button" onClick={() => navigate('/maps')}>
             뒤로 가기
           </button>
         </div>
