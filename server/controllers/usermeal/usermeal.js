@@ -6,7 +6,7 @@ module.exports = {
     const userInfo = checkTokens(req);
     const { menu_id } = req.body;
     if (!userInfo) {
-      res.status(401).json({ message: '로그인이 필요합니다' });
+      return res.status(401).json({ message: '로그인이 필요합니다' });
     } else {
       try {
         const matchedMenu = await menu.findOne({ where: { id: menu_id } }).catch(err => console.log(err));
@@ -17,8 +17,11 @@ module.exports = {
         if (matchedStore.user_id === userInfo.id) {
           res.status(403).json({ message: '본인의 가게에서 요청하셨습니다' });
         } else {
-          if (matchedUser.today_used) {
-            res.status(403).json({ message: '오늘은 이미 사용하셨습니다' });
+          const exitingUserMeal = await user_meal.findOne({ where: { user_id: userInfo.id } });
+          if (exitingUserMeal) {
+            return res.status(403).json({ message: '이미 주문 내역이 있습니다' });
+          } else if (matchedUser.today_used) {
+            return res.status(403).json({ message: '오늘은 이미 사용하셨습니다' });
           } else {
             await matchedStore.decrement('store_order_quantity').catch(err => console.log(err));
             await matchedMenu.decrement('menu_order_quantity').catch(err => console.log(err));
@@ -26,7 +29,6 @@ module.exports = {
             await matchedUser.update({ today_used: true }).catch(err => console.log(err));
             res.status(200).json({ message: '주문이 완료되었습니다' });
             //인증코드 생성해서 db 저장 일단 생략
-            //? today_used 를 다음날 되면 자동으로 false로 다시 바꿔주어야 함.
           }
         }
       } catch (err) {
