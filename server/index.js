@@ -35,6 +35,19 @@ sequelize
     console.error(':file_cabinet:  Database Error! ' + err);
   });
 
+sequelize
+  .query(
+    "CREATE EVENT IF NOT EXISTS reset_today_used ON SCHEDULE EVERY 1 DAY STARTS '2021-12-09 00:00:00' ON COMPLETION NOT PRESERVE ENABLE COMMENT 'reset_today_used_to_false_on_every_12' DO UPDATE user SET today_used=0;"
+  )
+  .then(() => {
+    // eslint-disable-next-line no-console
+    console.log('Event Scheduled!');
+  })
+  .catch(err => {
+    // eslint-disable-next-line no-console
+    console.log('err', err);
+  });
+
 app.use(
   cors({
     origin: true,
@@ -60,7 +73,7 @@ app.use('/review-list', reviewRouter);
 app.use('/store', storeRouter);
 app.use('/store-list', storeRouter);
 app.use('/user', userRouter);
-app.use('/usermeal', usermealRouter);
+app.use('/user-meal', usermealRouter);
 
 let server = app.listen(HTTPS_PORT);
 // eslint-disable-next-line no-console

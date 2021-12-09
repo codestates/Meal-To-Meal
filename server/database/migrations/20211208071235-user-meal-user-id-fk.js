@@ -1,12 +1,12 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.addColumn('store', 'user_id', {
+    await queryInterface.addColumn('user_meal', 'user_id', {
       type: Sequelize.INTEGER,
     });
-    await queryInterface.addConstraint('store', {
+    await queryInterface.addConstraint('user_meal', {
       fields: ['user_id'],
       type: 'foreign Key',
-      name: 'user_id',
+      name: 'user_meal_user_id',
       references: { table: 'user', field: 'id' },
       onDelete: 'cascade',
       onUpdate: 'cascade',
@@ -14,7 +14,7 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.removeColumn('store', 'user_id');
-    await queryInterface.removeConstraint('store', 'user_id');
+    await queryInterface.removeColumn('user_meal', 'user_id');
+    await queryInterface.removeConstraint('user_meal', 'user_meal_user_id');
   },
 };
