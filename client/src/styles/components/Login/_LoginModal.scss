@@ -1,11 +1,10 @@
-@import '../../mixin/Button';
 @import './SignupModal';
 @import '../../mixin/mixin';
 
 .login-modal-backdrop {
   position: fixed;
   z-index: 998;
-  top: 50px;
+  top: 0;
   left: 0;
   bottom: 0;
   right: 0;
@@ -35,7 +34,7 @@
 }
 
 .login-logo {
-  height: 30px;
+  height: 60px;
 }
 
 .login-title-text {
@@ -101,6 +100,7 @@
 .login-button {
   font-size: 12px;
   margin: 0 10px 0 0;
+  width: 80px;
 }
 
 .login-kakao-container {
@@ -203,7 +203,7 @@
   }
 
   .login-logo {
-    height: 85px;
+    height: 135px;
   }
 
   .login-input-container {

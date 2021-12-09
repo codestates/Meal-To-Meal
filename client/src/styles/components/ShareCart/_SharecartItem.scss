@@ -40,8 +40,7 @@
   justify-content: flex-end;
   margin: 10px 10px 45px 0;
 }
-.shartcart-cart-number {
-}
+
 .fa-plus,
 .fa-minus {
   font-size: 15px;
@@ -60,10 +59,37 @@
 }
 
 .sharecart-delete-button {
-  font-size: 11px;
-  width: 45px;
+  padding-top: 3px;
+  margin: 0 10px 5px 0;
+  width: 40px;
   height: 25px;
-  margin: 0 20px 0 10px;
+  box-shadow: gray 4px 4px 4px;
+  border-radius: 7px;
+  transition: 120ms ease;
+  background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: gray 6px 6px 6px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
 }
 
 @include tablet {
@@ -96,8 +122,8 @@
   }
 
   .sharecart-delete-button {
-    width: 80px;
-    height: 30px;
+    width: 60px;
+    height: 35px;
     font-size: 20px;
   }
 }
@@ -134,6 +160,5 @@
     width: 100px;
     height: 35px;
     font-size: 25px;
-    padding-top: 3px;
   }
 }

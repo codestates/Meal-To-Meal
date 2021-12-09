@@ -21,13 +21,9 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
   const totalPrice = itemTotalPrice.reduce((acc, cur) => acc + cur, 0);
   const totalPriceToString = totalPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 
-  const requestPayName = cartItems[0];
-  console.log(requestPayName);
-
   function requestPay() {
     const IMP = window.IMP; // 생략 가능
     IMP.init('imp49046982');
-    // IMP.request_pay(param, callback) 결제창 호출
     const accessToken = localStorage.getItem('accessToken');
 
     IMP.request_pay(
@@ -101,11 +97,11 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
         </div>
         <div className="sharecart-submit-button-container">
           {cartItems.length === 0 ? (
-            <button className="sharecart-button-donation" disabled="true">
+            <button className="sharecart-button" disabled="true">
               기부하기
             </button>
           ) : (
-            <button className="sharecart-button-donation" onClick={requestPay}>
+            <button className="sharecart-button" onClick={requestPay}>
               기부하기
             </button>
           )}
