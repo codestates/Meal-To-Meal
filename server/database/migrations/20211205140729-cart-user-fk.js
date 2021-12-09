@@ -6,7 +6,7 @@ module.exports = {
     await queryInterface.addConstraint('cart', {
       fields: ['buyer_id'],
       type: 'foreign Key',
-      name: 'cart_buyer_id',
+      name: 'buyer_id',
       references: { table: 'user', field: 'id' },
       onDelete: 'cascade',
       onUpdate: 'cascade',
@@ -15,6 +15,6 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     await queryInterface.removeColumn('cart', 'buyer_id');
-    await queryInterface.removeConstraint('cart', 'cart_buyer_id');
+    await queryInterface.removeConstraint('cart', 'buyer_id');
   },
 };

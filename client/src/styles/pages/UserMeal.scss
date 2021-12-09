@@ -1,0 +1,259 @@
+@import '../mixin/mixin';
+@import '../components/OrderCart/UserMealBox';
+@import '../components/OrderCart/ReviewUploadModal';
+
+.usermeal-container {
+  margin: 15px;
+  font-size: 15px;
+  margin-bottom: 75px;
+}
+
+.usermeal-title {
+  font-size: 15px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.usermeal-store-title-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.usermeal-category-icon {
+  width: 30px;
+  margin-right: 5px;
+}
+
+.usermeal-store-image {
+  display: block;
+  height: 150px;
+  border-radius: 15px;
+  margin: 0 auto 0 auto;
+  box-shadow: 4px 4px 4px gray;
+}
+
+.usermeal-address-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.usermeal-description-container {
+  display: flex;
+  align-items: center;
+}
+
+.usermeal-ordered-container {
+  margin-top: 40px;
+}
+
+.usermeal-ordered-title {
+  font-size: 14px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.usermeal-userinfo-container {
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+.usermeal-userinfo-title {
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.usermeal-username {
+  margin-bottom: 10px;
+}
+
+.usermeal-user-email {
+  margin-bottom: 10px;
+}
+
+.usermeal-user-phone-number {
+  margin-bottom: 10px;
+}
+
+.usermeal-confirm-button {
+  display: block;
+  padding-top: 3px;
+  width: 230px;
+  margin: 15px auto 20px auto;
+  box-shadow: gray 4px 4px 4px;
+  border-radius: 15px;
+  transition: 120ms ease all;
+  background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: gray 6px 6px 6px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+@include tablet {
+  .usermeal-container {
+    font-size: 20px;
+    margin-top: 70px;
+  }
+
+  .usermeal-store-image {
+    height: 250px;
+    margin-bottom: 20px;
+    margin: 15px 0 10px 0;
+  }
+
+  .usermeal-title {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  .usermeal-ordered-container {
+    margin-top: 40px;
+  }
+
+  .usermeal-ordered-title {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  .usermeal-userinfo-title {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  .usermeal-userinfo-container {
+    margin-top: 40px;
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  .usermeal-confirm-button {
+    margin-left: 35px;
+  }
+  .usermeal-username {
+    margin-bottom: 20px;
+  }
+
+  .usermeal-user-email {
+    margin-bottom: 20px;
+  }
+  .usermeal-confirm-button {
+    width: 400px;
+    margin-left: 180px;
+  }
+
+  .fa-map-marker-alt,
+  .fa-utensils {
+    font-size: 30px;
+  }
+
+  .usermeal-confirm-button {
+    font-size: 25px;
+    height: 40px;
+  }
+}
+
+@include desktop {
+  .usermeal-container {
+    font-size: 20px;
+    margin: 100px;
+    height: 67vh;
+  }
+
+  .usermeal-order-food-info-container {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .usermeal-store-title {
+    font-size: 25px;
+  }
+
+  .usermeal-reservation-container {
+    width: 50%;
+  }
+
+  .usermeal-store-image {
+    height: 22vw;
+    margin-bottom: 20px;
+    margin: 15px 0 10px 0;
+  }
+
+  .usermeal-title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .usermeal-ordered-container {
+    margin-top: 40px;
+    width: 50%;
+  }
+
+  .usermeal-ordered-title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .usermeal-userinfo-title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+
+  .usermeal-userinfo-container {
+    margin-top: 40px;
+    font-size: 25px;
+    margin-bottom: 40px;
+  }
+
+  .usermeal-confirm-button {
+    margin-left: 35px;
+  }
+  .usermeal-username {
+    margin-bottom: 20px;
+  }
+
+  .usermeal-user-email {
+    margin-bottom: 20px;
+  }
+  .usermeal-confirm-button {
+    width: 400px;
+    margin-left: 180px;
+  }
+
+  .fa-map-marker-alt,
+  .fa-utensils {
+    font-size: 40px;
+  }
+
+  .usermeal-address-text,
+  .usermeal-description-text {
+    font-size: 25px;
+  }
+
+  .usermeal-confirm-button {
+    font-size: 25px;
+    height: 40px;
+    margin: 20px 150px 0 auto;
+  }
+}

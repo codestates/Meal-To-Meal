@@ -12,7 +12,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 95%;
   margin: 10px;
 }
 
@@ -47,15 +46,6 @@
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 10px;
-  width: 80%;
-}
-
-.fa-map-marker-alt,
-.fa-clock,
-.fa-utensils {
-  font-size: 20px;
-  color: #ffcc1d;
-  margin-right: 10px;
 }
 
 .store-detail-info-text {
@@ -75,11 +65,50 @@
   margin: 15px;
 }
 
-.cart-button,
-.back-button {
+.cart-button {
+  padding-top: 3px;
+  width: 80px;
+  margin-top: 4px;
+  box-shadow: gray 4px 4px 4px;
+  border-radius: 7px;
+  transition: 120ms ease;
+  background-color: white;
+  cursor: pointer;
+
   &:hover {
-    color: #ffcc1d;
-    cursor: pointer;
+    box-shadow: gray 6px 6px 6px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.fa-utensils,
+.fa-map-marker-alt,
+.fa-clock {
+  font-size: 25px;
+  color: #ffcc1d;
+  padding-bottom: 5px;
+  margin-right: 10px;
+  cursor: default;
+
+  &:hover {
+    opacity: 1;
   }
 }
 
@@ -104,12 +133,6 @@
     margin-right: auto;
   }
 
-  .fa-map-marker-alt,
-  .fa-clock,
-  .fa-utensils {
-    font-size: 40px;
-  }
-
   .store-detail-info-text {
     font-size: 35px;
     margin: 15px;
@@ -119,17 +142,18 @@
     font-size: 30px;
   }
 
-  .cart-button,
-  .back-button {
+  .cart-button {
     font-size: 30px;
     width: fit-content;
     height: fit-content;
     padding: 10px;
   }
-}
 
-footer {
-  position: static;
+  .fa-utensils,
+  .fa-map-marker-alt,
+  .fa-clock {
+    font-size: 45px;
+  }
 }
 
 @include desktop {
@@ -144,6 +168,7 @@ footer {
 
   .storeinfo-info-container {
     font-size: 30px;
+    width: 90%;
   }
 
   .storeinfo-title-container {
@@ -167,12 +192,6 @@ footer {
     margin-top: 15px;
   }
 
-  .fa-map-marker-alt,
-  .fa-clock,
-  .fa-utensils {
-    font-size: 30px;
-  }
-
   .store-detail-info-text {
     font-size: 25px;
     margin-left: 15px;
@@ -182,10 +201,15 @@ footer {
     font-size: 30px;
   }
 
-  .cart-button,
-  .back-button {
+  .cart-button {
     width: 150px;
     font-size: 30px;
     height: 45px;
+  }
+
+  .fa-utensils,
+  .fa-map-marker-alt,
+  .fa-clock {
+    font-size: 35px;
   }
 }

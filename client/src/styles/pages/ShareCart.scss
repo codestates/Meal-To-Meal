@@ -1,5 +1,6 @@
 @import '../mixin/mixin';
 @import '../components/ShareCart/SharecartItem';
+@import '../components/StoreInfo/EmptyCartAni';
 
 .sharecart-container {
   min-height: 72.8vh;
@@ -47,11 +48,24 @@
   align-items: center;
   margin: 15px 50px 15px 50px;
 }
-.sharecart-button-donation {
-  transition: 300ms ease all;
+
+.empty-sharecart-button {
+  width: 100px;
+  height: 40px;
+}
+
+.sharecart-button {
+  padding-top: 3px;
+  width: 70px;
+  margin-top: 4px;
+  box-shadow: gray 4px 4px 4px;
+  border-radius: 7px;
+  transition: 120ms ease;
+  background-color: white;
+  cursor: pointer;
 
   &:hover {
-    box-shadow: gray 4px 4px 4px;
+    box-shadow: gray 6px 6px 6px;
   }
 
   &:before,
@@ -71,11 +85,6 @@
   &:active {
     box-shadow: none;
   }
-}
-
-.empty-sharecart-button {
-  width: 100px;
-  height: 40px;
 }
 
 @include tablet {
@@ -105,18 +114,13 @@
     margin: 30px 150px 30px 150px;
   }
 
-  .sharecart-button-donation {
-    width: 120px;
-    height: 40px;
-    font-size: 20px;
-  }
-
   .sharecart-button {
     width: 120px;
     height: 40px;
     font-size: 20px;
   }
 }
+
 @include desktop {
   .sharecart-container {
     min-height: 71.2vh;
@@ -145,17 +149,9 @@
     margin: 30px 150px 30px 150px;
   }
 
-  .sharecart-button-donation {
-    width: 140px;
-    height: 35px;
-    font-size: 25px;
-    padding-top: 3px;
-  }
-
   .sharecart-button {
-    width: 140px;
-    height: 35px;
-    font-size: 25px;
-    padding-top: 3px;
+    width: 130px;
+    height: 40px;
+    font-size: 23px;
   }
 }

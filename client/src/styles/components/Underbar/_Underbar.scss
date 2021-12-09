@@ -1,5 +1,4 @@
 @import '../../mixin/mixin';
-@import '../../components/Login/LoginModal';
 
 .underbar-container {
   position: fixed;
@@ -25,12 +24,9 @@
 .fa-trophy,
 .fa-cash-register,
 .fa-map-marked-alt {
-  font-size: 1.6em;
+  font-size: 30px;
   color: white;
   -webkit-text-stroke: #ffcc1d 2px;
-}
-
-@include mobile {
 }
 
 @include tablet {

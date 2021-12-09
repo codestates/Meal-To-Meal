@@ -1,16 +1,78 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SharecartItem from '../components/ShareCart/SharecartItem';
+import ThankAlert from '../components/Alert/ThankAlert';
 import '../styles/pages/ShareCart.css';
+import axios from 'axios';
 
 function ShareCart({ cartItems, setCartItems, removeFromCart }) {
   const navigate = useNavigate();
+
+  const [isOpenThankAlert, setIsOpenThankAlert] = useState(false);
+
+  const openThankAlertHandler = () => {
+    setIsOpenThankAlert(!isOpenThankAlert);
+    setTimeout(() => setIsOpenThankAlert(false), 1800);
+  };
 
   const itemQuantity = cartItems.map(el => el.quantity);
   const totalQuantity = itemQuantity.reduce((acc, cur) => acc + cur, 0);
   const itemTotalPrice = cartItems.map(el => el.price * el.quantity);
   const totalPrice = itemTotalPrice.reduce((acc, cur) => acc + cur, 0);
   const totalPriceToString = totalPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
+
+  function requestPay() {
+    const IMP = window.IMP; // 생략 가능
+    IMP.init('imp49046982');
+    const accessToken = localStorage.getItem('accessToken');
+
+    IMP.request_pay(
+      {
+        // param
+        pg: 'html5_inicis',
+        pay_method: 'card',
+        merchant_uid: 'Sudo_Hired_' + new Date(),
+        name: `${cartItems[0].name} 외 ${totalQuantity - 1}개`,
+        amount: Number(totalPrice),
+        buyer_tel: '010-8223-2312',
+      },
+      function (rsp) {
+        // callback
+        if (rsp.success) {
+          axios
+            .post(
+              `${process.env.REACT_APP_API_URL}/payment/complete`,
+              { imp_uid: rsp.imp_uid, merchant_uid: rsp.merchant_uid, order: cartItems, total_price: totalPrice },
+              {
+                headers: {
+                  'Content-Type': 'application/json',
+                  authorization: `Bearer ${accessToken}`,
+                },
+                withCredentials: true,
+              }
+            )
+            .then(res => {
+              axios
+                .post(
+                  `${process.env.REACT_APP_API_URL}/cart`,
+                  { order: cartItems, total_price: totalPrice },
+                  { headers: { authorization: `Bearer ${accessToken}` }, withCredentials: true }
+                )
+                .then(res => {
+                  openThankAlertHandler();
+                })
+                .catch(err => console.log(err));
+            })
+            .catch(err => {
+              console.log(err);
+              alert('잘못된 요청입니다');
+            });
+        } else {
+          // 결제 실패 시 로직,
+        }
+      }
+    );
+  }
 
   return (
     <>
@@ -35,11 +97,13 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
         </div>
         <div className="sharecart-submit-button-container">
           {cartItems.length === 0 ? (
-            <button className="sharecart-button-donation" disabled="true">
+            <button className="sharecart-button" disabled="true">
               기부하기
             </button>
           ) : (
-            <button className="sharecart-button-donation">기부하기</button>
+            <button className="sharecart-button" onClick={requestPay}>
+              기부하기
+            </button>
           )}
           <button
             className="sharecart-button"
@@ -51,6 +115,7 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
           </button>
         </div>
       </div>
+      {isOpenThankAlert ? <ThankAlert navigate={navigate} /> : null}
     </>
   );
 }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import SignupModal from './SignupModal';
-
+require('dotenv').config();
 axios.defaults.withCredentials = true;
 
 function LoginModal({
@@ -32,7 +32,7 @@ function LoginModal({
         setIsLogin(true);
         setAlertMessage('로그인 되었습니다!');
         openAlertHandler();
-        navigate('/map');
+        navigate('/maps');
         openLoginModalHandler();
       })
       .catch(err => {

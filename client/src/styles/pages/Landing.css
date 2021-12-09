@@ -1,44 +1,3 @@
-.landing-button {
-  height: 50px;
-  width: 240px;
-  border: solid 5px #ffcc1d;
-  border-radius: 15px;
-  background-color: white;
-  -webkit-box-shadow: gray 4px 4px 4px;
-          box-shadow: gray 4px 4px 4px;
-  cursor: pointer;
-  text-align: center;
-  -webkit-transition: 300ms ease all;
-  transition: 300ms ease all;
-  font-size: 1.2em;
-  padding: 5px;
-  margin-top: 30px;
-}
-
-.landing-button:hover {
-  -webkit-box-shadow: gray 4px 4px 4px;
-          box-shadow: gray 4px 4px 4px;
-}
-
-.landing-button:before, .landing-button:after {
-  content: '';
-  position: absolute;
-  width: 0;
-  -webkit-transition: ease all;
-  transition: ease all;
-}
-
-.landing-button:hover:before, .landing-button:hover:after {
-  width: 100%;
-  -webkit-transition: ease all;
-  transition: ease all;
-}
-
-.landing-button:active {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
 .landing-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -65,6 +24,43 @@
 .landing-catchphrase-02 {
   text-align: center;
   margin-bottom: 40px;
+}
+
+.landing-button {
+  padding-top: 3px;
+  width: 230px;
+  margin-top: 4px;
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
+  border-radius: 7px;
+  -webkit-transition: 120ms ease;
+  transition: 120ms ease;
+  background-color: white;
+  cursor: pointer;
+}
+
+.landing-button:hover {
+  -webkit-box-shadow: gray 6px 6px 6px;
+          box-shadow: gray 6px 6px 6px;
+}
+
+.landing-button:before, .landing-button:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.landing-button:hover:before, .landing-button:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.landing-button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .landing-img,
@@ -205,6 +201,10 @@
   .landing-img-03 {
     margin: -200px -80px 10px 0;
   }
+  .landing-button {
+    height: 40px;
+    font-size: 20px;
+  }
   .landing-tutorial-catchphrase {
     font-size: 30px;
   }
@@ -237,6 +237,10 @@
   .landing-img-03 {
     margin: -23em -40em 1em 0;
     z-index: -1;
+  }
+  .landing-button {
+    height: 40px;
+    font-size: 25px;
   }
   .landing-tutorial-gif {
     margin-left: 1em;

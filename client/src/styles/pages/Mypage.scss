@@ -3,6 +3,7 @@
 
 .mypage-container {
   margin: 15px;
+  margin-bottom: 23px;
   display: flex;
   flex-direction: column;
   min-height: 81vh;
@@ -26,9 +27,14 @@
   margin-bottom: 5px;
 }
 
+.mypage-fix-myinfo-not-toggle-button {
+  font-size: 14px;
+  opacity: 0.5;
+}
+
 .mypage-fix-myinfo-toggle-button {
   margin: 5px 0 10px 0;
-  opacity: 50%;
+  opacity: 0.5;
   cursor: pointer;
   width: fit-content;
 }
@@ -79,6 +85,39 @@
   border: 3px solid #ffcc1d;
 }
 
+.mypage-withdrawal-button {
+  padding-top: 3px;
+  width: 100px;
+  margin-top: 4px;
+  box-shadow: gray 4px 4px 4px;
+  border-radius: 7px;
+  transition: 120ms ease;
+  background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: gray 6px 6px 6px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
 @include mobile {
   .mypage-fix-toggle-container {
     display: flex;
@@ -127,14 +166,15 @@
   }
 
   .mypage-withdrawal-button {
-    width: 100px;
+    width: 130px;
+    height: 35px;
     font-size: 20px;
   }
 }
 @include desktop {
   .mypage-container {
     margin-top: 80px;
-    min-height: 77.2vh;
+    min-height: 76vh;
   }
 
   .mypage-title {
@@ -170,7 +210,8 @@
   }
 
   .mypage-withdrawal-button {
-    width: 100px;
-    font-size: 20px;
+    width: 150px;
+    height: 35px;
+    font-size: 22px;
   }
 }

@@ -56,8 +56,36 @@
 }
 
 .review-delete-button {
-  margin: 0;
+  padding-top: 3px;
+  width: 80px;
   margin: 0 10px 10px auto;
+  box-shadow: gray 4px 4px 4px;
+  border-radius: 7px;
+  transition: 120ms ease;
+  background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: gray 6px 6px 6px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
 }
 
 @include tablet {

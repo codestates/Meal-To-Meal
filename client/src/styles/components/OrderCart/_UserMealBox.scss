@@ -1,0 +1,114 @@
+@import '../../mixin/mixin';
+
+.ordered-food-container {
+  border: 2px solid #ffcc1d;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 10px;
+  word-break: keep-all;
+}
+
+.ordered-food-image {
+  height: 90px;
+  margin: 10px;
+}
+
+.ordered-food-info-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 8px 10px 0;
+}
+
+.ordered-food-info-title-container {
+  font-size: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  height: fit-content;
+}
+
+.ordered-food-info-title-container {
+  margin-bottom: 15px;
+}
+
+.ordered-food-name {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.ordered-food-price {
+  font-size: 10px;
+}
+
+.ordered-order-date {
+  margin-bottom: 10px;
+}
+
+@include tablet {
+  .ordered-food-container {
+    font-size: 18px;
+  }
+
+  .ordered-food-image {
+    height: 160px;
+    margin: 15px;
+  }
+
+  .ordered-food-info-container {
+    margin-left: 20px;
+    margin-top: 15px;
+    font-size: 25px;
+  }
+
+  .ordered-food-info-title-container {
+    margin-bottom: 20px;
+  }
+
+  .ordered-food-name {
+    font-size: 20px;
+  }
+
+  .ordered-food-price {
+    font-size: 15px;
+  }
+
+  .ordered-order-date {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+}
+
+@include desktop {
+  .ordered-food-container {
+    font-size: 18px;
+    width: 700px;
+  }
+
+  .ordered-food-image {
+    height: 160px;
+    margin: 15px;
+  }
+
+  .ordered-food-info-container {
+    margin-left: 20px;
+    margin-top: 15px;
+    font-size: 25px;
+  }
+
+  .ordered-food-info-title-container {
+    margin-bottom: 20px;
+  }
+
+  .ordered-food-name {
+    font-size: 20px;
+  }
+
+  .ordered-food-price {
+    font-size: 15px;
+  }
+
+  .ordered-order-date {
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+}

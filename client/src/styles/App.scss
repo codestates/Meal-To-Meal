@@ -128,11 +128,50 @@ table {
   border-spacing: 0;
 }
 
+.gm-style iframe + div {
+  border: none !important;
+}
+
+button {
+  padding-top: 3px;
+  width: 230px;
+  margin-top: 4px;
+  box-shadow: gray 4px 4px 4px;
+  border-radius: 7px;
+  transition: 120ms ease;
+  background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: gray 6px 6px 6px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
 @import '../styles/mixin/Footer';
 @import '../styles/mixin/Header';
+@import '../styles/components/Underbar/Underbar';
 @import '../styles/pages/NotFound';
-@import '../styles/components/StoreInfo/EmptyCartAni';
-@import '../styles/pages/EmptyOrderHistory';
+@import '../styles/components/Login/LoginModal';
 @import '../styles/components/Login/Policy';
 @import '../styles/mixin/Alert';
 @import '../styles/mixin/Loading';
+
+@import '../styles/pages/EmptyOrderHistory';
