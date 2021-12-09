@@ -1,5 +1,5 @@
 const checkTokens = require('../../middlewares/tokenAuth');
-const { store_review, menu } = require('../../database/models');
+const { store_review, menu, user_meal } = require('../../database/models');
 
 module.exports = {
   post: async (req, res) => {
@@ -8,14 +8,15 @@ module.exports = {
       res.status(401).json({ message: '로그인이 필요합니다' });
     } else {
       try {
-        const { review_content, store_id, menu_id, review_image } = req.body;
+        const { review_content, store_id, menu_id } = req.body;
         await store_review.create({
           review_content: review_content,
           store_id: store_id,
           menu_id: menu_id,
           reviewer_id: userInfo.id,
-          review_image: review_image,
+          review_image: req.body.review_image || '',
         });
+        await user_meal.destroy({ where: { user_id: userInfo.id } });
         // sdk를 이용해서 이미지가 어떤 형식으로 전달이 되는지 파악한 후에 수정할 부분이있으면 수정해보자
         res.status(201).json({ message: '리뷰 등록이 완료되었습니다.' });
       } catch (err) {
