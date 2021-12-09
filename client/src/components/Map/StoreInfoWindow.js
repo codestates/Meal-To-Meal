@@ -16,21 +16,21 @@ function StoreInfoWindow({ storeData, navigate }) {
         </div>
         <div className="infowindow-store-info-container">
           <div className="infowindow-store-info-container-02">
-            <i className="infowindow-info-icon fa fa-map-marker-alt" />
+            <img className="infowindow-info-icon" src={require('../../img/marker.png').default} alt="" />
             <div className="infowindow-info-text">{storeData.store_address.slice(0, 12)}...</div>
           </div>
           <div className="infowindow-store-info-container-02">
-            <i className="infowindow-info-icon fa fa-heart" />
+            <img className="infowindow-info-icon" src={require('../../img/love.png').default} alt="" />
             <div className="infowindow-info-text">{storeData.store_order_quantity}</div>
           </div>
         </div>
         <div className="infowindow-store-info-container">
           <div className="infowindow-store-info-container-02">
-            <i className="infowindow-info-icon fa fa-utensils" />
+            <img className="infowindow-info-icon" src={require('../../img/book.png').default} alt="" />
             <div className="infowindow-info-text">{storeData.store_description.slice(0, 15)}...</div>
           </div>
           <div className="infowindow-store-info-container-02">
-            <i className="infowindow-info-icon fa fa-business-time" />
+            <img className="infowindow-info-icon" src={require('../../img/time.png').default} alt="" />
             <div className="infowindow-info-text">{storeData.business_hour}</div>
           </div>
         </div>

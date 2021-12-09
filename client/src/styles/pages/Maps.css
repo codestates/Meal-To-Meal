@@ -292,12 +292,9 @@ button {
   margin-bottom: 8px;
 }
 
-.fa-map-marker-alt,
-.fa-utensils,
-.fa-heart,
-.fa-business-time {
-  color: #ffcc1d;
-  margin-right: 5px;
+.infowindow-info-icon {
+  width: 15px;
+  margin-right: 10px;
 }
 
 .infowindow-info-text {
@@ -334,16 +331,12 @@ button {
   .infowindow-store-category {
     font-size: 15px;
   }
-  .fa-map-marker-alt,
-  .fa-utensils,
-  .fa-heart,
-  .fa-business-time {
-    font-size: 30px;
-    margin-right: 10px;
-  }
   .infowindow-info-text {
     font-size: 18px;
     margin-right: 5px;
+  }
+  .infowindow-info-icon {
+    width: 20px;
   }
 }
 
@@ -377,16 +370,12 @@ button {
   .infowindow-store-category {
     font-size: 13px;
   }
-  .fa-map-marker-alt,
-  .fa-utensils,
-  .fa-heart,
-  .fa-business-time {
-    font-size: 20px;
-    margin-right: 10px;
-  }
   .infowindow-info-text {
     font-size: 15px;
     margin-right: 5px;
+  }
+  .infowindow-info-icon {
+    width: 20px;
   }
 }
 
