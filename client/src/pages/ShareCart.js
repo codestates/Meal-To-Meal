@@ -21,9 +21,6 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
   const totalPrice = itemTotalPrice.reduce((acc, cur) => acc + cur, 0);
   const totalPriceToString = totalPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 
-  const requestPayName = cartItems[0];
-  console.log(requestPayName);
-
   function requestPay() {
     const IMP = window.IMP; // 생략 가능
     IMP.init('imp49046982');
