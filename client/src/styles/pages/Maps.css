@@ -312,7 +312,7 @@ button:active {
     left: 125px;
     top: 105px;
     z-index: 998;
-    opacity: 60%;
+    opacity: 0.6;
   }
 }
 
@@ -375,7 +375,7 @@ button:active {
     left: 225px;
     top: 115px;
     z-index: 998;
-    opacity: 80%;
+    opacity: 0.8;
   }
 }
 
@@ -724,7 +724,7 @@ button:active {
 .fa-utensils:hover,
 .fa-heart:hover,
 .fa-business-time:hover {
-  opacity: 100%;
+  opacity: 1;
 }
 
 .fa-times {
