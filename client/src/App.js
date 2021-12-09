@@ -216,6 +216,7 @@ function App() {
           path="/usermeal"
           element={
             <UserMeal
+              navigate={navigate}
               orderedMeal={orderedMeal}
               setOrderedMeal={setOrderedMeal}
               detailStoreInfo={detailStoreInfo}

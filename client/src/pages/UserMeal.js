@@ -5,7 +5,7 @@ import UserMealBox from '../components/OrderCart/UserMealBox';
 import EmptyOrderAni from '../components/StoreInfo/EmptyOrderAni';
 import '../styles/pages/UserMeal.css';
 
-function UserMeal({ orderedMeal, setOrderedMeal, detailStoreInfo, setDetailStoreInfo }) {
+function UserMeal({ navigate, orderedMeal, setOrderedMeal, detailStoreInfo, setDetailStoreInfo }) {
   const [reviewModalOpen, setReviewModalOpen] = useState(false);
   const [reviewInfo, setReviewInfo] = useState({
     reviewImage: '',
@@ -31,6 +31,7 @@ function UserMeal({ orderedMeal, setOrderedMeal, detailStoreInfo, setDetailStore
         setOrderedMeal({});
         setDetailStoreInfo({});
         alert('리뷰가 등록되었습니다');
+        navigate('/maps');
       })
       .catch(err => {
         console.log(err);
