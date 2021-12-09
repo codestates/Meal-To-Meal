@@ -183,7 +183,7 @@
     left: 125px;
     top: 105px;
     z-index: 998;
-    opacity: 60%;
+    opacity: 0.6;
   }
 }
 @include desktop {
@@ -252,6 +252,6 @@
     left: 225px;
     top: 115px;
     z-index: 998;
-    opacity: 80%;
+    opacity: 0.8;
   }
 }
