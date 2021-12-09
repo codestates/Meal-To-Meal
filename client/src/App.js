@@ -74,7 +74,7 @@ function App() {
           setKakaoLogin(true);
           localStorage.setItem('accessToken', res.data.accessToken);
           setIsLogin(true);
-          navigate('/map');
+          navigate('/maps');
         })
         .catch(err => {
           setIsLogin(false);

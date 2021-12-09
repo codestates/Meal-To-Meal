@@ -1,7 +1,6 @@
 @import '../../styles/components/Map/Search';
-@import '../components/Underbar/Underbar';
-@import '../components/Map/CustomOverlay';
 @import '../components/StoreInfo/LoginAlert';
+@import '../components/Map/StoreInfoWindow';
 
 .map-container {
   display: inline;
