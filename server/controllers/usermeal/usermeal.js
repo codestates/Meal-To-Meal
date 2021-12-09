@@ -63,8 +63,9 @@ module.exports = {
           ],
           where: { user_id: userInfo.id },
         });
-        res.status(200).json({ userMeal, userInfo: userInfo });
-        //!userInfo에서 today_used가 업데이트 안 됨
+        const matchedUser = await user.findOne({ where: { id: userMeal.user_id } });
+        delete matchedUser.dataValues.user_password;
+        res.status(200).json({ userMeal, matchedUser });
       } catch (err) {
         res.status(400).json({ message: err.message });
       }
