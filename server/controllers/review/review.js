@@ -19,7 +19,6 @@ module.exports = {
         // sdk를 이용해서 이미지가 어떤 형식으로 전달이 되는지 파악한 후에 수정할 부분이있으면 수정해보자
         res.status(201).json({ message: '리뷰 등록이 완료되었습니다.' });
       } catch (err) {
-        console.log('postReview----------------', err);
         res.status(400).json({ message: '입력 정보가 올바르지 않습니다.' });
       }
     }
@@ -59,11 +58,9 @@ module.exports = {
     } else {
       try {
         const { reviewid } = req.params;
-        console.log('reviewid===========', reviewid);
         await store_review.destroy({ where: { id: reviewid } });
         res.status(204).json({ message: '리뷰삭제가 완료되었습니다.' });
       } catch (err) {
-        console.log('deleteReview----------------', err);
         res.status(400).json({ message: '잘못된 요청입니다' });
       }
     }
