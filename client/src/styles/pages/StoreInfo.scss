@@ -50,14 +50,6 @@
   width: 80%;
 }
 
-.fa-map-marker-alt,
-.fa-clock,
-.fa-utensils {
-  font-size: 20px;
-  color: #ffcc1d;
-  margin-right: 10px;
-}
-
 .store-detail-info-text {
   font-size: 16px;
   word-break: keep-all;
@@ -83,6 +75,10 @@
   }
 }
 
+.fa-clock {
+  color: #ffcc1d;
+}
+
 @include tablet {
   .storeinfo-info-container {
     margin-top: 20px;
@@ -102,12 +98,6 @@
     max-height: 330px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .fa-map-marker-alt,
-  .fa-clock,
-  .fa-utensils {
-    font-size: 40px;
   }
 
   .store-detail-info-text {
@@ -165,12 +155,6 @@ footer {
 
   .store-detail-info-container {
     margin-top: 15px;
-  }
-
-  .fa-map-marker-alt,
-  .fa-clock,
-  .fa-utensils {
-    font-size: 30px;
   }
 
   .store-detail-info-text {

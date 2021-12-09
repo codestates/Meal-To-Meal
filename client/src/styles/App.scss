@@ -128,12 +128,16 @@ table {
   border-spacing: 0;
 }
 
+.gm-style iframe + div {
+  border: none !important;
+}
+
 @import '../styles/mixin/Footer';
 @import '../styles/mixin/Header';
+@import '../styles/components/Underbar/Underbar';
 @import '../styles/pages/NotFound';
-@import '../styles/components/Map/Infowindow';
-@import '../styles/components/StoreInfo/EmptyCartAni';
-@import '../styles/pages/EmptyOrderHistory';
 @import '../styles/components/Login/Policy';
 @import '../styles/mixin/Alert';
 @import '../styles/mixin/Loading';
+
+@import '../styles/pages/EmptyOrderHistory';
