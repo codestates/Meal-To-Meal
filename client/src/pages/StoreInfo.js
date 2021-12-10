@@ -13,7 +13,9 @@ function StoreInfo({
   openSignupModalHandler,
   detailStoreInfo,
   setDetailStoreInfo,
+  getImage,
 }) {
+  const [icon, setIcon] = useState('');
   const getDetailStoreInfoHandler = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/store/${Number(localStorage.getItem('clickedMarker'))}`, {
@@ -22,6 +24,7 @@ function StoreInfo({
       })
       .then(res => {
         setDetailStoreInfo(res.data.storeInfo);
+        setIcon(getImage(res.data.storeInfo.store_category));
       })
       .catch(err => {
         console.log(err);
@@ -30,7 +33,7 @@ function StoreInfo({
 
   useEffect(() => {
     getDetailStoreInfoHandler();
-  }, []);
+  }, [icon]);
 
   return (
     <>
@@ -40,7 +43,7 @@ function StoreInfo({
             <div className="storeinfo-title">가게 정보</div>
             <div className="storeinfo-title-container">
               <div className="store-title-container">
-                <img className="store-category-icon" src={require('../img/찌개.png').default} alt="" />
+                <img className="store-category-icon" src={icon} alt="" />
                 <div className="store-title">{detailStoreInfo.store_name}</div>
               </div>
               <div className="store-category-text">{detailStoreInfo.store_category}</div>
