@@ -5,7 +5,7 @@ import ThankAlert from '../components/Alert/ThankAlert';
 import '../styles/pages/ShareCart.css';
 import axios from 'axios';
 
-function ShareCart({ cartItems, setCartItems, removeFromCart }) {
+function ShareCart({ cartItems, setCartItems, removeFromCart, getImage }) {
   const navigate = useNavigate();
 
   const [isOpenThankAlert, setIsOpenThankAlert] = useState(false);

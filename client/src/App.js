@@ -19,6 +19,17 @@ import UserMeal from '../src/pages/UserMeal';
 import Withdrawal from '../src/pages/Withdrawal';
 import Mypage from '../src/pages/Mypage';
 import ReviewUploadModal from './components/OrderCart/ReviewUploadModal';
+
+// 카테고리 이미지
+import 분식 from './img/category/분식.png';
+import 빵 from './img/category/빵.png';
+import 야식 from './img/category/야식.png';
+import 양식 from './img/category/양식.png';
+import 일식 from './img/category/일식.png';
+import 중식 from './img/category/중식.png';
+import 패스트푸드 from './img/category/패스트푸드.png';
+import 한식 from './img/category/한식.png';
+
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -29,14 +40,23 @@ function App() {
   const [isOpenAlert, setIsOpenAlert] = useState(false);
   const [isOpenWarningAlert, setIsOpenWarningAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
-  // const [orderedMeal, setOrderedMeal] = useState([]);
   const [detailStoreInfo, setDetailStoreInfo] = useState({});
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
   const [isOpenSignupModal, setIsOpenSignupModal] = useState(false);
-
   const [cartItems, setCartItems] = useState([]);
-
+  const [categoryIcon, setCategoryIcon] = useState('');
   const navigate = useNavigate();
+
+  const getImage = e => {
+    if (e === '분식') return 분식;
+    if (e === '빵') return 빵;
+    if (e === '야식') return 야식;
+    if (e === '양식') return 양식;
+    if (e === '일식') return 일식;
+    if (e === '중식') return 중식;
+    if (e === '패스트푸드') return 패스트푸드;
+    if (e === '한식') return 한식;
+  };
 
   const issueTokens = () => {
     const accessToken = localStorage.getItem('accessToken');
@@ -176,6 +196,7 @@ function App() {
               openWarningAlertHandler={openWarningAlertHandler}
               alertMessage={alertMessage}
               kakaoLogin={kakaoLogin}
+              getImage={getImage}
             />
           }
         />
@@ -191,6 +212,7 @@ function App() {
               openSignupModalHandler={openSignupModalHandler}
               detailStoreInfo={detailStoreInfo}
               setDetailStoreInfo={setDetailStoreInfo}
+              getImage={getImage}
             />
           }
         />
@@ -203,10 +225,11 @@ function App() {
               cartItems={cartItems}
               setCartItems={setCartItems}
               removeFromCart={removeFromCart}
+              getImage={getImage}
             />
           }
         />
-        <Route path="/usermeal" element={<UserMeal navigate={navigate} />} />
+        <Route path="/usermeal" element={<UserMeal navigate={navigate} getImage={getImage} />} />
       </Routes>
       {isLogin ? (
         <UnderbarLogin
