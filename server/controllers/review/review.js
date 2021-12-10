@@ -3,6 +3,7 @@ const { store_review, menu, user_meal } = require('../../database/models');
 
 module.exports = {
   post: async (req, res) => {
+    console.log(req.body);
     const userInfo = checkTokens(req);
     if (!userInfo) {
       res.status(401).json({ message: '로그인이 필요합니다' });

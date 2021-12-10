@@ -1,5 +1,4 @@
 import axios from 'axios';
-import AWS from 'aws-sdk';
 import React, { useState, useEffect } from 'react';
 import ReviewUploadModal from '../components/OrderCart/ReviewUploadModal';
 import UserMealBox from '../components/OrderCart/UserMealBox';
