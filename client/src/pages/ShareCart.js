@@ -25,7 +25,7 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
   const makePayNameHandler = () => {
     if (cartItems.length === 0) setPayName('');
     else if (cartItems.length === 1) setPayName(`${cartItems[0].name} ${totalQuantity}개`);
-    else setPayName(`${cartItems[0].name} 외 ${totalQuantity}개`);
+    else setPayName(`${cartItems[0].name} 외 ${totalQuantity - 1}개`);
   };
 
   useEffect(() => {
@@ -45,7 +45,7 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
         merchant_uid: 'Sudo_Hired_' + new Date(),
         name: payName,
         amount: Number(totalPrice),
-        buyer_tel: '010-8223-2312',
+        buyer_tel: '010-0000-0000',
       },
       function (rsp) {
         // callback

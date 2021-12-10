@@ -5,8 +5,6 @@ function Search({ setIsOpenSearchResultSidebar, setSearchResult }) {
   const [searchText, setSearchText] = useState('');
 
   const keyPressHandler = e => {
-    console.log(e);
-
     if (e.key === 'Escape') return setIsOpenSearchResultSidebar(false);
     if (e.key === 'Enter') return searchHandler();
   };
