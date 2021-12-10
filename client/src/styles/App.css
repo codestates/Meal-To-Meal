@@ -254,6 +254,18 @@ footer {
   }
 }
 
+.sidebar-backdrop {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
 .sidebar-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -278,7 +290,7 @@ footer {
   background-color: white;
   -webkit-box-shadow: gray 3px 3px 3px 3px;
           box-shadow: gray 3px 3px 3px 3px;
-  z-index: 999;
+  z-index: 998;
 }
 
 .sidebar-menu-container {
@@ -425,11 +437,15 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  overflow: auto;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
 }
 
 .fa-key,
@@ -445,6 +461,7 @@ button {
   font-size: 30px;
   color: white;
   -webkit-text-stroke: #ffcc1d 2px;
+  margin: 0 35px 0 35px;
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {

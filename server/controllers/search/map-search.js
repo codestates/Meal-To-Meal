@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
             },
           ],
         },
-        order: [['createdAt', 'DESC']],
+        order: [['store_name', 'ASC']],
       })
       .catch(err => console.log(err));
 
