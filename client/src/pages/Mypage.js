@@ -11,7 +11,7 @@ function Mypage({
   openWarningAlertHandler,
   alertMessage,
   kakaoLogin,
-  orderedMeal,
+  getImage,
 }) {
   const [isOpenFixNicknameToggle, setIsOpenFixNicknameToggle] = useState(false);
   const [isOpenFixPasswordToggle, setIsOpenFixPasswordToggle] = useState(false);

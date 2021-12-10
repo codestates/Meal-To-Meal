@@ -7,11 +7,12 @@ import Loading from '../components/Loading';
 import EmptyOrderAni from '../components/StoreInfo/EmptyOrderAni';
 import '../styles/pages/UserMeal.css';
 
-function UserMeal({ navigate }) {
+function UserMeal({ navigate, getImage }) {
   const accessToken = localStorage.getItem('accessToken');
   const [isLoading, setIsLoading] = useState(true);
   const [orderedMeal, setOrderedMeal] = useState([]);
   const [reviewModalOpen, setReviewModalOpen] = useState(false);
+  const [icon, setIcon] = useState('');
 
   const openReviewModalHandler = () => {
     setReviewModalOpen(!reviewModalOpen);
@@ -25,8 +26,9 @@ function UserMeal({ navigate }) {
       })
       .then(res => {
         setOrderedMeal([res.data.userMeal]);
+        setIcon(getImage([res.data.userMeal][0].menu.store.store_category));
         setIsLoading(false);
-        console.log(orderedMeal);
+        console.log(icon);
       })
       .catch(err => {
         console.log(err);
@@ -35,12 +37,11 @@ function UserMeal({ navigate }) {
   useEffect(() => {
     setIsLoading(true);
     getDetailUserMealHandler();
-    console.log(orderedMeal);
-  }, []);
+  }, [icon]);
 
   return (
     <>
-      {orderedMeal.length === 0 ? (
+      {orderedMeal.length === 0 || orderedMeal.length === undefined ? (
         <EmptyOrderAni navigate={navigate} />
       ) : (
         // {isLoading ? (
@@ -51,7 +52,7 @@ function UserMeal({ navigate }) {
             <div className="usermeal-reservation-container">
               <div className="usermeal-title">예약 내역</div>
               <div className="usermeal-store-title-container">
-                <img className="usermeal-category-icon" src={require('../img/찌개.png').default} alt="" />
+                <img className="usermeal-category-icon" src={icon} alt="" />
                 <div className="usermeal-store-title">{orderedMeal[0].menu.store.store_name}</div>
               </div>
               <img className="usermeal-store-image" src={orderedMeal[0].menu.store.store_image} alt="" />
@@ -87,6 +88,7 @@ function UserMeal({ navigate }) {
               openReviewModalHandler={openReviewModalHandler}
               orderedMeal={orderedMeal}
               setOrderedMeal={setOrderedMeal}
+              icon={icon}
             />
           ) : null}
         </div>
