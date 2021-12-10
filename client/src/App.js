@@ -44,7 +44,6 @@ function App() {
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
   const [isOpenSignupModal, setIsOpenSignupModal] = useState(false);
   const [cartItems, setCartItems] = useState([]);
-  const [categoryIcon, setCategoryIcon] = useState('');
   const navigate = useNavigate();
 
   const getImage = e => {

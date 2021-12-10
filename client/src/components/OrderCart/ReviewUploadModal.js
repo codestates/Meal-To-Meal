@@ -3,7 +3,7 @@ import AWS from 'aws-sdk';
 import axios from 'axios';
 import Loading from '../Loading';
 
-function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setOrderedMeal }) {
+function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setOrderedMeal, icon }) {
   const accessToken = localStorage.getItem('accessToken');
   const [isLoading, setIsLoading] = useState(true);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -85,7 +85,7 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
             <i className="fa fa-times" onClick={openReviewModalHandler} />
           </div>
           <div className="review-upload-store-info-container">
-            <img className="review-upload-store-category-icon" src={require('../../img/찌개.png').default} alt=""></img>
+            <img className="review-upload-store-category-icon" src={icon} alt=""></img>
             <div className="review-upload-store-name">{orderedMeal[0].menu.store.store_name}</div>
           </div>
           <div className="review-upload-store-name">{orderedMeal[0].menu.menu_name}</div>
