@@ -5,6 +5,7 @@ import ClickOwnStoreAlert from '../Alert/ClickOwnStoreAlert';
 
 function MenuBox({ navigate, isLogin, addToCart, openLoginModalHandler, openSignupModalHandler }) {
   const [isOpenLoginAlert, setIsOpenLoginAlert] = useState(false);
+
   const loginAlertOpenHandler = () => {
     setIsOpenLoginAlert(!isOpenLoginAlert);
   };
@@ -35,6 +36,14 @@ function MenuBox({ navigate, isLogin, addToCart, openLoginModalHandler, openSign
   useEffect(() => {
     getStoreMenuHandler();
   }, []);
+
+  const checkLogin = el => {
+    if (!isLogin) {
+      loginAlertOpenHandler();
+    } else {
+      addToCart(el);
+    }
+  };
 
   const addUserMeal = el => {
     const accessToken = localStorage.getItem('accessToken');
@@ -77,7 +86,7 @@ function MenuBox({ navigate, isLogin, addToCart, openLoginModalHandler, openSign
                 <button
                   className="menu-donate-button"
                   onClick={() => {
-                    addToCart(el);
+                    checkLogin(el);
                   }}
                 >
                   기부하기
@@ -96,11 +105,7 @@ function MenuBox({ navigate, isLogin, addToCart, openLoginModalHandler, openSign
         </div>
       ))}
       {isOpenLoginAlert ? (
-        <LoginAlert
-          loginAlertOpenHandler={loginAlertOpenHandler}
-          openLoginModalHandler={openLoginModalHandler}
-          openSignupModalHandler={openSignupModalHandler}
-        />
+        <LoginAlert loginAlertOpenHandler={loginAlertOpenHandler} openLoginModalHandler={openLoginModalHandler} />
       ) : null}
     </>
   );

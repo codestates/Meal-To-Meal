@@ -607,8 +607,9 @@ button {
 
 .validation-button {
   font-size: 10px;
-  height: 23px;
-  margin: 0 0 0 15px;
+  height: 25px;
+  width: 80px;
+  margin-left: 10px;
 }
 
 .signup-button-container {
@@ -620,13 +621,9 @@ button {
           justify-content: space-between;
 }
 
-.signup-button-ok {
-  color: white;
-  background-color: #ffcc1d;
-}
-
 .signup-policy-button {
   margin-right: 30px;
+  margin-left: 10px;
   -webkit-transition: 120ms ease all;
   transition: 120ms ease all;
 }
