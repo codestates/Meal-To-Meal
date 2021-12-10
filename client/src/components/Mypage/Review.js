@@ -3,8 +3,9 @@ import axios from 'axios';
 
 function Review() {
   const [userReviews, setUserReviews] = useState([]);
+  const accessToken = localStorage.getItem('accessToken');
+
   const getDetailReviewHandler = () => {
-    const accessToken = localStorage.getItem('accessToken');
     axios
       .get(`${process.env.REACT_APP_API_URL}/review-list`, {
         headers: { authorization: `Bearer ${accessToken}` },
@@ -18,6 +19,21 @@ function Review() {
         console.log(err);
       });
   };
+
+  const deleteReviewHandler = () => {
+    axios
+      .delete(`${process.env.REACT_APP_API_URL}/review/reviewid`, {
+        headers: { authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
+        withCredentials: true,
+      })
+      .then(res => {
+        // setIsLoading(false);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     getDetailReviewHandler();
   }, []);
@@ -47,7 +63,9 @@ function Review() {
             </div>
           </div>
         </div>
-        <button className="review-delete-button">삭제</button>
+        <button className="review-delete-button" onClick={deleteReviewHandler}>
+          삭제
+        </button>
       </div>
     </>
   );

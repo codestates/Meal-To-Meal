@@ -14,6 +14,18 @@ function StoreInfo({
   detailStoreInfo,
   setDetailStoreInfo,
 }) {
+  const [categoryIcon, getCategoryIcon] = useState('');
+  const getCategoryTitle = no => {
+    if (no === 1) return '../img/category/분식.png';
+    if (no === 2) return '../img/category/빵.png';
+    if (no === 3) return '../img/category/야식.png';
+    if (no === 4) return '../img/category/양식.png';
+    if (no === 5) return '../img/category/일식.png';
+    if (no === 6) return '../img/category/중식.png';
+    if (no === 7) return '../img/category/패스트푸드.png';
+    if (no === 8) return '../img/category/한식.png';
+  };
+
   const getDetailStoreInfoHandler = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/store/${Number(localStorage.getItem('clickedMarker'))}`, {
@@ -22,6 +34,7 @@ function StoreInfo({
       })
       .then(res => {
         setDetailStoreInfo(res.data.storeInfo);
+        console.log(res.data.storeInfo);
       })
       .catch(err => {
         console.log(err);
@@ -41,6 +54,7 @@ function StoreInfo({
             <div className="storeinfo-title-container">
               <div className="store-title-container">
                 <img className="store-category-icon" src={require('../img/찌개.png').default} alt="" />
+                {/* src={require('../img/찌개.png').default} */}
                 <div className="store-title">{detailStoreInfo.store_name}</div>
               </div>
               <div className="store-category-text">{detailStoreInfo.store_category}</div>

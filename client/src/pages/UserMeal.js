@@ -17,31 +17,6 @@ function UserMeal({ navigate }) {
     setReviewModalOpen(!reviewModalOpen);
   };
 
-  AWS.config.update({
-    region: 'ap-northeast-2',
-    accessKeyId: `${process.env.REACT_APP_SDK_ACCESSKEY_ID}`,
-    secretAccessKey: `${process.env.REACT_APP_SDK_SECRETACCESS_KEY}`,
-  });
-
-  // const upload = new AWS.S3.ManagedUpload({
-  //   params: {
-  //     Bucket: 'meal2sdk',
-  //     Key: imageFile,
-  //     Body: imageFile,
-  //   },
-  // });
-  // const promise = upload.promise();
-  // promise.then(
-  //   function (data) {
-  //     console.log(promise);
-  //     console.log('프로미스 성공');
-
-  //   },
-  //   function (err) {
-  //     console.log('프로미스 깨짐');
-  //   }
-  // );
-
   const getDetailUserMealHandler = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/user-meal`, {
@@ -51,6 +26,7 @@ function UserMeal({ navigate }) {
       .then(res => {
         setOrderedMeal([res.data.userMeal]);
         setIsLoading(false);
+        console.log(orderedMeal);
       })
       .catch(err => {
         console.log(err);
@@ -59,13 +35,17 @@ function UserMeal({ navigate }) {
   useEffect(() => {
     setIsLoading(true);
     getDetailUserMealHandler();
+    console.log(orderedMeal);
   }, []);
 
   return (
     <>
-      {isLoading ? (
-        <Loading />
+      {orderedMeal.length === 0 ? (
+        <EmptyOrderAni navigate={navigate} />
       ) : (
+        // {isLoading ? (
+        //   <Loading />
+        //   ) : (
         <div className="usermeal-container">
           <div className="usermeal-order-food-info-container">
             <div className="usermeal-reservation-container">
@@ -110,6 +90,7 @@ function UserMeal({ navigate }) {
             />
           ) : null}
         </div>
+        // )}
       )}
     </>
   );

@@ -9,6 +9,7 @@ module.exports = {
     } else {
       try {
         const { review_content, store_id, menu_id } = req.body;
+        console.log('-------------', req.body);
         await store_review.create({
           review_content: review_content,
           store_id: store_id,
@@ -38,7 +39,6 @@ module.exports = {
   },
   getUserReview: async (req, res) => {
     const userInfo = checkTokens(req);
-    console.log('--------------', userInfo.id);
     if (!userInfo) {
       res.status(401).json({ message: '로그인이 필요합니다' });
     } else {
