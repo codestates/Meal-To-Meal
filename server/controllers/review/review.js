@@ -3,14 +3,12 @@ const { store_review, menu, user_meal } = require('../../database/models');
 
 module.exports = {
   post: async (req, res) => {
-    console.log(req.body);
     const userInfo = checkTokens(req);
     if (!userInfo) {
       res.status(401).json({ message: '로그인이 필요합니다' });
     } else {
       try {
         const { review_content, store_id, menu_id } = req.body;
-        console.log('-------------', req.body);
         await store_review.create({
           review_content: review_content,
           store_id: store_id,
@@ -50,7 +48,6 @@ module.exports = {
         });
         res.status(200).json({ reviewList });
       } catch (err) {
-        console.log(err);
         res.status(400).json({ message: '잘못된 요청입니다' });
       }
     }
