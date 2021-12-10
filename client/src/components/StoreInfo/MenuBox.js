@@ -37,7 +37,7 @@ function MenuBox({ navigate, isLogin, addToCart, openLoginModalHandler, openSign
     getStoreMenuHandler();
   }, []);
 
-  const checkLogin = el => {
+  const checkIsLoginToAddCart = el => {
     if (!isLogin) {
       loginAlertOpenHandler();
     } else {
@@ -86,7 +86,7 @@ function MenuBox({ navigate, isLogin, addToCart, openLoginModalHandler, openSign
                 <button
                   className="menu-donate-button"
                   onClick={() => {
-                    checkLogin(el);
+                    checkIsLoginToAddCart(el);
                   }}
                 >
                   기부하기
