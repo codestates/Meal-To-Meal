@@ -27,7 +27,6 @@ function UserMeal({ navigate, getImage }) {
         setOrderedMeal([res.data.userMeal]);
         setIcon(getImage([res.data.userMeal][0].menu.store.store_category));
         setIsLoading(false);
-        console.log(icon);
       })
       .catch(err => {
         console.log(err);

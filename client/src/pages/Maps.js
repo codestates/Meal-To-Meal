@@ -21,7 +21,6 @@ const Map = () => {
       })
       .then(res => {
         setStoreList(res.data.storeList);
-        console.log(res.data.storeList);
       })
       .catch(err => {
         console.log(err);
