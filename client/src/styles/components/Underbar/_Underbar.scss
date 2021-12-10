@@ -10,8 +10,10 @@
   background-color: #f7f1e3;
   height: 60px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
 }
 
 .fa-key,
@@ -27,6 +29,7 @@
   font-size: 30px;
   color: white;
   -webkit-text-stroke: #ffcc1d 2px;
+  margin: 0 35px 0 35px;
 }
 
 @include tablet {

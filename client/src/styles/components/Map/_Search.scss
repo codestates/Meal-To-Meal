@@ -3,11 +3,12 @@
 .search-container {
   display: flex;
   justify-content: flex-start;
+  align-items: center;
   position: fixed;
   top: 100px;
   left: 20px;
   z-index: 998;
-  width: 215px;
+  width: 265px;
   height: 40px;
   background-color: white;
   border-radius: 15px;
@@ -22,6 +23,7 @@
   padding: 10px 0 0 15px;
   margin: 0 0 5px 10px;
   transition: 120ms all;
+  font-size: 15px;
 
   &:focus {
     outline: none;
@@ -30,9 +32,8 @@
 }
 
 .fa-search {
-  font-size: 28px;
+  font-size: 26px;
   margin-left: 10px;
-  padding-top: 3px;
 
   &:hover {
     text-shadow: grey 2px 2px 2px;
@@ -41,6 +42,15 @@
   }
   &:active {
     text-shadow: none;
+  }
+}
+
+.search-x-icon {
+  height: 24px;
+  margin: 0 0 0 15px;
+
+  &:hover {
+    cursor: pointer;
   }
 }
 
@@ -54,37 +64,51 @@
 
 @include tablet {
   .search-container {
-    width: 225px;
+    top: 80px;
+    left: 10px;
+    width: 370px;
     height: 45px;
   }
 
   .search-store-input {
-    width: 145px;
+    width: 245px;
     height: 25px;
-    font-size: 15px;
+    font-size: 20px;
   }
 
   .fa-search {
     font-size: 30px;
     padding-top: 3px;
   }
+
+  .search-x-icon {
+    height: 25px;
+    padding-top: 3px;
+  }
 }
 
 @include desktop {
   .search-container {
-    width: 245px;
+    top: 80px;
+    left: 10px;
+    width: 395px;
     height: 50px;
   }
 
   .search-store-input {
-    width: 150px;
+    width: 250px;
     height: 30px;
     font-size: 18px;
   }
 
   .fa-search {
-    font-size: 33px;
+    font-size: 28px;
     margin-left: 25px;
     padding-top: 4px;
+  }
+
+  .search-x-icon {
+    height: 25px;
+    padding-top: 2.5px;
   }
 }

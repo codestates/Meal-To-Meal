@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SharecartItem from '../components/ShareCart/SharecartItem';
 import ThankAlert from '../components/Alert/ThankAlert';
@@ -9,6 +9,7 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
   const navigate = useNavigate();
 
   const [isOpenThankAlert, setIsOpenThankAlert] = useState(false);
+  const [payName, setPayName] = useState('');
 
   const openThankAlertHandler = () => {
     setIsOpenThankAlert(!isOpenThankAlert);
@@ -21,10 +22,19 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
   const totalPrice = itemTotalPrice.reduce((acc, cur) => acc + cur, 0);
   const totalPriceToString = totalPrice.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 
+  const makePayNameHandler = () => {
+    if (cartItems.length === 0) setPayName('');
+    else if (cartItems.length === 1) setPayName(`${cartItems[0].name} ${totalQuantity}개`);
+    else setPayName(`${cartItems[0].name} 외 ${totalQuantity - 1}개`);
+  };
+
+  useEffect(() => {
+    makePayNameHandler();
+  }, [cartItems]);
+
   function requestPay() {
     const IMP = window.IMP; // 생략 가능
     IMP.init('imp49046982');
-    // IMP.request_pay(param, callback) 결제창 호출
     const accessToken = localStorage.getItem('accessToken');
 
     IMP.request_pay(
@@ -33,9 +43,9 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
         pg: 'html5_inicis',
         pay_method: 'card',
         merchant_uid: 'Sudo_Hired_' + new Date(),
-        name: `${cartItems[0].name} 외 ${totalQuantity - 1}개`,
+        name: payName,
         amount: Number(totalPrice),
-        buyer_tel: '010-8223-2312',
+        buyer_tel: '010-0000-0000',
       },
       function (rsp) {
         // callback
@@ -98,11 +108,11 @@ function ShareCart({ cartItems, setCartItems, removeFromCart }) {
         </div>
         <div className="sharecart-submit-button-container">
           {cartItems.length === 0 ? (
-            <button className="sharecart-button-donation" disabled="true">
+            <button className="sharecart-button" disabled="true">
               기부하기
             </button>
           ) : (
-            <button className="sharecart-button-donation" onClick={requestPay}>
+            <button className="sharecart-button" onClick={requestPay}>
               기부하기
             </button>
           )}

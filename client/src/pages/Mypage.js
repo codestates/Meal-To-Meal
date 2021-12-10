@@ -4,7 +4,15 @@ import '../styles/pages/Mypage.css';
 
 import Review from '../components/Mypage/Review';
 
-function Mypage({ navigate, setAlertMessage, openAlertHandler, openWarningAlertHandler, alertMessage, kakaoLogin }) {
+function Mypage({
+  navigate,
+  setAlertMessage,
+  openAlertHandler,
+  openWarningAlertHandler,
+  alertMessage,
+  kakaoLogin,
+  orderedMeal,
+}) {
   const [isOpenFixNicknameToggle, setIsOpenFixNicknameToggle] = useState(false);
   const [isOpenFixPasswordToggle, setIsOpenFixPasswordToggle] = useState(false);
 

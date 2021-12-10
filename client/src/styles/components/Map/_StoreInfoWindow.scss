@@ -58,12 +58,9 @@ button {
   margin-bottom: 8px;
 }
 
-.fa-map-marker-alt,
-.fa-utensils,
-.fa-heart,
-.fa-business-time {
-  color: #ffcc1d;
-  margin-right: 5px;
+.infowindow-info-icon {
+  width: 15px;
+  margin-right: 10px;
 }
 
 .infowindow-info-text {
@@ -73,14 +70,14 @@ button {
 
 @include tablet {
   .infowindow-window {
-    width: 500px;
-    height: 360px;
+    width: 440px;
+    height: 310px;
   }
 
   .infowindow-store-img {
-    max-width: 490px;
-    max-height: 190px;
-    margin: 10px;
+    max-width: 250px;
+    max-height: 150px;
+    margin: 10px auto 0 auto;
   }
 
   .infowindow-store-title-container {
@@ -101,30 +98,27 @@ button {
     font-size: 15px;
   }
 
-  .fa-map-marker-alt,
-  .fa-utensils,
-  .fa-heart,
-  .fa-business-time {
-    font-size: 30px;
-    margin-right: 10px;
-  }
-
   .infowindow-info-text {
     font-size: 18px;
     margin-right: 5px;
+  }
+
+  .infowindow-info-icon {
+    width: 20px;
   }
 }
 
 @include desktop {
   .infowindow-window {
-    width: 450px;
-    height: 390px;
+    width: 490px;
+    height: 185px;
+    flex-direction: row;
+    align-items: center;
   }
 
   .infowindow-store-img {
-    max-width: 440px;
-    max-height: 220px;
-    margin: 10px;
+    max-height: 155px;
+    margin: 0 10px 0 10px;
   }
 
   .infowindow-store-title-container {
@@ -132,29 +126,23 @@ button {
   }
 
   .infowindow-store-info-container {
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 10px;
+    justify-content: flex-start;
   }
 
   .infowindow-store-title-text {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .infowindow-store-category {
-    font-size: 15px;
-  }
-
-  .fa-map-marker-alt,
-  .fa-utensils,
-  .fa-heart,
-  .fa-business-time {
-    font-size: 30px;
-    margin-right: 10px;
+    font-size: 13px;
   }
 
   .infowindow-info-text {
-    font-size: 18px;
+    font-size: 15px;
     margin-right: 5px;
+  }
+
+  .infowindow-info-icon {
+    width: 20px;
   }
 }

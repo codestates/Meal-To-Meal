@@ -3,56 +3,83 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  font-size: 13px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  font-size: 10px;
   word-break: keep-all;
 }
 
 .ordered-food-image {
   height: 90px;
+  margin: 10px;
 }
 
 .ordered-food-info-container {
-  padding: 10px;
-}
-
-.ordered-food-info-title-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  margin-bottom: 10px;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10px 8px 10px 0;
+}
+
+.ordered-food-info-title-container {
+  font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.ordered-food-info-title-container {
+  margin-bottom: 15px;
 }
 
 .ordered-food-name {
-  margin-right: 15px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.ordered-food-price {
+  font-size: 10px;
 }
 
 .ordered-order-date {
-  font-size: 11px;
   margin-bottom: 10px;
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
   .ordered-food-container {
-    font-size: 17px;
+    font-size: 18px;
   }
   .ordered-food-image {
     height: 160px;
+    margin: 15px;
   }
   .ordered-food-info-container {
     margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 15px;
+    font-size: 25px;
+  }
+  .ordered-food-info-title-container {
+    margin-bottom: 20px;
   }
   .ordered-food-name {
-    font-weight: bold;
-    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  .ordered-food-price {
+    font-size: 15px;
   }
   .ordered-order-date {
     font-size: 15px;
@@ -62,10 +89,30 @@
 
 @media (min-width: 1024px) {
   .ordered-food-container {
-    font-size: 17px;
+    font-size: 18px;
+    width: 700px;
   }
   .ordered-food-image {
-    height: 180px;
+    height: 160px;
+    margin: 15px;
+  }
+  .ordered-food-info-container {
+    margin-left: 20px;
+    margin-top: 15px;
+    font-size: 25px;
+  }
+  .ordered-food-info-title-container {
+    margin-bottom: 20px;
+  }
+  .ordered-food-name {
+    font-size: 20px;
+  }
+  .ordered-food-price {
+    font-size: 15px;
+  }
+  .ordered-order-date {
+    font-size: 15px;
+    margin-bottom: 20px;
   }
 }
 
@@ -183,6 +230,38 @@
 .review-upload-submit-button {
   margin-left: 65%;
   width: 70px;
+  padding-top: 3px;
+  margin-top: 4px;
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
+  border-radius: 7px;
+  -webkit-transition: 120ms ease;
+  transition: 120ms ease;
+  background-color: white;
+}
+
+.review-upload-submit-button:hover {
+  -webkit-box-shadow: gray 6px 6px 6px;
+          box-shadow: gray 6px 6px 6px;
+}
+
+.review-upload-submit-button:before, .review-upload-submit-button:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.review-upload-submit-button:hover:before, .review-upload-submit-button:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.review-upload-submit-button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
@@ -192,15 +271,18 @@
     padding: 15px;
   }
   .review-upload-title {
-    font-size: 20px;
+    font-size: 25px;
     margin-bottom: 15px;
     margin-right: 380px;
+  }
+  .fa-times {
+    font-size: 18px;
   }
   .review-upload-store-info-container {
     margin-bottom: 10px;
   }
   .review-upload-store-name {
-    font-size: 17px;
+    font-size: 18px;
   }
   .review-upload-food-name {
     margin-top: 5px;
@@ -218,61 +300,71 @@
 
 @media (min-width: 1024px) {
   .review-upload-window {
-    width: 650px;
-    height: 400px;
+    width: 800px;
+    height: 530px;
     padding: 15px;
   }
   .review-upload-title {
-    font-size: 22px;
-    margin-right: 530px;
-    margin-bottom: 20px;
+    font-size: 25px;
+    margin-bottom: 15px;
+    margin-right: 380px;
+  }
+  .fa-times {
+    font-size: 20px;
+    -webkit-transition: 120ms ease all;
+    transition: 120ms ease all;
+    cursor: pointer;
+  }
+  .fa-times:hover {
+    color: #ffcc1d;
   }
   .review-upload-store-info-container {
     margin-bottom: 10px;
   }
-  .review-upload-store-name {
-    font-size: 19px;
+  .review-upload-store-category-icon {
+    height: 30px;
   }
-  .review-upload-food-name {
-    margin-top: 5px;
-    margin-left: 15px;
+  .review-upload-store-name {
+    font-size: 25px;
   }
   .review-upload-content-container {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .review-upload-food-name {
+    margin-top: 5px;
+    margin-left: 15px;
+    font-size: 25px;
   }
   .review-upload-food-image {
-    height: 200px;
-    max-width: 270px;
+    height: 280px;
+    max-width: 380px;
+    margin: 15px 30px 30px 0;
   }
   .review-upload-food-text {
-    margin-top: 20px;
-    width: 300px;
-    height: 170px;
-    font-size: 15px;
-    -webkit-transition: 120ms ease all;
-    transition: 120ms ease all;
-  }
-  .review-upload-button-container {
-    margin-top: 15px;
-    margin-left: 40px;
+    width: 100%;
+    height: 88%;
+    font-size: 20px;
   }
   .review-upload-submit-button {
     margin-left: 80%;
-    width: 100px;
+    width: 120px;
   }
 }
 
 .usermeal-container {
-  padding: 15px;
-  font-size: 13px;
-  margin-bottom: 70px;
+  margin: 15px;
+  font-size: 15px;
+  margin-bottom: 75px;
 }
 
 .usermeal-title {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bolder;
   margin-bottom: 10px;
 }
@@ -281,25 +373,27 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  margin-bottom: 10px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 10px;
 }
 
 .usermeal-category-icon {
-  width: 15px;
+  width: 30px;
+  margin-right: 5px;
 }
 
 .usermeal-store-image {
+  display: block;
   height: 150px;
-  border-radius: 10px;
-  -webkit-box-shadow: 2px 2px 2px 2px gray;
-          box-shadow: 2px 2px 2px 2px gray;
+  border-radius: 15px;
+  margin: 0 auto 0 auto;
+  -webkit-box-shadow: 4px 4px 4px gray;
+          box-shadow: 4px 4px 4px gray;
 }
 
 .usermeal-address-container {
@@ -357,38 +451,71 @@
 }
 
 .usermeal-confirm-button {
-  width: 90%;
-  margin-left: 15px;
-  margin-top: 30px;
+  display: block;
+  padding-top: 3px;
+  width: 230px;
+  margin: 15px auto 20px auto;
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
+  border-radius: 15px;
+  -webkit-transition: 120ms ease all;
+  transition: 120ms ease all;
+  background-color: white;
+  cursor: pointer;
+}
+
+.usermeal-confirm-button:hover {
+  -webkit-box-shadow: gray 6px 6px 6px;
+          box-shadow: gray 6px 6px 6px;
+}
+
+.usermeal-confirm-button:before, .usermeal-confirm-button:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.usermeal-confirm-button:hover:before, .usermeal-confirm-button:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.usermeal-confirm-button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
   .usermeal-container {
-    font-size: 17px;
+    font-size: 20px;
     margin-top: 70px;
   }
   .usermeal-store-image {
-    height: 200px;
+    height: 250px;
     margin-bottom: 20px;
+    margin: 15px 0 10px 0;
   }
   .usermeal-title {
-    font-size: 17px;
+    font-size: 25px;
     margin-bottom: 20px;
   }
   .usermeal-ordered-container {
     margin-top: 40px;
   }
   .usermeal-ordered-title {
-    font-size: 17px;
+    font-size: 25px;
     margin-bottom: 20px;
   }
   .usermeal-userinfo-title {
-    font-size: 17px;
+    font-size: 25px;
     margin-bottom: 20px;
   }
   .usermeal-userinfo-container {
     margin-top: 40px;
-    font-size: 14px;
+    font-size: 20px;
     margin-bottom: 40px;
   }
   .usermeal-confirm-button {
@@ -404,54 +531,87 @@
     width: 400px;
     margin-left: 180px;
   }
+  .fa-map-marker-alt,
+  .fa-utensils {
+    font-size: 30px;
+  }
+  .usermeal-confirm-button {
+    font-size: 25px;
+    height: 40px;
+  }
 }
 
 @media (min-width: 1024px) {
   .usermeal-container {
-    font-size: 17px;
-    margin-top: 50px;
-    margin-left: 160px;
-    margin-bottom: 90px;
-    height: 63vh;
-  }
-  .usermeal-store-image {
-    height: 270px;
-    margin-bottom: 20px;
-  }
-  .usermeal-title {
     font-size: 20px;
-    margin-bottom: 20px;
+    margin: 100px;
+    height: 67vh;
   }
   .usermeal-order-food-info-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
-  .usermeal-ordered-info-container {
-    margin-right: 160px;
+  .usermeal-store-title {
+    font-size: 25px;
+  }
+  .usermeal-reservation-container {
+    width: 50%;
+  }
+  .usermeal-store-image {
+    height: 22vw;
+    margin-bottom: 20px;
+    margin: 15px 0 10px 0;
+  }
+  .usermeal-title {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  .usermeal-ordered-container {
+    margin-top: 40px;
+    width: 50%;
   }
   .usermeal-ordered-title {
-    font-size: 20px;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  .usermeal-userinfo-title {
+    font-size: 30px;
     margin-bottom: 20px;
   }
   .usermeal-userinfo-container {
-    margin-top: 60px;
-    font-size: 17px;
+    margin-top: 40px;
+    font-size: 25px;
+    margin-bottom: 40px;
   }
-  .usermeal-userinfo-title {
-    font-size: 20px;
+  .usermeal-confirm-button {
+    margin-left: 35px;
+  }
+  .usermeal-username {
+    margin-bottom: 20px;
+  }
+  .usermeal-user-email {
     margin-bottom: 20px;
   }
   .usermeal-confirm-button {
-    width: 500px;
-    margin-left: 350px;
-    margin-top: 50px;
+    width: 400px;
+    margin-left: 180px;
+  }
+  .fa-map-marker-alt,
+  .fa-utensils {
+    font-size: 40px;
+  }
+  .usermeal-address-text,
+  .usermeal-description-text {
+    font-size: 25px;
+  }
+  .usermeal-confirm-button {
+    font-size: 25px;
+    height: 40px;
+    margin: 20px 150px 0 auto;
   }
 }
 /*# sourceMappingURL=UserMeal.css.map */
