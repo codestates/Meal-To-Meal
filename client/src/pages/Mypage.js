@@ -30,6 +30,7 @@ function Mypage({
     user_nickname: '',
     user_password: '',
     verifyPassword: '',
+    phone_number: '',
   });
 
   const [validation, setValidation] = useState({
@@ -38,6 +39,10 @@ function Mypage({
     password: false,
     verifyPassword: false,
   });
+
+  const PhoneVerification = () => {
+    console.log(signupInfo.phone_number);
+  };
 
   const userInfoHandler = () => {
     const accessToken = localStorage.getItem('accessToken');
@@ -278,6 +283,13 @@ function Mypage({
           <button className="mypage-withdrawal-button" onClick={() => navigate('/withdrawal')}>
             회원탈퇴
           </button>
+          <form onSubmit={e => e.preventDefault()}>
+            <input
+              onChange={e => setSignupInfo({ ...signupInfo, phone_number: e.target.value })}
+              placeholder="'-'를 제외한 휴대폰 번호를 입력하세요."
+            ></input>
+            <button onClick={() => PhoneVerification(signupInfo.phone_number)}>휴대폰 인증</button>
+          </form>
         </div>
         <div className="mypage-title">최근 리뷰 내역</div>
         <div className="mypage-review-container">
