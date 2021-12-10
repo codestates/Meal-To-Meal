@@ -32,7 +32,7 @@
 }
 
 .fa-search {
-  font-size: 28px;
+  font-size: 26px;
   margin-left: 10px;
 
   &:hover {
@@ -46,7 +46,7 @@
 }
 
 .search-x-icon {
-  height: 25px;
+  height: 24px;
   margin: 0 0 0 15px;
 
   &:hover {
@@ -82,7 +82,8 @@
   }
 
   .search-x-icon {
-    height: 28px;
+    height: 25px;
+    padding-top: 3px;
   }
 }
 
@@ -101,13 +102,13 @@
   }
 
   .fa-search {
-    font-size: 33px;
+    font-size: 28px;
     margin-left: 25px;
     padding-top: 4px;
   }
 
   .search-x-icon {
-    height: 28px;
-    padding-top: 3px;
+    height: 25px;
+    padding-top: 2.5px;
   }
 }

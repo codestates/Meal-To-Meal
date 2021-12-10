@@ -29,7 +29,6 @@ const Map = () => {
 
   useEffect(() => {
     storeListHandler();
-    console.log(storeList);
   }, []);
 
   return (

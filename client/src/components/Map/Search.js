@@ -36,7 +36,7 @@ function Search({ setIsOpenSearchResultSidebar, setSearchResult }) {
     <div className="search-container">
       <input
         className="search-store-input"
-        placeholder="가게를 검색하세요."
+        placeholder="Meal To Meal 검색"
         value={searchText}
         onKeyPress={keyPressHandler}
         onChange={handleSearchTextChange}

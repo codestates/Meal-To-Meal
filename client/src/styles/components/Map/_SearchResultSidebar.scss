@@ -12,7 +12,7 @@
 
 .SearchResultSidebar-window {
   z-index: 997;
-  background-color: white;
+  background-color: #f8f9f9;
   position: fixed;
   top: 0;
   width: 300px;
@@ -23,16 +23,17 @@
   padding-top: 60px;
   padding-bottom: 40px;
   animation: out ease-in-out 0.1s alternate;
+  box-shadow: gray 6px 6px 6px;
 }
 
 .SearchResult-info-container {
   display: flex;
   justify-content: center;
   padding: 10px;
-  border-bottom: 1px solid #f8f9f9;
+  border-bottom: 1px solid #f3f3f3;
 
   &:hover {
-    background-color: #f8f9f9;
+    background-color: #f3f3f3;
   }
 }
 
@@ -65,6 +66,7 @@
 
 .SearchResult-img {
   max-width: 50%;
+  max-height: 120px;
   border-radius: 15px;
   box-shadow: gray 3px 3px 3px 3px;
   margin-right: 10px;
@@ -106,6 +108,7 @@
 
   .SearchResult-info-container {
     padding: 30px;
+    padding: 10px;
   }
 
   .SearchResult-title {
