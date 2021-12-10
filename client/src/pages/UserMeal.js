@@ -1,5 +1,4 @@
 import axios from 'axios';
-import AWS from 'aws-sdk';
 import React, { useState, useEffect } from 'react';
 import ReviewUploadModal from '../components/OrderCart/ReviewUploadModal';
 import UserMealBox from '../components/OrderCart/UserMealBox';
@@ -16,31 +15,6 @@ function UserMeal({ navigate }) {
   const openReviewModalHandler = () => {
     setReviewModalOpen(!reviewModalOpen);
   };
-
-  AWS.config.update({
-    region: 'ap-northeast-2',
-    accessKeyId: `${process.env.REACT_APP_SDK_ACCESSKEY_ID}`,
-    secretAccessKey: `${process.env.REACT_APP_SDK_SECRETACCESS_KEY}`,
-  });
-
-  // const upload = new AWS.S3.ManagedUpload({
-  //   params: {
-  //     Bucket: 'meal2sdk',
-  //     Key: imageFile,
-  //     Body: imageFile,
-  //   },
-  // });
-  // const promise = upload.promise();
-  // promise.then(
-  //   function (data) {
-  //     console.log(promise);
-  //     console.log('프로미스 성공');
-
-  //   },
-  //   function (err) {
-  //     console.log('프로미스 깨짐');
-  //   }
-  // );
 
   const getDetailUserMealHandler = () => {
     axios
