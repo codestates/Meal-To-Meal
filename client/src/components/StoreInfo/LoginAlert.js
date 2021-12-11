@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LoginAlert({ loginAlertOpenHandler, openLoginModalHandler, openSignupModalHandler }) {
+function LoginAlert({ loginAlertOpenHandler, openLoginModalHandler }) {
   return (
     <div className="login-alert-container">
       <div className="login-alert-backdrop" onClick={loginAlertOpenHandler}>

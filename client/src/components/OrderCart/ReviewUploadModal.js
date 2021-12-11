@@ -8,6 +8,9 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
   const [isLoading, setIsLoading] = useState(true);
   const [selectedFile, setSelectedFile] = useState(null);
   const [reviewText, setReviewText] = useState(null);
+  const [imgName, setImgName] = useState('');
+
+  const imgRef = useRef();
 
   AWS.config.update({
     region: 'ap-northeast-2',
@@ -17,6 +20,23 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
       secretAccessKey: `${process.env.REACT_APP_SDK_SECRETACCESS_KEY}`,
     },
   });
+
+  const handleFileInput = e => {
+    const file = e.target.files[0];
+    setImgName(file.name);
+
+    const s3 = new AWS.S3();
+    (async () => {
+      await s3
+        .putObject({
+          Body: file,
+          Bucket: 'meal2sdk',
+          Key: file.name,
+          ContentType: 'application/xml',
+        })
+        .promise();
+    })();
+  };
 
   const getDetailUserMealHandler = () => {
     axios
@@ -32,22 +52,6 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
       });
   };
 
-  // 이미지 업로드
-  const fileInput = useRef();
-
-  const handleClick = () => {
-    const s3 = new AWS.S3();
-    (async () => {
-      await s3
-        .putObject({
-          Body: fileInput.current.files[0],
-          Bucket: 'meal2sdk',
-          Key: fileInput.current.files[0].name,
-        })
-        .promise();
-    })();
-  };
-
   const reviewSubmitHandler = e => {
     e.preventDefault();
 
@@ -59,14 +63,12 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
         {
           store_id: orderedMeal[0].menu.store.store_id,
           menu_id: orderedMeal[0].menu.menu_id,
-          review_image: fileInput.current.files[0].name,
+          review_image: imgName,
           review_content: reviewText,
         },
         { headers: { authorization: `Bearer ${accessToken}` }, withCredentials: true }
       )
       .then(res => {
-        handleClick();
-        alert('리뷰가 등록되었습니다');
         navigate('/maps');
         setOrderedMeal([]);
       })
@@ -79,7 +81,7 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
   return (
     <div className="review-upload-container">
       <div className="review-upload-backdrop">
-        <form className="review-upload-window" onSubmit={reviewSubmitHandler}>
+        <div className="review-upload-window">
           <div className="review-upload-title-container">
             <div className="review-upload-title">음식점 리뷰</div>
             <i className="fa fa-times" onClick={openReviewModalHandler} />
@@ -90,16 +92,25 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
           </div>
           <div className="review-upload-store-name">{orderedMeal[0].menu.menu_name}</div>
           <div className="review-upload-content-container">
-            <img className="review-upload-food-image" src={selectedFile} alt="" />
+            <img
+              className="review-upload-food-image"
+              ref={imgRef}
+              src={`https://meal2sdk.s3.ap-northeast-2.amazonaws.com/${imgName}`}
+              onError={() => {
+                return (imgRef.current.src =
+                  'https://mealtomeal-img-container.s3.ap-northeast-2.amazonaws.com/main-qimg-960aef0da890432b31e29774f02c2b37-lq.jpeg');
+              }}
+            />
             <textarea className="review-upload-food-text" placeholder="리뷰를 적어주세요" onChange={setSelectedFile} />
           </div>
           <div className="review-upload-button-container">
-            <input className="review-upload-image-upload-button" type="file" accept="image/*" ref={fileInput} />
-            <button className="review-upload-submit-button" type="submit">
+            <input className="review-upload-image-upload-button" type="file" onChange={handleFileInput} />
+            <label htmlFor="upload" className="image-upload-wrapper"></label>
+            <button className="review-upload-submit-button" onClick={reviewSubmitHandler}>
               등록하기
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );
