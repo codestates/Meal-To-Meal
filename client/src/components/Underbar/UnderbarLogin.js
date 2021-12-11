@@ -59,7 +59,7 @@ function UnderbarLogin({
       </div>
       <div className="underbar-menu-container">
         {/* 사장님 페이지 */}
-        <i className="fas fa-cash-register" />
+        <i className="fas fa-cash-register" onClick={() => navigate('/management')} />
       </div>
       <div className="underbar-menu-container">
         {/* 지도보기 */}
