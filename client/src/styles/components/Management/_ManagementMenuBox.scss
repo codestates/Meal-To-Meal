@@ -1,0 +1,147 @@
+@import '../../mixin/mixin';
+
+.management-menu-container {
+  border: none;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 30px;
+  box-shadow: gray 3px 3px 3px 3px;
+}
+
+.management-menu-img {
+  max-width: 130px;
+  max-height: 100px;
+  margin: auto 0 auto 0;
+  box-shadow: gray 3px 3px 3px;
+  border-radius: 15px;
+}
+
+.management-menu-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.management-menu-title-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin: 0 0 5px 0;
+}
+
+.management-menu-name {
+  font-weight: bolder;
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+.management-menu-text {
+  font-size: 15px;
+}
+
+.management-menu-price {
+  font-size: 10px;
+}
+
+.management-menu-donation-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.management-menu-icon {
+  height: 12px;
+  margin: 0 5px 3px 0;
+}
+
+.management-menu-code-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-bottom: 5px;
+}
+
+.management-menu-code-icon {
+  height: 20px;
+  margin-right: 5px;
+}
+
+@include tablet {
+  .management-menu-img {
+    max-width: 30%;
+    max-height: 150px;
+    margin: 10px;
+  }
+
+  .management-menu-title-container {
+    margin-bottom: 15px;
+  }
+
+  .management-menu-name {
+    font-size: 25px;
+  }
+
+  .management-menu-price {
+    font-size: 15px;
+  }
+
+  .management-menu-donation-container {
+    margin-bottom: 10px;
+  }
+
+  .management-menu-icon {
+    height: 20px;
+    margin: 0 5px 5px 0;
+  }
+
+  .management-menu-text {
+    font-size: 25px;
+    margin-right: 10px;
+  }
+
+  .management-menu-code-icon {
+    height: 30px;
+  }
+}
+
+@include desktop {
+  .management-menu-img {
+    max-width: 30%;
+    max-height: 180px;
+    margin: 15px;
+  }
+
+  .management-menu-info-container {
+    margin: 15px;
+  }
+
+  .management-menu-title-container {
+    margin-bottom: 20px;
+  }
+
+  .management-menu-name {
+    font-size: 30px;
+  }
+
+  .management-menu-price {
+    font-size: 20px;
+  }
+
+  .management-menu-donation-container {
+    margin-bottom: 15px;
+  }
+
+  .management-menu-icon {
+    height: 25px;
+    margin: 0 10px 5px 0;
+  }
+
+  .management-menu-text {
+    font-size: 30px;
+    margin-right: 10px;
+  }
+
+  .management-menu-code-icon {
+    height: 30px;
+  }
+}
