@@ -7,7 +7,7 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
   const accessToken = localStorage.getItem('accessToken');
   const [isLoading, setIsLoading] = useState(true);
   const [selectedFile, setSelectedFile] = useState('');
-  const [reviewText, setReviewText] = useState(null);
+  const [reviewText, setReviewText] = useState('');
   const [url, setUrl] = useState('');
 
   const imgRef = useRef();
@@ -39,9 +39,13 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
       .catch(err => console.error(err));
   };
 
+  const handleChange = e => {
+    setReviewText(e.target.value);
+  };
+
   const reviewSubmitHandler = e => {
     e.preventDefault();
-
+    console.log('-------------------', orderedMeal[0]);
     getDetailUserMealHandler();
 
     axios
@@ -57,8 +61,10 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
       )
       .then(res => {
         alert('리뷰가 등록되었습니다');
-        navigate('/maps');
+        // navigate('/maps');
+        console.log('--------------리셋전', orderedMeal[0]);
         setOrderedMeal([]);
+        console.log('--------------리셋후', orderedMeal[0]);
       })
       .catch(err => {
         console.log(err);
@@ -90,7 +96,7 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
                   'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2021-09-19+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+3.11.14.png');
               }}
             />
-            <textarea className="review-upload-food-text" placeholder="리뷰를 적어주세요" />
+            <textarea className="review-upload-food-text" placeholder="리뷰를 적어주세요" onChange={handleChange} />
           </div>
           <div className="review-upload-button-container">
             <input
