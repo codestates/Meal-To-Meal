@@ -5,8 +5,13 @@ const { menu } = require('../../database/models');
 const { user } = require('../../database/models');
 const checkTokens = require('../../middlewares/tokenAuth');
 const axios = require('axios');
+
 module.exports = async (req, res) => {
   try {
+    const userInfo = checkTokens(req);
+    if (!userInfo) {
+      return res.staus(400).json({ message: '로그인이 필요합니다' });
+    }
     const { imp_uid, merchant_uid, order } = req.body;
     const getToken = await axios({
       url: 'https://api.iamport.kr/users/getToken',
@@ -28,7 +33,6 @@ module.exports = async (req, res) => {
 
     // 조회한 결제정보
     const paymentData = getPaymentData.data.response;
-    const userInfo = checkTokens(req);
     const matchedUser = await user.findOne({ where: { id: userInfo.id } });
     let calculatedPrice = 0;
     order.forEach((el, idx, arr) => {

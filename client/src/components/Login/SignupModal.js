@@ -245,7 +245,7 @@ function SignupModal({ openSignupModalHandler, openAlertHandler, openWarningAler
                 )}
                 <div className="signup-button-container">
                   {isValid ? (
-                    <button className="signup-button-ok" type="submit" onClick={handleSignup}>
+                    <button className="signup-button" type="submit" onClick={handleSignup}>
                       회원가입
                     </button>
                   ) : (

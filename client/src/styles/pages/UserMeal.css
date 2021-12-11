@@ -207,8 +207,8 @@
   max-width: 200px;
   margin: 10px auto 15px auto;
   border-radius: 15px;
-  -webkit-box-shadow: gray 4px 4px 4px;
-          box-shadow: gray 4px 4px 4px;
+  -webkit-box-shadow: gray 4px 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px 4px;
 }
 
 .review-upload-food-text {
@@ -225,6 +225,10 @@
 .review-upload-food-text:focus {
   outline: none;
   border: 2px solid #ffcc1d;
+}
+
+.review-upload-image-upload-button {
+  max-width: 100%;
 }
 
 .review-upload-submit-button {

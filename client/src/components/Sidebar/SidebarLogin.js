@@ -73,7 +73,9 @@ function SidebarLogin({
         </div>
         <div className="sidebar-menu-container">
           <div className="sidebar-icon">&#x1F370;</div>
-          <div className="sidebar-text">사장님 페이지</div>
+          <div className="sidebar-text" onClick={() => navigate('/management')}>
+            사장님 페이지
+          </div>
         </div>
         <div
           className="sidebar-menu-container"

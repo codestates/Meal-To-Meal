@@ -17,8 +17,8 @@ module.exports = {
         if (matchedStore.user_id === userInfo.id) {
           res.status(403).json({ message: '본인의 가게에서 요청하셨습니다' });
         } else {
-          const exitingUserMeal = await user_meal.findOne({ where: { user_id: userInfo.id } });
-          if (exitingUserMeal) {
+          const existingUserMeal = await user_meal.findOne({ where: { user_id: userInfo.id } });
+          if (existingUserMeal) {
             return res.status(403).json({ message: '이미 주문 내역이 있습니다' });
           } else if (matchedUser.today_used) {
             return res.status(403).json({ message: '오늘은 이미 사용하셨습니다' });
@@ -64,9 +64,13 @@ module.exports = {
           ],
           where: { user_id: userInfo.id },
         });
-        const matchedUser = await user.findOne({ where: { id: userMeal.user_id } });
-        delete matchedUser.dataValues.user_password;
-        res.status(200).json({ userMeal, matchedUser });
+        if (!userMeal) {
+          res.status(404).json({ message: '주문 내역이 없습니다' });
+        } else {
+          const matchedUser = await user.findOne({ where: { id: userMeal.user_id } });
+          delete matchedUser.dataValues.user_password;
+          res.status(200).json({ userMeal, matchedUser });
+        }
       } catch (err) {
         res.status(400).json({ message: err.message });
       }

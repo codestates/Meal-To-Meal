@@ -12,7 +12,6 @@ function Review() {
         withCredentials: true,
       })
       .then(res => {
-        console.log(res.data);
         setUserReviews(res.data);
       })
       .catch(err => {
