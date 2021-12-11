@@ -50,11 +50,11 @@ function Review() {
           </div>
         </div>
         <div className="review-img-info-container">
-          <img
+          {/* <img
             className="review-store-img"
             src={`https://meal2sdk.s3.ap-northeast-2.amazonaws.com/%E1%84%8C%E1%85%A6%E1%84%86%E1%85%A9%E1%86%A8%E1%84%8B%E1%85%B3%E1%86%AF+%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%85%E1%85%A7%E1%86%A8%E1%84%92%E1%85%A2%E1%84%8C%E1%85%AE%E1%84%89%E1%85%A6%E1%84%8B%E1%85%AD_-001+(6).png`}
             alt=""
-          />
+          /> */}
           <div className="review-store-info-container">
             <div className="review-menu-title">티라노 립아이</div>
             <div className="store-text">
