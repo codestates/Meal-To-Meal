@@ -60,8 +60,10 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
       )
       .then(res => {
         alert('리뷰가 등록되었습니다');
-        navigate('/maps');
+        // navigate('/maps');
+        console.log('--------------리셋전', orderedMeal[0]);
         setOrderedMeal([]);
+        console.log('--------------리셋후', orderedMeal[0]);
       })
       .catch(err => {
         console.log(err);
