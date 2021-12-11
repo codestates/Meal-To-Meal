@@ -1,5 +1,5 @@
 .donationbox-container {
-  border: 1px solid grey;
+  border-bottom: 2px solid grey;
   font-size: 14px;
   padding: 0 5px 0 5px;
   margin-bottom: 20px;
@@ -47,6 +47,7 @@
 .donationbox-content-container {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .donationbox-food-image {
