@@ -1,0 +1,105 @@
+.donationbox-container {
+  border: 1px solid grey;
+  font-size: 14px;
+  padding: 0 5px 0 5px;
+  margin-bottom: 20px;
+}
+
+.donationbox-title-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.donationbox-category-icon {
+  width: 15px;
+  margin-right: 5px;
+}
+
+.donationbox-store-name {
+  margin-right: 180px;
+}
+
+.donationbox-createdat-icon {
+  width: 15px;
+  margin-right: 5px;
+}
+
+.donationbox-createdat-text {
+}
+
+.donationbox-address-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.donationbox-address-icon {
+  width: 13px;
+  margin-right: 5px;
+}
+
+.donationbox-address-text {
+}
+
+.donationbox-content-container {
+  display: flex;
+  align-items: center;
+}
+
+.donationbox-food-image {
+  width: 150px;
+  margin-left: 10px;
+  margin-right: 50px;
+}
+
+.donationbox-food-info-container {
+  justify-content: center;
+}
+
+.donationbox-food-name {
+  margin-bottom: 3px;
+}
+
+.donationbox-food-price {
+  margin-bottom: 3px;
+}
+
+.donationbox-dish-count-container {
+  display: flex;
+  align-items: center;
+}
+
+.donationbox-dish-icon {
+  width: 15px;
+}
+
+.donationbox-dish-number {
+}
+
+@include tablet {
+  .donationbox-container {
+    font-size: 20px;
+  }
+
+  .donationbox-title-container {
+    margin-bottom: 8px;
+  }
+
+  .donationbox-store-name {
+    margin-right: 500px;
+  }
+}
+
+@include desktop {
+  .donationbox-container {
+    font-size: 22px;
+    padding: 5px;
+  }
+
+  .donationbox-title-container {
+    margin-bottom: 10px;
+  }
+}

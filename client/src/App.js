@@ -19,6 +19,7 @@ import UserMeal from '../src/pages/UserMeal';
 import Withdrawal from '../src/pages/Withdrawal';
 import Mypage from '../src/pages/Mypage';
 import ReviewUploadModal from './components/OrderCart/ReviewUploadModal';
+import MyDonation from './pages/MyDonation';
 
 // 카테고리 이미지
 import 분식 from './img/category/분식.png';
@@ -229,6 +230,7 @@ function App() {
           }
         />
         <Route path="/usermeal" element={<UserMeal navigate={navigate} getImage={getImage} />} />
+        <Route path="/mydonation" element={<MyDonation />} />
       </Routes>
       {isLogin ? (
         <UnderbarLogin
