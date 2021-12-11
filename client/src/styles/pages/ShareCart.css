@@ -222,6 +222,7 @@
   transition: 120ms ease;
   background-color: white;
   cursor: pointer;
+  margin-top: 50px;
 }
 
 .empty-sharecart-button:hover {
@@ -256,10 +257,6 @@
     margin-top: 50px;
     font-size: 50px;
   }
-  .empty-sharecart-button {
-    margin-top: 30px;
-    font-size: 20px;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -270,11 +267,6 @@
   .sharecart-catchphrase {
     font-size: 50px;
     margin-top: 250px;
-  }
-  .empty-sharecart-button {
-    margin-top: 30px;
-    font-size: 20px;
-    padding-top: 3px;
   }
 }
 
