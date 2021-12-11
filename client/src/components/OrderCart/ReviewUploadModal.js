@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import S3FileUpload from 'react-s3';
 import Loading from '../Loading';
@@ -7,7 +7,7 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
   const accessToken = localStorage.getItem('accessToken');
   const [isLoading, setIsLoading] = useState(true);
   const [selectedFile, setSelectedFile] = useState('');
-  const [reviewText, setReviewText] = useState(null);
+  const [reviewText, setReviewText] = useState('');
   const [url, setUrl] = useState('');
 
   const imgRef = useRef();
@@ -39,17 +39,20 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
       .catch(err => console.error(err));
   };
 
+  const handleChange = e => {
+    setReviewText(e.target.value);
+  };
+
   const reviewSubmitHandler = e => {
     e.preventDefault();
-
     getDetailUserMealHandler();
 
     axios
       .post(
         `${process.env.REACT_APP_API_URL}/review`,
         {
-          store_id: orderedMeal[0].menu.store.store_id,
-          menu_id: orderedMeal[0].menu.menu_id,
+          store_id: orderedMeal[0].menu.store_id,
+          menu_id: orderedMeal[0].menu_id,
           review_image: url,
           review_content: reviewText,
         },
@@ -90,7 +93,7 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
                   'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2021-09-19+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+3.11.14.png');
               }}
             />
-            <textarea className="review-upload-food-text" placeholder="리뷰를 적어주세요" />
+            <textarea className="review-upload-food-text" placeholder="리뷰를 적어주세요" onChange={handleChange} />
           </div>
           <div className="review-upload-button-container">
             <input
