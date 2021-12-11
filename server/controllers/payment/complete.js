@@ -74,6 +74,6 @@ module.exports = async (req, res) => {
     // find cart로 찾은 컬럼에서 amount 즉 결제해야하는 금액만 가져온다.
   } catch (err) {
     console.log(err);
-    res.status(500).send(err);
+    res.status(400).send(err);
   }
 };

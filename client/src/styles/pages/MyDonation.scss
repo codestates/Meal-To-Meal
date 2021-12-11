@@ -1,0 +1,106 @@
+@import '../mixin/mixin';
+@import '../components/MyDonation/DonationBox';
+
+.mydonation-container {
+  padding: 10px;
+  font-size: 14px;
+  min-height: 81vh;
+}
+
+.mydonation-ranking-title {
+  margin-bottom: 10px;
+}
+
+.mydonation-ranking-container {
+  border: 3px solid #ffcc1d;
+  border-radius: 5px;
+  height: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.mydonation-money-ranking {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.mydonation-money-image {
+  width: 150px;
+}
+
+.mydonation-history-title {
+  margin-top: 20px;
+}
+
+.mydonation-history-container {
+  margin-top: 10px;
+  height: 80%;
+  border: 3px solid #ffcc1d;
+  border-radius: 5px;
+  padding: 5px;
+  overflow: auto;
+}
+
+@include tablet {
+  .mydonation-container {
+    margin-top: 60px;
+    font-size: 28px;
+  }
+
+  .mydonation-ranking-text-container {
+    margin-left: 10px;
+    font-size: 20px;
+  }
+}
+
+@include desktop {
+  .mydonation-container {
+    margin-top: 70px;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 23px;
+    word-break: keep-all;
+    height: 65vh;
+  }
+
+  .mydonation-left-container {
+    width: 50%;
+  }
+
+  .mydonation-ranking-container {
+    margin-right: 50px;
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .mydonation-ranking-text-container {
+    margin-top: 70px;
+    justify-content: center;
+  }
+
+  .mydonation-money-ranking {
+    margin-top: 30px;
+    margin-bottom: 77px;
+    font-size: 28px;
+  }
+
+  .mydonation-money-image {
+    width: 300px;
+  }
+
+  .mydonation-right-container {
+    width: 50%;
+    overflow: auto;
+  }
+
+  .mydonation-history-title {
+    margin-top: 0;
+  }
+
+  .mydonation-history-container {
+    padding: 5px 8px 5px 8px;
+  }
+}

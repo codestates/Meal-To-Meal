@@ -39,7 +39,12 @@ function SidebarLogin({
           <div className="sidebar-icon">&#x1F35A;</div>
           <div className="sidebar-text">로그아웃</div>
         </div>
-        <div className="sidebar-menu-container">
+        <div
+          className="sidebar-menu-container"
+          onClick={() => {
+            navigate('/mydonation');
+          }}
+        >
           <div className="sidebar-icon">&#x1F35D;</div>
           <div className="sidebar-text">내 기부내역</div>
         </div>
@@ -68,7 +73,9 @@ function SidebarLogin({
         </div>
         <div className="sidebar-menu-container">
           <div className="sidebar-icon">&#x1F370;</div>
-          <div className="sidebar-text">사장님 페이지</div>
+          <div className="sidebar-text" onClick={() => navigate('/management')}>
+            사장님 페이지
+          </div>
         </div>
         <div
           className="sidebar-menu-container"

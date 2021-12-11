@@ -36,7 +36,12 @@ function UnderbarLogin({
         {/* 로그아웃 */}
         <i className="fas fa-sign-out-alt" onClick={LogoutButtonHandler} />
       </div>
-      <div className="underbar-menu-container">
+      <div
+        className="underbar-menu-container"
+        onClick={() => {
+          navigate('/mydonation');
+        }}
+      >
         {/* 기부내역 */}
         <i class="fas fa-hand-holding-usd" />
       </div>
@@ -54,7 +59,7 @@ function UnderbarLogin({
       </div>
       <div className="underbar-menu-container">
         {/* 사장님 페이지 */}
-        <i className="fas fa-cash-register" />
+        <i className="fas fa-cash-register" onClick={() => navigate('/management')} />
       </div>
       <div className="underbar-menu-container">
         {/* 지도보기 */}

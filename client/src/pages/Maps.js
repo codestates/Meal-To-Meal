@@ -7,11 +7,32 @@ import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from 'reac
 import axios from 'axios';
 import '../styles/pages/Maps.css';
 
+// 마커 이미지
+import 분식 from '../img/marker/분식.png';
+import 빵 from '../img/marker/빵.png';
+import 야식 from '../img/marker/야식.png';
+import 양식 from '../img/marker/양식.png';
+import 일식 from '../img/marker/일식.png';
+import 중식 from '../img/marker/중식.png';
+import 패스트푸드 from '../img/marker/패스트푸드.png';
+import 한식 from '../img/marker/한식.png';
+
 const Map = () => {
   const navigate = useNavigate();
-
+  const [icon, setIcon] = useState('');
   const [storeList, setStoreList] = useState([]);
   const [selected, setSelected] = useState(null);
+
+  const getImage = e => {
+    if (e === '분식') return 분식;
+    if (e === '빵') return 빵;
+    if (e === '야식') return 야식;
+    if (e === '양식') return 양식;
+    if (e === '일식') return 일식;
+    if (e === '중식') return 중식;
+    if (e === '패스트푸드') return 패스트푸드;
+    if (e === '한식') return 한식;
+  };
 
   const storeListHandler = () => {
     axios
@@ -44,6 +65,7 @@ const Map = () => {
             lat: Number(el.store_lat),
             lng: Number(el.store_lng),
           }}
+          icon={{ url: getImage(el.store_category) }}
           onClick={() => {
             setSelected(el);
             localStorage.setItem('clickedMarker', el.id);

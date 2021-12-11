@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/pages/Landing.css';
+import landing1 from '../img/landing/landing1.mp4';
+import LandingReviewDummydata from '../static/landing_review_dummydata';
 
 function Landing() {
   const navigate = useNavigate();
@@ -21,10 +23,11 @@ function Landing() {
         <img className="landing-img" src={require('../img/Deconstructed food-bro.png').default} alt="" />
         <img className="landing-img-02" src={require('../img/Hamburger-bro.png').default} alt="" />
         <img className="landing-img-03" src={require('../img/Refund-bro.png').default} alt="" />
-
         {/* 튜토리얼 */}
         <div className="landing-tutorial-container">
-          <div className="landing-tutorial-gif" />
+          <video className="landing-tutorial-gif" autoPlay loop muted>
+            <source src={landing1} type="video/mp4" />
+          </video>
           <div className="landing-tutorial-catchphrase-container">
             <div className="landing-tutorial-catchphrase">지도에서 음식점을 확인하세요</div>
             <div className="landing-tutorial-catchphrase-sub">
@@ -69,9 +72,15 @@ function Landing() {
             </div>
           </div>
         </div>
-
         {/* 리뷰 */}
         <div className="landing-review-container">
+          {/* {LandingReviewDummydata.map(el => {
+            <div className="landing-review-post-container">
+              <div className="landing-review-post-title">{el.menu_name}</div>
+              <img className="landing-review-post-img" src={el.review_image} alt="" />
+              <div className="landing-review-post-contents">{el.review_content}</div>
+            </div>;
+          })} */}
           <div className="landing-review-post-container">
             <div className="landing-review-post-title">티라노 립아이</div>
             <div className="landing-review-post-img"></div>

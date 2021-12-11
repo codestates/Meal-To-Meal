@@ -18,7 +18,9 @@ import ShareCart from '../src/pages/ShareCart';
 import UserMeal from '../src/pages/UserMeal';
 import Withdrawal from '../src/pages/Withdrawal';
 import Mypage from '../src/pages/Mypage';
+import Management from './pages/Management';
 import ReviewUploadModal from './components/OrderCart/ReviewUploadModal';
+import MyDonation from './pages/MyDonation';
 
 // 카테고리 이미지
 import 분식 from './img/category/분식.png';
@@ -44,7 +46,6 @@ function App() {
   const [isOpenLoginModal, setIsOpenLoginModal] = useState(false);
   const [isOpenSignupModal, setIsOpenSignupModal] = useState(false);
   const [cartItems, setCartItems] = useState([]);
-  const [categoryIcon, setCategoryIcon] = useState('');
   const navigate = useNavigate();
 
   const getImage = e => {
@@ -200,6 +201,7 @@ function App() {
             />
           }
         />
+        <Route path="/management" element={<Management />} />
         <Route path="/maps" element={<Maps navigate={navigate} />} />
         <Route
           path="/store/:storeid"
@@ -230,6 +232,7 @@ function App() {
           }
         />
         <Route path="/usermeal" element={<UserMeal navigate={navigate} getImage={getImage} />} />
+        <Route path="/mydonation" element={<MyDonation />} />
       </Routes>
       {isLogin ? (
         <UnderbarLogin
