@@ -285,7 +285,7 @@ function Mypage({
           </button>
           <form onSubmit={e => e.preventDefault()}>
             <input
-              onChange={e => setSignupInfo({ ...signupInfo, phone_number: e.target.value })}
+              onBlur={e => setSignupInfo({ ...signupInfo, phone_number: e.target.value })}
               placeholder="'-'를 제외한 휴대폰 번호를 입력하세요."
             ></input>
             <button onClick={() => PhoneVerification(signupInfo.phone_number)}>휴대폰 인증</button>

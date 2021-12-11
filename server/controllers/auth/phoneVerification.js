@@ -22,7 +22,7 @@ module.exports = async (req, res) => {
       })
       .catche(err => err.message);
     console.log(userInfo);
-    //db에 휴대폰 번호를 저장해야 할까?
+    //db에 휴대폰 번호를 저장하는 로직 추가, 먹기 눌렀을 때 phone_verified 여부 검증 로직 추가
     if (userInfo.phone_verified) {
       return res.status(403).json({ message: '이미 가입된 사용자입니다' });
     } else {
