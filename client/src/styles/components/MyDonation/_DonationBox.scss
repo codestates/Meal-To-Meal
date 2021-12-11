@@ -3,6 +3,7 @@
   font-size: 14px;
   padding: 0 5px 0 5px;
   margin-bottom: 20px;
+  word-break: keep-all;
 }
 
 .donationbox-title-container {
@@ -19,7 +20,7 @@
 }
 
 .donationbox-store-name {
-  margin-right: 180px;
+  margin-right: 100px;
 }
 
 .donationbox-createdat-icon {
@@ -53,7 +54,7 @@
 .donationbox-food-image {
   width: 150px;
   margin-left: 10px;
-  margin-right: 50px;
+  margin-right: 20px;
 }
 
 .donationbox-food-info-container {
