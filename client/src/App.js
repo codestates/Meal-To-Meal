@@ -18,6 +18,7 @@ import ShareCart from '../src/pages/ShareCart';
 import UserMeal from '../src/pages/UserMeal';
 import Withdrawal from '../src/pages/Withdrawal';
 import Mypage from '../src/pages/Mypage';
+import Management from './pages/Management';
 import ReviewUploadModal from './components/OrderCart/ReviewUploadModal';
 const dotenv = require('dotenv');
 dotenv.config();
@@ -179,6 +180,7 @@ function App() {
             />
           }
         />
+        <Route path="/management" element={<Management />} />
         <Route path="/maps" element={<Maps navigate={navigate} />} />
         <Route
           path="/store/:storeid"

@@ -1,0 +1,62 @@
+@import '../mixin/mixin';
+
+.management-container {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+
+.management-store-info-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.management-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.management-store-title-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.management-store-category-icon {
+  height: 25px;
+}
+
+.management-store-title {
+  font-size: 20px;
+  font-weight: bolder;
+  margin-right: 5px;
+}
+
+.management-store-img {
+  height: 220px;
+  max-width: 230px;
+  margin: 10px auto 15px auto;
+  border-radius: 15px;
+  box-shadow: gray 4px 4px 4px 4px;
+}
+
+.management-store-detail-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.management-detail-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.management-detail-icon {
+  height: 25px;
+  margin-right: 5px;
+}
+
+.management-store-menu-title {
+}
