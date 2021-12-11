@@ -64,9 +64,13 @@ module.exports = {
           ],
           where: { user_id: userInfo.id },
         });
-        const matchedUser = await user.findOne({ where: { id: userMeal.user_id } });
-        delete matchedUser.dataValues.user_password;
-        res.status(200).json({ userMeal, matchedUser });
+        if (!userMeal) {
+          res.status(404).json({ message: '주문 내역이 없습니다' });
+        } else {
+          const matchedUser = await user.findOne({ where: { id: userMeal.user_id } });
+          delete matchedUser.dataValues.user_password;
+          res.status(200).json({ userMeal, matchedUser });
+        }
       } catch (err) {
         res.status(400).json({ message: err.message });
       }
