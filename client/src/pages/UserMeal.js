@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import ReviewUploadModal from '../components/OrderCart/ReviewUploadModal';
 import UserMealBox from '../components/OrderCart/UserMealBox';
+import EmptyOrderAni from '../components/OrderCart/EmptyOrderAni';
 import Loading from '../components/Loading';
-import EmptyOrderAni from '../components/StoreInfo/EmptyOrderAni';
 import '../styles/pages/UserMeal.css';
 
 function UserMeal({ navigate, getImage }) {
@@ -42,9 +42,6 @@ function UserMeal({ navigate, getImage }) {
       {orderedMeal.length === 0 || orderedMeal.length === undefined ? (
         <EmptyOrderAni navigate={navigate} />
       ) : (
-        // {isLoading ? (
-        //   <Loading />
-        //   ) : (
         <div className="usermeal-container">
           <div className="usermeal-order-food-info-container">
             <div className="usermeal-reservation-container">

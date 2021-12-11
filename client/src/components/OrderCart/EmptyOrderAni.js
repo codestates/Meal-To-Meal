@@ -1,8 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
-{
-  /* <Route path="/emptyhistory" element={<EmptyOrderHistory navigate={navigate} />} /> */
-}
 
 function EmptyOrderAni({ navigate }) {
   const emptyOrderAnimation = useRef();
@@ -15,6 +12,7 @@ function EmptyOrderAni({ navigate }) {
       animationData: require('../../img/no-order-history.json'),
     });
   }, []);
+
   return (
     <>
       <div className="empty-order-container">
