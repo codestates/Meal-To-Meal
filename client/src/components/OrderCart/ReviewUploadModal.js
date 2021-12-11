@@ -1,8 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import AWS from 'aws-sdk';
 import axios from 'axios';
 import S3FileUpload from 'react-s3';
-import { uploadFile } from 'react-s3';
 import Loading from '../Loading';
 
 function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setOrderedMeal }) {
