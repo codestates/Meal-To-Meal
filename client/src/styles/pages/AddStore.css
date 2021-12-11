@@ -1,0 +1,128 @@
+.AddStore-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 15px 15px 80px 15px;
+}
+
+.AddStore-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.AddStore-store-img {
+  -webkit-box-shadow: gray 3px 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px 3px;
+  width: 250px;
+  max-height: 130px;
+  border-radius: 15px;
+  margin: 0 auto 20px auto;
+}
+
+.AddStore-store-img-add-input {
+  font-size: 15px;
+  overflow: hidden;
+  padding: 8px;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  border: 2px solid;
+  border-radius: 5px;
+  width: 92%;
+  margin: 15px auto 15px auto;
+}
+
+.AddStore-store-text {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.AddStore-store-info-input {
+  font-size: 18px;
+  border: 2px solid;
+  border-radius: 5px;
+  -webkit-transition: 100ms ease all;
+  transition: 100ms ease all;
+  height: 30px;
+  width: 95%;
+  margin-bottom: 15px;
+  padding: 3px 0 3px 5px;
+}
+
+.AddStore-store-info-input:focus {
+  border: 2px solid #ffcc1d;
+  outline: none;
+  -webkit-box-shadow: gray 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px;
+}
+
+.AddStore-store-description-input {
+  font-size: 18px;
+  border: 2px solid;
+  border-radius: 5px;
+  -webkit-transition: 100ms ease all;
+  transition: 100ms ease all;
+  height: 50px;
+  width: 95%;
+  margin-bottom: 15px;
+  padding: 3px 0 3px 5px;
+  text-align: start;
+  resize: none;
+}
+
+.AddStore-store-description-input:focus {
+  border: 2px solid #ffcc1d;
+  outline: none;
+  -webkit-box-shadow: gray 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px;
+}
+
+.AddStore-address-button {
+  width: 98%;
+  margin: 10px auto 10px auto;
+  background-color: whitesmoke;
+  -webkit-transition: 120ms ease all;
+  transition: 120ms ease all;
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
+}
+
+.AddStore-address-button:hover {
+  -webkit-box-shadow: gray 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px;
+}
+
+.AddStore-address-button:before, .AddStore-address-button:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.AddStore-address-button:hover:before, .AddStore-address-button:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.AddStore-address-button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+@media (min-width: 1024px) {
+  .AddStore-container {
+    margin-top: 80px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+/*# sourceMappingURL=AddStore.css.map */

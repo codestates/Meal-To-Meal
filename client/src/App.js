@@ -19,6 +19,7 @@ import UserMeal from '../src/pages/UserMeal';
 import Withdrawal from '../src/pages/Withdrawal';
 import Mypage from '../src/pages/Mypage';
 import Management from './pages/Management';
+import AddStore from './pages/AddStore';
 import ReviewUploadModal from './components/OrderCart/ReviewUploadModal';
 import MyDonation from './pages/MyDonation';
 
@@ -36,6 +37,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 axios.defaults.withCredentials = true;
+
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [kakaoLogin, setKakaoLogin] = useState(false);
@@ -201,7 +203,8 @@ function App() {
             />
           }
         />
-        <Route path="/management" element={<Management />} />
+        <Route path="/management" element={<Management navigate={navigate} />} />
+        <Route path="/addstore" element={<AddStore navigate={navigate} />} />
         <Route path="/maps" element={<Maps navigate={navigate} />} />
         <Route
           path="/store/:storeid"
