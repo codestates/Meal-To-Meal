@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import S3FileUpload from 'react-s3';
 import Loading from '../Loading';
@@ -45,15 +45,14 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
 
   const reviewSubmitHandler = e => {
     e.preventDefault();
-    console.log('-------------------', orderedMeal[0]);
     getDetailUserMealHandler();
 
     axios
       .post(
         `${process.env.REACT_APP_API_URL}/review`,
         {
-          store_id: orderedMeal[0].menu.store.store_id,
-          menu_id: orderedMeal[0].menu.menu_id,
+          store_id: orderedMeal[0].menu.store_id,
+          menu_id: orderedMeal[0].menu_id,
           review_image: url,
           review_content: reviewText,
         },
