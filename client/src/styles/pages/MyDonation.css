@@ -1,0 +1,229 @@
+.donationbox-container {
+  border-bottom: 2px solid grey;
+  font-size: 14px;
+  padding: 0 5px 0 5px;
+  margin-bottom: 20px;
+}
+
+.donationbox-title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 5px;
+}
+
+.donationbox-category-icon {
+  width: 15px;
+  margin-right: 5px;
+}
+
+.donationbox-store-name {
+  margin-right: 180px;
+}
+
+.donationbox-createdat-icon {
+  width: 15px;
+  margin-right: 5px;
+}
+
+.donationbox-address-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.donationbox-address-icon {
+  width: 13px;
+  margin-right: 5px;
+}
+
+.donationbox-content-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.donationbox-food-image {
+  width: 150px;
+  margin-left: 10px;
+  margin-right: 50px;
+}
+
+.donationbox-food-info-container {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.donationbox-food-name {
+  margin-bottom: 3px;
+}
+
+.donationbox-food-price {
+  margin-bottom: 3px;
+}
+
+.donationbox-dish-count-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.donationbox-dish-icon {
+  width: 15px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .donationbox-container {
+    font-size: 20px;
+  }
+  .donationbox-title-container {
+    margin-bottom: 8px;
+  }
+  .donationbox-store-name {
+    margin-right: 500px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .donationbox-container {
+    font-size: 22px;
+    padding: 5px;
+  }
+  .donationbox-title-container {
+    margin-bottom: 10px;
+  }
+}
+
+.mydonation-container {
+  padding: 10px;
+  font-size: 14px;
+  min-height: 81vh;
+}
+
+.mydonation-ranking-title {
+  margin-bottom: 10px;
+}
+
+.mydonation-ranking-container {
+  border: 3px solid #ffcc1d;
+  border-radius: 5px;
+  height: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+}
+
+.mydonation-money-ranking {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.mydonation-money-image {
+  width: 150px;
+}
+
+.mydonation-history-title {
+  margin-top: 20px;
+}
+
+.mydonation-history-container {
+  margin-top: 10px;
+  height: 80%;
+  border: 3px solid #ffcc1d;
+  border-radius: 5px;
+  padding: 5px;
+  overflow: auto;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .mydonation-container {
+    margin-top: 60px;
+    font-size: 28px;
+  }
+  .mydonation-ranking-text-container {
+    margin-left: 10px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mydonation-container {
+    margin-top: 70px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    font-size: 23px;
+    word-break: keep-all;
+    height: 65vh;
+  }
+  .mydonation-left-container {
+    width: 50%;
+  }
+  .mydonation-ranking-container {
+    margin-right: 50px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .mydonation-ranking-text-container {
+    margin-top: 70px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .mydonation-money-ranking {
+    margin-top: 30px;
+    margin-bottom: 77px;
+    font-size: 28px;
+  }
+  .mydonation-money-image {
+    width: 300px;
+  }
+  .mydonation-right-container {
+    width: 50%;
+    overflow: auto;
+  }
+  .mydonation-history-title {
+    margin-top: 0;
+  }
+  .mydonation-history-container {
+    padding: 5px 8px 5px 8px;
+  }
+}
+/*# sourceMappingURL=MyDonation.css.map */

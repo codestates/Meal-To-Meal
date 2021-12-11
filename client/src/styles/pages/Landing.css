@@ -88,7 +88,7 @@
   margin: 10px;
   width: 48%;
   height: 90%;
-  border: solid 1px;
+  border: 3px solid #ffcc1d;
 }
 
 .landing-tutorial-catchphrase-container {
@@ -121,6 +121,9 @@
   width: 96%;
   height: 300px;
   border: solid 1px green;
+  overflow: auto;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
 }
 
 .landing-review-post-container {
@@ -137,7 +140,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 400px;
+  width: 300px;
   margin: 10px;
   border: orange 1px solid;
 }
