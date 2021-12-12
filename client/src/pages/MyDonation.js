@@ -9,7 +9,7 @@ function MyDonation() {
         <div className="mydonation-ranking-title">기부현황</div>
         <div className="mydonation-ranking-container">
           <div className="mydonation-ranking-text-container">
-            <div className="mydonation-money-total">기부악마'님은 총 ₩ 3,000,234,100원 기부하셨습니다!</div>
+            <div className="mydonation-money-total">기부악마'님은 총 ₩3,000,234,100원 기부하셨습니다!</div>
             <div className="mydonation-money-ranking">현재 기부 순위 1등입니다!</div>
           </div>
           <img className="mydonation-money-image" src={require('../img/piggybank.png').default} alt="" />
