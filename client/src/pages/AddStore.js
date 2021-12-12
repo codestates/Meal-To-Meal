@@ -66,7 +66,9 @@ function AddStore({ navigate }) {
           </button>
           {isOpenSearchAddress ? (
             <div className="daum-postcode-backdrop">
-              <DaumPostcode autoClose onComplete={onCompletePost} />
+              <div className="daum-postcode-window">
+                <DaumPostcode autoClose onComplete={onCompletePost} />
+              </div>
               <button className="daum-postcode-close" onClick={searchAddressHandler}>
                 닫기
               </button>

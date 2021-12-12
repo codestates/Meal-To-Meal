@@ -283,6 +283,10 @@
     font-size: 20px;
     height: 35px;
   }
+
+  .daum-postcode-window {
+    width: 50%;
+  }
 }
 
 @include desktop {
@@ -295,6 +299,7 @@
 
   .AddStore-store-title-container {
     width: 50%;
+    margin-right: 15px;
   }
 
   .AddStore-title {
@@ -302,7 +307,7 @@
   }
 
   .AddStore-store-img {
-    width: 600px;
+    width: 70%;
     max-height: 400px;
   }
 
@@ -342,5 +347,9 @@
   .AddStore-button {
     font-size: 22px;
     height: 35px;
+  }
+
+  .daum-postcode-window {
+    width: 50%;
   }
 }

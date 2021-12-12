@@ -9,7 +9,11 @@
       -ms-flex-align: center;
           align-items: center;
   border: 2px solid;
-  width: 100%;
+}
+
+.AddMenu-add-img-container {
+  width: 80%;
+  margin-right: 15px;
 }
 
 .AddMenu-img {
@@ -34,6 +38,18 @@
   margin-bottom: 3px;
 }
 
+.AddMenu-menu-img-input {
+  font-size: 15px;
+  overflow: hidden;
+  padding: 3px;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  border: 2px solid;
+  border-radius: 5px;
+  width: 70%;
+  margin: 5px auto 10px 10px;
+}
+
 .AddMenu-menu-input {
   margin-bottom: 15px;
   width: 70%;
@@ -49,22 +65,35 @@
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
+  .AddMenu-add-img-container {
+    width: 50%;
+  }
   .AddMenu-img {
     height: 190px;
   }
   .AddMenu-menu-info-title {
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
   }
   .AddMenu-menu-input {
-    height: 25px;
-    width: 220px;
+    height: 30px;
+    width: 200%;
   }
 }
 
 @media (min-width: 1024px) {
+  .AddMenu-container {
+    width: 100%;
+  }
+  .AddMenu-add-img-container {
+    width: 50%;
+  }
   .AddMenu-img {
     height: 290px;
+    max-width: 100%;
+  }
+  .AddMenu-menu-info-container {
+    width: 50%;
   }
   .AddMenu-menu-info-title {
     font-size: 25px;
@@ -72,7 +101,7 @@
   }
   .AddMenu-menu-input {
     height: 30px;
-    width: 250px;
+    width: 80%;
   }
 }
 
@@ -393,6 +422,9 @@
     font-size: 20px;
     height: 35px;
   }
+  .daum-postcode-window {
+    width: 50%;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -411,12 +443,13 @@
   }
   .AddStore-store-title-container {
     width: 50%;
+    margin-right: 15px;
   }
   .AddStore-title {
     font-size: 30px;
   }
   .AddStore-store-img {
-    width: 600px;
+    width: 70%;
     max-height: 400px;
   }
   .AddStore-store-img-add-input {
@@ -448,6 +481,9 @@
   .AddStore-button {
     font-size: 22px;
     height: 35px;
+  }
+  .daum-postcode-window {
+    width: 50%;
   }
 }
 /*# sourceMappingURL=AddStore.css.map */
