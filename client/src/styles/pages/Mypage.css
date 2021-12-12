@@ -6,7 +6,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 1px solid;
+  border-bottom: 1px solid grey;
   margin: 10px;
 }
 
@@ -188,6 +188,44 @@
   }
 }
 
+.empty-review-content-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.empty-review-animation {
+  width: 300px;
+  margin-bottom: 15px;
+}
+
+.empty-review-text {
+  margin-bottom: 10px;
+}
+
+.empty-back-button {
+  width: 150px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .empty-back-button {
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .empty-back-button {
+    margin-bottom: 30px;
+  }
+}
+
 .mypage-container {
   margin: 15px;
   margin-bottom: 23px;
@@ -292,6 +330,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   border: 3px solid #ffcc1d;
+  padding: 15px;
 }
 
 .mypage-withdrawal-button {

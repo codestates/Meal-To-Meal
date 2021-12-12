@@ -15,7 +15,7 @@ function Mypage({
 }) {
   const [isOpenFixNicknameToggle, setIsOpenFixNicknameToggle] = useState(false);
   const [isOpenFixPasswordToggle, setIsOpenFixPasswordToggle] = useState(false);
-
+  const [isKakaoLogin, setIsKakaoLogin] = useState('');
   const openFixNicknameToggleHandler = () => {
     setIsOpenFixNicknameToggle(!isOpenFixNicknameToggle);
   };
@@ -73,6 +73,8 @@ function Mypage({
         })
         .then(res => {
           setUserInfo(res.data.userInfo);
+          setIsKakaoLogin(res.data.userInfo.signup_method);
+          console.log(res.data);
         })
         .catch(err => {
           console.log(err);
@@ -252,7 +254,7 @@ function Mypage({
             </form>
           ) : null}
           <div className="mypage-myinfo-email">{userInfo.user_email}</div>
-          {kakaoLogin ? (
+          {isKakaoLogin === 'kakao' ? (
             <span className="mypage-fix-myinfo-not-toggle-button" disabled={true}>
               카카오 계정으로 로그인 하신 계정은 비밀번호 수정을 하실 수 없습니다
             </span>
@@ -310,7 +312,7 @@ function Mypage({
         </div>
         <div className="mypage-title">최근 리뷰 내역</div>
         <div className="mypage-review-container">
-          <Review />
+          <Review navigate={navigate} />
         </div>
       </div>
     </>
