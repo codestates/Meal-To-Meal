@@ -20,7 +20,6 @@ import Withdrawal from '../src/pages/Withdrawal';
 import Mypage from '../src/pages/Mypage';
 import Management from './pages/Management';
 import AddStore from './pages/AddStore';
-import ReviewUploadModal from './components/OrderCart/ReviewUploadModal';
 import MyDonation from './pages/MyDonation';
 
 // 카테고리 이미지
@@ -188,7 +187,6 @@ function App() {
             />
           }
         />
-        <Route path="/reviewmodal" element={<ReviewUploadModal />} />
         <Route
           path="/mypage"
           element={

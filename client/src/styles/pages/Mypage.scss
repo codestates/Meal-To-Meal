@@ -1,6 +1,7 @@
 @import '../mixin/mixin';
 @import '../components/Mypage/Review';
 @import '../components/Mypage/EmptyReviewAni';
+@import '../components/Mypage/PhoneVerificationModal';
 
 .mypage-container {
   margin: 15px;
@@ -78,6 +79,22 @@
 
 .mypage-myinfo-email {
   margin: 15px 0 10px 0;
+}
+
+.mypage-phone-verification-success-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.mypage-phone-verification-check {
+  width: 15px;
+  margin-left: 5px;
+}
+
+.mypage-phone-verification-button {
+  margin-bottom: 10px;
+  cursor: pointer;
+  color: grey;
 }
 
 .mypage-review-container {

@@ -1,19 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import PhoneVerificationModal from '../components/Mypage/PhoneVerificationModal';
 import '../styles/pages/Mypage.css';
 
 import Review from '../components/Mypage/Review';
 
 function Mypage({ navigate, setAlertMessage, openAlertHandler, openWarningAlertHandler, alertMessage, getImage }) {
+  const accessToken = localStorage.getItem('accessToken');
+
   const [isOpenFixNicknameToggle, setIsOpenFixNicknameToggle] = useState(false);
   const [isOpenFixPasswordToggle, setIsOpenFixPasswordToggle] = useState(false);
+  const [isOpenPhoneModal, setIsOpenPhoneModal] = useState(false);
   const [isKakaoLogin, setIsKakaoLogin] = useState('');
+  const [isNumberAlert, setIsNumberAlert] = useState(false);
+  const [isVerification, setIsVerification] = useState(false);
+
   const openFixNicknameToggleHandler = () => {
     setIsOpenFixNicknameToggle(!isOpenFixNicknameToggle);
   };
 
   const openFixPasswordToggleHandler = () => {
     setIsOpenFixPasswordToggle(!isOpenFixPasswordToggle);
+  };
+
+  const openNumberAlertHandler = e => {
+    setIsNumberAlert(!isNumberAlert);
+    phoneVerification(e);
+  };
+
+  const openPhoneModalHandler = () => {
+    setIsOpenPhoneModal(!isOpenPhoneModal);
   };
 
   const [userInfo, setUserInfo] = useState({});
@@ -33,48 +49,8 @@ function Mypage({ navigate, setAlertMessage, openAlertHandler, openWarningAlertH
     verifyPassword: false,
   });
 
-  const accessToken = localStorage.getItem('accessToken');
-
-  const phoneVerification = user_phone_number => {
-    axios
-      .post(
-        `${process.env.REACT_APP_API_URL}/auth/phone-verification`,
-        {
-          user_phone_number,
-        },
-        {
-          headers: { authorization: `Bearer ${accessToken}` },
-          withCredentials: true,
-        }
-      )
-      .then(res => {
-        console.log(res.data);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
-  const phoneVerificationComplete = (verification_code, user_phone_number) => {
-    axios
-      .post(
-        `${process.env.REACT_APP_API_URL}/auth/phone-verification/complete`,
-        {
-          verification_code,
-          user_phone_number,
-        },
-        {
-          headers: { authorization: `Bearer ${accessToken}` },
-          withCredentials: true,
-        }
-      )
-      .then(res => {
-        console.log(res.data);
-      })
-      .catch(err => {
-        console.log(err.message);
-      });
-  };
+  const isValidForNickname = validation.nickname && validation.checkNickname;
+  const isValidForPassword = validation.password && validation.verifyPassword;
 
   const userInfoHandler = () => {
     if (!accessToken) {
@@ -196,8 +172,49 @@ function Mypage({ navigate, setAlertMessage, openAlertHandler, openWarningAlertH
     setSignupInfo({ ...signupInfo, [key]: e.target.value });
   };
 
-  const isValidForNickname = validation.nickname && validation.checkNickname;
-  const isValidForPassword = validation.password && validation.verifyPassword;
+  const phoneVerification = user_phone_number => {
+    axios
+      .post(
+        `${process.env.REACT_APP_API_URL}/auth/phone-verification`,
+        {
+          user_phone_number,
+        },
+        {
+          headers: { authorization: `Bearer ${accessToken}` },
+          withCredentials: true,
+        }
+      )
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  const phoneVerificationComplete = (verification_code, user_phone_number) => {
+    axios
+      .post(
+        `${process.env.REACT_APP_API_URL}/auth/phone-verification/complete`,
+        {
+          verification_code,
+          user_phone_number,
+        },
+        {
+          headers: { authorization: `Bearer ${accessToken}` },
+          withCredentials: true,
+        }
+      )
+      .then(res => {
+        console.log(res.data);
+        setIsNumberAlert(false);
+        setIsOpenPhoneModal(false);
+        setIsVerification(true);
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
+  };
 
   useEffect(() => {
     setMessage({
@@ -312,30 +329,36 @@ function Mypage({ navigate, setAlertMessage, openAlertHandler, openWarningAlertH
               </div>
             </form>
           ) : null}
+          {isVerification ? (
+            <div className="mypage-phone-verification-success-container">
+              <div className="mypage-phone-verification-button">휴대폰 인증</div>
+              <img className="mypage-phone-verification-check" src={require('../img/check.png').default} alt="" />
+            </div>
+          ) : (
+            <div className="mypage-phone-verification-button" onClick={openPhoneModalHandler}>
+              휴대폰 인증 미완료
+            </div>
+          )}
+
           <button className="mypage-withdrawal-button" onClick={() => navigate('/withdrawal')}>
             회원탈퇴
           </button>
-          <form onSubmit={e => e.preventDefault()}>
-            <input
-              onChange={e => setSignupInfo({ ...signupInfo, user_phone_number: e.target.value })}
-              placeholder="'-'를 제외한 휴대폰 번호를 입력하세요."
-            ></input>
-            <button onClick={() => phoneVerification(signupInfo.user_phone_number)}>인증 번호 발송</button>
-            <input
-              onChange={e => setSignupInfo({ ...signupInfo, verification_code: e.target.value })}
-              placeholder="인증번호 6자리를 입력해주세요"
-            ></input>
-            <button
-              onClick={() => phoneVerificationComplete(signupInfo.verification_code, signupInfo.user_phone_number)}
-            >
-              확인
-            </button>
-          </form>
         </div>
         <div className="mypage-title">최근 리뷰 내역</div>
         <div className="mypage-review-container">
           <Review navigate={navigate} setAlertMessage={setAlertMessage} openAlertHandler={openAlertHandler} />
         </div>
+        {isOpenPhoneModal ? (
+          <PhoneVerificationModal
+            signupInfo={signupInfo}
+            setSignupInfo={setSignupInfo}
+            isNumberAlert={isNumberAlert}
+            setIsNumberAlert={setIsNumberAlert}
+            openPhoneModalHandler={openPhoneModalHandler}
+            openNumberAlertHandler={openNumberAlertHandler}
+            phoneVerificationComplete={phoneVerificationComplete}
+          />
+        ) : null}
       </div>
     </>
   );

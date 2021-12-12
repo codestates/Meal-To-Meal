@@ -1,0 +1,72 @@
+.phone-modal-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+}
+
+.phone-modal-backdrop {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: grid;
+  place-items: center;
+}
+
+.phone-modal-window {
+  font-size: 17px;
+  width: 250px;
+  height: 250px;
+  border: 3px solid #ffcc1d;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+}
+
+.phone-modal-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.phone-modal-text {
+  font-weight: bold;
+}
+
+.phone-modal-close {
+  width: 15px;
+  cursor: pointer;
+}
+
+.phone-modal-content-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-modal-number-submit {
+  width: 150px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.phone-modal-number-alert-text {
+  color: red;
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+.phone-modal-verification-submit {
+  width: 150px;
+  margin-top: 10px;
+}
+
+@include tablet {
+}
+
+@include desktop {
+}
