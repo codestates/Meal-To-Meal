@@ -14,14 +14,14 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   margin-bottom: 5px;
 }
 
 .donationbox-category-icon {
-  width: 15px;
+  width: 30px;
   margin-right: 5px;
 }
 
@@ -47,6 +47,10 @@
 .donationbox-address-icon {
   width: 13px;
   margin-right: 5px;
+}
+
+.donationbox-address-text {
+  padding-top: 5px;
 }
 
 .donationbox-content-container {
@@ -83,35 +87,15 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .donationbox-dish-icon {
-  width: 15px;
-}
-
-@media (min-width: 758px) and (max-width: 1023px) {
-  .donationbox-container {
-    font-size: 20px;
-  }
-  .donationbox-title-container {
-    margin-bottom: 8px;
-  }
-  .donationbox-store-name {
-    margin-right: 500px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .donationbox-container {
-    font-size: 22px;
-    padding: 5px;
-  }
-  .donationbox-title-container {
-    margin-bottom: 10px;
-  }
+  width: 20px;
+  padding-bottom: 4px;
+  margin-right: 5px;
 }
 
 .mydonation-container {

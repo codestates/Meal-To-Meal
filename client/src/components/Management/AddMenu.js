@@ -1,7 +1,17 @@
 import React from 'react';
 
 function AddMenu() {
-  return <div>야호</div>;
+  return (
+    <div className="AddMenu-container">
+      <img className="AddMenu-img" src={require('../../img/dummy/menu_dummy/만두전골.jpg').default} alt="" />
+      <div className="AddMenu-menu-info-container">
+        <div className="AddMenu-menu-info-title">메뉴 이름</div>
+        <input className="AddMenu-menu-input" />
+        <div className="AddMenu-menu-info-title">메뉴 가격</div>
+        <input className="AddMenu-menu-input" />
+      </div>
+    </div>
+  );
 }
 
 export default AddMenu;

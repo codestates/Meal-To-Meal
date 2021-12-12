@@ -1,3 +1,81 @@
+.AddMenu-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid;
+  width: 100%;
+}
+
+.AddMenu-img {
+  -webkit-box-shadow: gray 2px 2px 2px;
+          box-shadow: gray 2px 2px 2px;
+  border-radius: 15px;
+  height: 120px;
+  margin: 10px 15px 10px 10px;
+}
+
+.AddMenu-menu-info-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.AddMenu-menu-info-title {
+  margin-bottom: 3px;
+}
+
+.AddMenu-menu-input {
+  margin-bottom: 15px;
+  width: 70%;
+  -webkit-transition: 120ms ease all;
+  transition: 120ms ease all;
+}
+
+.AddMenu-menu-input:focus {
+  border: 2px solid #ffcc1d;
+  outline: none;
+  -webkit-box-shadow: gray 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .AddMenu-img {
+    height: 190px;
+  }
+  .AddMenu-menu-info-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .AddMenu-menu-input {
+    height: 25px;
+    width: 220px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .AddMenu-img {
+    height: 290px;
+  }
+  .AddMenu-menu-info-title {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+  .AddMenu-menu-input {
+    height: 30px;
+    width: 250px;
+  }
+}
+
 .AddStore-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7,6 +85,19 @@
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 15px 15px 80px 15px;
+}
+
+.AddStore-store-title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .AddStore-title {
@@ -21,6 +112,7 @@
   max-height: 130px;
   border-radius: 15px;
   margin: 0 auto 20px auto;
+  display: block;
 }
 
 .AddStore-store-img-add-input {
@@ -31,13 +123,23 @@
   cursor: pointer;
   border: 2px solid;
   border-radius: 5px;
-  width: 92%;
-  margin: 15px auto 15px auto;
+  width: 80%;
+  margin: 15px auto 25px auto;
 }
 
 .AddStore-store-text {
   font-size: 20px;
   margin-bottom: 5px;
+}
+
+.AddStore-store-address {
+  font-size: 18px;
+  border: 2px solid;
+  border-radius: 5px;
+  width: 70%;
+  margin-bottom: 15px;
+  padding: 5px 0 5px 10px;
+  opacity: 50%;
 }
 
 .AddStore-store-info-input {
@@ -46,7 +148,7 @@
   border-radius: 5px;
   -webkit-transition: 100ms ease all;
   transition: 100ms ease all;
-  height: 30px;
+  min-height: 30px;
   width: 95%;
   margin-bottom: 15px;
   padding: 3px 0 3px 5px;
@@ -57,6 +159,20 @@
   outline: none;
   -webkit-box-shadow: gray 3px 3px 3px;
           box-shadow: gray 3px 3px 3px;
+}
+
+.AddStore-add-menu-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
 }
 
 .AddStore-store-description-input {
@@ -81,8 +197,8 @@
 }
 
 .AddStore-address-button {
-  width: 98%;
-  margin: 10px auto 10px auto;
+  width: 80%;
+  margin: 10px auto 15px auto;
   background-color: whitesmoke;
   -webkit-transition: 120ms ease all;
   transition: 120ms ease all;
@@ -114,15 +230,224 @@
           box-shadow: none;
 }
 
+.AddStore-add-menu-button {
+  display: block;
+  margin: 15px auto 10px auto;
+  width: 70%;
+  -webkit-transition: 120ms ease all;
+  transition: 120ms ease all;
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
+}
+
+.AddStore-add-menu-button:hover {
+  -webkit-box-shadow: gray 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px;
+}
+
+.AddStore-add-menu-button:before, .AddStore-add-menu-button:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.AddStore-add-menu-button:hover:before, .AddStore-add-menu-button:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.AddStore-add-menu-button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.AddStore-add-menu-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.AddStore-button {
+  margin: 10px;
+  -webkit-transition: 120ms ease all;
+  transition: 120ms ease all;
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
+}
+
+.AddStore-button:hover {
+  -webkit-box-shadow: gray 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px;
+}
+
+.AddStore-button:before, .AddStore-button:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.AddStore-button:hover:before, .AddStore-button:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.AddStore-button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.daum-postcode-backdrop {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.daum-postcode-close {
+  -webkit-transition: 120ms ease all;
+  transition: 120ms ease all;
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
+  width: 120px;
+}
+
+.daum-postcode-close:hover {
+  -webkit-box-shadow: gray 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px;
+}
+
+.daum-postcode-close:before, .daum-postcode-close:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.daum-postcode-close:hover:before, .daum-postcode-close:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.daum-postcode-close:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .AddStore-container {
+    margin-top: 80px;
+  }
+  .AddStore-title {
+    font-size: 25px;
+  }
+  .AddStore-store-img {
+    width: 550px;
+    max-height: 330px;
+  }
+  .AddStore-store-img-add-input {
+    font-size: 20px;
+    padding: 10px;
+  }
+  .AddStore-store-text {
+    font-size: 25px;
+  }
+  .AddStore-store-address {
+    font-size: 20px;
+  }
+  .AddStore-store-info-input {
+    font-size: 22px;
+    height: 35px;
+  }
+  .AddStore-store-description-input {
+    font-size: 22px;
+    min-height: 100px;
+  }
+  .AddStore-address-button {
+    font-size: 20px;
+    height: 40px;
+  }
+  .AddStore-add-menu-button {
+    font-size: 20px;
+    height: 40px;
+  }
+  .AddStore-button {
+    font-size: 20px;
+    height: 35px;
+  }
+}
+
 @media (min-width: 1024px) {
   .AddStore-container {
     margin-top: 80px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .AddStore-store-title-container {
+    width: 50%;
+  }
+  .AddStore-title {
+    font-size: 30px;
+  }
+  .AddStore-store-img {
+    width: 600px;
+    max-height: 400px;
+  }
+  .AddStore-store-img-add-input {
+    font-size: 25px;
+    padding: 10px;
+  }
+  .AddStore-store-text {
+    font-size: 30px;
+  }
+  .AddStore-store-address {
+    font-size: 25px;
+  }
+  .AddStore-store-info-input {
+    font-size: 25px;
+    height: 38px;
+  }
+  .AddStore-store-description-input {
+    font-size: 25px;
+    min-height: 120px;
+  }
+  .AddStore-address-button {
+    font-size: 23px;
+    height: 40px;
+  }
+  .AddStore-add-menu-button {
+    font-size: 25px;
+    height: 40px;
+  }
+  .AddStore-button {
+    font-size: 22px;
+    height: 35px;
   }
 }
 /*# sourceMappingURL=AddStore.css.map */
