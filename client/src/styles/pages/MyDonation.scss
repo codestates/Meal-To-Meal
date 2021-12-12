@@ -4,18 +4,17 @@
 .mydonation-container {
   padding: 10px;
   font-size: 14px;
-  min-height: 81vh;
   word-break: keep-all;
 }
 
 .mydonation-ranking-title {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  font-size: 20px;
 }
 
 .mydonation-ranking-container {
   border: 3px solid #ffcc1d;
   border-radius: 5px;
-  height: 80%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,12 +31,12 @@
 }
 
 .mydonation-history-title {
-  margin-top: 20px;
+  margin-top: 15px;
+  font-size: 20px;
 }
 
 .mydonation-history-container {
-  margin-top: 10px;
-  height: 80%;
+  margin: 5px 0 70px 0;
   border: 3px solid #ffcc1d;
   border-radius: 5px;
   padding: 5px;
@@ -47,61 +46,85 @@
 @include tablet {
   .mydonation-container {
     margin-top: 60px;
-    font-size: 28px;
+    min-height: 82.5vh;
+  }
+
+  .mydonation-ranking-title {
+    font-size: 25px;
+  }
+
+  .mydonation-history-container {
+    margin-bottom: 10px;
+  }
+
+  .mydonation-history-title {
+    font-size: 25px;
   }
 
   .mydonation-ranking-text-container {
     margin-left: 10px;
-    font-size: 20px;
+    font-size: 25px;
   }
 }
 
 @include desktop {
   .mydonation-container {
-    margin-top: 70px;
     display: flex;
     justify-content: flex-start;
-    font-size: 23px;
-    word-break: keep-all;
-    height: 65vh;
+    margin-top: 60px;
+    min-height: 79.5vh;
   }
 
   .mydonation-left-container {
     width: 50%;
+    margin-right: 30px;
+  }
+
+  .mydonation-ranking-title {
+    font-size: 25px;
   }
 
   .mydonation-ranking-container {
-    margin-right: 50px;
-    flex-direction: column;
+    height: 710px;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
   }
 
   .mydonation-ranking-text-container {
-    margin-top: 70px;
-    justify-content: center;
+    margin-top: 200px;
+  }
+
+  .mydonation-money-total {
+    font-size: 30px;
+    margin-bottom: 40px;
   }
 
   .mydonation-money-ranking {
-    margin-top: 30px;
-    margin-bottom: 57px;
-    font-size: 28px;
+    font-size: 35px;
   }
 
   .mydonation-money-image {
-    width: 300px;
+    height: 400px;
+    width: 450px;
+    margin-left: 50%;
   }
 
   .mydonation-right-container {
     width: 50%;
-    overflow: auto;
-  }
-
-  .mydonation-history-title {
-    margin-top: 0;
+    margin-top: -15px;
   }
 
   .mydonation-history-container {
-    padding: 5px 8px 5px 8px;
+    margin-bottom: 10px;
+  }
+
+  .mydonation-history-title {
+    font-size: 25px;
+  }
+
+  .mydonation-ranking-text-container {
+    margin-left: 10px;
+    font-size: 25px;
   }
 }

@@ -88,7 +88,6 @@ function UserMeal({ navigate, getImage }) {
             />
           ) : null}
         </div>
-        // )}
       )}
     </>
   );
