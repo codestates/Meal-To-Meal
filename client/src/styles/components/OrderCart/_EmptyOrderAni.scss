@@ -1,0 +1,77 @@
+@import '../../mixin/mixin';
+
+.empty-order-container {
+  margin: 15px;
+}
+
+.empty-order-title {
+  font-size: 20px;
+}
+
+.empty-order-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-back-button {
+  box-shadow: gray 4px 4px 4px;
+  transition: 120ms ease all;
+  background-color: white;
+
+  &:hover {
+    box-shadow: gray 6px 6px 6px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+@include tablet {
+  .empty-order-container {
+    min-height: 87.4vh;
+  }
+
+  .empty-order-text {
+    font-size: 30px;
+  }
+
+  .empty-back-button {
+    width: 130px;
+    height: 35px;
+    font-size: 20px;
+    margin: 15px 0 0 0;
+  }
+}
+
+@include desktop {
+  .empty-order-container {
+    min-height: 84.7vh;
+  }
+
+  .empty-order-text {
+    font-size: 35px;
+  }
+
+  .empty-back-button {
+    width: 140px;
+    height: 40px;
+    font-size: 25px;
+    margin: 15px 0 0 0;
+  }
+}

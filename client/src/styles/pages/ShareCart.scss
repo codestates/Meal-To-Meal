@@ -6,6 +6,10 @@
   min-height: 72.8vh;
 }
 
+.animation-container {
+  max-height: 60%;
+}
+
 .sharecart-title {
   font-size: 20px;
   font-weight: bolder;
@@ -119,6 +123,10 @@
     height: 40px;
     font-size: 20px;
   }
+
+  .empty-sharecart-button {
+    display: none;
+  }
 }
 
 @include desktop {
@@ -153,5 +161,9 @@
     width: 130px;
     height: 40px;
     font-size: 23px;
+  }
+
+  .empty-sharecart-button {
+    display: none;
   }
 }
