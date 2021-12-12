@@ -30,7 +30,8 @@ function Mypage({
     user_nickname: '',
     user_password: '',
     verifyPassword: '',
-    phone_number: '',
+    user_phone_number: '',
+    verification_code: '',
   });
 
   const [validation, setValidation] = useState({
@@ -42,12 +43,12 @@ function Mypage({
 
   const accessToken = localStorage.getItem('accessToken');
 
-  const PhoneVerification = () => {
+  const phoneVerification = user_phone_number => {
     axios
       .post(
         `${process.env.REACT_APP_API_URL}/auth/phone-verification`,
         {
-          phone_number: signupInfo.phone_number,
+          user_phone_number,
         },
         {
           headers: { authorization: `Bearer ${accessToken}` },
@@ -59,6 +60,27 @@ function Mypage({
       })
       .catch(err => {
         console.log(err);
+      });
+  };
+
+  const phoneVerificationComplete = (verification_code, user_phone_number) => {
+    axios
+      .post(
+        `${process.env.REACT_APP_API_URL}/auth/phone-verification/complete`,
+        {
+          verification_code,
+          user_phone_number,
+        },
+        {
+          headers: { authorization: `Bearer ${accessToken}` },
+          withCredentials: true,
+        }
+      )
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err.message);
       });
   };
 
@@ -302,10 +324,19 @@ function Mypage({
           </button>
           <form onSubmit={e => e.preventDefault()}>
             <input
-              onChange={e => setSignupInfo({ ...signupInfo, phone_number: e.target.value })}
+              onChange={e => setSignupInfo({ ...signupInfo, user_phone_number: e.target.value })}
               placeholder="'-'를 제외한 휴대폰 번호를 입력하세요."
             ></input>
-            <button onClick={() => PhoneVerification(signupInfo.phone_number)}>휴대폰 인증</button>
+            <button onClick={() => phoneVerification(signupInfo.user_phone_number)}>인증 번호 발송</button>
+            <input
+              onChange={e => setSignupInfo({ ...signupInfo, verification_code: e.target.value })}
+              placeholder="인증번호 6자리를 입력해주세요"
+            ></input>
+            <button
+              onClick={() => phoneVerificationComplete(signupInfo.verification_code, signupInfo.user_phone_number)}
+            >
+              확인
+            </button>
           </form>
         </div>
         <div className="mypage-title">최근 리뷰 내역</div>
