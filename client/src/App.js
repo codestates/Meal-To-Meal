@@ -197,7 +197,7 @@ function App() {
               setAlertMessage={setAlertMessage}
               openAlertHandler={openAlertHandler}
               openWarningAlertHandler={openWarningAlertHandler}
-              alertMessage={alertMessage}
+              setAlertMessage={setAlertMessage}
               kakaoLogin={kakaoLogin}
               getImage={getImage}
             />
@@ -211,8 +211,10 @@ function App() {
           element={
             <StoreInfo
               navigate={navigate}
+              setAlertMessage={setAlertMessage}
               isLogin={isLogin}
               addToCart={addToCart}
+              openAlertHandler={openAlertHandler}
               openLoginModalHandler={openLoginModalHandler}
               openSignupModalHandler={openSignupModalHandler}
               detailStoreInfo={detailStoreInfo}

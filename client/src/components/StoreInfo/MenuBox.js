@@ -3,7 +3,15 @@ import axios from 'axios';
 import LoginAlert from '../StoreInfo/LoginAlert';
 import ClickOwnStoreAlert from '../Alert/ClickOwnStoreAlert';
 
-function MenuBox({ navigate, isLogin, addToCart, openLoginModalHandler, openSignupModalHandler }) {
+function MenuBox({
+  navigate,
+  setAlertMessage,
+  openAlertHandler,
+  isLogin,
+  addToCart,
+  openLoginModalHandler,
+  openSignupModalHandler,
+}) {
   const [isOpenLoginAlert, setIsOpenLoginAlert] = useState(false);
 
   const loginAlertOpenHandler = () => {
@@ -57,12 +65,14 @@ function MenuBox({ navigate, isLogin, addToCart, openLoginModalHandler, openSign
           { headers: { authorization: `Bearer ${accessToken}` }, withCredentials: true }
         )
         .then(res => {
-          alert('선택하신 음식이 예약되었습니다');
+          setAlertMessage('선택하신 음식이 예약되었습니다');
+          openAlertHandler();
           navigate('/usermeal');
         })
         .catch(err => {
           console.log(err);
-          alert('오늘 이미 먹었자나!!!');
+          setAlertMessage('오늘은 이미 티켓을 쓰셨네요! 내일 다시 이용해주세요');
+          openAlertHandler();
         });
     }
   };

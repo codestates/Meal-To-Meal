@@ -7,8 +7,10 @@ import axios from 'axios';
 
 function StoreInfo({
   navigate,
+  setAlertMessage,
   isLogin,
   addToCart,
+  openAlertHandler,
   openLoginModalHandler,
   openSignupModalHandler,
   detailStoreInfo,
@@ -68,8 +70,10 @@ function StoreInfo({
             <div className="box-title">메뉴</div>
             <MenuBox
               navigate={navigate}
+              setAlertMessage={setAlertMessage}
               addToCart={addToCart}
               isLogin={isLogin}
+              openAlertHandler={openAlertHandler}
               openLoginModalHandler={openLoginModalHandler}
               openSignupModalHandler={openSignupModalHandler}
             />

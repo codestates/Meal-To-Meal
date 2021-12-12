@@ -4,15 +4,7 @@ import '../styles/pages/Mypage.css';
 
 import Review from '../components/Mypage/Review';
 
-function Mypage({
-  navigate,
-  setAlertMessage,
-  openAlertHandler,
-  openWarningAlertHandler,
-  alertMessage,
-  kakaoLogin,
-  getImage,
-}) {
+function Mypage({ navigate, setAlertMessage, openAlertHandler, openWarningAlertHandler, alertMessage, getImage }) {
   const [isOpenFixNicknameToggle, setIsOpenFixNicknameToggle] = useState(false);
   const [isOpenFixPasswordToggle, setIsOpenFixPasswordToggle] = useState(false);
   const [isKakaoLogin, setIsKakaoLogin] = useState('');
@@ -74,7 +66,6 @@ function Mypage({
         .then(res => {
           setUserInfo(res.data.userInfo);
           setIsKakaoLogin(res.data.userInfo.signup_method);
-          console.log(res.data);
         })
         .catch(err => {
           console.log(err);
@@ -312,7 +303,7 @@ function Mypage({
         </div>
         <div className="mypage-title">최근 리뷰 내역</div>
         <div className="mypage-review-container">
-          <Review navigate={navigate} />
+          <Review navigate={navigate} setAlertMessage={setAlertMessage} openAlertHandler={openAlertHandler} />
         </div>
       </div>
     </>

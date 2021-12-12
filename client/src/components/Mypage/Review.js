@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import EmptyReviewAni from './EmptyReviewAni';
 
-function Review({ navigate }) {
+function Review({ navigate, setAlertMessage, openAlertHandler }) {
   const [userReviews, setUserReviews] = useState([]);
   const accessToken = localStorage.getItem('accessToken');
 
@@ -27,7 +27,8 @@ function Review({ navigate }) {
         withCredentials: true,
       })
       .then(res => {
-        alert('리뷰가 삭제되었습니다');
+        setAlertMessage('리뷰가 삭제되었습니다');
+        openAlertHandler();
         navigate('/maps');
       })
       .catch(err => {
