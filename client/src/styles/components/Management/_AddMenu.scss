@@ -5,11 +5,13 @@
   justify-content: flex-start;
   align-items: center;
   border: 2px solid;
+  margin-bottom: 15px;
+  width: 100%;
+  border-radius: 15px;
 }
 
 .AddMenu-add-img-container {
-  width: 80%;
-  margin-right: 15px;
+  width: 50%;
 }
 
 .AddMenu-img {
@@ -17,6 +19,12 @@
   border-radius: 15px;
   height: 120px;
   margin: 10px 15px 10px 10px;
+}
+
+.AddStore-add-menu-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .AddMenu-menu-info-container {
@@ -42,7 +50,7 @@
 
 .AddMenu-menu-input {
   margin-bottom: 15px;
-  width: 70%;
+  width: 80%;
   transition: 120ms ease all;
 
   &:focus {
@@ -73,17 +81,13 @@
 }
 
 @include desktop {
-  .AddMenu-container {
-    width: 100%;
-  }
-
   .AddMenu-add-img-container {
     width: 50%;
   }
 
   .AddMenu-img {
     height: 290px;
-    max-width: 100%;
+    max-width: 80%;
   }
 
   .AddMenu-menu-info-container {

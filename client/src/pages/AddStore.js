@@ -9,8 +9,11 @@ function AddStore({ navigate }) {
   const [addressDetail, setAddressDetail] = useState('주소');
   const [fullAddress, setFullAddress] = useState('');
   // fullAddress 가 진짜 다 합쳐진 주소지롱
-  const [store, setStore] = useState([]);
+  const [store, setStore] = useState();
   // 이 store는 내가 등록할 모든 가게의 정보가 다 담겨 있스
+  const [menuCount, setMenuCount] = useState([<AddMenu />]);
+  const [menuInfo, setMenuInfo] = useState([{ menu_name: '', menu_price: '' }]);
+  const [oneMenu, setOneMenu] = useState([]);
 
   const [isOpenSearchAddress, setIsOpenSearchAddress] = useState(false);
 
@@ -20,6 +23,12 @@ function AddStore({ navigate }) {
 
   const onHandleChange = e => {
     setFullAddress(`${addressDetail} ${e.target.value}`);
+  };
+
+  const addMenuHandler = el => {
+    // addMenuHandler([...menuInfo, { menu_price: e.target.value }]);
+    setMenuInfo(el);
+    console.log(el);
   };
 
   const onCompletePost = data => {
@@ -40,8 +49,6 @@ function AddStore({ navigate }) {
     setAddressDetail(fullAddr);
     setIsOpenSearchAddress(false);
   };
-
-  const addMenuHandler = () => {};
 
   return (
     <>
@@ -77,16 +84,18 @@ function AddStore({ navigate }) {
           <div className="AddStore-store-address">{address}</div>
           <div className="AddStore-store-address">{addressDetail}</div>
           <input className="AddStore-store-info-input" placeholder="상세주소" onChange={e => onHandleChange(e)} />
+          <div className="AddStore-title">메뉴 등록</div>
           <div className="AddStore-add-menu-container">
-            <div className="AddStore-title">메뉴 등록</div>
-            <AddMenu />
-            <button className="AddStore-add-menu-button" onClick={addMenuHandler}>
-              + 메뉴 추가
-            </button>
-            <div className="AddStore-add-menu-button-container">
-              <button className="AddStore-button">저장</button>
-              <button className="AddStore-button">취소</button>
-            </div>
+            {menuCount.map(el => (
+              <AddMenu addMenuHandler={addMenuHandler} menuInfo={menuInfo} />
+            ))}
+          </div>
+          <button className="AddStore-add-menu-button" onClick={() => setMenuCount([...menuCount, <AddMenu />])}>
+            + 메뉴 추가
+          </button>
+          <div className="AddStore-add-menu-button-container">
+            <button className="AddStore-button">저장</button>
+            <button className="AddStore-button">취소</button>
           </div>
         </div>
       </div>
