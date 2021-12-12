@@ -26,8 +26,8 @@ module.exports = async (req, res) => {
     if (userInfo.phone_verified) {
       return res.status(403).json({ message: '이미 가입된 사용자입니다' });
     } else {
-      await user.update({ phone_verified: true }, { where: { id: userInfo.id } }).catch(err => console.log(err));
-      res.status(200).json({ message: '인증에 성공했습니다' });
+      // await user.update({ phone_verified: true }, { where: { id: userInfo.id } }).catch(err => console.log(err));
+      res.status(200).json({ message: '인증 번호를 발송했습니다' });
     }
   } catch (e) {
     console.error(e);

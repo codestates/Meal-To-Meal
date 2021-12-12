@@ -40,12 +40,29 @@ function Mypage({
     verifyPassword: false,
   });
 
+  const accessToken = localStorage.getItem('accessToken');
+
   const PhoneVerification = () => {
-    console.log(signupInfo.phone_number);
+    axios
+      .post(
+        `${process.env.REACT_APP_API_URL}/auth/phone-verification`,
+        {
+          phone_number: signupInfo.phone_number,
+        },
+        {
+          headers: { authorization: `Bearer ${accessToken}` },
+          withCredentials: true,
+        }
+      )
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   const userInfoHandler = () => {
-    const accessToken = localStorage.getItem('accessToken');
     if (!accessToken) {
       return;
     } else {
@@ -285,7 +302,7 @@ function Mypage({
           </button>
           <form onSubmit={e => e.preventDefault()}>
             <input
-              onBlur={e => setSignupInfo({ ...signupInfo, phone_number: e.target.value })}
+              onChange={e => setSignupInfo({ ...signupInfo, phone_number: e.target.value })}
               placeholder="'-'를 제외한 휴대폰 번호를 입력하세요."
             ></input>
             <button onClick={() => PhoneVerification(signupInfo.phone_number)}>휴대폰 인증</button>
