@@ -18,7 +18,6 @@ function UserMeal({ navigate, getImage }) {
   };
 
   const getDetailUserMealHandler = () => {
-    if (orderedMeal.length === 0) return;
     axios
       .get(`${process.env.REACT_APP_API_URL}/user-meal`, {
         headers: { authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
