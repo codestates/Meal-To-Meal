@@ -2,20 +2,17 @@
 
 .animation-container {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
 }
 
 .sharecart-animation {
-  min-width: 300px;
-  max-width: 50vw;
+  position: absolute;
+  top: 0;
 }
 
 .sharecart-catchphrase {
-  min-width: 300px;
   font-size: 15px;
+  margin: 15px 0 15px 0;
 }
 
 .empty-sharecart-button {
@@ -27,6 +24,7 @@
   transition: 120ms ease;
   background-color: white;
   cursor: pointer;
+  margin-top: 50px;
 
   &:hover {
     box-shadow: gray 6px 6px 6px;
@@ -55,29 +53,21 @@
   .animation-container {
     margin-top: 50px;
   }
+
   .sharecart-catchphrase {
     margin-top: 50px;
     font-size: 50px;
   }
-
-  .empty-sharecart-button {
-    margin-top: 30px;
-    font-size: 20px;
-  }
 }
 
 @include desktop {
-  .animation-container {
-    margin-top: 0;
-  }
-  .sharecart-catchphrase {
-    margin-top: -100px;
-    font-size: 50px;
+  .sharecart-animation {
+    position: absolute;
+    top: -100px;
   }
 
-  .empty-sharecart-button {
-    margin-top: 30px;
-    font-size: 20px;
-    padding-top: 3px;
+  .sharecart-catchphrase {
+    font-size: 50px;
+    margin-top: 250px;
   }
 }

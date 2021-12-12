@@ -156,6 +156,109 @@
   }
 }
 
+.animation-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 200px;
+}
+
+.management-empty-animation {
+  width: 280px;
+}
+
+.management-empty-catchphrase {
+  margin: 30px 0 15px 0;
+  width: 55%;
+}
+
+.management-empty-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.management-empty-button {
+  width: 130px;
+  height: 35px;
+  font-size: 15px;
+  margin-top: 15px;
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
+  border-radius: 10px;
+  -webkit-transition: 120ms ease;
+  transition: 120ms ease;
+  background-color: white;
+  cursor: pointer;
+}
+
+.management-empty-button:hover {
+  -webkit-box-shadow: gray 6px 6px 6px;
+          box-shadow: gray 6px 6px 6px;
+}
+
+.management-empty-button:before, .management-empty-button:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.management-empty-button:hover:before, .management-empty-button:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.management-empty-button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .animation-container {
+    min-height: 71vh;
+  }
+  .management-empty-animation {
+    width: 50%;
+  }
+  .management-empty-catchphrase {
+    font-size: 30px;
+  }
+  .management-empty-button {
+    width: 200px;
+    height: 40px;
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .animation-container {
+    min-height: 77.5vh;
+    margin-top: 100px;
+  }
+  .management-empty-animation {
+    width: 50%;
+  }
+  .management-empty-catchphrase {
+    font-size: 30px;
+  }
+  .management-empty-button {
+    width: 200px;
+    height: 40px;
+    font-size: 25px;
+  }
+}
+
 .management-container {
   display: -webkit-box;
   display: -ms-flexbox;
