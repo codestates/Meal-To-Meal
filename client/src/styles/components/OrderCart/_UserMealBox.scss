@@ -9,8 +9,10 @@
 }
 
 .ordered-food-image {
-  height: 90px;
+  max-height: 90px;
+  max-width: 120px;
   margin: 10px;
+  border: 1px solid;
 }
 
 .ordered-food-info-container {
@@ -36,6 +38,10 @@
   margin-right: 5px;
 }
 
+.ordered-food-name-price {
+  font-size: 12px;
+}
+
 .ordered-food-price {
   font-size: 10px;
 }
@@ -50,7 +56,8 @@
   }
 
   .ordered-food-image {
-    height: 160px;
+    max-height: 160px;
+    max-width: 250px;
     margin: 15px;
   }
 
@@ -68,7 +75,7 @@
     font-size: 20px;
   }
 
-  .ordered-food-price {
+  .ordered-food-name-price {
     font-size: 15px;
   }
 
@@ -80,12 +87,13 @@
 
 @include desktop {
   .ordered-food-container {
-    font-size: 18px;
-    width: 700px;
+    width: 100%;
+    margin-bottom: 180px;
   }
 
   .ordered-food-image {
-    height: 160px;
+    max-height: 210px;
+    max-width: 300px;
     margin: 15px;
   }
 
@@ -100,11 +108,11 @@
   }
 
   .ordered-food-name {
-    font-size: 20px;
+    font-size: 25px;
   }
 
-  .ordered-food-price {
-    font-size: 15px;
+  .ordered-food-name-price {
+    font-size: 20px;
   }
 
   .ordered-order-date {
