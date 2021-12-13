@@ -14,9 +14,10 @@ module.exports = {
           .findOne({ where: { id: matchedMenu.store_id } })
           .catch(err => console.log(err));
         const matchedUser = await user.findOne({ where: { id: userInfo.id } }).catch(err => console.log(err));
+
         if (matchedStore.user_id === userInfo.id) {
           res.status(403).json({ message: '본인의 가게에서 요청하셨습니다' });
-        } else if (matchedUser.user_phone_number) {
+        } else if (!matchedUser.user_phone_number) {
           res.status(403).json({ message: '인증되지 않은 사용자입니다' });
         } else {
           const existingUserMeal = await user_meal.findOne({ where: { user_id: userInfo.id } });

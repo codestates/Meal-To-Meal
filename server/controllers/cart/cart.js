@@ -13,7 +13,7 @@ module.exports = {
     } else {
       try {
         const matchedUser = await user.findOne({ where: { id: userInfo.id } });
-        if (matchedUser.user_phone_number) {
+        if (!matchedUser.user_phone_number) {
           res.status(403).json({ message: '인증되지 않은 사용자입니다' });
         } else {
           const { order, total_price } = req.body;
