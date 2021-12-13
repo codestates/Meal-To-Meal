@@ -20,7 +20,7 @@ function ShareCart({ cartItems, setCartItems, removeFromCart, getImage }) {
   const totalQuantity = itemQuantity.reduce((acc, cur) => acc + cur, 0);
   const itemTotalPrice = cartItems.map(el => el.price * el.quantity);
   const totalPrice = itemTotalPrice.reduce((acc, cur) => acc + cur, 0);
-  const totalPriceToString = totalPrice.toLocaleString();
+  const totalPriceToString = Number(totalPrice).toLocaleString();
 
   const makePayNameHandler = () => {
     if (cartItems.length === 0) setPayName('');

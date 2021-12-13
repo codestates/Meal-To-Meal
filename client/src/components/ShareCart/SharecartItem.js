@@ -27,7 +27,7 @@ function SharecartItem({ cartItems, setCartItems, removeFromCart, navigate }) {
             <img className="sharecart-item-img" src={el.img} alt="" />
             <div className="sharecart-item-info-container">
               <div className="sharecart-item-name">{el.name}</div>
-              <div className="sharecart-item-price">{el.price.toLocaleString()}</div>
+              <div className="sharecart-item-price">{Number(el.price).toLocaleString()}</div>
               <div className="sharecart-item-count-container">
                 <div className="sharecart-plus-minus-container">
                   <i className="fas fa-minus" onClick={() => quantityMinusHandler(el)} />
