@@ -114,7 +114,7 @@
 
 @include tablet {
   .alert-window {
-    width: 340px;
+    width: 400px;
     padding: 15px;
   }
 
@@ -149,7 +149,7 @@
 
 @include desktop {
   .alert-window {
-    width: 440px;
+    width: 400px;
     padding: 30px;
   }
 
@@ -159,11 +159,6 @@
 
   .alert-message {
     font-size: 35px;
-  }
-
-  .alert-window {
-    width: 340px;
-    padding: 15px;
   }
 
   .alert-animation {

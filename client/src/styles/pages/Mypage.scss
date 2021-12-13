@@ -8,7 +8,6 @@
   margin-bottom: 23px;
   display: flex;
   flex-direction: column;
-  min-height: 81vh;
 }
 
 .mypage-title {
@@ -150,6 +149,7 @@
 @include tablet {
   .mypage-container {
     margin-top: 80px;
+    min-height: 80.4vh;
   }
 
   .mypage-title {
@@ -193,7 +193,7 @@
 @include desktop {
   .mypage-container {
     margin-top: 80px;
-    min-height: 76vh;
+    min-height: 77.2vh;
   }
 
   .mypage-title {

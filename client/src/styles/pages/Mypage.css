@@ -324,7 +324,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  min-height: 81vh;
 }
 
 .mypage-title {
@@ -496,6 +495,7 @@
 @media (min-width: 758px) and (max-width: 1023px) {
   .mypage-container {
     margin-top: 80px;
+    min-height: 80.4vh;
   }
   .mypage-title {
     font-size: 28px;
@@ -532,7 +532,7 @@
 @media (min-width: 1024px) {
   .mypage-container {
     margin-top: 80px;
-    min-height: 76vh;
+    min-height: 77.2vh;
   }
   .mypage-title {
     font-size: 28px;
