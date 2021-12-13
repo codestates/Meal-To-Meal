@@ -1,0 +1,106 @@
+@import '../../mixin/mixin';
+
+.AddMenu-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 2px solid;
+  margin-bottom: 15px;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.AddMenu-add-img-container {
+  width: 50%;
+}
+
+.AddMenu-img {
+  box-shadow: gray 2px 2px 2px;
+  border-radius: 15px;
+  height: 120px;
+  margin: 10px 15px 10px 10px;
+}
+
+.AddStore-add-menu-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.AddMenu-menu-info-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.AddMenu-menu-info-title {
+  margin-bottom: 3px;
+}
+
+.AddMenu-menu-img-input {
+  font-size: 15px;
+  overflow: hidden;
+  padding: 3px;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  border: 2px solid;
+  border-radius: 5px;
+  width: 70%;
+  margin: 5px auto 10px 10px;
+}
+
+.AddMenu-menu-input {
+  margin-bottom: 15px;
+  width: 80%;
+  transition: 120ms ease all;
+
+  &:focus {
+    border: 2px solid #ffcc1d;
+    outline: none;
+    box-shadow: gray 3px 3px 3px;
+  }
+}
+
+@include tablet {
+  .AddMenu-add-img-container {
+    width: 50%;
+  }
+
+  .AddMenu-img {
+    height: 190px;
+  }
+
+  .AddMenu-menu-info-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .AddMenu-menu-input {
+    height: 30px;
+    width: 200%;
+  }
+}
+
+@include desktop {
+  .AddMenu-add-img-container {
+    width: 50%;
+  }
+
+  .AddMenu-img {
+    height: 290px;
+    max-width: 80%;
+  }
+
+  .AddMenu-menu-info-container {
+    width: 50%;
+  }
+
+  .AddMenu-menu-info-title {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+
+  .AddMenu-menu-input {
+    height: 30px;
+    width: 80%;
+  }
+}

@@ -25,7 +25,7 @@ function DonationBox() {
           <div className="donationbox-food-price">106,800원</div>
           <div className="donationbox-dish-count-container">
             <img className="donationbox-dish-icon" src={require('../../img/donation.png').default} alt="" />
-            <div className="donationbox-dish-number"> :3</div>
+            <div className="donationbox-dish-number"> : 3</div>
           </div>
         </div>
       </div>

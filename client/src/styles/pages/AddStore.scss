@@ -1,9 +1,16 @@
 @import '../mixin/mixin';
+@import '../components/Management/AddMenu';
 
 .AddStore-container {
   display: flex;
   flex-direction: column;
-  margin: 15px 15px 80px 15px;
+  margin: 10px;
+}
+
+.AddStore-store-title-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .AddStore-title {
@@ -17,6 +24,7 @@
   max-height: 130px;
   border-radius: 15px;
   margin: 0 auto 20px auto;
+  display: block;
 }
 
 .AddStore-store-img-add-input {
@@ -27,8 +35,8 @@
   cursor: pointer;
   border: 2px solid;
   border-radius: 5px;
-  width: 92%;
-  margin: 15px auto 15px auto;
+  width: 80%;
+  margin: 15px auto 25px auto;
 }
 
 .AddStore-store-text {
@@ -36,13 +44,22 @@
   margin-bottom: 5px;
 }
 
+.AddStore-store-address {
+  font-size: 18px;
+  border: 2px solid;
+  border-radius: 5px;
+  width: 70%;
+  margin-bottom: 15px;
+  padding: 5px 0 5px 10px;
+  opacity: 50%;
+}
+
 .AddStore-store-info-input {
   font-size: 18px;
   border: 2px solid;
   border-radius: 5px;
   transition: 100ms ease all;
-  height: 30px;
-  width: 95%;
+  min-height: 30px;
   margin-bottom: 15px;
   padding: 3px 0 3px 5px;
 
@@ -53,13 +70,17 @@
   }
 }
 
+.AddStore-add-menu-container {
+  display: flex;
+  justify-content: center;
+}
+
 .AddStore-store-description-input {
   font-size: 18px;
   border: 2px solid;
   border-radius: 5px;
   transition: 100ms ease all;
   height: 50px;
-  width: 95%;
   margin-bottom: 15px;
   padding: 3px 0 3px 5px;
   text-align: start;
@@ -73,8 +94,8 @@
 }
 
 .AddStore-address-button {
-  width: 98%;
-  margin: 10px auto 10px auto;
+  width: 80%;
+  margin: 10px auto 15px auto;
   background-color: whitesmoke;
   transition: 120ms ease all;
   box-shadow: gray 4px 4px 4px;
@@ -102,13 +123,232 @@
   }
 }
 
+.AddStore-add-menu-button {
+  display: block;
+  margin: 15px auto 10px auto;
+  width: 70%;
+  transition: 120ms ease all;
+  box-shadow: gray 4px 4px 4px;
+
+  &:hover {
+    box-shadow: gray 3px 3px 3px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.AddStore-add-menu-button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.AddStore-button {
+  margin: 10px;
+  transition: 120ms ease all;
+  box-shadow: gray 4px 4px 4px;
+
+  &:hover {
+    box-shadow: gray 3px 3px 3px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.daum-postcode-backdrop {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: grid;
+  place-items: center;
+}
+
+.daum-postcode-close {
+  transition: 120ms ease all;
+  box-shadow: gray 4px 4px 4px;
+  width: 120px;
+
+  &:hover {
+    box-shadow: gray 3px 3px 3px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
 @include tablet {
+  .AddStore-container {
+    margin-top: 80px;
+  }
+
+  .AddStore-store-title-container {
+  }
+
+  .AddStore-title {
+    font-size: 25px;
+  }
+
+  .AddStore-store-img {
+    width: 550px;
+    max-height: 330px;
+  }
+
+  .AddStore-store-img-add-input {
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  .AddStore-store-text {
+    font-size: 25px;
+  }
+
+  .AddStore-store-address {
+    font-size: 20px;
+  }
+
+  .AddStore-store-info-input {
+    font-size: 22px;
+    height: 35px;
+  }
+
+  .AddStore-store-description-input {
+    font-size: 22px;
+    min-height: 100px;
+  }
+
+  .AddStore-address-button {
+    font-size: 20px;
+    height: 40px;
+  }
+
+  .AddStore-add-menu-button {
+    font-size: 20px;
+    height: 40px;
+  }
+
+  .AddStore-button {
+    font-size: 20px;
+    height: 35px;
+  }
+
+  .daum-postcode-window {
+    width: 50%;
+  }
 }
 
 @include desktop {
   .AddStore-container {
     margin-top: 80px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+
+  .AddStore-store-title-container {
+    width: 50%;
+    margin-right: 15px;
+  }
+
+  .AddStore-title {
+    font-size: 30px;
+  }
+
+  .AddStore-store-img {
+    width: 70%;
+    max-height: 400px;
+  }
+
+  .AddStore-store-img-add-input {
+    font-size: 25px;
+    padding: 10px;
+  }
+
+  .AddStore-store-text {
+    font-size: 30px;
+  }
+
+  .AddStore-store-address {
+    font-size: 25px;
+  }
+
+  .AddStore-store-info-input {
+    font-size: 25px;
+    height: 38px;
+  }
+
+  .AddStore-store-description-input {
+    font-size: 25px;
+    min-height: 120px;
+  }
+
+  .AddStore-address-button {
+    font-size: 23px;
+    height: 40px;
+  }
+
+  .AddStore-add-menu-button {
+    font-size: 25px;
+    height: 40px;
+  }
+
+  .AddStore-button {
+    font-size: 22px;
+    height: 35px;
+  }
+
+  .daum-postcode-window {
+    width: 50%;
   }
 }
