@@ -2,6 +2,7 @@
 @import '../components/Mypage/Review';
 @import '../components/Mypage/EmptyReviewAni';
 @import '../components/Mypage/PhoneVerificationModal';
+@import '../components/Mypage/SuccessPhoneAlert';
 
 .mypage-container {
   padding: 10px;
@@ -229,7 +230,7 @@
   .mypage-container {
     display: flex;
     margin-top: 60px;
-    min-height: 76vh;
+    min-height: 79.6vh;
     font-size: 23px;
   }
 
@@ -245,7 +246,7 @@
   }
 
   .mypage-myinfo-container {
-    height: 690px;
+    height: 650px;
     padding-left: 25px;
     flex-direction: column;
   }
@@ -288,12 +289,12 @@
     opacity: 0.5;
     width: 20%;
     position: absolute;
-    bottom: 150px;
-    left: 25%;
+    bottom: 190px;
+    left: 23%;
   }
 
   .mypage-review-container {
-    height: 710px;
+    height: 670px;
     overflow: auto;
   }
 }
