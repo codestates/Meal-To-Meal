@@ -23,13 +23,13 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
     setIsOpenFixPasswordToggle(!isOpenFixPasswordToggle);
   };
 
-  const openNumberAlertHandler = e => {
-    setIsNumberAlert(!isNumberAlert);
-    phoneVerification(e);
-  };
-
   const openPhoneModalHandler = () => {
-    setIsOpenPhoneModal(!isOpenPhoneModal);
+    if (isOpenPhoneModal !== true) {
+      setIsNumberAlert(false);
+      setIsOpenPhoneModal(!isOpenPhoneModal);
+    } else {
+      setIsOpenPhoneModal(!isOpenPhoneModal);
+    }
   };
 
   const [userInfo, setUserInfo] = useState({});
@@ -62,8 +62,14 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
           withCredentials: true,
         })
         .then(res => {
-          setUserInfo(res.data.userInfo);
-          setIsKakaoLogin(res.data.userInfo.signup_method);
+          if (res.user_phone_number !== undefined) {
+            setUserInfo(res.data.userInfo);
+            setIsVerification(true);
+            setIsKakaoLogin(res.data.userInfo.signup_method);
+          } else {
+            setUserInfo(res.data.userInfo);
+            setIsKakaoLogin(res.data.userInfo.signup_method);
+          }
         })
         .catch(err => {
           console.log(err);
@@ -185,9 +191,11 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
         }
       )
       .then(res => {
-        console.log(res.data);
+        setIsNumberAlert(true);
       })
       .catch(err => {
+        setAlertMessage('이미 가입된 전화번호입니다.');
+        openWarningAlertHandler();
         console.log(err);
       });
   };
@@ -206,13 +214,17 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
         }
       )
       .then(res => {
-        console.log(res.data);
+        setAlertMessage('인증되었습니다.');
+        openAlertHandler();
         setIsNumberAlert(false);
         setIsOpenPhoneModal(false);
         setIsVerification(true);
       })
       .catch(err => {
-        console.log(err.message);
+        setIsNumberAlert(false);
+        setAlertMessage('잘못 입력하셨거나 만료된 인증번호입니다.');
+        openWarningAlertHandler();
+        console.log(err);
       });
   };
 
@@ -247,111 +259,127 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
   return (
     <>
       <div className="mypage-container">
-        <div className="mypage-title">내 정보</div>
-        <div className="mypage-myinfo-container">
-          <div className="mypage-myinfo-nickname">환영합니다! '{userInfo.user_nickname}'님</div>
-          <span className="mypage-fix-myinfo-toggle-button" onClick={openFixNicknameToggleHandler}>
-            닉네임 수정
-          </span>
-          {isOpenFixNicknameToggle ? (
-            <form className="mypage-fix-toggle-container" onSubmit={e => e.preventDefault()}>
-              <div className="nickname-container">
-                <div className="fix-toggle-title">닉네임</div>
-                <div className="fix-toggle-container">
-                  <input
-                    className="fix-toggle-input"
-                    onChange={handleInputValue('user_nickname')}
-                    onBlur={handleOnblurName('user_nickname')}
-                  />
-                  {isValidForNickname ? (
-                    <button className="fix-toggle-button" onClick={fixNicknameHandler} type="submit">
-                      수정
-                    </button>
-                  ) : (
-                    <button className="fix-toggle-button" disabled={true}>
-                      수정
-                    </button>
-                  )}
+        <div className="mypage-left-container">
+          <div className="mypage-title">내 정보</div>
+          <div className="mypage-myinfo-container">
+            <div className="mypage-myinfo-left-container">
+              <div className="mypage-myinfo-nickname">환영합니다! '{userInfo.user_nickname}'님</div>
+              <span className="mypage-fix-myinfo-toggle-button" onClick={openFixNicknameToggleHandler}>
+                닉네임 수정
+              </span>
+              {isOpenFixNicknameToggle ? (
+                <form className="mypage-fix-toggle-container" onSubmit={e => e.preventDefault()}>
+                  <div className="nickname-container">
+                    <div className="fix-toggle-title">닉네임</div>
+                    <div className="fix-toggle-container">
+                      <input
+                        className="fix-toggle-input"
+                        onChange={handleInputValue('user_nickname')}
+                        onBlur={handleOnblurName('user_nickname')}
+                      />
+                      {message.nickname === '닉네임은 특수문자를 제외한 2 ~ 20 글자이어야 합니다.' ? (
+                        <div className="signup-validation-message">{message.nickname}</div>
+                      ) : message.nickname === '사용 가능한 닉네임입니다.' ? (
+                        <div className="signup-validation-ok">{message.nickname}</div>
+                      ) : (
+                        <div className="signup-validation-error">{message.nickname}</div>
+                      )}
+                      {isValidForNickname ? (
+                        <button className="fix-toggle-button" onClick={fixNicknameHandler} type="submit">
+                          수정
+                        </button>
+                      ) : (
+                        <button className="fix-toggle-button" disabled={true}>
+                          수정
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </form>
+              ) : null}
+              <div className="mypage-myinfo-email">{userInfo.user_email}</div>
+              {isKakaoLogin === 'kakao' ? (
+                <span className="mypage-fix-myinfo-not-toggle-button" disabled={true}>
+                  카카오 계정으로 로그인 하신 계정은 비밀번호 수정을 하실 수 없습니다
+                </span>
+              ) : (
+                <span className="mypage-fix-myinfo-toggle-button" onClick={openFixPasswordToggleHandler}>
+                  비밀번호 수정
+                </span>
+              )}
+
+              {isOpenFixPasswordToggle ? (
+                <form className="mypage-fix-toggle-container" onSubmit={e => e.preventDefault()}>
+                  <div className="password-container">
+                    <div className="fix-toggle-title">비밀번호</div>
+                    <input className="fix-toggle-input" type="password" onChange={handleInputValue('user_password')} />
+                    {message.password === '비밀번호는 8글자 이상, 영문, 숫자 조합이어야 합니다.' ? (
+                      <div className="signup-validation-message">{message.password}</div>
+                    ) : message.password === '사용할 수 있는 비밀번호 입니다.' ? (
+                      <div className="signup-validation-ok">{message.password}</div>
+                    ) : (
+                      <div className="signup-validation-error">{message.password}</div>
+                    )}
+                  </div>
+                  <div className="password-container">
+                    <div className="fix-toggle-title">비밀번호 확인</div>
+                    <input className="fix-toggle-input" type="password" onChange={handleInputValue('verifyPassword')} />
+                    {isValidForPassword ? (
+                      <button className="fix-toggle-button" onClick={fixPasswordHandler}>
+                        수정
+                      </button>
+                    ) : (
+                      <button className="fix-toggle-button" disabled={true}>
+                        수정
+                      </button>
+                    )}
+                    {message.verifyPassword === '비밀번호를 확인해주세요.' ? (
+                      <div className="signup-validation-message">{message.verifyPassword}</div>
+                    ) : message.verifyPassword === '비밀번호가 일치합니다.' ? (
+                      <div className="signup-validation-ok">{message.verifyPassword}</div>
+                    ) : (
+                      <div className="signup-validation-error">{message.verifyPassword}</div>
+                    )}
+                  </div>
+                </form>
+              ) : null}
+              {isVerification ? (
+                <div className="mypage-phone-verification-success-container">
+                  <div className="mypage-phone-verification-success-text">휴대폰 인증</div>
+                  <img className="mypage-phone-verification-check" src={require('../img/check.png').default} alt="" />
                 </div>
-                {message.nickname === '닉네임은 특수문자를 제외한 2 ~ 20 글자이어야 합니다.' ? (
-                  <div className="signup-validation-message">{message.nickname}</div>
-                ) : message.nickname === '사용 가능한 닉네임입니다.' ? (
-                  <div className="signup-validation-ok">{message.nickname}</div>
-                ) : (
-                  <div className="signup-validation-error">{message.nickname}</div>
-                )}
-              </div>
-            </form>
-          ) : null}
-          <div className="mypage-myinfo-email">{userInfo.user_email}</div>
-          {isKakaoLogin === 'kakao' ? (
-            <span className="mypage-fix-myinfo-not-toggle-button" disabled={true}>
-              카카오 계정으로 로그인 하신 계정은 비밀번호 수정을 하실 수 없습니다
-            </span>
-          ) : (
-            <span className="mypage-fix-myinfo-toggle-button" onClick={openFixPasswordToggleHandler}>
-              비밀번호 수정
-            </span>
-          )}
+              ) : (
+                <div className="mypage-phone-verification-failure-container">
+                  <div className="mypage-phone-verification-button" onClick={openPhoneModalHandler}>
+                    휴대폰 인증
+                  </div>
+                  <img
+                    className="mypage-phone-verification-not-check"
+                    src={require('../img/notcheck.png').default}
+                    alt=""
+                  />
+                </div>
+              )}
 
-          {isOpenFixPasswordToggle ? (
-            <form className="mypage-fix-toggle-container" onSubmit={e => e.preventDefault()}>
-              <div className="password-container">
-                <div className="fix-toggle-title">비밀번호</div>
-                <input className="fix-toggle-input" type="password" onChange={handleInputValue('user_password')} />
-                {message.password === '비밀번호는 8글자 이상, 영문, 숫자 조합이어야 합니다.' ? (
-                  <div className="signup-validation-message">{message.password}</div>
-                ) : message.password === '사용할 수 있는 비밀번호 입니다.' ? (
-                  <div className="signup-validation-ok">{message.password}</div>
-                ) : (
-                  <div className="signup-validation-error">{message.password}</div>
-                )}
-              </div>
-              <div className="password-container">
-                <div className="fix-toggle-title">비밀번호 확인</div>
-                <input className="fix-toggle-input" type="password" onChange={handleInputValue('verifyPassword')} />
-                {isValidForPassword ? (
-                  <button className="fix-toggle-button" onClick={fixPasswordHandler}>
-                    수정
-                  </button>
-                ) : (
-                  <button className="fix-toggle-button" disabled={true}>
-                    수정
-                  </button>
-                )}
-                {message.verifyPassword === '비밀번호를 확인해주세요.' ? (
-                  <div className="signup-validation-message">{message.verifyPassword}</div>
-                ) : message.verifyPassword === '비밀번호가 일치합니다.' ? (
-                  <div className="signup-validation-ok">{message.verifyPassword}</div>
-                ) : (
-                  <div className="signup-validation-error">{message.verifyPassword}</div>
-                )}
-              </div>
-            </form>
-          ) : null}
-          {isVerification ? (
-            <div className="mypage-phone-verification-success-container">
-              <div className="mypage-phone-verification-button">휴대폰 인증</div>
-              <img className="mypage-phone-verification-check" src={require('../img/check.png').default} alt="" />
+              <button className="mypage-withdrawal-button" onClick={() => navigate('/withdrawal')}>
+                회원탈퇴
+              </button>
             </div>
-          ) : (
-            <div className="mypage-phone-verification-button" onClick={openPhoneModalHandler}>
-              휴대폰 인증
+            <div className="mypage-myinfo-right-image-container">
+              <img className="mypage-myinfo-deco-image" src={require('../img/mypage-myinfo.png').default} alt="" />
             </div>
-          )}
-
-          <button className="mypage-withdrawal-button" onClick={() => navigate('/withdrawal')}>
-            회원탈퇴
-          </button>
+          </div>
         </div>
-        <div className="mypage-title">최근 리뷰 내역</div>
-        <div className="mypage-review-container">
-          <Review
-            navigate={navigate}
-            alertMessage={alertMessage}
-            setAlertMessage={setAlertMessage}
-            openAlertHandler={openAlertHandler}
-          />
+        <div className="mypage-right-container">
+          <div className="mypage-title">최근 리뷰 내역</div>
+          <div className="mypage-review-container">
+            <Review
+              navigate={navigate}
+              alertMessage={alertMessage}
+              setAlertMessage={setAlertMessage}
+              openAlertHandler={openAlertHandler}
+            />
+          </div>
         </div>
         {isOpenPhoneModal ? (
           <PhoneVerificationModal
@@ -360,7 +388,7 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
             isNumberAlert={isNumberAlert}
             setIsNumberAlert={setIsNumberAlert}
             openPhoneModalHandler={openPhoneModalHandler}
-            openNumberAlertHandler={openNumberAlertHandler}
+            phoneVerification={phoneVerification}
             phoneVerificationComplete={phoneVerificationComplete}
           />
         ) : null}

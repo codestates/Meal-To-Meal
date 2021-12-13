@@ -5,10 +5,9 @@ function PhoneVerificationModal({
   signupInfo,
   setSignupInfo,
   openPhoneModalHandler,
-  openNumberAlertHandler,
+  phoneVerification,
   phoneVerificationComplete,
   isNumberAlert,
-  setIsNumberAlert,
 }) {
   return (
     <div className="phone-modal-container">
@@ -31,7 +30,7 @@ function PhoneVerificationModal({
             ></input>
             <button
               className="phone-modal-number-submit"
-              onClick={() => openNumberAlertHandler(signupInfo.user_phone_number)}
+              onClick={() => phoneVerification(signupInfo.user_phone_number)}
             >
               인증 번호 발송
             </button>
@@ -42,17 +41,19 @@ function PhoneVerificationModal({
                 3분 내에 인증번호를 아래 칸에 입력해주세요.
               </div>
             ) : null}
-            <input
-              className="phone-modal-verification-input"
-              onChange={e => setSignupInfo({ verification_code: e.target.value, ...signupInfo })}
-              placeholder="인증번호 6자리를 입력해주세요"
-            ></input>
-            <button
-              className="phone-modal-verification-submit"
-              onClick={() => phoneVerificationComplete(signupInfo.verification_code, signupInfo.user_phone_number)}
-            >
-              확인
-            </button>
+            <div className="phone-modal-verification-container">
+              <input
+                className="phone-modal-verification-input"
+                onChange={e => setSignupInfo({ ...signupInfo, verification_code: e.target.value })}
+                placeholder="인증번호"
+              ></input>
+              <button
+                className="phone-modal-verification-submit"
+                onClick={() => phoneVerificationComplete(signupInfo.verification_code, signupInfo.user_phone_number)}
+              >
+                확인
+              </button>
+            </div>
           </form>
         </div>
       </div>

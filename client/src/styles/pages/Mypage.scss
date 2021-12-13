@@ -4,20 +4,22 @@
 @import '../components/Mypage/PhoneVerificationModal';
 
 .mypage-container {
-  margin: 15px;
-  margin-bottom: 23px;
-  display: flex;
-  flex-direction: column;
+  padding: 10px;
+  font-size: 14px;
+  word-break: keep-all;
+  min-height: 81vh;
 }
 
 .mypage-title {
-  margin-bottom: 3px;
+  margin-bottom: 5px;
+  font-size: 20px;
 }
 
 .mypage-myinfo-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   border: 3px solid #ffcc1d;
+  border-radius: 5px;
   padding: 15px;
   margin-bottom: 15px;
 }
@@ -34,7 +36,7 @@
 }
 
 .mypage-fix-myinfo-toggle-button {
-  margin: 5px 0 10px 0;
+  margin: 5px 0 5px 0;
   opacity: 0.5;
   cursor: pointer;
   width: fit-content;
@@ -56,7 +58,7 @@
   border-radius: 5px;
   transition: 100ms ease all;
   height: 20px;
-  padding: 2px 0 2px 8px;
+  padding: 2px 0 2px 0;
   margin-top: 4px;
   margin-bottom: 5px;
 
@@ -66,8 +68,12 @@
   }
 }
 
+.fix-toggle-title {
+  margin-top: 10px;
+}
+
 .fix-toggle-button {
-  margin: 0 0 0 15px;
+  width: 150px;
 }
 
 .fix-toggle-validation-message {
@@ -82,7 +88,14 @@
 
 .mypage-phone-verification-success-container {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+}
+
+.mypage-phone-verification-success-text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: default;
+  color: grey;
 }
 
 .mypage-phone-verification-check {
@@ -90,17 +103,33 @@
   margin-left: 5px;
 }
 
+.mypage-phone-verification-failure-container {
+  display: flex;
+  align-items: center;
+}
 .mypage-phone-verification-button {
+  margin-top: 10px;
   margin-bottom: 10px;
   cursor: pointer;
   color: grey;
 }
 
+.mypage-phone-verification-not-check {
+  width: 15px;
+  margin-left: 5px;
+}
+
+.mypage-myinfo-deco-image {
+  width: 150px;
+  margin-left: 100px;
+}
 .mypage-review-container {
   display: flex;
   flex-direction: column;
   border: 3px solid #ffcc1d;
-  padding: 15px;
+  border-radius: 5px;
+  padding: 5px;
+  overflow: auto;
 }
 
 .mypage-withdrawal-button {
@@ -149,7 +178,7 @@
 @include tablet {
   .mypage-container {
     margin-top: 80px;
-    min-height: 80.4vh;
+    font-size: 20px;
   }
 
   .mypage-title {
@@ -165,14 +194,9 @@
     font-size: 18px;
   }
 
-  .fix-toggle-title {
-    font-size: 20px;
-  }
-
   .fix-toggle-input {
     width: 180px;
     height: 30px;
-    font-size: 20px;
     margin-right: 10px;
   }
 
@@ -187,13 +211,38 @@
   .mypage-withdrawal-button {
     width: 130px;
     height: 35px;
-    font-size: 20px;
+  }
+  .mypage-myinfo-deco-image {
+    width: 150px;
+    margin-left: 100px;
   }
 }
 @include desktop {
   .mypage-container {
-    margin-top: 80px;
-    min-height: 77.2vh;
+    display: flex;
+    flex-direction: row;
+    margin-top: 60px;
+    min-height: 76vh;
+    font-size: 23px;
+  }
+
+  .mypage-left-container {
+    width: 50%;
+    margin-right: 30px;
+  }
+
+  .mypage-right-container {
+    width: 50%;
+  }
+
+  .mypage-myinfo-container {
+    height: 690px;
+    overflow: auto;
+    padding-left: 25px;
+  }
+
+  .mypage-myinfo-nickname {
+    margin-top: 20px;
   }
 
   .mypage-title {
@@ -203,14 +252,6 @@
 
   .mypage-myinfo-nickname {
     font-size: 25px;
-  }
-
-  .mypage-fix-myinfo-toggle-button {
-    font-size: 18px;
-  }
-
-  .fix-toggle-title {
-    font-size: 20px;
   }
 
   .fix-toggle-input {
@@ -232,5 +273,10 @@
     width: 150px;
     height: 35px;
     font-size: 22px;
+  }
+
+  .mypage-review-container {
+    height: 710px;
+    overflow: auto;
   }
 }
