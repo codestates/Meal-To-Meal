@@ -1,5 +1,5 @@
 const checkTokens = require('../../middlewares/tokenAuth');
-const { store_review, menu, user_meal } = require('../../database/models');
+const { store_review, menu, user_meal, user, store } = require('../../database/models');
 
 module.exports = {
   post: async (req, res) => {
@@ -29,7 +29,16 @@ module.exports = {
     try {
       const { storeid } = req.params;
       const reviewList = await store_review.findAll({
-        include: [{ model: menu, attributes: ['menu_name', 'menu_price', 'menu_order_quantity'] }],
+        include: [
+          {
+            model: menu,
+            attributes: ['menu_name', 'menu_price', 'menu_order_quantity'],
+          },
+          {
+            model: user,
+            attributes: ['id', 'user_nickname'],
+          },
+        ],
         where: { store_id: storeid },
       });
       res.status(200).json({ reviewList });
@@ -44,8 +53,12 @@ module.exports = {
     } else {
       try {
         const reviewList = await store_review.findAll({
-          include: [{ model: menu, attributes: ['menu_name', 'menu_price', 'menu_order_quantity'] }],
+          include: [
+            { model: menu, attributes: ['menu_name', 'menu_price', 'menu_order_quantity'] },
+            { model: store, attributes: ['store_name', 'store_address'] },
+          ],
           where: { reviewer_id: userInfo.id },
+          order: [['created_at', 'DESC']],
         });
         res.status(200).json({ reviewList });
       } catch (err) {
