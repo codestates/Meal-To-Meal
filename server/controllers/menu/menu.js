@@ -1,4 +1,4 @@
-const { menu, store } = require('../../database/models');
+const { menu, store, user_meal, user } = require('../../database/models');
 const checkTokens = require('../../middlewares/tokenAuth');
 
 module.exports = {
@@ -25,10 +25,33 @@ module.exports = {
   get: async (req, res) => {
     try {
       const { storeid } = req.params;
-      const menuList = await menu.findAll({ where: { store_id: storeid } });
-      res.status(200).json({ menuList: menuList });
+      const userInfo = checkTokens(req);
+      const ownedStore = await store.findOne({ where: { user_id: userInfo.id } });
+
+      if (ownedStore && Number(ownedStore.id) === Number(storeid)) {
+        const menus = await menu.findAll({
+          include: [
+            {
+              model: user_meal,
+              attributes: ['user_id'],
+              include: [
+                {
+                  model: user,
+                  attributes: ['user_nickname', 'user_phone_number'],
+                },
+              ],
+            },
+          ],
+          where: { store_id: storeid },
+        });
+        res.status(200).json({ menus });
+      } else {
+        const menuList = await menu.findAll({ where: { store_id: storeid } });
+        res.status(200).json({ menuList: menuList });
+      }
     } catch (err) {
-      res.status(400).json({ message: '잘못된 요청입니다' });
+      console.error(err);
+      res.status(400).json({ message: err.message });
     }
   },
   delete: async (req, res) => {
