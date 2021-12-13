@@ -35,7 +35,9 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
   const handleClick = file => {
     setSelectedFile(file.name);
     S3FileUpload.uploadFile(file, config)
-      .then(data => setUrl(data.location))
+      .then(data => {
+        setUrl(data.location);
+      })
       .catch(err => console.error(err));
   };
 
@@ -53,7 +55,7 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
         {
           store_id: orderedMeal[0].menu.store_id,
           menu_id: orderedMeal[0].menu_id,
-          review_image: url,
+          review_image: url || 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
           review_content: reviewText,
         },
         { headers: { authorization: `Bearer ${accessToken}` }, withCredentials: true }
@@ -89,8 +91,7 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
               ref={imgRef}
               alt=""
               onError={() => {
-                return (imgRef.current.src =
-                  'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA+2021-09-19+%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB+3.11.14.png');
+                return (imgRef.current.src = 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg');
               }}
             />
             <textarea className="review-upload-food-text" placeholder="리뷰를 적어주세요" onChange={handleChange} />

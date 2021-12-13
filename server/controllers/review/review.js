@@ -17,7 +17,6 @@ module.exports = {
           review_image: req.body.review_image || '',
         });
         await user_meal.destroy({ where: { user_id: userInfo.id } });
-        // sdk를 이용해서 이미지가 어떤 형식으로 전달이 되는지 파악한 후에 수정할 부분이있으면 수정해보자
         res.status(201).json({ message: '리뷰 등록이 완료되었습니다.' });
       } catch (err) {
         console.log(err);

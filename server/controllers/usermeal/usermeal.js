@@ -17,13 +17,10 @@ module.exports = {
 
         if (matchedStore.user_id === userInfo.id) {
           res.status(403).json({ message: '본인의 가게에서 요청하셨습니다' });
-          // } else if (!matchedUser.user_phone_number) {
-          //   res.status(403).json({ message: '인증되지 않은 사용자입니다' });
+        } else if (!matchedUser.user_phone_number) {
+          res.status(403).json({ message: '인증되지 않은 사용자입니다' });
         } else {
-          const existingUserMeal = await user_meal.findOne({ where: { user_id: userInfo.id } });
-          if (existingUserMeal) {
-            return res.status(403).json({ message: '이미 주문 내역이 있습니다' });
-          } else if (matchedUser.today_used) {
+          if (matchedUser.today_used) {
             return res.status(403).json({ message: '오늘은 이미 사용하셨습니다' });
           } else {
             await matchedStore.decrement('store_order_quantity').catch(err => console.log(err));
@@ -31,7 +28,6 @@ module.exports = {
             await user_meal.create({ menu_id, user_id: userInfo.id }).catch(err => console.log(err));
             await matchedUser.update({ today_used: true }).catch(err => console.log(err));
             res.status(200).json({ message: '주문이 완료되었습니다' });
-            //인증코드 생성해서 db 저장 일단 생략
           }
         }
       } catch (err) {

@@ -24,10 +24,6 @@ module.exports = {
       kakao_oauth_token: {
         type: Sequelize.STRING,
       },
-      email_verified: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
-      },
       signup_method: {
         type: Sequelize.STRING,
       },
