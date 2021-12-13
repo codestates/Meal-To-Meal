@@ -70,7 +70,6 @@ function MenuBox({
           navigate('/usermeal');
         })
         .catch(err => {
-          console.log(err);
           setAlertMessage('오늘은 이미 티켓을 쓰셨네요! 내일 다시 이용해주세요');
           openAlertHandler();
         });
