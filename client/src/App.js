@@ -214,6 +214,7 @@ function App() {
               isLogin={isLogin}
               addToCart={addToCart}
               openAlertHandler={openAlertHandler}
+              openWarningAlertHandler={openWarningAlertHandler}
               openLoginModalHandler={openLoginModalHandler}
               openSignupModalHandler={openSignupModalHandler}
               detailStoreInfo={detailStoreInfo}

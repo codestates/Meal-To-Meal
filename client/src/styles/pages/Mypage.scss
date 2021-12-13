@@ -25,6 +25,7 @@
 }
 
 .mypage-myinfo-nickname {
+  z-index: 10;
   font-size: 20px;
   font-weight: bolder;
   margin-bottom: 5px;
@@ -120,8 +121,8 @@
 }
 
 .mypage-myinfo-deco-image {
-  width: 150px;
-  margin-left: 100px;
+  width: 120px;
+  margin-left: 50px;
 }
 .mypage-review-container {
   display: flex;
@@ -213,8 +214,8 @@
     height: 35px;
   }
   .mypage-myinfo-deco-image {
-    width: 150px;
-    margin-left: 100px;
+    width: 200px;
+    margin-left: 320px;
   }
 }
 @include desktop {
@@ -237,8 +238,8 @@
 
   .mypage-myinfo-container {
     height: 690px;
-    overflow: auto;
     padding-left: 25px;
+    flex-direction: column;
   }
 
   .mypage-myinfo-nickname {
@@ -273,6 +274,15 @@
     width: 150px;
     height: 35px;
     font-size: 22px;
+  }
+
+  .mypage-myinfo-deco-image {
+    width: 400px;
+    height: 400px;
+    display: inline-block;
+    opacity: 0.5;
+    margin: 0 0 0 auto;
+    z-index: -1;
   }
 
   .mypage-review-container {

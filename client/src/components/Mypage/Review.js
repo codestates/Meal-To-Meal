@@ -50,7 +50,7 @@ function Review({ navigate, alertMessage, setAlertMessage, openAlertHandler }) {
               <div className="review-title-info-container">
                 <div className="review-icon-text-container">
                   <img className="review-title-icon" src={require('../../img/찌개.png').default} alt="" />
-                  <div className="store-text">{el.store_id}</div>
+                  <div className="store-text">{el.store.store_name}</div>
                 </div>
                 <div className="review-icon-text-container">
                   <i className="far fa-calendar-alt" />

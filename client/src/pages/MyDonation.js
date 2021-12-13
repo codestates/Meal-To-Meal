@@ -49,8 +49,6 @@ function MyDonation() {
     getUserReviewHandler();
   }, []);
 
-  console.log(isUser);
-
   return (
     <>
       {isLoading ? (
