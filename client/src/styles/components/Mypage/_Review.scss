@@ -1,46 +1,48 @@
 @import '../../mixin/mixin';
 
 .review-container {
-  display: flex;
-  flex-direction: column;
-  border-bottom: 1px solid grey;
-  margin: 10px;
+  border-bottom: 2px solid grey;
+  font-size: 14px;
+  padding: 0 5px 0 5px;
+  margin-bottom: 10px;
+  word-break: keep-all;
 }
 
 .review-title-info-container {
   display: flex;
-  justify-content: space-around;
+  width: 100%;
+  justify-content: flex-start;
   align-items: center;
-  margin: 10px;
+  margin: 5px;
 }
 
 .review-icon-text-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  margin-right: 100px;
 }
 
 .review-title-icon {
-  width: 40px;
+  width: 30px;
   margin-right: 5px;
 }
 
 .fa-calendar-alt {
   margin: 0 5px 5px 0;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .review-img-info-container {
   display: flex;
-  flex-direction: column;
   margin: 15px;
 }
 
 .review-store-img {
-  height: 170px;
+  width: 150px;
   max-width: 232px;
   border-radius: 30px;
-  box-shadow: gray 4px 4px 4px 4px;
+  box-shadow: gray 2px 2px 2px 2px;
 }
 
 .review-store-info-container {
@@ -48,6 +50,7 @@
   flex-direction: column;
   align-items: flex-start;
   word-break: keep-all;
+  margin-left: 15px;
 }
 
 .review-menu-title {
@@ -55,96 +58,8 @@
   margin: 20px 0 5px 0;
 }
 
-.review-delete-button {
-  padding-top: 3px;
-  width: 80px;
-  margin: 0 10px 10px auto;
-  box-shadow: gray 4px 4px 4px;
-  border-radius: 7px;
-  transition: 120ms ease;
-  background-color: white;
-  cursor: pointer;
-
-  &:hover {
-    box-shadow: gray 6px 6px 6px;
-  }
-
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    transition: ease all;
-  }
-
-  &:hover:before,
-  &:hover:after {
-    width: 100%;
-    transition: ease all;
-  }
-
-  &:active {
-    box-shadow: none;
-  }
-}
-
 @include tablet {
-  .review-title-info-container {
-    display: flex;
-    justify-content: flex-start;
-    font-size: 25px;
-  }
-
-  .review-icon-text-container {
-    margin-right: 30px;
-  }
-
-  .review-img-info-container {
-    flex-direction: row;
-    justify-content: space-around;
-    font-size: 20px;
-  }
-
-  .review-store-img {
-    height: 210px;
-    max-width: 265px;
-  }
-
-  .review-store-info-container {
-    margin-left: 30px;
-  }
 }
 
 @include desktop {
-  .review-title-info-container {
-    display: flex;
-    justify-content: flex-start;
-    font-size: 25px;
-  }
-
-  .review-icon-text-container {
-    margin-right: 30px;
-  }
-
-  .review-img-info-container {
-    flex-direction: row;
-    justify-content: flex-start;
-    font-size: 23px;
-  }
-
-  .review-store-img {
-    height: 235px;
-    max-width: 310px;
-  }
-
-  .review-store-info-container {
-    margin-left: 30px;
-  }
-
-  .review-delete-button {
-    width: 90px;
-    height: 40px;
-    font-size: 20px;
-    margin: 0 20px 20px auto;
-  }
 }

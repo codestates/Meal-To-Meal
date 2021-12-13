@@ -46,6 +46,7 @@ module.exports = {
   },
 
   complete: async (req, res) => {
+    console.log('----------서버 req', req.body);
     const userInfo = checkTokens(req);
     const { verification_code, user_phone_number } = req.body;
     const matchedUser = await user.findOne({ where: { id: userInfo.id } });
@@ -55,6 +56,8 @@ module.exports = {
       } else if (verification_code === matchedUser.verification_code) {
         await user.update({ user_phone_number }, { where: { id: userInfo.id } });
         res.status(200).json({ message: '인증에 성공했습니다' });
+      } else {
+        res.status(400).json({ message: '인증 코드를 확인해주세요' });
       }
     } catch (err) {
       res.status(400).json({ message: err.message });

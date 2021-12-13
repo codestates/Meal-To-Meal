@@ -5,10 +5,9 @@ function PhoneVerificationModal({
   signupInfo,
   setSignupInfo,
   openPhoneModalHandler,
-  openNumberAlertHandler,
+  phoneVerification,
   phoneVerificationComplete,
   isNumberAlert,
-  setIsNumberAlert,
 }) {
   return (
     <div className="phone-modal-container">
@@ -31,7 +30,7 @@ function PhoneVerificationModal({
             ></input>
             <button
               className="phone-modal-number-submit"
-              onClick={() => openNumberAlertHandler(signupInfo.user_phone_number)}
+              onClick={() => phoneVerification(signupInfo.user_phone_number)}
             >
               인증 번호 발송
             </button>
@@ -45,7 +44,7 @@ function PhoneVerificationModal({
             <div className="phone-modal-verification-container">
               <input
                 className="phone-modal-verification-input"
-                onChange={e => setSignupInfo({ verification_code: e.target.value, ...signupInfo })}
+                onChange={e => setSignupInfo({ ...signupInfo, verification_code: e.target.value })}
                 placeholder="인증번호"
               ></input>
               <button

@@ -63,9 +63,6 @@ function Review({ navigate, alertMessage, setAlertMessage, openAlertHandler }) {
                   <div className="store-text">{el.review_content}</div>
                 </div>
               </div>
-              <button className="review-delete-button" onClick={() => deleteReviewHandler(el.id)}>
-                삭제
-              </button>
             </div>
           ))}
         </>

@@ -6,7 +6,7 @@
 
 .phone-modal-backdrop {
   position: fixed;
-  z-index: 998;
+  z-index: 999;
   top: 0;
   left: 0;
   bottom: 0;
@@ -19,7 +19,7 @@
 .phone-modal-window {
   font-size: 17px;
   width: 250px;
-  height: 250px;
+  height: 200px;
   border: 3px solid #ffcc1d;
   display: flex;
   flex-direction: column;
@@ -73,14 +73,89 @@
 
 .phone-modal-verification-input {
   padding: 5px;
-  margin-right: 10px;
+  margin-right: 35px;
 }
 .phone-modal-verification-submit {
   width: 120px;
 }
 
 @include tablet {
+  .phone-modal-window {
+    font-size: 23px;
+    width: 350px;
+    height: 300px;
+  }
+
+  .phone-modal-content-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .phone-modal-number-input {
+    font-size: 21px;
+  }
+
+  .phone-modal-number-submit {
+    margin-left: 0px;
+    font-size: 20px;
+    height: 40px;
+  }
+
+  .phone-modal-number-alert-text {
+    font-size: 18px;
+  }
+
+  .phone-modal-verification-container {
+    margin-top: 15px;
+  }
+
+  .phone-modal-verification-input {
+    font-size: 21px;
+  }
+
+  .phone-modal-verification-submit {
+    font-size: 20px;
+    height: 40px;
+  }
 }
 
 @include desktop {
+  .phone-modal-window {
+    font-size: 25px;
+    width: 450px;
+    height: 280px;
+  }
+
+  .phone-modal-title-container {
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+
+  .phone-modal-number-input {
+    font-size: 23px;
+  }
+
+  .phone-modal-number-submit {
+    margin-left: 0px;
+    font-size: 20px;
+    height: 40px;
+  }
+
+  .phone-modal-number-alert-text {
+    font-size: 19px;
+  }
+
+  .phone-modal-verification-container {
+    margin-top: 15px;
+  }
+
+  .phone-modal-verification-input {
+    font-size: 23px;
+  }
+
+  .phone-modal-verification-submit {
+    font-size: 20px;
+    height: 40px;
+  }
 }
