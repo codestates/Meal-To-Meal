@@ -68,7 +68,6 @@
 }
 
 .fix-toggle-button {
-  margin: 0 0 0 15px;
 }
 
 .fix-toggle-validation-message {
@@ -83,7 +82,14 @@
 
 .mypage-phone-verification-success-container {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+}
+
+.mypage-phone-verification-success-text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: default;
+  color: grey;
 }
 
 .mypage-phone-verification-check {
@@ -91,10 +97,20 @@
   margin-left: 5px;
 }
 
+.mypage-phone-verification-failure-container {
+  display: flex;
+  align-items: center;
+}
 .mypage-phone-verification-button {
+  margin-top: 10px;
   margin-bottom: 10px;
   cursor: pointer;
   color: grey;
+}
+
+.mypage-phone-verification-not-check {
+  width: 15px;
+  margin-left: 5px;
 }
 
 .mypage-review-container {

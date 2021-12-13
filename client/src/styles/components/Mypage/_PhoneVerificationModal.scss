@@ -46,10 +46,15 @@
 .phone-modal-content-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
+}
+
+.phone-modal-number-input {
+  padding: 5px;
 }
 
 .phone-modal-number-submit {
-  width: 150px;
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 8px;
 }
@@ -60,9 +65,18 @@
   margin-bottom: 25px;
 }
 
+.phone-modal-verification-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.phone-modal-verification-input {
+  padding: 5px;
+  margin-right: 10px;
+}
 .phone-modal-verification-submit {
-  width: 150px;
-  margin-top: 10px;
+  width: 120px;
 }
 
 @include tablet {

@@ -29,7 +29,12 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
   };
 
   const openPhoneModalHandler = () => {
-    setIsOpenPhoneModal(!isOpenPhoneModal);
+    if (isOpenPhoneModal !== true) {
+      setIsNumberAlert(false);
+      setIsOpenPhoneModal(!isOpenPhoneModal);
+    } else {
+      setIsOpenPhoneModal(!isOpenPhoneModal);
+    }
   };
 
   const [userInfo, setUserInfo] = useState({});
@@ -62,8 +67,14 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
           withCredentials: true,
         })
         .then(res => {
-          setUserInfo(res.data.userInfo);
-          setIsKakaoLogin(res.data.userInfo.signup_method);
+          if (res.user_phone_number !== null) {
+            setUserInfo(res.data.userInfo);
+            setIsVerification(true);
+            setIsKakaoLogin(res.data.userInfo.signup_method);
+          } else {
+            setUserInfo(res.data.userInfo);
+            setIsKakaoLogin(res.data.userInfo.signup_method);
+          }
         })
         .catch(err => {
           console.log(err);
@@ -206,12 +217,21 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
         }
       )
       .then(res => {
-        console.log(res.data);
-        setIsNumberAlert(false);
-        setIsOpenPhoneModal(false);
-        setIsVerification(true);
+        if (res.status === 403) {
+          setAlertMessage('만료된 인증번호입니다. 다시 인증번호를 발송해주세요.');
+          openWarningAlertHandler();
+        } else if (res.status === 200) {
+          setAlertMessage('인증되었습니다');
+          openAlertHandler();
+          setIsNumberAlert(false);
+          setIsOpenPhoneModal(false);
+          setIsVerification(true);
+        }
       })
       .catch(err => {
+        setIsNumberAlert(false);
+        setAlertMessage('잘못된 요청입니다.');
+        openWarningAlertHandler();
         console.log(err.message);
       });
   };
@@ -331,12 +351,19 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
           ) : null}
           {isVerification ? (
             <div className="mypage-phone-verification-success-container">
-              <div className="mypage-phone-verification-button">휴대폰 인증</div>
+              <div className="mypage-phone-verification-success-text">휴대폰 인증</div>
               <img className="mypage-phone-verification-check" src={require('../img/check.png').default} alt="" />
             </div>
           ) : (
-            <div className="mypage-phone-verification-button" onClick={openPhoneModalHandler}>
-              휴대폰 인증
+            <div className="mypage-phone-verification-failure-container">
+              <div className="mypage-phone-verification-button" onClick={openPhoneModalHandler}>
+                휴대폰 인증
+              </div>
+              <img
+                className="mypage-phone-verification-not-check"
+                src={require('../img/notcheck.png').default}
+                alt=""
+              />
             </div>
           )}
 

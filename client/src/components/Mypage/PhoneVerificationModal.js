@@ -42,17 +42,19 @@ function PhoneVerificationModal({
                 3분 내에 인증번호를 아래 칸에 입력해주세요.
               </div>
             ) : null}
-            <input
-              className="phone-modal-verification-input"
-              onChange={e => setSignupInfo({ verification_code: e.target.value, ...signupInfo })}
-              placeholder="인증번호 6자리를 입력해주세요"
-            ></input>
-            <button
-              className="phone-modal-verification-submit"
-              onClick={() => phoneVerificationComplete(signupInfo.verification_code, signupInfo.user_phone_number)}
-            >
-              확인
-            </button>
+            <div className="phone-modal-verification-container">
+              <input
+                className="phone-modal-verification-input"
+                onChange={e => setSignupInfo({ verification_code: e.target.value, ...signupInfo })}
+                placeholder="인증번호"
+              ></input>
+              <button
+                className="phone-modal-verification-submit"
+                onClick={() => phoneVerificationComplete(signupInfo.verification_code, signupInfo.user_phone_number)}
+              >
+                확인
+              </button>
+            </div>
           </form>
         </div>
       </div>

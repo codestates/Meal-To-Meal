@@ -295,10 +295,15 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  width: 100%;
+}
+
+.phone-modal-number-input {
+  padding: 5px;
 }
 
 .phone-modal-number-submit {
-  width: 150px;
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 8px;
 }
@@ -309,9 +314,25 @@
   margin-bottom: 25px;
 }
 
+.phone-modal-verification-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.phone-modal-verification-input {
+  padding: 5px;
+  margin-right: 10px;
+}
+
 .phone-modal-verification-submit {
-  width: 150px;
-  margin-top: 10px;
+  width: 120px;
 }
 
 .mypage-container {
@@ -395,10 +416,6 @@
   outline: none;
 }
 
-.fix-toggle-button {
-  margin: 0 0 0 15px;
-}
-
 .fix-toggle-validation-message {
   margin: 5px;
   font-size: 12px;
@@ -413,9 +430,16 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mypage-phone-verification-success-text {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: default;
+  color: grey;
 }
 
 .mypage-phone-verification-check {
@@ -423,10 +447,25 @@
   margin-left: 5px;
 }
 
+.mypage-phone-verification-failure-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .mypage-phone-verification-button {
+  margin-top: 10px;
   margin-bottom: 10px;
   cursor: pointer;
   color: grey;
+}
+
+.mypage-phone-verification-not-check {
+  width: 15px;
+  margin-left: 5px;
 }
 
 .mypage-review-container {
