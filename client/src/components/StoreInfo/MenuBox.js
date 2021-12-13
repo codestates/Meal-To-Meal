@@ -85,7 +85,7 @@ function MenuBox({
             <img className="menu-food-image" src={el.menu_image} alt="" />
             <div className="menu-info-container">
               <span className="menu-text">{el.menu_name}</span>
-              <span className="menu-text">{el.menu_price.toLocaleString()}원</span>
+              <span className="menu-text">{Number(el.menu_price).toLocaleString()}원</span>
               <div className="menu-donation-container">
                 <img className="menu-donation-icon" src={require('../../img/donation.png').default} alt="" />
                 <span className="menu-text">기부받은 그릇 : {el.menu_order_quantity}</span>
