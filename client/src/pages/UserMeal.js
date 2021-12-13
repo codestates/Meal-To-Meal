@@ -51,7 +51,9 @@ function UserMeal({ navigate, getImage }) {
                 <img className="usermeal-category-icon" src={icon} alt="" />
                 <div className="usermeal-store-title">{orderedMeal[0].menu.store.store_name}</div>
               </div>
-              <img className="usermeal-store-image" src={orderedMeal[0].menu.store.store_image} alt="" />
+              <div className="usermeal-store-img-container">
+                <img className="usermeal-store-image" src={orderedMeal[0].menu.store.store_image} alt="" />
+              </div>
               <div className="usermeal-address-container">
                 <i className="fas fa-map-marker-alt" />
                 <div className="usermeal-address-text">{orderedMeal[0].menu.store.store_address}</div>
@@ -66,18 +68,17 @@ function UserMeal({ navigate, getImage }) {
                 <div className="usermeal-ordered-title">주문한 음식</div>
                 <UserMealBox orderedMeal={orderedMeal} />
               </div>
+              <div className="usermeal-userinfo-title">주문 유저 정보</div>
               <div className="usermeal-userinfo-container">
-                <div className="usermeal-userinfo-title">주문 유저 정보</div>
-                <div className="usermeal-username">'기부악마'님</div>
-                <div className="usermeal-user-email">hyeonsi95@naver.com</div>
-                <div className="usermeal-user-phone-number">010-1234-5678</div>
+                <div className="usermeal-user-text">'기부악마'님</div>
+                <div className="usermeal-user-text">hyeonsi95@naver.com</div>
+                <div className="usermeal-user-text">010-1234-5678</div>
               </div>
+              <button className="usermeal-confirm-button" onClick={openReviewModalHandler}>
+                잘 먹었습니다!
+              </button>
             </div>
           </div>
-          <button className="usermeal-confirm-button" onClick={openReviewModalHandler}>
-            잘 먹었습니다!
-          </button>
-
           {reviewModalOpen ? (
             <ReviewUploadModal
               navigate={navigate}

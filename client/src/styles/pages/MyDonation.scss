@@ -27,7 +27,7 @@
 }
 
 .mydonation-money-image {
-  width: 150px;
+  width: 15em;
 }
 
 .mydonation-history-title {
@@ -86,7 +86,6 @@
   }
 
   .mydonation-ranking-container {
-    height: 710px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -106,9 +105,10 @@
   }
 
   .mydonation-money-image {
-    height: 400px;
-    width: 450px;
-    margin-left: 50%;
+    display: block;
+    height: 25em;
+    width: 25em;
+    margin: 0 0 0 auto;
   }
 
   .mydonation-right-container {
