@@ -1,5 +1,6 @@
 @import '../mixin/mixin';
 @import '../components/MyDonation/DonationBox';
+@import '../components/MyDonation/EmptyDonationAni';
 
 .mydonation-container {
   padding: 10px;
@@ -46,7 +47,7 @@
 @include tablet {
   .mydonation-container {
     margin-top: 60px;
-    min-height: 82.5vh;
+    min-height: 80.8vh;
   }
 
   .mydonation-ranking-title {
@@ -72,7 +73,7 @@
     display: flex;
     justify-content: flex-start;
     margin-top: 60px;
-    min-height: 79.5vh;
+    min-height: 78.5vh;
     font-size: 23px;
   }
 
@@ -97,7 +98,7 @@
 
   .mydonation-money-total {
     font-size: 30px;
-    margin-bottom: 40px;
+    height: 80px;
   }
 
   .mydonation-money-ranking {
@@ -106,8 +107,8 @@
 
   .mydonation-money-image {
     display: block;
-    height: 25em;
-    width: 25em;
+    height: 15em;
+    width: 15em;
     margin: 0 0 0 auto;
   }
 

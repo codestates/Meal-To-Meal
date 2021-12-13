@@ -3,6 +3,7 @@ import lottie from 'lottie-web';
 
 function EmptyReviewAni({ navigate }) {
   const emptyOrderAnimation = useRef();
+
   useEffect(() => {
     lottie.loadAnimation({
       container: emptyOrderAnimation.current,

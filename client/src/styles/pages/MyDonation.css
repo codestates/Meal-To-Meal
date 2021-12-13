@@ -98,6 +98,58 @@
   margin-right: 5px;
 }
 
+.empty-donation-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 15px;
+}
+
+.empty-donation-animation {
+  height: 150px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .empty-donation-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 20px;
+  }
+  .empty-donation-animation {
+    height: 350px;
+  }
+  .empty-donation-text {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .empty-donation-container {
+    height: 27.8em;
+  }
+  .empty-donation-animation {
+    height: 450px;
+  }
+  .empty-donation-text {
+    font-size: 30px;
+  }
+}
+
 .mydonation-container {
   padding: 10px;
   font-size: 14px;
@@ -149,7 +201,7 @@
 @media (min-width: 758px) and (max-width: 1023px) {
   .mydonation-container {
     margin-top: 60px;
-    min-height: 82.5vh;
+    min-height: 80.8vh;
   }
   .mydonation-ranking-title {
     font-size: 25px;
@@ -175,7 +227,7 @@
         -ms-flex-pack: start;
             justify-content: flex-start;
     margin-top: 60px;
-    min-height: 79.5vh;
+    min-height: 78.5vh;
     font-size: 23px;
   }
   .mydonation-left-container {
@@ -202,15 +254,15 @@
   }
   .mydonation-money-total {
     font-size: 30px;
-    margin-bottom: 40px;
+    height: 80px;
   }
   .mydonation-money-ranking {
     font-size: 35px;
   }
   .mydonation-money-image {
     display: block;
-    height: 25em;
-    width: 25em;
+    height: 15em;
+    width: 15em;
     margin: 0 0 0 auto;
   }
   .mydonation-right-container {

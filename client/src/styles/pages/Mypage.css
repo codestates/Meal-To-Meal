@@ -321,10 +321,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   border: 3px solid #ffcc1d;
   border-radius: 5px;
   padding: 15px;
@@ -332,6 +332,7 @@
 }
 
 .mypage-myinfo-nickname {
+  z-index: 10;
   font-size: 20px;
   font-weight: bolder;
   margin-bottom: 5px;
@@ -443,8 +444,8 @@
 }
 
 .mypage-myinfo-deco-image {
-  width: 150px;
-  margin-left: 100px;
+  width: 120px;
+  margin-left: 50px;
 }
 
 .mypage-review-container {
@@ -511,6 +512,10 @@
   .mypage-review-container {
     margin-bottom: 60px;
   }
+  .mypage-myinfo-deco-image {
+    width: 180px;
+    margin-left: 35%;
+  }
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
@@ -544,8 +549,8 @@
     height: 35px;
   }
   .mypage-myinfo-deco-image {
-    width: 150px;
-    margin-left: 100px;
+    width: 300px;
+    margin-left: 58%;
   }
 }
 
@@ -554,15 +559,18 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
     margin-top: 60px;
     min-height: 76vh;
     font-size: 23px;
   }
   .mypage-left-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     width: 50%;
     margin-right: 30px;
   }
@@ -571,8 +579,11 @@
   }
   .mypage-myinfo-container {
     height: 690px;
-    overflow: auto;
     padding-left: 25px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   .mypage-myinfo-nickname {
     margin-top: 20px;
@@ -600,6 +611,13 @@
     width: 150px;
     height: 35px;
     font-size: 22px;
+  }
+  .mypage-myinfo-deco-image {
+    opacity: 0.5;
+    width: 20%;
+    position: absolute;
+    bottom: 150px;
+    left: 25%;
   }
   .mypage-review-container {
     height: 710px;
