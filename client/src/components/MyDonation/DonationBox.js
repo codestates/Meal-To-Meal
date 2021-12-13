@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
 
 function DonationBox({ donationList }) {
-  console.log(donationList[0].cart_menus[0]);
-
   return (
     <>
       {donationList.map(item => (

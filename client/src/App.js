@@ -232,6 +232,8 @@ function App() {
               setCartItems={setCartItems}
               removeFromCart={removeFromCart}
               getImage={getImage}
+              openWarningAlertHandler={openWarningAlertHandler}
+              setAlertMessage={setAlertMessage}
             />
           }
         />

@@ -5,15 +5,16 @@ import ThankAlert from '../components/Alert/ThankAlert';
 import '../styles/pages/ShareCart.css';
 import axios from 'axios';
 
-function ShareCart({ cartItems, setCartItems, removeFromCart, getImage }) {
+function ShareCart({ cartItems, setCartItems, removeFromCart, getImage, openWarningAlertHandler, setAlertMessage }) {
   const navigate = useNavigate();
+  const accessToken = localStorage.getItem('accessToken');
 
   const [isOpenThankAlert, setIsOpenThankAlert] = useState(false);
   const [payName, setPayName] = useState('');
+  const [userPhone, setUserPhone] = useState('');
 
   const openThankAlertHandler = () => {
     setIsOpenThankAlert(!isOpenThankAlert);
-    setTimeout(() => setIsOpenThankAlert(false), 1800);
   };
 
   const itemQuantity = cartItems.map(el => el.quantity);
@@ -28,9 +29,30 @@ function ShareCart({ cartItems, setCartItems, removeFromCart, getImage }) {
     else setPayName(`${cartItems[0].name} 외 ${totalQuantity - 1}개`);
   };
 
+  const getUserPhoneHandler = () => {
+    if (!accessToken) {
+      return;
+    } else {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/user/mypage`, {
+          headers: { authorization: `Bearer ${accessToken}` },
+          withCredentials: true,
+        })
+        .then(res => {
+          setUserPhone(res.data.userInfo.user_phone_number);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  };
+
   useEffect(() => {
     makePayNameHandler();
+    getUserPhoneHandler();
   }, [cartItems]);
+
+  const phoneFormat = `${userPhone.slice(0, 3)}-${userPhone.slice(3, 7)}-${userPhone.slice(7, 11)}`;
 
   function requestPay() {
     const IMP = window.IMP; // 생략 가능
@@ -45,7 +67,7 @@ function ShareCart({ cartItems, setCartItems, removeFromCart, getImage }) {
         merchant_uid: 'Sudo_Hired_' + new Date(),
         name: payName,
         amount: Number(totalPrice),
-        buyer_tel: '010-0000-0000',
+        buyer_tel: phoneFormat,
       },
       function (rsp) {
         // callback
@@ -76,10 +98,13 @@ function ShareCart({ cartItems, setCartItems, removeFromCart, getImage }) {
             })
             .catch(err => {
               console.log(err);
-              alert('잘못된 요청입니다');
+              setAlertMessage('잘못된 요청입니다.');
+              openWarningAlertHandler();
             });
         } else {
           // 결제 실패 시 로직,
+          setAlertMessage('결제에 실패하였습니다.');
+          openWarningAlertHandler();
         }
       }
     );
