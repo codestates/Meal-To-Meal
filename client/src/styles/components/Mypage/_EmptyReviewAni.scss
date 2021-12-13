@@ -17,15 +17,25 @@
 
 .empty-back-button {
   width: 150px;
+  margin-bottom: 20px;
 }
 
 @include tablet {
+  .empty-review-content-container {
+    font-size: 23px;
+  }
+
   .empty-back-button {
     margin-bottom: 20px;
   }
 }
 
 @include desktop {
+  .empty-review-content-container {
+    margin-top: 150px;
+    font-size: 23px;
+  }
+
   .empty-back-button {
     margin-bottom: 30px;
   }

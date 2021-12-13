@@ -1272,7 +1272,7 @@ button {
 
 @media (min-width: 758px) and (max-width: 1023px) {
   .alert-window {
-    width: 340px;
+    width: 400px;
     padding: 15px;
   }
   .alert-animation {
@@ -1302,7 +1302,7 @@ button {
 
 @media (min-width: 1024px) {
   .alert-window {
-    width: 440px;
+    width: 400px;
     padding: 30px;
   }
   .alert-animation {
@@ -1310,10 +1310,6 @@ button {
   }
   .alert-message {
     font-size: 35px;
-  }
-  .alert-window {
-    width: 340px;
-    padding: 15px;
   }
   .alert-animation {
     height: 160px;

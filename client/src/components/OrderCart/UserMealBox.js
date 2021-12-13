@@ -7,7 +7,7 @@ function UserMealBox({ orderedMeal }) {
       <div className="ordered-food-info-container">
         <div className="ordered-food-info-title-container">
           <div className="ordered-food-name">{orderedMeal[0].menu.menu_name}</div>
-          <div className="ordered-food-name">{orderedMeal[0].menu.menu_price}</div>
+          <div className="ordered-food-name-price">{Number(orderedMeal[0].menu.menu_price).toLocaleString()} 원</div>
         </div>
         <div className="ordered-food-name">{orderedMeal[0].updatedAt.slice(0, 10)}</div>
         <div className="ordered-order-code">{orderedMeal[0].donation_code}</div>

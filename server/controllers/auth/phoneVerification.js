@@ -46,6 +46,7 @@ module.exports = {
   },
 
   complete: async (req, res) => {
+    console.log('----------서버 req', req.body);
     const userInfo = checkTokens(req);
     const { verification_code, user_phone_number } = req.body;
     const matchedUser = await user.findOne({ where: { id: userInfo.id } });
