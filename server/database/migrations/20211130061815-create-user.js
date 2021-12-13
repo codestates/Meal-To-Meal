@@ -51,6 +51,10 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
       },
+      is_owner: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE,

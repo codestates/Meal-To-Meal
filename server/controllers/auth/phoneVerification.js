@@ -32,9 +32,7 @@ module.exports = {
 
           //3분 뒤 만료 시킨다
           const destroyVerificationCode = () => {
-            user.update({ verification_code: 'expired' }, { where: { id: userInfo.id } }).then(res => {
-              console.log('timeout??????????', res);
-            });
+            user.update({ verification_code: 'expired' }, { where: { id: userInfo.id } });
           };
           setTimeout(destroyVerificationCode, 180000);
 
@@ -59,7 +57,6 @@ module.exports = {
         res.status(200).json({ message: '인증에 성공했습니다' });
       }
     } catch (err) {
-      console.log(err.message);
       res.status(400).json({ message: err.message });
     }
   },

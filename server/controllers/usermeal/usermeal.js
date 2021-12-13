@@ -14,8 +14,11 @@ module.exports = {
           .findOne({ where: { id: matchedMenu.store_id } })
           .catch(err => console.log(err));
         const matchedUser = await user.findOne({ where: { id: userInfo.id } }).catch(err => console.log(err));
+
         if (matchedStore.user_id === userInfo.id) {
           res.status(403).json({ message: '본인의 가게에서 요청하셨습니다' });
+        } else if (!matchedUser.user_phone_number) {
+          res.status(403).json({ message: '인증되지 않은 사용자입니다' });
         } else {
           const existingUserMeal = await user_meal.findOne({ where: { user_id: userInfo.id } });
           if (existingUserMeal) {
@@ -64,14 +67,13 @@ module.exports = {
           ],
           where: { user_id: userInfo.id },
         });
-        if (!userMeal) {
-          res.status(404).json({ message: '주문 내역이 없습니다' });
-        } else {
+        if (userMeal) {
           const matchedUser = await user.findOne({ where: { id: userMeal.user_id } });
           delete matchedUser.dataValues.user_password;
           res.status(200).json({ userMeal, matchedUser });
         }
       } catch (err) {
+        console.log(err.message);
         res.status(400).json({ message: err.message });
       }
     }

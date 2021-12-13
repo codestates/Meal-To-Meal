@@ -21,6 +21,11 @@ module.exports = async (req, res) => {
                 [Op.like]: `%${keyword}%`,
               },
             },
+            {
+              store_category: {
+                [Op.like]: `%${keyword}%`,
+              },
+            },
           ],
         },
         order: [['store_name', 'ASC']],

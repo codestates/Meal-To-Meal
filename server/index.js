@@ -38,7 +38,7 @@ sequelize
 
 sequelize
   .query(
-    "CREATE EVENT IF NOT EXISTS reset_today_used ON SCHEDULE EVERY 1 DAY STARTS '2021-12-09 00:00:00' ON COMPLETION NOT PRESERVE ENABLE COMMENT 'reset_today_used_to_false_on_every_12' DO UPDATE user SET today_used=0;"
+    "CREATE EVENT IF NOT EXISTS reset_today_used ON SCHEDULE EVERY 1 DAY STARTS '2021-12-09 00:00:00' ON COMPLETION PRESERVE ENABLE COMMENT 'reset_today_used_to_false_on_every_12' DO UPDATE user SET today_used=0;"
   )
   .then(() => {
     // eslint-disable-next-line no-console

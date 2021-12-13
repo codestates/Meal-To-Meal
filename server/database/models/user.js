@@ -47,6 +47,9 @@ module.exports = (sequelize, DataTypes) => {
       signup_method: {
         type: DataTypes.STRING,
       },
+      is_owner: {
+        type: DataTypes.BOOLEAN,
+      },
     },
     {
       sequelize,
