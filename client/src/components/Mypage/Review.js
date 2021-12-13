@@ -38,6 +38,7 @@ function Review({ navigate, alertMessage, setAlertMessage, openAlertHandler }) {
   useEffect(() => {
     getDetailReviewHandler();
   }, [alertMessage]);
+
   return (
     <>
       {userReviews.length === 0 || userReviews.length === undefined ? (

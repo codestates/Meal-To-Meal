@@ -44,7 +44,7 @@ function PhoneVerificationModal({
             ) : null}
             <input
               className="phone-modal-verification-input"
-              onChange={e => setSignupInfo({ verification_code: e.target.value, ...signupInfo })}
+              onChange={e => setSignupInfo({ ...signupInfo, verification_code: e.target.value })}
               placeholder="인증번호 6자리를 입력해주세요"
             ></input>
             <button
