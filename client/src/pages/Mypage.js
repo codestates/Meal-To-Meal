@@ -5,7 +5,7 @@ import '../styles/pages/Mypage.css';
 
 import Review from '../components/Mypage/Review';
 
-function Mypage({ navigate, setAlertMessage, openAlertHandler, openWarningAlertHandler, alertMessage, getImage }) {
+function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, openWarningAlertHandler, getImage }) {
   const accessToken = localStorage.getItem('accessToken');
 
   const [isOpenFixNicknameToggle, setIsOpenFixNicknameToggle] = useState(false);
@@ -336,7 +336,7 @@ function Mypage({ navigate, setAlertMessage, openAlertHandler, openWarningAlertH
             </div>
           ) : (
             <div className="mypage-phone-verification-button" onClick={openPhoneModalHandler}>
-              휴대폰 인증 미완료
+              휴대폰 인증
             </div>
           )}
 
@@ -346,7 +346,12 @@ function Mypage({ navigate, setAlertMessage, openAlertHandler, openWarningAlertH
         </div>
         <div className="mypage-title">최근 리뷰 내역</div>
         <div className="mypage-review-container">
-          <Review navigate={navigate} setAlertMessage={setAlertMessage} openAlertHandler={openAlertHandler} />
+          <Review
+            navigate={navigate}
+            alertMessage={alertMessage}
+            setAlertMessage={setAlertMessage}
+            openAlertHandler={openAlertHandler}
+          />
         </div>
         {isOpenPhoneModal ? (
           <PhoneVerificationModal
