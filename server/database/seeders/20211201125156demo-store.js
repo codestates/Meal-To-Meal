@@ -98,7 +98,6 @@ module.exports = {
           created_at: new Date(),
           updated_at: new Date(),
         },
-        //분식끝6
         {
           id: 7,
           user_id: 7,

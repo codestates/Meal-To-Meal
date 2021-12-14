@@ -19,12 +19,12 @@ import 한식 from '../img/marker/한식.png';
 
 const Map = () => {
   const navigate = useNavigate();
-  const [icon, setIcon] = useState('');
   const [storeList, setStoreList] = useState([]);
   const [selected, setSelected] = useState(null);
   const [isOpenSearchResultSidebar, setIsOpenSearchResultSidebar] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [isChangeCenter, setIsChangeCenter] = useState({ lat: 37.51249519205713, lng: 126.99480974427608, zoom: 13 });
+  const [markerImg, setMarkerImg] = useState(null);
 
   const getImage = e => {
     if (e === '분식') return 분식;
@@ -35,6 +35,7 @@ const Map = () => {
     if (e === '중식') return 중식;
     if (e === '패스트푸드') return 패스트푸드;
     if (e === '한식') return 한식;
+    else return 한식;
   };
 
   const storeListHandler = () => {
@@ -57,28 +58,29 @@ const Map = () => {
 
   return (
     <GoogleMap
-      defaultCenter={{ lat: 37.51249519205713, lng: 126.99480974427608 }}
+      center={{ lat: Number(isChangeCenter.lat), lng: Number(isChangeCenter.lng) }}
       defaultZoom={13}
       options={{ disableDefaultUI: true, minZoom: 9, maxZoom: 18 }}
       zoom={isChangeCenter.zoom}
-      onZoomChanged={() => {
-        setIsChangeCenter({ lat: Number(isChangeCenter.lat), lng: Number(isChangeCenter.lng), zoom: 13 });
-      }}
-      ref={map => {
-        map && map.panTo({ lat: Number(isChangeCenter.lat), lng: Number(isChangeCenter.lng) });
-      }}
     >
       {storeList.map(el => (
         <Marker
+          onMouseOver={e => {
+            e.domEvent.target.src = 'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/redmarker.png';
+          }}
+          onMouseOut={e => {
+            e.domEvent.target.src = 'https://maps.gstatic.com/mapfiles/transparent.png';
+          }}
           key={el.id}
+          className="clicked"
           position={{
             lat: Number(el.store_lat),
             lng: Number(el.store_lng),
           }}
           icon={{ url: getImage(el.store_category) }}
           onClick={() => {
-            console.log('clicked');
             setSelected(el);
+            setIsChangeCenter({ lat: Number(el.store_lat), lng: Number(el.store_lng) });
             localStorage.setItem('clickedMarker', el.id);
           }}
         >
