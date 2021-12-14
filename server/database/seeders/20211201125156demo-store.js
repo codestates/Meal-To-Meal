@@ -1,3 +1,7 @@
+function randomIntFromInterval(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert(
@@ -195,7 +199,6 @@ module.exports = {
           created_at: new Date(),
           updated_at: new Date(),
         },
-        // 동막골은 메뉴 1개 에 술을 추가하자 그날그날 바뀌는 메뉴
         {
           id: 13,
           user_id: 13,

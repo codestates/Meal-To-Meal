@@ -9,7 +9,7 @@ import '../styles/pages/Maps.css';
 
 // 마커 이미지
 import 분식 from '../img/marker/분식.png';
-import 빵 from '../img/marker/빵.png';
+import 베이커리 from '../img/marker/베이커리.png';
 import 야식 from '../img/marker/야식.png';
 import 양식 from '../img/marker/양식.png';
 import 일식 from '../img/marker/일식.png';
@@ -22,10 +22,13 @@ const Map = () => {
   const [icon, setIcon] = useState('');
   const [storeList, setStoreList] = useState([]);
   const [selected, setSelected] = useState(null);
+  const [isOpenSearchResultSidebar, setIsOpenSearchResultSidebar] = useState(false);
+  const [searchResult, setSearchResult] = useState([]);
+  const [isChangeCenter, setIsChangeCenter] = useState({ lat: 37.51249519205713, lng: 126.99480974427608, zoom: 13 });
 
   const getImage = e => {
     if (e === '분식') return 분식;
-    if (e === '빵') return 빵;
+    if (e === '빵') return 베이커리;
     if (e === '야식') return 야식;
     if (e === '양식') return 양식;
     if (e === '일식') return 일식;
@@ -54,9 +57,16 @@ const Map = () => {
 
   return (
     <GoogleMap
-      defaultZoom={13}
       defaultCenter={{ lat: 37.51249519205713, lng: 126.99480974427608 }}
-      options={{ disableDefaultUI: true }}
+      defaultZoom={13}
+      options={{ disableDefaultUI: true, minZoom: 9, maxZoom: 18 }}
+      zoom={isChangeCenter.zoom}
+      onZoomChanged={() => {
+        setIsChangeCenter({ lat: Number(isChangeCenter.lat), lng: Number(isChangeCenter.lng), zoom: 13 });
+      }}
+      ref={map => {
+        map && map.panTo({ lat: Number(isChangeCenter.lat), lng: Number(isChangeCenter.lng) });
+      }}
     >
       {storeList.map(el => (
         <Marker
@@ -67,6 +77,7 @@ const Map = () => {
           }}
           icon={{ url: getImage(el.store_category) }}
           onClick={() => {
+            console.log('clicked');
             setSelected(el);
             localStorage.setItem('clickedMarker', el.id);
           }}
@@ -82,38 +93,32 @@ const Map = () => {
           )}
         </Marker>
       ))}
+      <Search
+        isOpenSearchResultSidebar={isOpenSearchResultSidebar}
+        setIsOpenSearchResultSidebar={setIsOpenSearchResultSidebar}
+        setSearchResult={setSearchResult}
+      />
+      {isOpenSearchResultSidebar ? (
+        <SearchResultSidebar searchResult={searchResult} setIsChangeCenter={setIsChangeCenter} />
+      ) : null}
     </GoogleMap>
   );
 };
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
 
-const GoogleMaps = () => {
-  return (
-    <div style={{ width: '100vw', height: '100vh' }}>
-      <WrappedMap
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&
-        libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
-        loadingElement={<div style={{ height: '100%' }} />}
-        containerElement={<div style={{ height: '100%' }} />}
-        mapElement={<div style={{ height: '100%' }} />}
-      />
-    </div>
-  );
-};
 const Maps = () => {
-  const [isOpenSearchResultSidebar, setIsOpenSearchResultSidebar] = useState(false);
-  const [searchResult, setSearchResult] = useState([]);
-
   return (
     <div className="map-container">
-      <GoogleMaps />
-      <Search
-        isOpenSearchResultSidebar={isOpenSearchResultSidebar}
-        setIsOpenSearchResultSidebar={setIsOpenSearchResultSidebar}
-        setSearchResult={setSearchResult}
-      />
-      {isOpenSearchResultSidebar ? <SearchResultSidebar searchResult={searchResult} /> : null}
+      <div style={{ width: '100vw', height: '100vh' }}>
+        <WrappedMap
+          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&
+        libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
+          loadingElement={<div style={{ height: '100%' }} />}
+          containerElement={<div style={{ height: '100%' }} />}
+          mapElement={<div style={{ height: '100%' }} />}
+        />
+      </div>
     </div>
   );
 };
