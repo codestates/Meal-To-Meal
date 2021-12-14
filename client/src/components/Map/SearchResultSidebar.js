@@ -9,6 +9,9 @@ function SearchResultSidebar({ searchResult, setIsChangeCenter }) {
           onClick={() => {
             setIsChangeCenter({ lat: el.store_lat, lng: el.store_lng, zoom: 17 });
           }}
+          onMouseOver={e => {
+            console.log(e);
+          }}
         >
           <div className="SearchResult-info">
             <div className="SearchResult-title">{el.store_name}</div>
