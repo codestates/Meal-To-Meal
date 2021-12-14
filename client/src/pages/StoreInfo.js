@@ -11,6 +11,7 @@ function StoreInfo({
   isLogin,
   addToCart,
   openAlertHandler,
+  openWarningAlertHandler,
   openLoginModalHandler,
   openSignupModalHandler,
   detailStoreInfo,
@@ -74,6 +75,7 @@ function StoreInfo({
               addToCart={addToCart}
               isLogin={isLogin}
               openAlertHandler={openAlertHandler}
+              openWarningAlertHandler={openWarningAlertHandler}
               openLoginModalHandler={openLoginModalHandler}
               openSignupModalHandler={openSignupModalHandler}
             />

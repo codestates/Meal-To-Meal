@@ -7,10 +7,10 @@ function MenuBox({
   navigate,
   setAlertMessage,
   openAlertHandler,
+  openWarningAlertHandler,
   isLogin,
   addToCart,
   openLoginModalHandler,
-  openSignupModalHandler,
 }) {
   const [isOpenLoginAlert, setIsOpenLoginAlert] = useState(false);
 
@@ -70,9 +70,14 @@ function MenuBox({
           navigate('/usermeal');
         })
         .catch(err => {
-          console.log(err);
-          setAlertMessage('오늘은 이미 티켓을 쓰셨네요! 내일 다시 이용해주세요');
-          openAlertHandler();
+          if (err.response.data.message === '인증되지 않은 사용자입니다') {
+            setAlertMessage('휴대폰 인증이 필요한 서비스입니다');
+            openWarningAlertHandler();
+            navigate('/mypage');
+          } else {
+            setAlertMessage('오늘은 이미 티켓을 쓰셨네요! 내일 다시 이용해주세요');
+            openWarningAlertHandler();
+          }
         });
     }
   };
