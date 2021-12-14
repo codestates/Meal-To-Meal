@@ -552,6 +552,18 @@ button {
   z-index: -100;
 }
 
+.loadingElement {
+  height: 100%;
+}
+
+.containerElement {
+  height: 100%;
+}
+
+.mapElement {
+  height: 100%;
+}
+
 button {
   -webkit-box-shadow: none;
           box-shadow: none;
