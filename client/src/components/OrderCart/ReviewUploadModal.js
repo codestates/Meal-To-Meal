@@ -38,7 +38,10 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
       .then(data => {
         setUrl(data.location);
       })
-      .catch(err => console.error(err));
+      .catch(err => {
+        console.log(err);
+        alert('사진용량 초과!');
+      });
   };
 
   const deleteUploadedFile = () => {

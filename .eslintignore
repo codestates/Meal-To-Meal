@@ -2,3 +2,4 @@ client/public/index.html
 package.json
 .prettierrc.json
 .eslintrc.json
+server/database/seeders/20211201125156demo-store.js

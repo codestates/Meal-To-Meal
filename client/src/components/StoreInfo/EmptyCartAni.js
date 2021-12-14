@@ -14,22 +14,10 @@ function EmptyCartAni({ navigate }) {
   }, []);
 
   return (
-    <>
-      <div className="sharecart-container">
-        <div className="animation-container">
-          <div className="sharecart-animation" ref={emptyShareCartContainer} />
-          <div className="sharecart-catchphrase">나눔카트가 비어있어요!</div>
-          <button
-            className="empty-sharecart-button"
-            onClick={() => {
-              navigate(-1);
-            }}
-          >
-            뒤로 가기
-          </button>
-        </div>
-      </div>
-    </>
+    <div className="empty-cart-animation-container">
+      <div className="empty-cart-animation" ref={emptyShareCartContainer} />
+      <div className="empty-cart-catchphrase">나눔카트가 비어있어요!</div>
+    </div>
   );
 }
 

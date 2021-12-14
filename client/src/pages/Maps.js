@@ -22,6 +22,9 @@ const Map = () => {
   const [icon, setIcon] = useState('');
   const [storeList, setStoreList] = useState([]);
   const [selected, setSelected] = useState(null);
+  const [isOpenSearchResultSidebar, setIsOpenSearchResultSidebar] = useState(false);
+  const [searchResult, setSearchResult] = useState([]);
+  const [isChangeCenter, setIsChangeCenter] = useState({ lat: 37.51249519205713, lng: 126.99480974427608, zoom: 13 });
 
   const getImage = e => {
     if (e === '분식') return 분식;
@@ -54,9 +57,16 @@ const Map = () => {
 
   return (
     <GoogleMap
-      defaultZoom={13}
       defaultCenter={{ lat: 37.51249519205713, lng: 126.99480974427608 }}
-      options={{ disableDefaultUI: true }}
+      defaultZoom={13}
+      options={{ disableDefaultUI: true, minZoom: 9, maxZoom: 18 }}
+      zoom={isChangeCenter.zoom}
+      onZoomChanged={() => {
+        setIsChangeCenter({ lat: Number(isChangeCenter.lat), lng: Number(isChangeCenter.lng), zoom: 13 });
+      }}
+      ref={map => {
+        map && map.panTo({ lat: Number(isChangeCenter.lat), lng: Number(isChangeCenter.lng) });
+      }}
     >
       {storeList.map(el => (
         <Marker
@@ -67,6 +77,7 @@ const Map = () => {
           }}
           icon={{ url: getImage(el.store_category) }}
           onClick={() => {
+            console.log('clicked');
             setSelected(el);
             localStorage.setItem('clickedMarker', el.id);
           }}
@@ -82,6 +93,14 @@ const Map = () => {
           )}
         </Marker>
       ))}
+      <Search
+        isOpenSearchResultSidebar={isOpenSearchResultSidebar}
+        setIsOpenSearchResultSidebar={setIsOpenSearchResultSidebar}
+        setSearchResult={setSearchResult}
+      />
+      {isOpenSearchResultSidebar ? (
+        <SearchResultSidebar searchResult={searchResult} setIsChangeCenter={setIsChangeCenter} />
+      ) : null}
     </GoogleMap>
   );
 };
@@ -89,9 +108,6 @@ const Map = () => {
 const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 const Maps = () => {
-  const [isOpenSearchResultSidebar, setIsOpenSearchResultSidebar] = useState(false);
-  const [searchResult, setSearchResult] = useState([]);
-
   return (
     <div className="map-container">
       <div style={{ width: '100vw', height: '100vh' }}>
@@ -103,12 +119,6 @@ const Maps = () => {
           mapElement={<div style={{ height: '100%' }} />}
         />
       </div>
-      <Search
-        isOpenSearchResultSidebar={isOpenSearchResultSidebar}
-        setIsOpenSearchResultSidebar={setIsOpenSearchResultSidebar}
-        setSearchResult={setSearchResult}
-      />
-      {isOpenSearchResultSidebar ? <SearchResultSidebar searchResult={searchResult} /> : null}
     </div>
   );
 };

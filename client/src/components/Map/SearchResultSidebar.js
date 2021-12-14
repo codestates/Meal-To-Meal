@@ -1,10 +1,15 @@
 import React from 'react';
 
-function SearchResultSidebar({ searchResult }) {
+function SearchResultSidebar({ searchResult, setIsChangeCenter }) {
   return (
     <div className="SearchResultSidebar-window">
       {searchResult.map(el => (
-        <div className="SearchResult-info-container">
+        <div
+          className="SearchResult-info-container"
+          onClick={() => {
+            setIsChangeCenter({ lat: el.store_lat, lng: el.store_lng, zoom: 17 });
+          }}
+        >
           <div className="SearchResult-info">
             <div className="SearchResult-title">{el.store_name}</div>
             <div className="SearchResult-text">{el.store_category}</div>
