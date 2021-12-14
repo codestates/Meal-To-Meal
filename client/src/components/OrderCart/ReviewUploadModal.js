@@ -1,11 +1,10 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import S3FileUpload from 'react-s3';
-import Loading from '../Loading';
+import { v4 as uuid } from 'uuid';
 
 function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setOrderedMeal }) {
   const accessToken = localStorage.getItem('accessToken');
-  const [isLoading, setIsLoading] = useState(true);
   const [selectedFile, setSelectedFile] = useState('');
   const [reviewText, setReviewText] = useState('');
   const [url, setUrl] = useState('');
@@ -32,13 +31,22 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
       });
   };
 
-  const handleClick = file => {
-    setSelectedFile(file.name);
+  const uploadImage = file => {
+    file.newName = `${uuid()}.${file.type.split('/')[1]}`;
+    setSelectedFile(file);
     S3FileUpload.uploadFile(file, config)
       .then(data => {
         setUrl(data.location);
       })
       .catch(err => console.error(err));
+  };
+
+  const deleteUploadedFile = () => {
+    if (selectedFile !== '') {
+      S3FileUpload.deleteFile(selectedFile.newName, config)
+        .then(data => {})
+        .catch(err => console.error(err));
+    }
   };
 
   const handleChange = e => {
@@ -77,7 +85,13 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
         <form className="review-upload-window" onSubmit={reviewSubmitHandler}>
           <div className="review-upload-title-container">
             <div className="review-upload-title">음식점 리뷰</div>
-            <i className="fa fa-times" onClick={openReviewModalHandler} />
+            <i
+              className="fa fa-times"
+              onClick={() => {
+                deleteUploadedFile();
+                openReviewModalHandler();
+              }}
+            />
           </div>
           <div className="review-upload-store-info-container">
             <img className="review-upload-store-category-icon" src={require('../../img/찌개.png').default} alt=""></img>
@@ -101,7 +115,7 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
               className="review-upload-image-upload-button"
               type="file"
               accept="image/*"
-              onChange={e => handleClick(e.target.files[0])}
+              onChange={e => uploadImage(e.target.files[0])}
             />
             <button className="review-upload-submit-button" type="submit">
               등록하기
