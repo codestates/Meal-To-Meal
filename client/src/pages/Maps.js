@@ -28,7 +28,7 @@ const Map = () => {
 
   const getImage = e => {
     if (e === '분식') return 분식;
-    if (e === '빵') return 베이커리;
+    if (e === '베이커리') return 베이커리;
     if (e === '야식') return 야식;
     if (e === '양식') return 양식;
     if (e === '일식') return 일식;
