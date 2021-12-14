@@ -68,12 +68,13 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
           withCredentials: true,
         })
         .then(res => {
-          if (res.data.userInfo.user_phone_number !== undefined || res.user_phone_number !== null) {
+          if (res.data.userInfo.user_phone_number === undefined || res.data.userInfo.user_phone_number === null) {
             setUserInfo(res.data.userInfo);
-            setIsVerification(true);
+            setIsVerification(false);
             setIsKakaoLogin(res.data.userInfo.signup_method);
           } else {
             setUserInfo(res.data.userInfo);
+            setIsVerification(true);
             setIsKakaoLogin(res.data.userInfo.signup_method);
           }
         })
