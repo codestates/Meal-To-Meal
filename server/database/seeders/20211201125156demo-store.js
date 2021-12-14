@@ -37,7 +37,7 @@ module.exports = {
         },
         {
           id: 3,
-          user_id: 1,
+          user_id: 3,
           store_name: '한잔할래',
           store_image: 'client/src/img/dummy/store2.png',
           store_order_quantity: '10',
@@ -53,7 +53,7 @@ module.exports = {
         },
         {
           id: 4,
-          user_id: 3,
+          user_id: 4,
           store_name: '떡볶이 묵을래?',
           store_image: 'client/src/img/dummy/store4.png',
           store_order_quantity: '17',
@@ -69,7 +69,7 @@ module.exports = {
         },
         {
           id: 5,
-          user_id: 4,
+          user_id: 5,
           store_name: 'K-타운',
           store_image: 'client/src/img/dummy/store5.png',
           store_order_quantity: '30',
@@ -85,7 +85,7 @@ module.exports = {
         },
         {
           id: 6,
-          user_id: 5,
+          user_id: 6,
           store_name: '프랑스파슷하',
           store_image: 'client/src/img/찌개.png',
           store_order_quantity: '5',
@@ -101,7 +101,7 @@ module.exports = {
         },
         {
           id: 7,
-          user_id: 1,
+          user_id: 7,
           store_name: '버거401',
           store_image: 'client/src/img/찌개.png',
           store_order_quantity: '14',
@@ -117,7 +117,7 @@ module.exports = {
         },
         {
           id: 8,
-          user_id: 2,
+          user_id: 8,
           store_name: '앳하노이',
           store_image: 'client/src/img/찌개.png',
           store_order_quantity: '24',
@@ -133,7 +133,7 @@ module.exports = {
         },
         {
           id: 9,
-          user_id: 3,
+          user_id: 9,
           store_name: '덕수궁',
           store_image: 'client/src/img/찌개.png',
           store_order_quantity: '8',
@@ -149,7 +149,7 @@ module.exports = {
         },
         {
           id: 10,
-          user_id: 4,
+          user_id: 10,
           store_name: '크리스마스엔',
           store_image: 'client/src/img/찌개.png',
           store_order_quantity: '15',
@@ -165,10 +165,10 @@ module.exports = {
         },
         {
           id: 11,
-          user_id: 4,
+          user_id: 11,
           store_name: '옛날 할무니 짜장',
           store_image: 'client/src/img/찌개.png',
-          store_order_quantity: '15',
+          store_order_quantity: '8',
           store_description:
             '인기에 힘입어 리모델링을 하며 홍콩감성으로 돌아왔습니다!! 최근 tv 예능 프로그램 자면 뭐하니에도 출연하여 큰 화제가 되었었습니다. 1980년대 홍콩 영화를 모티브로 한 인테리어와 함꼐 맛있는 중식을 즐겨보세요. 음식을 먹고 인증샷을 찍어 인스타그램에 태그와 함께 올려주신 분에게는 추첨을 통해 탕수육 공짜 쿠폰을 보내드립니다. 많은 관심 부탁드립니다!!',
           store_address: '서울특별시 중구 남대문로5가 581',
@@ -176,6 +176,39 @@ module.exports = {
           store_lat: 37.629628,
           store_lng: 126.867185,
           business_hour: '10:30 ~ 20:30',
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
+          id: 12,
+          user_id: 12,
+          store_name: '동막골',
+          store_image: 'client/src/img/dummy/원조할매국밥.png',
+          store_order_quantity: '21',
+          store_description:
+            '그날 그날 가게주인의 마음에 따라 바뀌는 한국식 풀코스를 즐기실수 있는 한식 음식점 입니다. 매일 새벽 시장에서 신선한 재료들을 공수해서 조리합니다. 매일 매일 음식의 종류가 바뀝니다. ',
+          store_address: '서울특별시 동작구 흑석동 210-3',
+          store_category: '한식',
+          store_lat: 37.505943,
+          store_lng: 126.955334,
+          business_hour: '11:00 ~ 23:00',
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        // 동막골은 메뉴 1개 에 술을 추가하자 그날그날 바뀌는 메뉴
+        {
+          id: 13,
+          user_id: 13,
+          store_name: 'Un dîner delicieux',
+          store_image: 'client/src/img/dummy/원조할매국밥.png',
+          store_order_quantity: '21',
+          store_description:
+            '코슐랭 1성에 빛나는 1인 예약제 레스토랑 맛있는저녁(Un dîner delicieux) 입니다. 1인 예약제로 2시간 간격으로 운영되며 정통 프랑스식 코스요리를 즐기실수 있습니다. ',
+          store_address: '서울특별시 송파구 송파1동 15-1',
+          store_category: '양식',
+          store_lat: 37.507876,
+          store_lng: 127.1052,
+          business_hour: '17:00 ~ 21:30',
           created_at: new Date(),
           updated_at: new Date(),
         },
