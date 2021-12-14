@@ -1575,7 +1575,7 @@ module.exports = {
           id: 99,
           user_nickname: '노서정',
           user_password: '$2b$10$ZyyzAzg8oRrPW.LV.HhFhuCmiWWewEvSX1dXYdLXPj7JeYqnkDKma',
-          user_phone_number: '01064829272',
+          user_phone_number: '01012345678',
           user_email: 'secretagent@gmail.com',
           user_donation_count: 0,
           user_donation_money: 0,
