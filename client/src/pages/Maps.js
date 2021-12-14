@@ -9,7 +9,7 @@ import '../styles/pages/Maps.css';
 
 // 마커 이미지
 import 분식 from '../img/marker/분식.png';
-import 빵 from '../img/marker/빵.png';
+import 베이커리 from '../img/marker/베이커리.png';
 import 야식 from '../img/marker/야식.png';
 import 양식 from '../img/marker/양식.png';
 import 일식 from '../img/marker/일식.png';
@@ -25,7 +25,7 @@ const Map = () => {
 
   const getImage = e => {
     if (e === '분식') return 분식;
-    if (e === '빵') return 빵;
+    if (e === '빵') return 베이커리;
     if (e === '야식') return 야식;
     if (e === '양식') return 양식;
     if (e === '일식') return 일식;
