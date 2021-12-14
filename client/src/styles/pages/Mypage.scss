@@ -2,6 +2,7 @@
 @import '../components/Mypage/Review';
 @import '../components/Mypage/EmptyReviewAni';
 @import '../components/Mypage/PhoneVerificationModal';
+@import '../components/Mypage/SuccessPhoneAlert';
 
 .mypage-container {
   padding: 10px;
@@ -17,7 +18,7 @@
 
 .mypage-myinfo-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border: 3px solid #ffcc1d;
   border-radius: 5px;
   padding: 15px;
@@ -25,6 +26,7 @@
 }
 
 .mypage-myinfo-nickname {
+  z-index: 10;
   font-size: 20px;
   font-weight: bolder;
   margin-bottom: 5px;
@@ -120,8 +122,9 @@
 }
 
 .mypage-myinfo-deco-image {
-  width: 150px;
-  margin-left: 100px;
+  width: 120px;
+  margin-left: 50px;
+  opacity: 0.5;
 }
 .mypage-review-container {
   display: flex;
@@ -170,8 +173,14 @@
     display: flex;
     flex-direction: column;
   }
+
   .mypage-review-container {
     margin-bottom: 60px;
+  }
+
+  .mypage-myinfo-deco-image {
+    width: 180px;
+    margin-left: 35%;
   }
 }
 
@@ -213,20 +222,23 @@
     height: 35px;
   }
   .mypage-myinfo-deco-image {
-    width: 150px;
-    margin-left: 100px;
+    width: 300px;
+    margin-left: 58%;
+    opacity: 0.5;
   }
 }
+
 @include desktop {
   .mypage-container {
     display: flex;
-    flex-direction: row;
     margin-top: 60px;
-    min-height: 76vh;
+    min-height: 79.6vh;
     font-size: 23px;
   }
 
   .mypage-left-container {
+    display: flex;
+    flex-direction: column;
     width: 50%;
     margin-right: 30px;
   }
@@ -236,9 +248,9 @@
   }
 
   .mypage-myinfo-container {
-    height: 690px;
-    overflow: auto;
+    height: 650px;
     padding-left: 25px;
+    flex-direction: column;
   }
 
   .mypage-myinfo-nickname {
@@ -275,8 +287,16 @@
     font-size: 22px;
   }
 
+  .mypage-myinfo-deco-image {
+    opacity: 0.5;
+    width: 20%;
+    position: absolute;
+    bottom: 190px;
+    left: 23%;
+  }
+
   .mypage-review-container {
-    height: 710px;
+    height: 670px;
     overflow: auto;
   }
 }

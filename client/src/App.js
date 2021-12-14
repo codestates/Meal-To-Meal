@@ -214,6 +214,7 @@ function App() {
               isLogin={isLogin}
               addToCart={addToCart}
               openAlertHandler={openAlertHandler}
+              openWarningAlertHandler={openWarningAlertHandler}
               openLoginModalHandler={openLoginModalHandler}
               openSignupModalHandler={openSignupModalHandler}
               detailStoreInfo={detailStoreInfo}
@@ -232,6 +233,8 @@ function App() {
               setCartItems={setCartItems}
               removeFromCart={removeFromCart}
               getImage={getImage}
+              openWarningAlertHandler={openWarningAlertHandler}
+              setAlertMessage={setAlertMessage}
             />
           }
         />

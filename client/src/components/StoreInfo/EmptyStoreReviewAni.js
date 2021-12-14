@@ -3,7 +3,6 @@ import lottie from 'lottie-web';
 
 function EmptyReviewAni({ navigate }) {
   const emptyOrderAnimation = useRef();
-
   useEffect(() => {
     lottie.loadAnimation({
       container: emptyOrderAnimation.current,
@@ -18,10 +17,7 @@ function EmptyReviewAni({ navigate }) {
     <>
       <div className="empty-review-content-container">
         <div className="empty-review-animation" ref={emptyOrderAnimation}></div>
-        <div className="empty-review-text">리뷰 내역이 비어 있어요</div>
-        <button className="empty-back-button" onClick={() => navigate('/maps')}>
-          먹으러 가기
-        </button>
+        <div className="empty-review-text">아직 등록된 리뷰가 없습니다</div>
       </div>
     </>
   );
