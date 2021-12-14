@@ -150,8 +150,7 @@ function ShareCart({ cartItems, setCartItems, removeFromCart, getImage, openWarn
           </button>
         </div>
       </div>
-      {/* {isOpenThankAlert ? <ThankAlert navigate={navigate} /> : null} */}
-      <ThankAlert />
+      {isOpenThankAlert ? <ThankAlert navigate={navigate} /> : null}
     </>
   );
 }
