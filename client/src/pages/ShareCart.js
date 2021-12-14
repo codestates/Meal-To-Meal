@@ -120,14 +120,13 @@ function ShareCart({ cartItems, setCartItems, removeFromCart, getImage, openWarn
           navigate={navigate}
         />
         <div className="sharecart-order-info-container">
-          <div className="sharecart-order-text">주문 합계</div>
           <div className="sharecart-order-count-container">
             <div className="sharecount-count-text">총 상품 개수</div>
-            <div className="sharecount-count-text">{totalQuantity}개</div>
+            <div className="sharecount-count-number">{totalQuantity}개</div>
           </div>
           <div className="sharecart-order-count-container">
             <div className="sharecount-count-text">총 상품 금액</div>
-            <div className="sharecount-count-text">{totalPriceToString}원</div>
+            <div className="sharecount-count-number">{totalPriceToString}원</div>
           </div>
         </div>
         <div className="sharecart-submit-button-container">
