@@ -77,6 +77,7 @@ const Map = () => {
           }}
           icon={{ url: getImage(el.store_category) }}
           onClick={() => {
+            console.log('clicked');
             setSelected(el);
             localStorage.setItem('clickedMarker', el.id);
           }}
