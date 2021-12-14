@@ -89,6 +89,8 @@
 }
 
 .alert-ownstore-donation-button {
+  transition: 120ms ease all;
+
   &:hover {
     color: #ffcc1d;
     box-shadow: gray 4px 4px 4px;

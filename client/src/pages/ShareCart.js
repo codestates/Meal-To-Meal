@@ -57,7 +57,6 @@ function ShareCart({ cartItems, setCartItems, removeFromCart, getImage, openWarn
   function requestPay() {
     const IMP = window.IMP; // 생략 가능
     IMP.init('imp49046982');
-    const accessToken = localStorage.getItem('accessToken');
 
     IMP.request_pay(
       {
@@ -151,7 +150,8 @@ function ShareCart({ cartItems, setCartItems, removeFromCart, getImage, openWarn
           </button>
         </div>
       </div>
-      {isOpenThankAlert ? <ThankAlert navigate={navigate} /> : null}
+      {/* {isOpenThankAlert ? <ThankAlert navigate={navigate} /> : null} */}
+      <ThankAlert />
     </>
   );
 }

@@ -1250,6 +1250,11 @@ button {
   margin: 10px;
 }
 
+.alert-ownstore-donation-button {
+  -webkit-transition: 120ms ease all;
+  transition: 120ms ease all;
+}
+
 .alert-ownstore-donation-button:hover {
   color: #ffcc1d;
   -webkit-box-shadow: gray 4px 4px 4px;
