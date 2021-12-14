@@ -26,7 +26,7 @@ module.exports = {
     try {
       const { storeid } = req.params;
       const userInfo = checkTokens(req);
-      if (userInfo.is_owner) {
+      if (userInfo && userInfo.is_owner) {
         const ownedStore = await store.findOne({ where: { user_id: userInfo.id } });
         const menus = await menu.findAll({
           include: [

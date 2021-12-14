@@ -43,8 +43,8 @@ function Management({ navigate, getImage }) {
           withCredentials: true,
         })
         .then(res => {
-          console.log(res.data.menus);
-          setOwnerStoreMenu(res.data.menus);
+          console.log([res.data.menus]);
+          setOwnerStoreMenu([res.data.menus]);
         })
         .catch(err => {
           console.log(err);
@@ -84,7 +84,7 @@ function Management({ navigate, getImage }) {
         </div>
         <div className="management-store-menu-container">
           <div className="management-title">메뉴</div>
-          <ManagementMenuBox ownerStoreMenu={ownerStoreMenu} setOwnerStoreMenu={setOwnerStoreMenu} />
+          <ManagementMenuBox ownerStoreMenu={ownerStoreMenu} />
           <div className="management-button-container">
             <button className="management-button">수정</button>
             <button className="management-delete-button">삭제</button>
