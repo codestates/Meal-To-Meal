@@ -202,7 +202,7 @@ function App() {
             />
           }
         />
-        <Route path="/management" element={<Management navigate={navigate} />} />
+        <Route path="/management" element={<Management navigate={navigate} getImage={getImage} />} />
         <Route path="/addstore" element={<AddStore navigate={navigate} />} />
         <Route path="/maps" element={<Maps navigate={navigate} />} />
         <Route

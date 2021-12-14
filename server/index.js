@@ -67,14 +67,14 @@ app.get('/', (req, res, next) => {
 app.use('/auth', authRouter);
 app.use('/oauth', authRouter);
 app.use('/cart', cartRouter);
-app.use('/menu', menuRouter);
 app.use('/menu-list', menuRouter);
+app.use('/menu', menuRouter);
 app.use('/payment', paymentRouter);
 app.use('/ranking', rankingRouter);
 app.use('/review', reviewRouter);
 app.use('/review-list', reviewRouter);
-app.use('/store', storeRouter);
 app.use('/store-list', storeRouter);
+app.use('/store', storeRouter);
 app.use('/user', userRouter);
 app.use('/user-meal', usermealRouter);
 app.use('/search', searchRouter);

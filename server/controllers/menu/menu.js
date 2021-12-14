@@ -25,10 +25,19 @@ module.exports = {
   get: async (req, res) => {
     try {
       const { storeid } = req.params;
-      const userInfo = checkTokens(req);
+      const menuList = await menu.findAll({ where: { store_id: storeid } });
+      res.status(200).json({ menuList: menuList });
+    } catch (err) {
+      console.error(err);
+      res.status(400).json({ message: err.message });
+    }
+  },
+  getMenuManagement: async (req, res) => {
+    const userInfo = checkTokens(req);
+    try {
       if (userInfo && userInfo.is_owner) {
         const ownedStore = await store.findOne({ where: { user_id: userInfo.id } });
-        const menus = await menu.findAll({
+        const menuList = await menu.findAll({
           include: [
             {
               model: user_meal,
@@ -43,13 +52,9 @@ module.exports = {
           ],
           where: { store_id: ownedStore.id },
         });
-        res.status(200).json({ menus });
-      } else {
-        const menuList = await menu.findAll({ where: { store_id: storeid } });
-        res.status(200).json({ menuList: menuList });
+        res.status(200).json({ menuList });
       }
     } catch (err) {
-      console.error(err);
       res.status(400).json({ message: err.message });
     }
   },
