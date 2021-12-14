@@ -6,7 +6,7 @@ import '../styles/pages/Mypage.css';
 
 import Review from '../components/Mypage/Review';
 
-function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, openWarningAlertHandler, getImage }) {
+function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, openWarningAlertHandler }) {
   const accessToken = localStorage.getItem('accessToken');
 
   const [isOpenFixNicknameToggle, setIsOpenFixNicknameToggle] = useState(false);
@@ -14,8 +14,8 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
   const [isOpenPhoneModal, setIsOpenPhoneModal] = useState(false);
   const [isKakaoLogin, setIsKakaoLogin] = useState('');
   const [isNumberAlert, setIsNumberAlert] = useState(false);
-  const [isVerification, setIsVerification] = useState(false);
   const [isOpenSuccessAlert, setIsOpenSuccessAlert] = useState(false);
+  const [isVerification, setIsVerification] = useState(false);
 
   const openFixNicknameToggleHandler = () => {
     setIsOpenFixNicknameToggle(!isOpenFixNicknameToggle);
@@ -68,7 +68,7 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
           withCredentials: true,
         })
         .then(res => {
-          if (res.user_phone_number !== undefined) {
+          if (res.user_phone_number !== undefined || res.user_phone_number !== null) {
             setUserInfo(res.data.userInfo);
             setIsVerification(true);
             setIsKakaoLogin(res.data.userInfo.signup_method);
