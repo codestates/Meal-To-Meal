@@ -39,7 +39,7 @@ sequelize
 sequelize
   .query(
     'CREATE EVENT IF NOT EXISTS reset_today_used ON SCHEDULE EVERY 1 DAY STARTS' +
-      " '2021-12-14 00:49:00' ON COMPLETION PRESERVE ENABLE" +
+      " '2021-12-14 00:00:00' ON COMPLETION PRESERVE ENABLE" +
       ' DO UPDATE user SET today_used=0;'
   )
   .then(() => {
