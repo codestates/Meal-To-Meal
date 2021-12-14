@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Loading from '../components/Loading';
-import EmptyReviewAni from '../components/Mypage/EmptyReviewAni';
+import EmptyDonationAni from '../components/MyDonation/EmptyDonationAni';
 import DonationBox from '../components/MyDonation/DonationBox';
 import '../styles/pages/MyDonation.css';
 
@@ -70,7 +70,7 @@ function MyDonation() {
           <div className="mydonation-right-container">
             <div className="mydonation-history-title">내 기부 내역</div>
             <div className="mydonation-history-container">
-              {donationList.length === 0 ? <EmptyReviewAni /> : <DonationBox donationList={donationList} />}
+              {donationList.length === 0 ? <EmptyDonationAni /> : <DonationBox donationList={donationList} />}
             </div>
           </div>
         </div>

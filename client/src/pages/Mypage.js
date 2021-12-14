@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import PhoneVerificationModal from '../components/Mypage/PhoneVerificationModal';
+import SuccessPhoneAlertAni from '../components/Mypage/SuccessPhoneAlert';
 import '../styles/pages/Mypage.css';
 
 import Review from '../components/Mypage/Review';
@@ -14,6 +15,7 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
   const [isKakaoLogin, setIsKakaoLogin] = useState('');
   const [isNumberAlert, setIsNumberAlert] = useState(false);
   const [isVerification, setIsVerification] = useState(false);
+  const [isOpenSuccessAlert, setIsOpenSuccessAlert] = useState(false);
 
   const openFixNicknameToggleHandler = () => {
     setIsOpenFixNicknameToggle(!isOpenFixNicknameToggle);
@@ -21,6 +23,10 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
 
   const openFixPasswordToggleHandler = () => {
     setIsOpenFixPasswordToggle(!isOpenFixPasswordToggle);
+  };
+
+  const openSuccessAlertHandler = () => {
+    setIsOpenSuccessAlert(!isOpenSuccessAlert);
   };
 
   const openPhoneModalHandler = () => {
@@ -214,11 +220,10 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
         }
       )
       .then(res => {
-        setAlertMessage('인증되었습니다.');
-        openAlertHandler();
         setIsNumberAlert(false);
         setIsOpenPhoneModal(false);
         setIsVerification(true);
+        openSuccessAlertHandler();
       })
       .catch(err => {
         setIsNumberAlert(false);
@@ -389,6 +394,9 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
           />
         ) : null}
       </div>
+      {isOpenSuccessAlert ? (
+        <SuccessPhoneAlertAni navigate={navigate} openSuccessAlertHandler={openSuccessAlertHandler} />
+      ) : null}
     </>
   );
 }

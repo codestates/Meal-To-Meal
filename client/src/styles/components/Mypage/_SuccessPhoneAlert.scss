@@ -1,0 +1,63 @@
+@import '../../mixin/mixin';
+
+.success-phone-alert-backdrop {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: grid;
+  place-items: center;
+}
+
+.success-phone-alert-window {
+  position: absolute;
+  background-color: white;
+  border: 4px solid #ffcc1d;
+  height: 180px;
+  width: 265px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.success-phone-alert-window-animation {
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.success-phone-alert-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.success-phone-alert-button {
+  width: 100px;
+  margin: 10px;
+  box-shadow: gray 2px 2px 2px;
+  transition: 120ms ease all;
+
+  &:hover {
+    box-shadow: gray 4px 4px 4px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}

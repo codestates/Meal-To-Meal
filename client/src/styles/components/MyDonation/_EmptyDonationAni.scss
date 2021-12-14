@@ -1,0 +1,43 @@
+@import '../../mixin/mixin';
+
+.empty-donation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px;
+}
+
+.empty-donation-animation {
+  height: 150px;
+}
+
+@include tablet {
+  .empty-donation-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+
+  .empty-donation-animation {
+    height: 350px;
+  }
+
+  .empty-donation-text {
+    font-size: 30px;
+  }
+}
+
+@include desktop {
+  .empty-donation-container {
+    height: 27.8em;
+  }
+
+  .empty-donation-animation {
+    height: 450px;
+  }
+
+  .empty-donation-text {
+    font-size: 30px;
+  }
+}

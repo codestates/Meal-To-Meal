@@ -104,14 +104,26 @@ function MenuBox({
                 >
                   기부하기
                 </button>
-                <button
-                  className="menu-eat-button"
-                  onClick={() => {
-                    addUserMeal(el);
-                  }}
-                >
-                  먹기
-                </button>
+                {el.menu_order_quantity === 0 ? (
+                  <button
+                    disabled={true}
+                    className="menu-eat-button"
+                    onClick={() => {
+                      addUserMeal(el);
+                    }}
+                  >
+                    먹기
+                  </button>
+                ) : (
+                  <button
+                    className="menu-eat-button"
+                    onClick={() => {
+                      addUserMeal(el);
+                    }}
+                  >
+                    먹기
+                  </button>
+                )}
               </div>
             </div>
           </div>

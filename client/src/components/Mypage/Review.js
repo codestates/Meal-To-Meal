@@ -20,6 +20,7 @@ function Review({ navigate, alertMessage, setAlertMessage, openAlertHandler }) {
       });
   };
 
+  // ! 일단 안 쓰기로 합의했습니다.
   const deleteReviewHandler = idx => {
     axios
       .delete(`${process.env.REACT_APP_API_URL}/review/${idx}`, {
