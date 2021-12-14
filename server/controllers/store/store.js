@@ -63,6 +63,18 @@ module.exports = {
       res.status(400).json({ message: err.message });
     }
   },
+  getStoreManagement: async (req, res) => {
+    try {
+      const userInfo = checkTokens(req);
+      if (userInfo && userInfo.is_owner) {
+        const storeInfo = await store.findOne({ where: { user_id: userInfo.id } });
+        res.status(200).json({ storeInfo: storeInfo });
+      }
+    } catch (err) {
+      console.log(err.message);
+      res.status(400).json({ message: err.message });
+    }
+  },
   put: async (req, res) => {
     const userInfo = checkTokens(req);
     const {
