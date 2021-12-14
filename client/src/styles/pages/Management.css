@@ -1,3 +1,21 @@
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url("../../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: url("../../fonts/NotoSansKR-Regular.woff") format("woff");
+  src: url("../../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url("../../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: url("../../fonts/NotoSansKR-Regular.woff") format("woff");
+  src: url("../../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .management-menu-container {
   border: none;
   border-radius: 15px;
@@ -154,6 +172,15 @@
   .management-menu-code-icon {
     height: 30px;
   }
+}
+
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url("../../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: url("../../fonts/NotoSansKR-Regular.woff") format("woff");
+  src: url("../../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .animation-container {

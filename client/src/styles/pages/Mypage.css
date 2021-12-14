@@ -1,3 +1,21 @@
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url("../../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: url("../../fonts/NotoSansKR-Regular.woff") format("woff");
+  src: url("../../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url("../../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: url("../../fonts/NotoSansKR-Regular.woff") format("woff");
+  src: url("../../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .review-container {
   border-bottom: 2px solid grey;
   font-size: 14px;
@@ -78,6 +96,15 @@
   margin: 20px 0 5px 0;
 }
 
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url("../../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: url("../../fonts/NotoSansKR-Regular.woff") format("woff");
+  src: url("../../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .empty-review-content-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -122,6 +149,15 @@
   .empty-back-button {
     margin-bottom: 30px;
   }
+}
+
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url("../../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: url("../../fonts/NotoSansKR-Regular.woff") format("woff");
+  src: url("../../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .phone-modal-container {
@@ -317,6 +353,15 @@
     font-size: 20px;
     height: 40px;
   }
+}
+
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url("../../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: url("../../fonts/NotoSansKR-Regular.woff") format("woff");
+  src: url("../../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .success-phone-alert-backdrop {

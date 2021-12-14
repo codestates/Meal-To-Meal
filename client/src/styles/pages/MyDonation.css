@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url("../../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: url("../../fonts/NotoSansKR-Regular.woff") format("woff");
+  src: url("../../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .donationbox-container {
   border-bottom: 2px solid grey;
   font-size: 14px;
@@ -98,6 +107,15 @@
   margin-right: 5px;
 }
 
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url("../../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: url("../../fonts/NotoSansKR-Regular.woff") format("woff");
+  src: url("../../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .empty-donation-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -154,6 +172,7 @@
   padding: 10px;
   font-size: 14px;
   word-break: keep-all;
+  font-family: 'NotoSansKR', sans-serif;
 }
 
 .mydonation-ranking-title {

@@ -1,3 +1,21 @@
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url("../../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: url("../../fonts/NotoSansKR-Regular.woff") format("woff");
+  src: url("../../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url("../../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: url("../../fonts/NotoSansKR-Regular.woff") format("woff");
+  src: url("../../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .ordered-food-container {
   border: 2px solid #ffcc1d;
   display: -webkit-box;
@@ -122,6 +140,15 @@
     font-size: 15px;
     margin-bottom: 20px;
   }
+}
+
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url("../../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: url("../../fonts/NotoSansKR-Regular.woff") format("woff");
+  src: url("../../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .review-upload-backdrop {
@@ -367,6 +394,15 @@
     margin-left: 80%;
     width: 120px;
   }
+}
+
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url("../../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: url("../../fonts/NotoSansKR-Regular.woff") format("woff");
+  src: url("../../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 .empty-order-container {

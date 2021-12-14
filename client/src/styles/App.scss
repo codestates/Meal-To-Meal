@@ -1,3 +1,5 @@
+$noto-sans: 'Noto+Sans:400,700';
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -107,6 +109,7 @@ section {
 }
 body {
   line-height: 1;
+  font: 100% $font-stack;
 }
 ol,
 ul {

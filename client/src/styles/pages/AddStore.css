@@ -1,3 +1,21 @@
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url("../../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: url("../../fonts/NotoSansKR-Regular.woff") format("woff");
+  src: url("../../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSansKR';
+  src: url("../../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+  src: url("../../fonts/NotoSansKR-Regular.woff") format("woff");
+  src: url("../../fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .AddMenu-container {
   display: -webkit-box;
   display: -ms-flexbox;

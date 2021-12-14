@@ -110,6 +110,15 @@ body {
   line-height: 1;
 }
 
+@font-face {
+  body {
+    font-family: 'NotoSans';
+    src: url("../fonts/NotoSansKR-Regular.ttf") format("truetype"), url("../fonts/NotoSansKR-Regular.woff") format("woff"), url("../fonts/NotoSansKR-Regular.eot?iefix") format("embedded-opentype");
+    font-weight: normal;
+    font-style: normal;
+  }
+}
+
 ol,
 ul {
   list-style: none;
