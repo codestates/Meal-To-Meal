@@ -26,9 +26,8 @@ module.exports = {
     try {
       const { storeid } = req.params;
       const userInfo = checkTokens(req);
-      const ownedStore = await store.findOne({ where: { user_id: userInfo.id } });
-
-      if (ownedStore && Number(ownedStore.id) === Number(storeid)) {
+      if (userInfo.is_owner) {
+        const ownedStore = await store.findOne({ where: { user_id: userInfo.id } });
         const menus = await menu.findAll({
           include: [
             {
@@ -42,7 +41,7 @@ module.exports = {
               ],
             },
           ],
-          where: { store_id: storeid },
+          where: { store_id: ownedStore.id },
         });
         res.status(200).json({ menus });
       } else {
