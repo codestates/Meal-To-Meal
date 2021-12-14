@@ -99,7 +99,6 @@ module.exports = {
           created_at: new Date(),
           updated_at: new Date(),
         },
-        //분식끝6
         {
           id: 7,
           user_id: 7,
@@ -194,7 +193,6 @@ module.exports = {
           created_at: new Date(),
           updated_at: new Date(),
         },
-        //양식끝6
         {
           id: 13,
           user_id: 13,
@@ -288,7 +286,6 @@ module.exports = {
           created_at: new Date(),
           updated_at: new Date(),
         },
-        //야식끝6
         {
           id: 19,
           user_id: 19,
