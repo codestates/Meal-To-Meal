@@ -107,6 +107,8 @@ section {
 }
 body {
   line-height: 1;
+  font-family: NotoSansKR-Regular, NotoSansKR-Medium, NotoSansKR-Bold, NotoSansKR-Light, NotoSansKR-Thin,
+    NotoSansKR-Black;
 }
 ol,
 ul {
@@ -177,3 +179,45 @@ button {
 @import '../styles/components/Login/Policy';
 @import '../styles/mixin/Alert';
 @import '../styles/mixin/Loading';
+
+@font-face {
+  font-family: 'NotoSansKR-Regular';
+  src: url('../fonts/NotoSansKR-Regular.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSansKR-Medium';
+  src: url('../fonts/NotoSansKR-Medium.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSansKR-Bold';
+  src: url('../fonts/NotoSansKR-Bold.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSansKR-Light';
+  src: url('../fonts/NotoSansKR-Light.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSansKR-Thin';
+  src: url('../fonts/NotoSansKR-Thin.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NotoSansKR-Black';
+  src: url('../fonts/NotoSansKR-Black.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
