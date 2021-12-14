@@ -1,3 +1,5 @@
+@import '../../mixin/mixin';
+
 .phone-modal-container {
   display: flex;
   justify-content: space-between;
@@ -19,7 +21,7 @@
 .phone-modal-window {
   font-size: 17px;
   width: 250px;
-  height: 200px;
+  height: 150px;
   border: 3px solid #ffcc1d;
   display: flex;
   flex-direction: column;
@@ -51,6 +53,12 @@
 
 .phone-modal-number-input {
   padding: 5px;
+  transition: 120ms ease all;
+
+  &:focus {
+    border: 2px solid #ffcc1d;
+    outline: none;
+  }
 }
 
 .phone-modal-number-submit {
@@ -74,7 +82,14 @@
 .phone-modal-verification-input {
   padding: 5px;
   margin-right: 35px;
+  transition: 120ms ease all;
+
+  &:focus {
+    border: 2px solid #ffcc1d;
+    outline: none;
+  }
 }
+
 .phone-modal-verification-submit {
   width: 120px;
 }

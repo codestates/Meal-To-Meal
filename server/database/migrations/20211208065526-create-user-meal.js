@@ -7,9 +7,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      donation_code: {
-        type: Sequelize.STRING,
-      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE,

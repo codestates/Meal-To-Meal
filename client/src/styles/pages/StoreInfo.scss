@@ -1,6 +1,7 @@
 @import '../mixin/mixin';
 @import '../components/StoreInfo/MenuBox';
 @import '../components/StoreInfo/ReviewBox';
+@import '../components/StoreInfo/EmptyStoreReviewAni';
 
 .storeinfo-page-container {
   padding: 10px;
@@ -169,6 +170,7 @@
   .storeinfo-info-container {
     font-size: 30px;
     width: 90%;
+    padding-right: 20px;
   }
 
   .storeinfo-title-container {
@@ -195,6 +197,7 @@
   .store-detail-info-text {
     font-size: 25px;
     margin-left: 15px;
+    max-width: 600px;
   }
 
   .box-title {
@@ -211,5 +214,9 @@
   .fa-map-marker-alt,
   .fa-clock {
     font-size: 35px;
+  }
+
+  .menu-box-container {
+    padding-left: 15px;
   }
 }

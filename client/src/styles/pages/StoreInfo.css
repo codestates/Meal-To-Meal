@@ -7,6 +7,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   border: 3px solid #ffcc1d;
+  border-radius: 5px;
   height: 315px;
   padding: 10px;
   margin-bottom: 15px;
@@ -211,6 +212,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   border: 3px solid #ffcc1d;
+  border-radius: 5px;
   padding: 10px;
   margin-bottom: 15px;
 }
@@ -239,7 +241,8 @@
 }
 
 .reviewBox-reviewer-review {
-  border: 3px solid #ffcc1d;
+  min-width: 300px;
+  max-width: 500px;
   border-radius: 15px;
   padding: 10px;
   word-break: keep-all;
@@ -248,9 +251,9 @@
 
 @media (min-width: 758px) and (max-width: 1023px) {
   .reviewBox-container {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -264,19 +267,19 @@
     border-radius: 30px;
     -webkit-box-shadow: gray 4px 4px 4px 4px;
             box-shadow: gray 4px 4px 4px 4px;
-    margin: 10px;
+    margin: 10px 70px 10px 10px;
   }
   .reviewBox-info-container {
-    margin: 15px;
+    margin: 15px 15px 15px 5px;
     font-size: 25px;
   }
 }
 
 @media (min-width: 1024px) {
   .reviewBox-container {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -290,7 +293,7 @@
     border-radius: 30px;
     -webkit-box-shadow: gray 4px 4px 4px 4px;
             box-shadow: gray 4px 4px 4px 4px;
-    margin: 10px;
+    margin: 10px 70px 10px 10px;
   }
   .reviewBox-info-container {
     margin: 15px;
@@ -298,6 +301,46 @@
   }
   .menu-box-container {
     width: 100%;
+  }
+}
+
+.empty-review-content-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 64%;
+  border: 3px solid #ffcc1d;
+}
+
+.empty-review-animation {
+  width: 300px;
+  margin-bottom: 15px;
+}
+
+.empty-review-text {
+  margin-bottom: 10px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .empty-review-content-container {
+    font-size: 23px;
+  }
+  .empty-back-button {
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .empty-review-content-container {
+    margin-top: 150px;
+    font-size: 23px;
   }
 }
 
@@ -501,6 +544,7 @@
   .storeinfo-info-container {
     font-size: 30px;
     width: 90%;
+    padding-right: 20px;
   }
   .storeinfo-title-container {
     display: -webkit-box;
@@ -526,6 +570,7 @@
   .store-detail-info-text {
     font-size: 25px;
     margin-left: 15px;
+    max-width: 600px;
   }
   .box-title {
     font-size: 30px;
@@ -539,6 +584,9 @@
   .fa-map-marker-alt,
   .fa-clock {
     font-size: 35px;
+  }
+  .menu-box-container {
+    padding-left: 15px;
   }
 }
 /*# sourceMappingURL=StoreInfo.css.map */

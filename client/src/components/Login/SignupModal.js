@@ -25,7 +25,6 @@ function SignupModal({ openSignupModalHandler, openAlertHandler, openWarningAler
     password: '비밀번호는 8글자 이상, 영문, 숫자 조합이어야 합니다.',
     verifyPassword: '비밀번호를 확인해주세요.',
     nickname: '닉네임은 특수문자를 제외한 2 ~ 20 글자이어야 합니다.',
-    phone: '휴대폰인증을 해주세요.',
   });
 
   function isEmail(asValue) {
@@ -42,8 +41,6 @@ function SignupModal({ openSignupModalHandler, openAlertHandler, openWarningAler
     var regExp = /^[\w\Wㄱ-ㅎㅏ-ㅣ가-힣]{2,20}$/;
     return regExp.test(asValue);
   }
-
-  // ! 아직 폰 넘버 인증이 되었는가? 에 대한 유효성 검사 없음
 
   const handleOnblurEmail = key => e => {
     if (!isEmail(signupInfo.user_email)) {
@@ -122,7 +119,6 @@ function SignupModal({ openSignupModalHandler, openAlertHandler, openWarningAler
     validation.verifyPassword &&
     validation.nickname &&
     validation.checkNickname;
-  // ! 아직 폰 넘버 없음
 
   const openPolicyModalHandler = () => {
     setIsOpenPolicyModal(!isOpenPolicyModal);
@@ -153,7 +149,6 @@ function SignupModal({ openSignupModalHandler, openAlertHandler, openWarningAler
         signupInfo.user_nickname.length < 20,
       password: isPassword(signupInfo.user_password),
       verifyPassword: signupInfo.user_password === signupInfo.verifyPassword,
-      // ! 아직 폰 넘버 없음
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [signupInfo]);
@@ -190,7 +185,6 @@ function SignupModal({ openSignupModalHandler, openAlertHandler, openWarningAler
                   onKeyPress={enterKey}
                   onChange={handleInputValue('user_password')}
                 />
-                <button className="validation-button">이메일 인증</button>
                 {message.password === '비밀번호는 8글자 이상, 영문, 숫자 조합이어야 합니다.' ? (
                   <div className="signup-validation-message">{message.password}</div>
                 ) : message.password === '사용할 수 있는 비밀번호 입니다.' ? (
@@ -227,21 +221,6 @@ function SignupModal({ openSignupModalHandler, openAlertHandler, openWarningAler
                   <div className="signup-validation-ok">{message.nickname}</div>
                 ) : (
                   <div className="signup-validation-error">{message.nickname}</div>
-                )}
-                <div className="signup-text">전화번호</div>
-                <input
-                  className="signup-input"
-                  placeholder="Phone Number"
-                  onKeyPress={enterKey}
-                  onChange={handleInputValue('user_phone_number')}
-                />
-                <button className="validation-button">휴대폰 인증</button>
-                {message.phone === '휴대폰인증을 해주세요.' ? (
-                  <div className="signup-validation-message">{message.phone}</div>
-                ) : message.phone === '인증이 완료되었습니다.' ? (
-                  <div className="signup-validation-ok">{message.phone}</div>
-                ) : (
-                  <div className="signup-validation-error">{message.phone}</div>
                 )}
                 <div className="signup-button-container">
                   {isValid ? (

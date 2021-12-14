@@ -65,18 +65,4 @@ module.exports = {
       }
     }
   },
-  delete: async (req, res) => {
-    const userInfo = checkTokens(req);
-    if (!userInfo) {
-      res.status(401).json({ message: '로그인이 필요합니다' });
-    } else {
-      try {
-        const { reviewid } = req.params;
-        await store_review.destroy({ where: { id: reviewid } });
-        res.status(204).json({ message: '리뷰삭제가 완료되었습니다.' });
-      } catch (err) {
-        res.status(400).json({ message: '잘못된 요청입니다' });
-      }
-    }
-  },
 };

@@ -82,12 +82,15 @@
 
 .alert-ownstore-button-container {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   margin: 10px;
 }
 
 .alert-ownstore-donation-button {
+  transition: 120ms ease all;
+
   &:hover {
     color: #ffcc1d;
     box-shadow: gray 4px 4px 4px;
@@ -114,8 +117,8 @@
 
 @include tablet {
   .alert-window {
-    width: 400px;
-    padding: 15px;
+    width: 430px;
+    padding: 30px;
   }
 
   .alert-animation {
@@ -124,6 +127,12 @@
 
   .alert-message {
     font-size: 30px;
+  }
+
+  .alert-ownstore-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
 
   .alert-ownstore-animation {
@@ -140,6 +149,8 @@
 
   .alert-ownstore-donation-button {
     width: fit-content;
+    height: 35px;
+    font-size: 20px;
   }
 
   .alert-thank-donationlist-button {
@@ -167,6 +178,12 @@
 
   .alert-message {
     font-size: 30px;
+  }
+
+  .alert-ownstore-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
   }
 
   .alert-ownstore-animation {
