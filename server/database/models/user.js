@@ -45,6 +45,9 @@ module.exports = (sequelize, DataTypes) => {
       is_owner: {
         type: DataTypes.BOOLEAN,
       },
+      verification_code: {
+        type: DataTypes.STRING,
+      },
     },
     {
       sequelize,
