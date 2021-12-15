@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 function DonationBox({ donationList }) {
+  console.log(donationList);
   return (
     <>
       {donationList.map(item => (
@@ -22,16 +23,18 @@ function DonationBox({ donationList }) {
               src={require('../../img/dummy/menu_dummy/스프링롤.jpg').default}
               alt=""
             />
-            <div className="donationbox-food-info-container">
-              <div className="donationbox-food-name">{item.cart_menus[0].menu.menu_name}</div>
-              <div className="donationbox-food-price">
-                {Number(item.cart_menus[0].menu.menu_price).toLocaleString()}원
+            {item.cart_menus.map(el => (
+              <div className="donationbox-food-info-container">
+                <div className="donationbox-food-name">
+                  <div>{el.menu.menu_name}</div>
+                </div>
+                <div className="donationbox-food-price">{Number(el.menu.menu_price).toLocaleString()}원</div>
+                <div className="donationbox-dish-count-container">
+                  <img className="donationbox-dish-icon" src={require('../../img/donation.png').default} alt="" />
+                  <div className="donationbox-dish-number"> : {el.order_quantity}</div>
+                </div>
               </div>
-              <div className="donationbox-dish-count-container">
-                <img className="donationbox-dish-icon" src={require('../../img/donation.png').default} alt="" />
-                <div className="donationbox-dish-number"> : {item.cart_menus[0].order_quantity}</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       ))}

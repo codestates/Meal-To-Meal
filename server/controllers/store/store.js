@@ -1,4 +1,4 @@
-const { store, menu } = require('../../database/models');
+const { store, menu, user } = require('../../database/models');
 const checkTokens = require('../../middlewares/tokenAuth');
 module.exports = {
   post: async (req, res) => {
@@ -12,6 +12,7 @@ module.exports = {
       store_address,
       store_lat,
       store_lng,
+      menuInfo,
     } = req.body;
     if (!userInfo) {
       res.status(401).json({ message: '로그인이 필요합니다' });
@@ -23,7 +24,8 @@ module.exports = {
         !business_hour ||
         !store_address ||
         !store_lat ||
-        !store_lng
+        !store_lng ||
+        !menuInfo
       ) {
         res.status(400).json({ message: '입력정보가 올바르지 않습니다' });
       } else {
@@ -38,6 +40,20 @@ module.exports = {
             store_address: store_address,
             store_lat: store_lat,
             store_lng: store_lng,
+          });
+          const findStore = await store.findOne({ where: { user_id: userInfo.id } });
+          for (let i = 0; i < menuInfo.length; i++) {
+            await menu.create({
+              store_id: findStore.dataValues.id,
+              menu_image: menuInfo[i].menu_image || `https://meal2sdk.s3.amazonaws.com/-001_12.jpg`,
+              menu_name: menuInfo[i].menu_name,
+              menu_price: menuInfo[i].menu_price,
+              menu_order_quantity: 0,
+            });
+          }
+          const findUser = await user.findOne({ where: { id: userInfo.id } });
+          await findUser.update({
+            is_owner: true,
           });
           res.status(201).json({ message: '가게 등록이 완료되었습니다.' });
         } catch (err) {
@@ -66,7 +82,8 @@ module.exports = {
   getStoreManagement: async (req, res) => {
     try {
       const userInfo = checkTokens(req);
-      if (userInfo && userInfo.is_owner) {
+      const matchedUser = await user.findOne({ where: { id: userInfo.id } });
+      if (matchedUser && matchedUser.is_owner) {
         const storeInfo = await store.findOne({ where: { user_id: userInfo.id } });
         res.status(200).json({ storeInfo: storeInfo });
       } else {
@@ -105,16 +122,6 @@ module.exports = {
           store_lat: store_lat,
           store_lng: store_lng,
         });
-        // 근데 메뉴수정은?? 한개는 쉬운데 만약 여러개를 동시에 수정해서 보낸다고 하면??
-        // 여러개를 수정했을때 배열로 들어오게 만들어서 보내주는걸 맵핑하는건 어떨까??
-        // menuInfo = [
-        //   {
-        //     menu_id: menu_id,
-        //     menu_name: menu_name,
-        //     menu_price: menu_price,
-        //     menu_image: menu_image,
-        //   },
-        // ];
         for (let i = 0; i < menuInfo.length; i++) {
           const findMenu = await menu.findOne({ where: { id: menuInfo[i].menu_id } });
           await findMenu.update({
