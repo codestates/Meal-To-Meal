@@ -5,7 +5,6 @@ function ManagementMenuBox({ ownerStoreMenu }) {
   // ! 그럼 가게 정보를 받아와서 주인 아이디가 있으면
   // ! 내가 받아온 accessToken의 유저 정보로 아이디가 맞으면
   // ! 진짜 자신이 가진 가게 페이지를 보여주고 맞지 않다면 바로 엠티 에니메이션을 보여준다.
-  // console.log(ownerStoreMenu[0].user_meals[0].user.user_phone_number);
 
   return (
     <>

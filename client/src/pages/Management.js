@@ -26,6 +26,7 @@ function Management({ navigate, getImage }) {
         })
         .then(res => {
           setOwnerStoreInfo(res.data.storeInfo);
+          console.log(res.data);
           setIcon(getImage(res.data.storeInfo.store_category));
         })
         .catch(err => {
@@ -44,7 +45,6 @@ function Management({ navigate, getImage }) {
           withCredentials: true,
         })
         .then(res => {
-          console.log(res.data.menuList);
           setOwnerStoreMenu(res.data.menuList);
         })
         .catch(err => {
