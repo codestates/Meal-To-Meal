@@ -21,7 +21,6 @@ function Management({ navigate, getImage }) {
         })
         .then(res => {
           setOwnerStoreInfo(res.data.storeInfo);
-          console.log(res.data);
           setIcon(getImage(res.data.storeInfo.store_category));
         })
         .catch(err => {
@@ -58,10 +57,10 @@ function Management({ navigate, getImage }) {
       {!ownerStoreInfo || ownerStoreInfo.length === 0 ? (
         <ManagementMptyAni navigate={navigate} />
       ) : (
-        <div className="Management-page">
+        <div className="management-page">
           <div className="management-container">
+            <div className="management-title">나의 가게 정보</div>
             <div className="management-store-info-container">
-              <div className="management-title">나의 가게 정보</div>
               <div className="management-store-title-container">
                 <img className="management-store-category-icon" src={icon} alt="" />
                 <div className="management-store-title">{ownerStoreInfo.store_name}</div>

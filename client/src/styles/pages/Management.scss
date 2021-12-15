@@ -2,21 +2,27 @@
 @import '../components/Management/ManagementMenuBox';
 @import '../components/Management/ManagementMptyAni';
 
+.management-page {
+  margin: 15px 15px 70px 15px;
+}
+
 .management-container {
   display: flex;
   flex-direction: column;
-  margin: 15px;
 }
 
 .management-store-info-container {
   display: flex;
   flex-direction: column;
   margin-bottom: 5px;
+  border: 3px solid #ffcc1d;
+  padding: 5px;
 }
 
 .management-title {
-  font-size: 20px;
+  font-size: 25px;
   margin-bottom: 10px;
+  font-weight: bolder;
 }
 
 .management-store-title-container {
@@ -27,6 +33,7 @@
 
 .management-store-category-icon {
   height: 25px;
+  margin-right: 10px;
 }
 
 .management-store-title {
@@ -36,8 +43,8 @@
 }
 
 .management-store-img {
-  height: 40%;
-  max-width: 50%;
+  height: 120px;
+  width: 200px;
   margin: 10px auto 15px auto;
   border-radius: 15px;
   box-shadow: gray 4px 4px 4px 4px;
@@ -51,17 +58,13 @@
 .management-detail-info {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: 10px;
 }
 
 .management-detail-icon {
   height: 25px;
-  margin-right: 5px;
-}
-
-.management-store-menu-container {
-  margin: 15px 15px 85px 15px;
+  margin-right: 10px;
 }
 
 .management-button-container {
@@ -87,16 +90,17 @@
 }
 
 @include tablet {
-  .management-container {
-    margin-top: 80px;
+  .management-page {
+    margin-top: 70px;
+  }
+
+  .management-title {
+    font-size: 30px;
   }
 
   .management-store-info-container {
     margin-bottom: 15px;
-  }
-
-  .management-title {
-    font-size: 25px;
+    padding: 15px;
   }
 
   .management-store-category-icon {
@@ -113,11 +117,11 @@
 
   .management-store-img {
     height: 300px;
-    max-width: 450px;
+    width: 450px;
   }
 
   .management-store-detail-info-container {
-    margin: 10px 0 0 0;
+    margin-top: 10px;
   }
 
   .management-detail-info {
@@ -128,6 +132,7 @@
     height: 35px;
     margin-right: 15px;
   }
+
   .management-detail-text {
     font-size: 25px;
   }
@@ -146,75 +151,51 @@
 }
 
 @include desktop {
-  .Management-page {
+  .management-page {
+    margin: 70px 30px 0 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    min-height: 80.6vh;
   }
 
   .management-container {
-    margin-top: 80px;
-    height: 81vh;
-    width: 50%;
-    margin: 80px 30px 30px 30px;
+    margin-right: -100px;
   }
 
   .management-store-info-container {
-    margin-bottom: 20px;
-  }
-
-  .management-title {
-    font-size: 30px;
+    padding: 30px;
+    width: 70%;
+    min-height: 70%;
   }
 
   .management-store-category-icon {
     height: 35px;
-    margin-right: 5px;
   }
 
   .management-store-title {
-    font-size: 30px;
-  }
-
-  .management-store-category {
-    font-size: 20px;
+    font-size: 25px;
   }
 
   .management-store-img {
-    height: 450px;
-    max-width: 650px;
-    margin: 30px 0 20px 0;
-  }
-  .management-store-detail-info-container {
-    margin: 10px 0 0 0;
-    width: 50%;
-  }
-
-  .management-detail-info {
-    margin-bottom: 20px;
+    width: 80%;
+    height: 380px;
   }
 
   .management-detail-icon {
     height: 35px;
-    margin-right: 15px;
   }
   .management-detail-text {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .management-store-menu-container {
-    margin: 70px 15px 15px 0;
     width: 50%;
   }
 
-  .management-button {
-    width: 120px;
-    height: 40px;
-    font-size: 22px;
-  }
-
+  .management-button,
   .management-delete-button {
     width: 120px;
-    height: 40px;
-    font-size: 22px;
+    height: 35px;
+    font-size: 20px;
   }
 }

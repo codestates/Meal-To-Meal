@@ -8,12 +8,13 @@
   padding: 10px;
   margin-bottom: 30px;
   box-shadow: gray 3px 3px 3px 3px;
+  width: 92%;
 }
 
 .management-menu-img {
-  max-width: 130px;
-  max-height: 100px;
-  margin: auto 0 auto 0;
+  width: 120px;
+  height: 80px;
+  margin-right: 10px;
   box-shadow: gray 3px 3px 3px;
   border-radius: 15px;
 }
@@ -51,6 +52,7 @@
 .management-menu-donation-container {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .management-menu-icon {
@@ -71,9 +73,13 @@
 }
 
 @include tablet {
+  .management-menu-container {
+    width: 96%;
+  }
+
   .management-menu-img {
-    max-width: 30%;
-    max-height: 150px;
+    width: 210px;
+    height: 150px;
     margin: 10px;
   }
 
@@ -95,7 +101,7 @@
 
   .management-menu-icon {
     height: 20px;
-    margin: 0 5px 5px 0;
+    margin-right: 15px;
   }
 
   .management-menu-text {
@@ -105,13 +111,22 @@
 
   .management-menu-code-icon {
     height: 30px;
+    margin-right: 10px;
+  }
+
+  .management-order-empty-text {
+    font-size: 20px;
   }
 }
 
 @include desktop {
+  .management-menu-container {
+    width: 100%;
+  }
+
   .management-menu-img {
-    max-width: 30%;
-    max-height: 180px;
+    width: 20%;
+    height: 130px;
     margin: 15px;
   }
 
