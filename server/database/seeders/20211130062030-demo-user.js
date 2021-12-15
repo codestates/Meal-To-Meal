@@ -1575,13 +1575,8 @@ module.exports = {
           id: 99,
           user_nickname: 'sss',
           user_password: '$2b$10$ZyyzAzg8oRrPW.LV.HhFhuCmiWWewEvSX1dXYdLXPj7JeYqnkDKma',
-<<<<<<< HEAD
           user_phone_number: '01012345678',
           user_email: 'iamuniquetruely@gmail.com',
-=======
-          user_phone_number: '01064829000',
-          user_email: 'annimon2021@gmail.com',
->>>>>>> b910c75ee023fc8dc8710859c0ec47bde9017c99
           user_donation_count: 0,
           user_donation_money: 0,
           today_used: false,
