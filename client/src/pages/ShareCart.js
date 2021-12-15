@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import SharecartItem from '../components/ShareCart/SharecartItem';
 import ThankAlert from '../components/Alert/ThankAlert';
 import '../styles/pages/ShareCart.css';
 import axios from 'axios';
 
-function ShareCart({ cartItems, setCartItems, removeFromCart, getImage, openWarningAlertHandler, setAlertMessage }) {
-  const navigate = useNavigate();
+function ShareCart({
+  navigate,
+  cartItems,
+  setCartItems,
+  removeFromCart,
+  getImage,
+  openWarningAlertHandler,
+  setAlertMessage,
+}) {
   const accessToken = localStorage.getItem('accessToken');
 
   const [isOpenThankAlert, setIsOpenThankAlert] = useState(false);
@@ -39,7 +45,13 @@ function ShareCart({ cartItems, setCartItems, removeFromCart, getImage, openWarn
           withCredentials: true,
         })
         .then(res => {
-          setUserPhone(res.data.userInfo.user_phone_number);
+          if (res.data.userInfo.user_phone_number === null) {
+            setAlertMessage('휴대폰 인증이 필요한 서비스입니다.');
+            openWarningAlertHandler();
+            navigate('/mypage');
+          } else {
+            setUserPhone(res.data.userInfo.user_phone_number);
+          }
         })
         .catch(err => {
           console.log(err);
@@ -101,7 +113,6 @@ function ShareCart({ cartItems, setCartItems, removeFromCart, getImage, openWarn
               openWarningAlertHandler();
             });
         } else {
-          // 결제 실패 시 로직,
           setAlertMessage('결제에 실패하였습니다.');
           openWarningAlertHandler();
         }

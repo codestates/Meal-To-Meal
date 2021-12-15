@@ -20,6 +20,7 @@ import Withdrawal from '../src/pages/Withdrawal';
 import Mypage from '../src/pages/Mypage';
 import Management from './pages/Management';
 import AddStore from './pages/AddStore';
+import FixStore from './pages/FixStore';
 import MyDonation from './pages/MyDonation';
 
 // 카테고리 이미지
@@ -174,7 +175,7 @@ function App() {
         setKakaoLogin={setKakaoLogin}
       />
       <Routes>
-        <Route exact path="/" element={<Landing />} />
+        <Route exact path="/" element={<Landing navigate={navigate} />} />
         <Route path="/notfound" element={<NotFound />} />
         <Route
           path="/withdrawal"
@@ -196,14 +197,23 @@ function App() {
               openAlertHandler={openAlertHandler}
               openWarningAlertHandler={openWarningAlertHandler}
               alertMessage={alertMessage}
-              setAlertMessage={setAlertMessage}
               kakaoLogin={kakaoLogin}
               getImage={getImage}
             />
           }
         />
         <Route path="/management" element={<Management navigate={navigate} getImage={getImage} />} />
-        <Route path="/addstore" element={<AddStore navigate={navigate} />} />
+        <Route
+          path="/addstore"
+          element={
+            <AddStore
+              navigate={navigate}
+              setAlertMessage={setAlertMessage}
+              openWarningAlertHandler={openWarningAlertHandler}
+            />
+          }
+        />
+        <Route path="/fixstore" element={<FixStore navigate={navigate} getImage={getImage} />} />
         <Route path="/maps" element={<Maps navigate={navigate} />} />
         <Route
           path="/store/:storeid"
@@ -227,6 +237,7 @@ function App() {
           path="/sharecart"
           element={
             <ShareCart
+              navigate={navigate}
               isLogin={isLogin}
               setIsLogin={setIsLogin}
               cartItems={cartItems}

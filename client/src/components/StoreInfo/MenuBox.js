@@ -22,8 +22,6 @@ function MenuBox({
   const openClickOwnStoreAlertHandler = () => {
     setIsOpenClickOwnStoreAlert(!isOpenClickOwnStoreAlert);
   };
-  // TODO: 서버에서 가게 주인 아이디 확인해서 누른 사람이랑 같으면 openClickOwnStoreAlertHandler를 true로
-  // TODO: 즉 먹기를 눌렀을때 분기를 나눠야 한다.
 
   const [storeMenu, setStoreMenu] = useState([]);
 

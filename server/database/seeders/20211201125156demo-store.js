@@ -11,7 +11,7 @@ module.exports = {
           id: 1,
           user_id: 1,
           store_name: '떡볶이 묵을래?',
-          store_image: 'client/src/img/dummy/store4.png',
+          store_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
           store_order_quantity: '17',
           store_description: '가성비 갑!!!! 다양한종류의 떡볶이를 즐겨보세요!.',
           store_address: '서울특별시 서초구 서초동 서운로 133 2층',
@@ -26,7 +26,7 @@ module.exports = {
           id: 2,
           user_id: 2,
           store_name: '틈새라면 천호점',
-          store_image: 'client/src/img/dummy/원조할매국밥.png',
+          store_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
           store_order_quantity: '21',
           store_description:
             '명동 본점의 김복현 대표로부터 직접 배운 빨계떡 틈새라면의 천호점 입니다!. 끝장나는 매운맛의 본좌 빨계떡의 매력에 빠져 보세요 ',
