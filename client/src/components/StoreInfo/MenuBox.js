@@ -35,7 +35,7 @@ function MenuBox({
         withCredentials: true,
       })
       .then(res => {
-        setStoreMenu(res.data.menus);
+        setStoreMenu(res.data.menuList);
       })
       .catch(err => {
         console.log(err);

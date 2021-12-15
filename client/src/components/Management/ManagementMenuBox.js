@@ -5,23 +5,24 @@ function ManagementMenuBox({ ownerStoreMenu }) {
   // ! 그럼 가게 정보를 받아와서 주인 아이디가 있으면
   // ! 내가 받아온 accessToken의 유저 정보로 아이디가 맞으면
   // ! 진짜 자신이 가진 가게 페이지를 보여주고 맞지 않다면 바로 엠티 에니메이션을 보여준다.
+  console.log(ownerStoreMenu);
   return (
     <>
       {ownerStoreMenu.map(el => (
         <div className="management-menu-container">
-          <img className="management-menu-img" src={el[0].menu_image} alt="" />
+          <img className="management-menu-img" src={el.menu_image} alt="" />
           <div className="management-menu-info-container">
             <div className="management-menu-title-container">
-              <div className="management-menu-name">{el[0].menu_name}</div>
-              <div className="management-menu-price">{el[0].menu_price}</div>
+              <div className="management-menu-name">{el.menu_name}</div>
+              <div className="management-menu-price">{el.menu_price}</div>
             </div>
             <div className="management-menu-donation-container">
               <img className="management-menu-icon" src={require('../../img/donation.png').default} alt="" />
-              <div className="management-menu-text">: {el[0].menu_order_quantity}</div>
+              <div className="management-menu-text">: {el.menu_order_quantity}</div>
             </div>
             <div className="management-menu-code-container">
               <img className="management-menu-code-icon" src={require('../../img/code.png').default} alt="" />
-              <div className="management-menu-text">: {el[0].user_meals}</div>
+              {/* <div className="management-menu-text">: {el.user_meals}</div> */}
             </div>
           </div>
         </div>
