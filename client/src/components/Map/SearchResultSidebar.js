@@ -7,10 +7,7 @@ function SearchResultSidebar({ searchResult, setIsChangeCenter }) {
         <div
           className="SearchResult-info-container"
           onClick={() => {
-            setIsChangeCenter({ lat: el.store_lat, lng: el.store_lng, zoom: 17 });
-          }}
-          onMouseOver={e => {
-            console.log(e);
+            setIsChangeCenter({ lat: Number(el.store_lat) - 0.01, lng: Number(el.store_lng) - 0.002, zoom: 17 });
           }}
         >
           <div className="SearchResult-info">

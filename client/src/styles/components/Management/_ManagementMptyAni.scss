@@ -17,14 +17,14 @@
 
 .management-empty-button-container {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
 }
 
 .management-empty-button {
   width: 130px;
   height: 35px;
   font-size: 15px;
-  margin-top: 15px;
+  margin: 15px;
   box-shadow: gray 4px 4px 4px;
   border-radius: 10px;
   transition: 120ms ease;
@@ -71,6 +71,7 @@
     width: 200px;
     height: 40px;
     font-size: 25px;
+    margin: 25px;
   }
 }
 
@@ -92,5 +93,6 @@
     width: 200px;
     height: 40px;
     font-size: 25px;
+    margin: 40px;
   }
 }

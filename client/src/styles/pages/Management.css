@@ -180,17 +180,16 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .management-empty-button {
   width: 130px;
   height: 35px;
   font-size: 15px;
-  margin-top: 15px;
+  margin: 15px;
   -webkit-box-shadow: gray 4px 4px 4px;
           box-shadow: gray 4px 4px 4px;
   border-radius: 10px;
@@ -238,6 +237,7 @@
     width: 200px;
     height: 40px;
     font-size: 25px;
+    margin: 25px;
   }
 }
 
@@ -256,6 +256,7 @@
     width: 200px;
     height: 40px;
     font-size: 25px;
+    margin: 40px;
   }
 }
 
