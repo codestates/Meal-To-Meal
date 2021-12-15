@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import DaumPostcode from 'react-daum-postcode';
+import axios from 'axios';
 import AddMenu from '../components/Management/AddMenu';
 
 import '../styles/pages/AddStore.css';
 
-function AddStore({ navigate }) {
+function AddStore({ navigate, openWarningAlertHandler, setAlertMessage }) {
   const [address, setAddress] = useState('우편번호');
   const [addressDetail, setAddressDetail] = useState('주소');
   const [fullAddress, setFullAddress] = useState('');
-  // fullAddress 가 진짜 다 합쳐진 주소지롱
+  const [location, setLocation] = useState({ lat: null, lng: null });
+
   const [store, setStore] = useState();
   // 이 store는 내가 등록할 모든 가게의 정보가 다 담겨 있스
   const [menuCount, setMenuCount] = useState([<AddMenu />]);
@@ -29,6 +31,21 @@ function AddStore({ navigate }) {
     // addMenuHandler([...menuInfo, { menu_price: e.target.value }]);
     setMenuInfo(el);
     console.log(el);
+  };
+
+  const getLocationHandler = () => {
+    axios
+      .get(
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${fullAddress}&language=ko&key=${process.env.REACT_APP_GEOCODING_KEY}`,
+        { withCredentials: false }
+      )
+      .then(res => {
+        setLocation({ lat: res.data.results[0].geometry.location.lat, lng: res.data.results[0].geometry.location.lng });
+      })
+      .catch(err => {
+        setAlertMessage('주소를 검색 한 후에 저장해 주세요!');
+        openWarningAlertHandler();
+      });
   };
 
   const onCompletePost = data => {
@@ -94,7 +111,9 @@ function AddStore({ navigate }) {
             + 메뉴 추가
           </button>
           <div className="AddStore-add-menu-button-container">
-            <button className="AddStore-button">저장</button>
+            <button className="AddStore-button" onClick={() => getLocationHandler()}>
+              저장
+            </button>
             <button className="AddStore-button">취소</button>
           </div>
         </div>
