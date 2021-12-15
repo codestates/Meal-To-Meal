@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import lottie from 'lottie-web';
 import '../styles/pages/Landing.css';
 import landing1 from '../img/landing/landing1.mp4';
 
-function Landing() {
+function Landing({ navigate }) {
   const landingAniContainer = useRef();
   useEffect(() => {
     lottie.loadAnimation({
@@ -15,8 +14,6 @@ function Landing() {
       animationData: require('../img/landing-ani.json'),
     });
   }, []);
-
-  const navigate = useNavigate();
 
   return (
     <div className="landing-container">

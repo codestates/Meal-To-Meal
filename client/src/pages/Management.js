@@ -84,7 +84,9 @@ function Management({ navigate, getImage }) {
             <div className="management-title">메뉴</div>
             <ManagementMenuBox ownerStoreMenu={ownerStoreMenu} />
             <div className="management-button-container">
-              <button className="management-button">수정</button>
+              <button className="management-button" onClick={() => navigate('/fixstore')}>
+                수정
+              </button>
               <button className="management-delete-button">삭제</button>
             </div>
           </div>

@@ -36,6 +36,10 @@
   margin-right: 5px;
 }
 
+.management-menu-code-textList {
+  display: flex;
+  flex-direction: column;
+}
 .management-menu-text {
   font-size: 15px;
 }
