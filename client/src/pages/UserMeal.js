@@ -46,9 +46,9 @@ function UserMeal({ navigate, getImage, emptyOrderAniText, setEmptyOrderAniText 
         <EmptyOrderAni navigate={navigate} />
       ) : (
         <div className="usermeal-container">
+          <div className="usermeal-title">예약 내역</div>
           <div className="usermeal-order-food-info-container">
             <div className="usermeal-reservation-container">
-              <div className="usermeal-title">예약 내역</div>
               <div className="usermeal-store-title-container">
                 <img className="usermeal-category-icon" src={icon} alt="" />
                 <div className="usermeal-store-title">{orderedMeal[0].menu.store.store_name}</div>
