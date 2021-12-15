@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import DaumPostcode from 'react-daum-postcode';
 import axios from 'axios';
 import AddMenu from '../components/Management/AddMenu';
+import AddedMenu from '../components/Management/AddedMenu';
 
 import '../styles/pages/AddStore.css';
 
@@ -13,9 +14,8 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage }) {
 
   const [store, setStore] = useState();
   // 이 store는 내가 등록할 모든 가게의 정보가 다 담겨 있스
-  const [menuCount, setMenuCount] = useState([<AddMenu />]);
-  const [menuInfo, setMenuInfo] = useState([{ menu_name: '', menu_price: '' }]);
-  const [oneMenu, setOneMenu] = useState([]);
+  const [menuList, setMenuList] = useState([]);
+  const [menuInfo, setMenuInfo] = useState({ menu_name: '', menu_price: '' });
 
   const [isOpenSearchAddress, setIsOpenSearchAddress] = useState(false);
 
@@ -27,10 +27,12 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage }) {
     setFullAddress(`${addressDetail} ${e.target.value}`);
   };
 
-  const addMenuHandler = el => {
-    // addMenuHandler([...menuInfo, { menu_price: e.target.value }]);
-    setMenuInfo(el);
-    console.log(el);
+  const handleInputValue = key => e => {
+    setMenuInfo({ ...menuInfo, [key]: e.target.value.toLowerCase() });
+  };
+
+  const addMenuHandler = () => {
+    setMenuList([...menuList, { menu_name: menuInfo.menu_name, menu_price: menuInfo.menu_price }]);
   };
 
   const getLocationHandler = () => {
@@ -79,11 +81,11 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage }) {
           <div className="AddStore-store-text">카테고리</div>
           <input className="AddStore-store-info-input" placeholder="카테고리를 선택하세요." />
           <div className="AddStore-store-text">가게 설명</div>
-          <textarea className="AddStore-store-description-input" placeholder="가게 설명을 적어 주세요." />
+          <textarea className="AddStore-store-description-input" placeholder="가게 설명을 입력하세요." />
         </div>
         <div className="AddStore-store-title-container">
           <div className="AddStore-store-text">영업시간</div>
-          <input className="AddStore-store-info-input" placeholder="영업시간을 적어 주세요." />
+          <input className="AddStore-store-info-input" placeholder="영업시간을 입력하세요." />
           <div className="AddStore-store-text">가게주소</div>
           <button className="AddStore-address-button" onClick={() => searchAddressHandler()}>
             가게 주소 등록하기
@@ -102,13 +104,18 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage }) {
           <div className="AddStore-store-address">{addressDetail}</div>
           <input className="AddStore-store-info-input" placeholder="상세주소" onChange={e => onHandleChange(e)} />
           <div className="AddStore-title">메뉴 등록</div>
+          {menuList.length !== 0
+            ? menuList.map(item => (
+                <div className="AddStore-add-menu-container">
+                  <AddedMenu item={item} />
+                </div>
+              ))
+            : null}
           <div className="AddStore-add-menu-container">
-            {menuCount.map(el => (
-              <AddMenu addMenuHandler={addMenuHandler} menuInfo={menuInfo} />
-            ))}
+            <AddMenu handleInputValue={handleInputValue} menuInfo={menuInfo} />
           </div>
-          <button className="AddStore-add-menu-button" onClick={() => setMenuCount([...menuCount, <AddMenu />])}>
-            + 메뉴 추가
+          <button className="AddStore-add-menu-button" onClick={() => addMenuHandler()}>
+            + 저장 후 다음 메뉴 추가
           </button>
           <div className="AddStore-add-menu-button-container">
             <button className="AddStore-button" onClick={() => getLocationHandler()}>

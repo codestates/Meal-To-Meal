@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function AddMenu({ addMenuHandler, menuInfo }) {
+function AddMenu({ handleInputValue, menuInfo }) {
   return (
     <div className="AddMenu-container">
       <div className="AddMenu-add-img-container">
@@ -9,9 +9,14 @@ function AddMenu({ addMenuHandler, menuInfo }) {
       </div>
       <div className="AddMenu-menu-info-container">
         <div className="AddMenu-menu-info-title">메뉴 이름</div>
-        <input className="AddMenu-menu-input" onChange={e => addMenuHandler({ menu_name: e.target.value })} />
+        <input className="AddMenu-menu-input" placeholder="메뉴 이름" onChange={handleInputValue('menu_name')} />
         <div className="AddMenu-menu-info-title">메뉴 가격</div>
-        <input className="AddMenu-menu-input" onChange={e => addMenuHandler({ menu_price: e.target.value })} />
+        <input
+          className="AddMenu-menu-input"
+          placeholder="숫자만 입력해 주세요."
+          type="number"
+          onChange={handleInputValue('menu_price')}
+        />
       </div>
     </div>
   );

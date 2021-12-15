@@ -4,7 +4,7 @@
 .AddStore-container {
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 10px 10px 70px 10px;
 }
 
 .AddStore-store-title-container {
@@ -14,7 +14,8 @@
 }
 
 .AddStore-title {
-  font-size: 20px;
+  font-weight: bolder;
+  font-size: 25px;
   margin-bottom: 10px;
 }
 
@@ -82,12 +83,13 @@
   transition: 100ms ease all;
   height: 50px;
   margin-bottom: 15px;
-  padding: 3px 0 3px 5px;
+  padding: 5px;
   text-align: start;
   resize: none;
 
   &:focus {
     border: 2px solid #ffcc1d;
+    border-radius: 10px;
     outline: none;
     box-shadow: gray 3px 3px 3px;
   }
@@ -237,7 +239,8 @@
   }
 
   .AddStore-title {
-    font-size: 25px;
+    font-size: 30px;
+    margin-bottom: 15px;
   }
 
   .AddStore-store-img {
@@ -302,7 +305,7 @@
   }
 
   .AddStore-title {
-    font-size: 30px;
+    font-size: 35px;
   }
 
   .AddStore-store-img {
