@@ -54,6 +54,29 @@
   border: none;
   box-shadow: gray 3px 3px 3px;
   margin-bottom: 10px;
+  transition: 140ms ease all;
+
+  &:hover {
+    box-shadow: gray 6px 6px 6px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
 }
 
 .landing-ani {
@@ -63,10 +86,12 @@
 .landing-tutorials-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
   margin-bottom: 50px;
   background-color: #f3f5f7;
   padding: 10px;
+  width: 100%;
 }
 
 .landing-tutorials-container-left {
@@ -84,15 +109,17 @@
 
 .landing-tutorials-info-gif,
 .landing-tutorials-info-gif-left {
-  width: 240px;
+  width: 270px;
   height: 140px;
   margin: 15px;
-  border: 1px solid;
+  box-shadow: gray 3px 3px 3px 3px;
+  border-radius: 5px;
 }
 
 .landing-tutorials-info-text,
 .landing-tutorials-info-text-left {
   font-size: 15px;
+  opacity: 0.5;
 }
 
 @include tablet {
@@ -128,8 +155,8 @@
 
   .landing-tutorials-info-gif,
   .landing-tutorials-info-gif-left {
-    width: 740px;
-    height: 440px;
+    width: 730px;
+    height: 380px;
   }
 
   .landing-tutorials-info-text,
@@ -222,7 +249,7 @@
   .landing-tutorials-info-gif,
   .landing-tutorials-info-gif-left {
     width: 900px;
-    height: 500px;
+    height: 470px;
     margin: 50px 0 50px 0;
   }
 

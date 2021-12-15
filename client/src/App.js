@@ -203,7 +203,16 @@ function App() {
           }
         />
         <Route path="/management" element={<Management navigate={navigate} getImage={getImage} />} />
-        <Route path="/addstore" element={<AddStore navigate={navigate} />} />
+        <Route
+          path="/addstore"
+          element={
+            <AddStore
+              navigate={navigate}
+              openWarningAlertHandler={openWarningAlertHandler}
+              setAlertMessage={setAlertMessage}
+            />
+          }
+        />
         <Route path="/maps" element={<Maps navigate={navigate} />} />
         <Route
           path="/store/:storeid"

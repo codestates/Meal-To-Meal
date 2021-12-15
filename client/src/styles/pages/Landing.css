@@ -81,6 +81,38 @@
   -webkit-box-shadow: gray 3px 3px 3px;
           box-shadow: gray 3px 3px 3px;
   margin-bottom: 10px;
+  -webkit-transition: 140ms ease all;
+  transition: 140ms ease all;
+}
+
+.landing-start-button:hover,
+.landing-start-button-bottom:hover {
+  -webkit-box-shadow: gray 6px 6px 6px;
+          box-shadow: gray 6px 6px 6px;
+}
+
+.landing-start-button:before, .landing-start-button:after,
+.landing-start-button-bottom:before,
+.landing-start-button-bottom:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.landing-start-button:hover:before, .landing-start-button:hover:after,
+.landing-start-button-bottom:hover:before,
+.landing-start-button-bottom:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.landing-start-button:active,
+.landing-start-button-bottom:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .landing-ani {
@@ -95,10 +127,14 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
   margin-bottom: 50px;
   background-color: #f3f5f7;
   padding: 10px;
+  width: 100%;
 }
 
 .landing-tutorials-container-left {
@@ -121,15 +157,18 @@
 
 .landing-tutorials-info-gif,
 .landing-tutorials-info-gif-left {
-  width: 240px;
+  width: 270px;
   height: 140px;
   margin: 15px;
-  border: 1px solid;
+  -webkit-box-shadow: gray 3px 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px 3px;
+  border-radius: 5px;
 }
 
 .landing-tutorials-info-text,
 .landing-tutorials-info-text-left {
   font-size: 15px;
+  opacity: 0.5;
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
@@ -160,8 +199,8 @@
   }
   .landing-tutorials-info-gif,
   .landing-tutorials-info-gif-left {
-    width: 740px;
-    height: 440px;
+    width: 730px;
+    height: 380px;
   }
   .landing-tutorials-info-text,
   .landing-tutorials-info-text-left {
@@ -259,7 +298,7 @@
   .landing-tutorials-info-gif,
   .landing-tutorials-info-gif-left {
     width: 900px;
-    height: 500px;
+    height: 470px;
     margin: 50px 0 50px 0;
   }
   .landing-start-button-bottom {
