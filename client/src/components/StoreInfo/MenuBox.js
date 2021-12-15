@@ -12,6 +12,7 @@ function MenuBox({
   addToCart,
   openLoginModalHandler,
 }) {
+  const accessToken = localStorage.getItem('accessToken');
   const [isOpenLoginAlert, setIsOpenLoginAlert] = useState(false);
 
   const loginAlertOpenHandler = () => {
@@ -30,7 +31,7 @@ function MenuBox({
   const getStoreMenuHandler = () => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/menu-list/${Number(localStorage.getItem('clickedMarker'))}`, {
-        headers: { 'Content-Type': 'application/json' },
+        headers: { authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
         withCredentials: true,
       })
       .then(res => {

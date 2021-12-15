@@ -25,7 +25,6 @@ function Management({ navigate, getImage }) {
           withCredentials: true,
         })
         .then(res => {
-          console.log(res.data);
           setOwnerStoreInfo(res.data.storeInfo);
           setIcon(getImage(res.data.storeInfo.store_category));
         })
@@ -45,9 +44,8 @@ function Management({ navigate, getImage }) {
           withCredentials: true,
         })
         .then(res => {
-          console.log(res.data);
-          // console.log([res.data.menuList]);
-          setOwnerStoreMenu([res.data.menuList]);
+          console.log(res.data.menuList);
+          setOwnerStoreMenu(res.data.menuList);
         })
         .catch(err => {
           console.log(err);
@@ -62,7 +60,7 @@ function Management({ navigate, getImage }) {
 
   return (
     <>
-      {!ownerStoreInfo.length ? (
+      {!ownerStoreInfo ? (
         <ManagementMptyAni navigate={navigate} />
       ) : (
         <div className="Management-page">

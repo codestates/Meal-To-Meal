@@ -7,5 +7,6 @@ router.get('/management', menuController.getMenuManagement);
 router.get('/', menuController.get);
 router.get('/:storeid', menuController.get);
 router.delete('/:menuid', menuController.delete);
+router.get('/', menuController.get);
 
 module.exports = router;
