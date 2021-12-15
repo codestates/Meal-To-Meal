@@ -18,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         defaultValue: '',
       },
-      verification_code: DataTypes.STRING,
       user_phone_number: DataTypes.STRING,
       user_email: DataTypes.STRING,
       user_donation_count: {
