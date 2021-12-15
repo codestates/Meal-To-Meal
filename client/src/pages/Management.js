@@ -52,7 +52,7 @@ function Management({ navigate, getImage }) {
         });
     }
   };
-  console.log(ownerStoreInfo);
+
   useEffect(() => {
     isStoreOwner();
     getOwnerStoreMenuHandler();
@@ -60,7 +60,7 @@ function Management({ navigate, getImage }) {
 
   return (
     <>
-      {!ownerStoreInfo ? (
+      {!ownerStoreInfo || ownerStoreInfo.length === 0 ? (
         <ManagementMptyAni navigate={navigate} />
       ) : (
         <div className="Management-page">
