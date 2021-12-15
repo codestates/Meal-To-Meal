@@ -113,7 +113,6 @@ function ShareCart({
               openWarningAlertHandler();
             });
         } else {
-          // 결제 실패 시 로직,
           setAlertMessage('결제에 실패하였습니다.');
           openWarningAlertHandler();
         }

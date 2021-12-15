@@ -22,15 +22,17 @@ function ManagementMenuBox({ ownerStoreMenu }) {
             </div>
             <div className="management-menu-code-container">
               <img className="management-menu-code-icon" src={require('../../img/code.png').default} alt="" />
-              {el.user_meals.length === 0 ? (
-                <div className="management-menu-text">아직 음식을 예약하신 손님이 없습니다</div>
-              ) : (
-                <>
-                  {el.user_meals.map(meals => (
-                    <div className="management-menu-text"> 010-****-{meals.user.user_phone_number.slice(-4)}</div>
-                  ))}
-                </>
-              )}
+              <div className="management-menu-code-textList">
+                {el.user_meals.length === 0 ? (
+                  <div className="management-menu-text">아직 음식을 예약하신 손님이 없습니다</div>
+                ) : (
+                  <>
+                    {el.user_meals.map(meals => (
+                      <div className="management-menu-text"> 010-****-{meals.user.user_phone_number.slice(-4)}</div>
+                    ))}
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>

@@ -48,7 +48,15 @@
 }
 
 .AddMenu-menu-info-title {
-  margin-bottom: 3px;
+  font-weight: bolder;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.AddMenu-menu-text {
+  font-size: 15px;
+  margin: 0 0 10px 5px;
+  opacity: 0.5;
 }
 
 .AddMenu-menu-img-input {
@@ -68,6 +76,8 @@
   width: 80%;
   -webkit-transition: 120ms ease all;
   transition: 120ms ease all;
+  border-radius: 5px;
+  padding: 3px;
 }
 
 .AddMenu-menu-input:focus {
@@ -90,7 +100,9 @@
   }
   .AddMenu-menu-input {
     height: 30px;
-    width: 200%;
+    width: 100%;
+    font-size: 20px;
+    padding: 5px;
   }
 }
 
@@ -112,6 +124,7 @@
   .AddMenu-menu-input {
     height: 30px;
     width: 80%;
+    font-size: 25px;
   }
 }
 
@@ -123,7 +136,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 10px;
+  margin: 10px 10px 70px 10px;
 }
 
 .AddStore-store-title-container {
@@ -138,7 +151,8 @@
 }
 
 .AddStore-title {
-  font-size: 20px;
+  font-weight: bolder;
+  font-size: 25px;
   margin-bottom: 10px;
 }
 
@@ -214,13 +228,14 @@
   transition: 100ms ease all;
   height: 50px;
   margin-bottom: 15px;
-  padding: 3px 0 3px 5px;
+  padding: 5px;
   text-align: start;
   resize: none;
 }
 
 .AddStore-store-description-input:focus {
   border: 2px solid #ffcc1d;
+  border-radius: 10px;
   outline: none;
   -webkit-box-shadow: gray 3px 3px 3px;
           box-shadow: gray 3px 3px 3px;
@@ -387,7 +402,8 @@
     margin-top: 80px;
   }
   .AddStore-title {
-    font-size: 25px;
+    font-size: 30px;
+    margin-bottom: 15px;
   }
   .AddStore-store-img {
     width: 550px;
@@ -447,7 +463,7 @@
     margin-right: 15px;
   }
   .AddStore-title {
-    font-size: 30px;
+    font-size: 35px;
   }
   .AddStore-store-img {
     width: 70%;

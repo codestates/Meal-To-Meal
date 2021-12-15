@@ -5,13 +5,8 @@ import ManagementMptyAni from '../components/Management/ManagementMptyAni';
 import '../styles/pages/Management.css';
 
 function Management({ navigate, getImage }) {
-  // ! 유저에는 오너아이디는 없음.
-  // ! 그럼 가게 정보를 받아와서 주인 아이디가 있으면
-  // ! 내가 받아온 accessToken의 유저 정보로 아이디가 맞으면
-  // ! 진짜 자신이 가진 가게 페이지를 보여주고 맞지 않다면 바로 엠티 에니메이션을 보여준다.
   const accessToken = localStorage.getItem('accessToken');
   const [icon, setIcon] = useState('');
-  const [Loading, setIsLoading] = useState(true);
   const [ownerStoreInfo, setOwnerStoreInfo] = useState([]);
   const [ownerStoreMenu, setOwnerStoreMenu] = useState([]);
 
@@ -60,7 +55,7 @@ function Management({ navigate, getImage }) {
 
   return (
     <>
-      {!ownerStoreInfo ? (
+      {!ownerStoreInfo || ownerStoreInfo.length === 0 ? (
         <ManagementMptyAni navigate={navigate} />
       ) : (
         <div className="Management-page">
