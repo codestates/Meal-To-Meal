@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Search from '../components/Map/Search';
 import StoreInfoWindow from '../components/Map/StoreInfoWindow';
@@ -24,7 +24,6 @@ const Map = () => {
   const [isOpenSearchResultSidebar, setIsOpenSearchResultSidebar] = useState(false);
   const [searchResult, setSearchResult] = useState([]);
   const [isChangeCenter, setIsChangeCenter] = useState({ lat: 37.51249519205713, lng: 126.99480974427608, zoom: 13 });
-  const [markerImg, setMarkerImg] = useState(null);
 
   const getImage = e => {
     if (e === '분식') return 분식;
@@ -56,12 +55,13 @@ const Map = () => {
     storeListHandler();
   }, []);
 
+  const marker = useRef();
+
   return (
     <GoogleMap
-      center={{ lat: Number(isChangeCenter.lat), lng: Number(isChangeCenter.lng) }}
-      defaultZoom={13}
-      options={{ disableDefaultUI: true, minZoom: 9, maxZoom: 18 }}
+      center={{ lat: Number(isChangeCenter.lat) + 0.01, lng: Number(isChangeCenter.lng) }}
       zoom={isChangeCenter.zoom}
+      options={{ disableDefaultUI: true, minZoom: 9, maxZoom: 18 }}
     >
       {storeList.map(el => (
         <Marker
@@ -79,17 +79,15 @@ const Map = () => {
           }}
           icon={{ url: getImage(el.store_category) }}
           onClick={() => {
-            setSelected(el);
+            marker.current.context.__SECRET_MAP_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.zoom = 15;
             setIsChangeCenter({ lat: Number(el.store_lat), lng: Number(el.store_lng) });
+            setSelected(el);
             localStorage.setItem('clickedMarker', el.id);
           }}
+          ref={marker}
         >
           {selected && selected.id === el.id && (
-            <InfoWindow
-              onCloseClick={() => {
-                setSelected(null);
-              }}
-            >
+            <InfoWindow>
               <StoreInfoWindow storeData={el} navigate={navigate} />
             </InfoWindow>
           )}

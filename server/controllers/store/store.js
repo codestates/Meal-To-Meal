@@ -69,6 +69,8 @@ module.exports = {
       if (userInfo && userInfo.is_owner) {
         const storeInfo = await store.findOne({ where: { user_id: userInfo.id } });
         res.status(200).json({ storeInfo: storeInfo });
+      } else {
+        res.json({ message: '권한이 없습니다' });
       }
     } catch (err) {
       console.log(err.message);

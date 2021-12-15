@@ -11,7 +11,7 @@ function AddStore({ navigate }) {
   // fullAddress 가 진짜 다 합쳐진 주소지롱
   const [store, setStore] = useState();
   // 이 store는 내가 등록할 모든 가게의 정보가 다 담겨 있스
-  const [menuCount, setMenuCount] = useState([<AddMenu />]);
+  const [menuCount, setMenuCount] = useState([{ id: 1 }]);
   const [menuInfo, setMenuInfo] = useState([{ menu_name: '', menu_price: '' }]);
   const [oneMenu, setOneMenu] = useState([]);
 
@@ -87,10 +87,15 @@ function AddStore({ navigate }) {
           <div className="AddStore-title">메뉴 등록</div>
           <div className="AddStore-add-menu-container">
             {menuCount.map(el => (
-              <AddMenu addMenuHandler={addMenuHandler} menuInfo={menuInfo} />
+              <AddMenu key={el.id} addMenuHandler={addMenuHandler} menuInfo={menuInfo} />
             ))}
           </div>
-          <button className="AddStore-add-menu-button" onClick={() => setMenuCount([...menuCount, <AddMenu />])}>
+          <button
+            className="AddStore-add-menu-button"
+            onClick={() => {
+              setMenuCount([{ ...menuCount, id: menuCount.length }]);
+            }}
+          >
             + 메뉴 추가
           </button>
           <div className="AddStore-add-menu-button-container">

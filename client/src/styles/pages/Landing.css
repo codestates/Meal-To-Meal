@@ -2,96 +2,17 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-bottom: 40px;
-  overflow-x: hidden;
-}
-
-.landing-catchphrase {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.landing-catchphrase-02 {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.landing-button {
-  padding-top: 3px;
-  width: 230px;
-  margin-top: 4px;
-  -webkit-box-shadow: gray 4px 4px 4px;
-          box-shadow: gray 4px 4px 4px;
-  border-radius: 7px;
-  -webkit-transition: 120ms ease;
-  transition: 120ms ease;
-  background-color: white;
-  cursor: pointer;
-}
-
-.landing-button:hover {
-  -webkit-box-shadow: gray 6px 6px 6px;
-          box-shadow: gray 6px 6px 6px;
-}
-
-.landing-button:before, .landing-button:after {
-  content: '';
-  position: absolute;
-  width: 0;
-  -webkit-transition: ease all;
-  transition: ease all;
-}
-
-.landing-button:hover:before, .landing-button:hover:after {
-  width: 100%;
-  -webkit-transition: ease all;
-  transition: ease all;
-}
-
-.landing-button:active {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.landing-img,
-.landing-img-02,
-.landing-img-03 {
-  height: 230px;
-}
-
-.landing-tutorial-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 96%;
-  height: 300px;
-  margin: 15px;
+  padding: 30px 0 100px 0;
 }
 
-.landing-tutorial-gif {
-  margin: 10px;
-  width: 48%;
-  height: 90%;
-  border: 3px solid #ffcc1d;
-}
-
-.landing-tutorial-catchphrase-container {
+.landing-introduce-ani-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -99,34 +20,74 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 40%;
-  margin: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.landing-tutorial-catchphrase {
-  font-size: 18px;
+.landing-introduce-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.landing-catchphrase-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.landing-logo-img {
+  width: 100px;
   margin-bottom: 10px;
 }
 
-.landing-tutorial-catchphrase-sub {
-  font-size: 10px;
+.landing-catchphrase {
+  font-size: 25px;
+  font-weight: bolder;
+  text-align: center;
+  width: 200px;
+  margin-bottom: 15px;
 }
 
-.landing-review-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  width: 96%;
-  height: 300px;
-  border: solid 1px green;
-  overflow: auto;
-  -ms-scroll-snap-type: x mandatory;
-      scroll-snap-type: x mandatory;
+.landing-catchphrase-sub {
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-.landing-review-post-container {
+.landing-start-button,
+.landing-start-button-bottom {
+  background-color: #ffcc1d;
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  height: 40px;
+  border: none;
+  -webkit-box-shadow: gray 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px;
+  margin-bottom: 10px;
+}
+
+.landing-ani {
+  margin-bottom: 50px;
+}
+
+.landing-tutorials-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -134,126 +95,179 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 300px;
-  margin: 10px;
-  border: orange 1px solid;
+  text-align: center;
+  margin-bottom: 50px;
+  background-color: #f3f5f7;
+  padding: 10px;
 }
 
-.landing-review-post-img {
-  height: 60%;
-  width: 90%;
-  margin: 10px;
-  border: hotpink solid 1px;
+.landing-tutorials-container-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 10px;
 }
 
-.landing-review-post-contents {
-  margin: 0 10px 10px 10px;
+.landing-tutorials-info-title,
+.landing-tutorials-info-title-left {
+  font-size: 25px;
 }
 
-@media (min-width: 300px) and (max-width: 757px) {
-  .landing-catchphrase,
-  .landing-catchphrase-02 {
-    font-size: 25px;
-  }
-  .landing-logo {
-    height: 230px;
-    margin-top: 30px;
-  }
-  .landing-img {
-    margin: -55px -270px 10px 0;
-    z-index: -1;
-  }
-  .landing-img-02 {
-    margin: -80px 300px 10px 0;
-  }
-  .landing-img-03 {
-    margin: -130px -230px 10px 0;
-  }
-  .landing-review-container {
-    margin-bottom: 40px;
-  }
+.landing-tutorials-info-gif,
+.landing-tutorials-info-gif-left {
+  width: 240px;
+  height: 140px;
+  margin: 15px;
+  border: 1px solid;
+}
+
+.landing-tutorials-info-text,
+.landing-tutorials-info-text-left {
+  font-size: 15px;
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
-  .landing-catchphrase,
-  .landing-catchphrase-02 {
-    font-size: 50px;
+  .landing-logo-img {
+    width: 250px;
+    margin-bottom: 30px;
   }
-  .landing-logo {
-    height: 260px;
-    margin-top: 40px;
+  .landing-catchphrase {
+    font-size: 35px;
+    width: 300px;
+    width: 100%;
+    margin-bottom: 25px;
   }
-  .landing-img,
-  .landing-img-02,
-  .landing-img-03 {
-    height: 280px;
+  .landing-catchphrase-sub {
+    font-size: 25px;
   }
-  .landing-img {
-    margin: -125px -420px 10px 0;
-    z-index: -1;
-  }
-  .landing-img-02 {
-    margin: -150px 470px 10px 0;
-  }
-  .landing-img-03 {
-    margin: -200px -80px 10px 0;
-  }
-  .landing-button {
-    height: 40px;
-    font-size: 20px;
-  }
-  .landing-tutorial-catchphrase {
+  .landing-start-button,
+  .landing-start-button-bottom {
     font-size: 30px;
+    width: 80%;
+    height: 50px;
+    margin-bottom: 30px;
   }
-  .landing-tutorial-catchphrase-sub {
+  .landing-tutorials-info-title,
+  .landing-tutorials-info-title-left {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  .landing-tutorials-info-gif,
+  .landing-tutorials-info-gif-left {
+    width: 740px;
+    height: 440px;
+  }
+  .landing-tutorials-info-text,
+  .landing-tutorials-info-text-left {
     font-size: 20px;
   }
 }
 
 @media (min-width: 1024px) {
-  .landing-catchphrase,
-  .landing-catchphrase-02 {
-    font-size: 60px;
+  .landing-introduce-ani-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-bottom: 11.1%;
   }
-  .landing-logo {
-    height: 300px;
-    margin-top: 50px;
+  .landing-catchphrase-container {
+    margin: 10% 5% 0 10%;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    width: 40%;
   }
-  .landing-img,
-  .landing-img-02,
-  .landing-img-03 {
-    height: 420px;
+  .landing-logo-img {
+    width: 230px;
+    margin-bottom: 30px;
   }
-  .landing-img {
-    margin: -25em -55em 1em 0;
-    z-index: -1;
+  .landing-catchphrase {
+    text-align: start;
+    width: 100%;
+    font-size: 35px;
   }
-  .landing-img-02 {
-    margin: 0 60em 1em 0;
-  }
-  .landing-img-03 {
-    margin: -23em -40em 1em 0;
-    z-index: -1;
-  }
-  .landing-button {
-    height: 40px;
+  .landing-catchphrase-sub {
+    text-align: start;
+    width: 100%;
     font-size: 25px;
   }
-  .landing-tutorial-gif {
-    margin-left: 1em;
-    max-width: 530px;
+  .landing-start-button {
+    font-size: 35px;
+    width: 100%;
+    height: 75px;
+    padding: 0;
+    margin: 3% 0 0 0;
   }
-  .landing-tutorial-catchphrase {
-    font-size: 45px;
+  .landing-ani {
+    width: 50%;
   }
-  .landing-tutorial-catchphrase-sub {
+  .landing-tutorials-container {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 0;
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid whitesmoke;
+  }
+  .landing-tutorials-container-left {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 0;
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid whitesmoke;
+  }
+  .landing-tutorial-info-text-container {
+    text-align: start;
+  }
+  .landing-tutorial-info-text-container-left {
+    text-align: end;
+  }
+  .landing-tutorials-info-title,
+  .landing-tutorials-info-title-left {
+    margin-bottom: 30px;
+    font-size: 35px;
+  }
+  .landing-tutorials-info-text,
+  .landing-tutorials-info-text-left {
     font-size: 25px;
+  }
+  .landing-tutorials-info-gif,
+  .landing-tutorials-info-gif-left {
+    width: 900px;
+    height: 500px;
+    margin: 50px 0 50px 0;
+  }
+  .landing-start-button-bottom {
+    font-size: 35px;
+    width: 50%;
+    height: 90px;
+    padding: 0;
+    margin-top: 30px;
   }
 }
 /*# sourceMappingURL=Landing.css.map */

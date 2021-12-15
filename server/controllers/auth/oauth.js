@@ -3,7 +3,11 @@ const axios = require('axios');
 axios.defaults.withCredentials = true;
 const { user } = require('../../database/models');
 const { generateAccessToken, generateRefreshToken } = require('../../middlewares/tokenFunctions');
-
+const { Op } = require('sequelize');
+function randomIntFromInterval2(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+const usercode = randomIntFromInterval2(0, 99999);
 module.exports = {
   kakaoLogin: async (req, res) => {
     try {
@@ -34,19 +38,26 @@ module.exports = {
         });
 
         const { email, profile } = kakaoUserInfo.data.kakao_account;
-
         const [newUserInfo, created] = await user.findOrCreate({
-          where: { user_nickname: profile.nickname },
+          where: {
+            [Op.or]: [
+              { user_email: `kakao_${profile.nickname}${usercode}` },
+              { user_nickname: `kakao_${profile.nickname}${usercode}` },
+            ],
+          },
           defaults: {
-            user_nickname: `kakao_${profile.nickname}`,
-            user_email: email || profile.nickname,
+            user_nickname: `kakao_${profile.nickname}${usercode}`,
+            user_email: email || `kakao_${profile.nickname}${usercode}`,
             kakao_oauth_token: access_token,
             //* db에서 삭제해도 되는지 검토 필요
             user_donation_count: 0,
             user_donation_money: 0,
             today_used: false,
             is_admin: false,
+            is_owner: false,
+            // profile_url: profile.profile_image_url,
             signup_method: 'kakao',
+            //* db에 스키마 업데이트
           },
         });
 
