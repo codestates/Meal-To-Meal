@@ -2,228 +2,231 @@
 
 .landing-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  margin-bottom: 40px;
-  overflow-x: hidden;
-}
-
-.landing-catchphrase {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.landing-catchphrase-02 {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.landing-button {
-  padding-top: 3px;
-  width: 230px;
-  margin-top: 4px;
-  box-shadow: gray 4px 4px 4px;
-  border-radius: 7px;
-  transition: 120ms ease;
-  background-color: white;
-  cursor: pointer;
-
-  &:hover {
-    box-shadow: gray 6px 6px 6px;
-  }
-
-  &:before,
-  &:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    transition: ease all;
-  }
-
-  &:hover:before,
-  &:hover:after {
-    width: 100%;
-    transition: ease all;
-  }
-
-  &:active {
-    box-shadow: none;
-  }
-}
-
-.landing-img,
-.landing-img-02,
-.landing-img-03 {
-  height: 230px;
-}
-
-.landing-tutorial-container {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 96%;
-  height: 300px;
-  margin: 15px;
+  padding: 30px 0 100px 0;
 }
 
-.landing-tutorial-gif {
-  margin: 10px;
-  width: 48%;
-  height: 90%;
-  border: 3px solid #ffcc1d;
-}
-
-.landing-tutorial-catchphrase-container {
+.landing-introduce-ani-container {
   display: flex;
   flex-direction: column;
-  width: 40%;
-  margin: 10px;
+  align-items: center;
 }
 
-.landing-tutorial-catchphrase {
-  font-size: 18px;
+.landing-introduce-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-catchphrase-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.landing-logo-img {
+  width: 100px;
   margin-bottom: 10px;
 }
 
-.landing-tutorial-catchphrase-sub {
-  font-size: 10px;
+.landing-catchphrase {
+  font-size: 25px;
+  font-weight: bolder;
+  text-align: center;
+  width: 200px;
+  margin-bottom: 15px;
 }
 
-.landing-review-container {
-  display: flex;
-  justify-content: space-around;
-  width: 96%;
-  height: 300px;
-  border: solid 1px green;
-  overflow: auto;
-  scroll-snap-type: x mandatory;
+.landing-catchphrase-sub {
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 10px;
 }
-.landing-review-post-container {
+
+.landing-start-button,
+.landing-start-button-bottom {
+  background-color: #ffcc1d;
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  height: 40px;
+  border: none;
+  box-shadow: gray 3px 3px 3px;
+  margin-bottom: 10px;
+}
+
+.landing-ani {
+  margin-bottom: 50px;
+}
+
+.landing-tutorials-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 300px;
-  margin: 10px;
-  border: orange 1px solid;
+  text-align: center;
+  margin-bottom: 50px;
+  background-color: #f3f5f7;
+  padding: 10px;
 }
 
-.landing-review-post-img {
-  height: 60%;
-  width: 90%;
-  margin: 10px;
-  border: hotpink solid 1px;
+.landing-tutorials-container-left {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 10px;
 }
 
-.landing-review-post-contents {
-  margin: 0 10px 10px 10px;
+.landing-tutorials-info-title,
+.landing-tutorials-info-title-left {
+  font-size: 25px;
 }
 
-// 반응형
-@include mobile {
-  .landing-catchphrase,
-  .landing-catchphrase-02 {
-    font-size: 25px;
-  }
-  .landing-logo {
-    height: 230px;
-    margin-top: 30px;
-  }
-  .landing-img {
-    margin: -55px -270px 10px 0;
-    z-index: -1;
-  }
-  .landing-img-02 {
-    margin: -80px 300px 10px 0;
-  }
-  .landing-img-03 {
-    margin: -130px -230px 10px 0;
-  }
-  .landing-review-container {
-    margin-bottom: 40px;
-  }
+.landing-tutorials-info-gif,
+.landing-tutorials-info-gif-left {
+  width: 240px;
+  height: 140px;
+  margin: 15px;
+  border: 1px solid;
+}
+
+.landing-tutorials-info-text,
+.landing-tutorials-info-text-left {
+  font-size: 15px;
 }
 
 @include tablet {
-  .landing-catchphrase,
-  .landing-catchphrase-02 {
-    font-size: 50px;
-  }
-  .landing-logo {
-    height: 260px;
-    margin-top: 40px;
-  }
-  .landing-img,
-  .landing-img-02,
-  .landing-img-03 {
-    height: 280px;
-  }
-  .landing-img {
-    margin: -125px -420px 10px 0;
-    z-index: -1;
-  }
-  .landing-img-02 {
-    margin: -150px 470px 10px 0;
-  }
-  .landing-img-03 {
-    margin: -200px -80px 10px 0;
+  .landing-logo-img {
+    width: 250px;
+    margin-bottom: 30px;
   }
 
-  .landing-button {
-    height: 40px;
-    font-size: 20px;
+  .landing-catchphrase {
+    font-size: 35px;
+    width: 300px;
+    width: 100%;
+    margin-bottom: 25px;
   }
 
-  .landing-tutorial-catchphrase {
+  .landing-catchphrase-sub {
+    font-size: 25px;
+  }
+
+  .landing-start-button,
+  .landing-start-button-bottom {
     font-size: 30px;
+    width: 80%;
+    height: 50px;
+    margin-bottom: 30px;
   }
-  .landing-tutorial-catchphrase-sub {
+
+  .landing-tutorials-info-title,
+  .landing-tutorials-info-title-left {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  .landing-tutorials-info-gif,
+  .landing-tutorials-info-gif-left {
+    width: 740px;
+    height: 440px;
+  }
+
+  .landing-tutorials-info-text,
+  .landing-tutorials-info-text-left {
     font-size: 20px;
   }
 }
 
 @include desktop {
-  .landing-catchphrase,
-  .landing-catchphrase-02 {
-    font-size: 60px;
-  }
-  .landing-logo {
-    height: 300px;
-    margin-top: 50px;
-  }
-  .landing-img,
-  .landing-img-02,
-  .landing-img-03 {
-    height: 420px;
-  }
-  .landing-img {
-    margin: -25em -55em 1em 0;
-    z-index: -1;
-  }
-  .landing-img-02 {
-    margin: 0 60em 1em 0;
-  }
-  .landing-img-03 {
-    margin: -23em -40em 1em 0;
-    z-index: -1;
+  .landing-introduce-ani-container {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 11.1%;
   }
 
-  .landing-button {
-    height: 40px;
+  .landing-catchphrase-container {
+    margin: 10% 5% 0 10%;
+    align-items: flex-start;
+    width: 40%;
+  }
+
+  .landing-logo-img {
+    width: 230px;
+    margin-bottom: 30px;
+  }
+
+  .landing-catchphrase {
+    text-align: start;
+    width: 100%;
+    font-size: 35px;
+  }
+
+  .landing-catchphrase-sub {
+    text-align: start;
+    width: 100%;
     font-size: 25px;
   }
 
-  .landing-tutorial-gif {
-    margin-left: 1em;
-    max-width: 530px;
+  .landing-start-button {
+    font-size: 35px;
+    width: 100%;
+    height: 75px;
+    padding: 0;
+    margin: 3% 0 0 0;
   }
 
-  .landing-tutorial-catchphrase {
-    font-size: 45px;
+  .landing-ani {
+    width: 50%;
   }
 
-  .landing-tutorial-catchphrase-sub {
+  .landing-tutorials-container {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  .landing-tutorials-container-left {
+    width: 100%;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  .landing-tutorial-info-text-container {
+    text-align: start;
+  }
+
+  .landing-tutorial-info-text-container-left {
+    text-align: end;
+  }
+
+  .landing-tutorials-info-title,
+  .landing-tutorials-info-title-left {
+    margin-bottom: 30px;
+    font-size: 35px;
+  }
+
+  .landing-tutorials-info-text,
+  .landing-tutorials-info-text-left {
     font-size: 25px;
+  }
+
+  .landing-tutorials-info-gif,
+  .landing-tutorials-info-gif-left {
+    width: 900px;
+    height: 500px;
+    margin: 50px 0 50px 0;
+  }
+
+  .landing-start-button-bottom {
+    font-size: 35px;
+    width: 50%;
+    height: 90px;
+    padding: 0;
+    margin-top: 30px;
   }
 }
