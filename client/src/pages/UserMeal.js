@@ -10,6 +10,7 @@ function UserMeal({ navigate, getImage, emptyOrderAniText, setEmptyOrderAniText 
   const accessToken = localStorage.getItem('accessToken');
   const [isLoading, setIsLoading] = useState(true);
   const [orderedMeal, setOrderedMeal] = useState([]);
+  const [orderedUser, setOrderedUser] = useState([]);
   const [reviewModalOpen, setReviewModalOpen] = useState(false);
   const [icon, setIcon] = useState('');
 
@@ -24,6 +25,7 @@ function UserMeal({ navigate, getImage, emptyOrderAniText, setEmptyOrderAniText 
         withCredentials: true,
       })
       .then(res => {
+        setOrderedUser([res.data.matchedUser]);
         setOrderedMeal([res.data.userMeal]);
         setIcon(getImage([res.data.userMeal][0].menu.store.store_category));
         setIsLoading(false);
@@ -70,9 +72,9 @@ function UserMeal({ navigate, getImage, emptyOrderAniText, setEmptyOrderAniText 
               </div>
               <div className="usermeal-userinfo-title">주문 유저 정보</div>
               <div className="usermeal-userinfo-container">
-                <div className="usermeal-user-text">'기부악마'님</div>
-                <div className="usermeal-user-text">hyeonsi95@naver.com</div>
-                <div className="usermeal-user-text">010-1234-5678</div>
+                <div className="usermeal-user-text">{orderedUser[0].user_nickname}님</div>
+                <div className="usermeal-user-text">{orderedUser[0].user_email}</div>
+                <div className="usermeal-user-text">{orderedUser[0].user_phone_number}</div>
               </div>
               <button className="usermeal-confirm-button" onClick={openReviewModalHandler}>
                 잘 먹었습니다!
