@@ -6,7 +6,8 @@ import AddedMenu from '../components/Management/AddedMenu';
 
 import '../styles/pages/AddStore.css';
 
-function AddStore({ navigate, openWarningAlertHandler, setAlertMessage }) {
+function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAlertHandler }) {
+  const accessToken = localStorage.getItem('accessToken');
   const [address, setAddress] = useState('우편번호');
   const [addressDetail, setAddressDetail] = useState('주소');
   const [fullAddress, setFullAddress] = useState('');
@@ -32,7 +33,10 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage }) {
   };
 
   const addMenuHandler = () => {
-    setMenuList([...menuList, { menu_name: menuInfo.menu_name, menu_price: menuInfo.menu_price }]);
+    setMenuList([
+      ...menuList,
+      { menu_name: menuInfo.menu_name, menu_price: menuInfo.menu_price, menu_image: menuInfo.menu_image },
+    ]);
   };
 
   const getLocationHandler = () => {
@@ -43,6 +47,7 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage }) {
       )
       .then(res => {
         setLocation({ lat: res.data.results[0].geometry.location.lat, lng: res.data.results[0].geometry.location.lng });
+        newStoreRegisterHandler();
       })
       .catch(err => {
         setAlertMessage('주소를 검색 한 후에 저장해 주세요!');
@@ -69,6 +74,64 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage }) {
     setIsOpenSearchAddress(false);
   };
 
+  const [newStoreInfo, setNewStoreInfo] = useState({
+    store_image: '',
+    store_name: '',
+    store_category: '',
+    store_description: '',
+    business_hour: '',
+    store_address: '',
+    store_lat: '',
+    store_lng: '',
+    menuInfo: '',
+  });
+
+  const handleStoreInputValue = key => e => {
+    // 가게 등록 정보 입력
+    setNewStoreInfo({ ...newStoreInfo, [key]: e.target.value });
+  };
+
+  const newStoreRegisterHandler = () => {
+    const {
+      store_image,
+      store_name,
+      store_category,
+      store_description,
+      business_hour,
+      store_address,
+      store_lat,
+      store_lng,
+      menuInfo,
+    } = newStoreInfo;
+    axios
+      .post(
+        `${process.env.REACT_APP_API_URL}/store`,
+        {
+          store_image,
+          store_name,
+          store_category,
+          store_description,
+          business_hour,
+          store_address: fullAddress,
+          store_lat: location.lat,
+          store_lng: location.lng,
+          menuInfo: menuList,
+        },
+        {
+          headers: { authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
+          withCredentials: true,
+        }
+      )
+      .then(res => {
+        setAlertMessage('가게가 등록되었습니다');
+        openAlertHandler();
+        navigate('/management');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <div className="AddStore-container">
@@ -77,15 +140,37 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage }) {
           <img className="AddStore-store-img" src={require('../img/dummy/store1.png').default} alt="" />
           <input type="file" className="AddStore-store-img-add-input" />
           <div className="AddStore-store-text">상호명</div>
-          <input className="AddStore-store-info-input" placeholder="가게 이름을 입력하세요." />
+          <input
+            className="AddStore-store-info-input"
+            placeholder="가게 이름을 입력하세요."
+            onChange={handleStoreInputValue('store_name')}
+          />
           <div className="AddStore-store-text">카테고리</div>
-          <input className="AddStore-store-info-input" placeholder="카테고리를 선택하세요." />
+          <select className="AddStore-store-info input" onChange={handleStoreInputValue('store_category')}>
+            <option value="카테고리 선택">카테고리 선택</option>
+            <option value="베이커리">베이커리</option>
+            <option value="분식">분식</option>
+            <option value="야식">야식</option>
+            <option value="양식">양식</option>
+            <option value="일식">일식</option>
+            <option value="중식">중식</option>
+            <option value="패스트푸드">패스트푸드</option>
+            <option value="한식">한식</option>
+          </select>
           <div className="AddStore-store-text">가게 설명</div>
-          <textarea className="AddStore-store-description-input" placeholder="가게 설명을 입력하세요." />
+          <textarea
+            className="AddStore-store-description-input"
+            placeholder="가게 설명을 적어 주세요."
+            onChange={handleStoreInputValue('store_description')}
+          />
         </div>
         <div className="AddStore-store-title-container">
           <div className="AddStore-store-text">영업시간</div>
-          <input className="AddStore-store-info-input" placeholder="영업시간을 입력하세요." />
+          <input
+            className="AddStore-store-info-input"
+            placeholder="영업시간을 적어 주세요."
+            onChange={handleStoreInputValue('business_hour')}
+          />
           <div className="AddStore-store-text">가게주소</div>
           <button className="AddStore-address-button" onClick={() => searchAddressHandler()}>
             가게 주소 등록하기

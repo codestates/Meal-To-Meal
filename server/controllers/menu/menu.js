@@ -34,8 +34,9 @@ module.exports = {
   },
   getMenuManagement: async (req, res) => {
     const userInfo = checkTokens(req);
+    const matchedUser = await user.findOne({ where: { id: userInfo.id } });
     try {
-      if (userInfo && userInfo.is_owner) {
+      if (matchedUser && matchedUser.is_owner) {
         const ownedStore = await store.findOne({ where: { user_id: userInfo.id } });
         const menuList = await menu.findAll({
           include: [

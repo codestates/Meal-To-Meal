@@ -21,7 +21,6 @@ function Management({ navigate, getImage }) {
         })
         .then(res => {
           setOwnerStoreInfo(res.data.storeInfo);
-          console.log(res.data);
           setIcon(getImage(res.data.storeInfo.store_category));
         })
         .catch(err => {
