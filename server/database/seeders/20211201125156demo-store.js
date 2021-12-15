@@ -13,8 +13,7 @@ module.exports = {
           store_name: '떡볶이 묵을래?',
           store_image: 'client/src/img/dummy/store4.png',
           store_order_quantity: '17',
-          store_description:
-            '가성비 갑!!!! 코드여고 앞에서 20년간 자리를 지켜온 식당입니다.저렴한 가격에 김밥과 비빔밥 등 간단한 음식들을 즐길 수 있습니다. 대표 메뉴로는 매운 불닭 돈까스가 있습니다. 이 메뉴를 10분 안에 드시는 분께는 비빔밥 한그릇을 다음 방문 때 무료로 제공해드립니다.',
+          store_description: '가성비 갑!!!! 다양한종류의 떡볶이를 즐겨보세요!.',
           store_address: '서울특별시 서초구 서초동 서운로 133 2층',
           store_category: '분식',
           store_lat: 37.496511,
@@ -134,7 +133,7 @@ module.exports = {
         {
           id: 9,
           user_id: 9,
-          store_name: '프랑스파슷하',
+          store_name: '파스타리움',
           store_image: 'client/src/img/찌개.png',
           store_order_quantity: '5',
           store_description:
@@ -150,11 +149,10 @@ module.exports = {
         {
           id: 10,
           user_id: 10,
-          store_name: '크리스마스엔',
+          store_name: '매드 램 라운지',
           store_image: 'client/src/img/찌개.png',
           store_order_quantity: '15',
-          store_description:
-            '최근 슬기로운 코딩생활 드라마에 나오는 맛집입니다. 트러플 뇨끼와 양고기 스테이크가 대표 메뉴입니다',
+          store_description: '양고기에 미친곳으로 맛있는 양고기 요리가 제공됩니다. ',
           store_address: '서울특별시 중구 남대문로5가 581',
           store_category: '양식',
           store_lat: 37.529628,
@@ -181,10 +179,11 @@ module.exports = {
         {
           id: 12,
           user_id: 12,
-          store_name: '리스토란떼 일 디토 서초',
+          store_name: '디 리스토란떼',
           store_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
           store_order_quantity: randomIntFromInterval(1, 50),
-          store_description: '',
+          store_description:
+            '셰프 특선의 두가지 코스요리를 즐기실수 있습니다. A코스 ( 에피타이저 + 스프 + 리조또 or 파스타 택1 + 셔벗 + 생선요리 or 이베리코 꽃갈비살 구이), B코스( 에피타이저 + 스프 + 리조또 or 파스타 중 택1 + 셔벗 + 호주산 양갈비구이 or 한우 안심구이 or 블랙앵거스 채끝 등심구이 중 택1)',
           store_address: '',
           store_category: '양식',
           store_lat: (randomIntFromInterval(37450, 37570) / 1000).toFixed(3),
@@ -193,6 +192,7 @@ module.exports = {
           created_at: new Date(),
           updated_at: new Date(),
         },
+        //양식끝6
         {
           id: 13,
           user_id: 13,
@@ -200,7 +200,7 @@ module.exports = {
           store_image: 'client/src/img/dummy/원조할매국밥.png',
           store_order_quantity: '21',
           store_description:
-            '자극적이지 않고 맛있는 매운맛이 담겨있는 창신동 매운족발입니다. 부드러운 돼지고기와 매콤쫄깃한 족발의 환상의 조합이 기다리고있습니다!  ',
+            '자극적이지 않고 맛있는 매운맛이 담겨있는 창신동 매운족발입니다. 부드러운 돼지고기와 매콤쫄깃한 족발의 환상의 조합이 기다리고있습니다! 3인용 대짜 사이즈만 팝니다.  ',
           store_address: '서울특별시 종로구 종로51길',
           store_category: '야식',
           store_lat: 37.572984,
@@ -307,7 +307,7 @@ module.exports = {
           store_name: '호두 카페',
           store_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
           store_order_quantity: randomIntFromInterval(1, 50),
-          store_description: '단팥빵전문점',
+          store_description: '호두카페',
           store_address: '',
           store_category: '베이커리',
           store_lat: (randomIntFromInterval(37450, 37570) / 1000).toFixed(3),
@@ -319,10 +319,10 @@ module.exports = {
         {
           id: 21,
           user_id: 21,
-          store_name: '카페24',
+          store_name: '쥬스24',
           store_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
           store_order_quantity: randomIntFromInterval(1, 50),
-          store_description: '직접구운 베이글과 커피 초 맛집',
+          store_description: '직접만든 스무디 초 맛집',
           store_address: '',
           store_category: '베이커리',
           store_lat: (randomIntFromInterval(37450, 37570) / 1000).toFixed(3),
@@ -349,7 +349,7 @@ module.exports = {
         {
           id: 23,
           user_id: 23,
-          store_name: '식빵 초보24',
+          store_name: '식빵 초보',
           store_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
           store_order_quantity: randomIntFromInterval(1, 50),
           store_description: '각종 종류의 식빵 전문점',
