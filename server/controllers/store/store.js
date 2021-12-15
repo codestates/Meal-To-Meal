@@ -118,7 +118,7 @@ module.exports = {
         for (let i = 0; i < menuInfo.length; i++) {
           const findMenu = await menu.findOne({ where: { id: menuInfo[i].menu_id } });
           await findMenu.update({
-            menu_image: menuInfo[i].menu_image,
+            menu_image: menuInfo[i].menu_image || '',
             menu_name: menuInfo[i].menu_name,
             menu_price: menuInfo[i].menu_price,
           });
