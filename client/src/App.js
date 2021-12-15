@@ -197,7 +197,6 @@ function App() {
               openAlertHandler={openAlertHandler}
               openWarningAlertHandler={openWarningAlertHandler}
               alertMessage={alertMessage}
-              setAlertMessage={setAlertMessage}
               kakaoLogin={kakaoLogin}
               getImage={getImage}
             />
