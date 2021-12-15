@@ -18,10 +18,9 @@ function MenuBox({
   const loginAlertOpenHandler = () => {
     setIsOpenLoginAlert(!isOpenLoginAlert);
   };
-
-  const [isOpneClickOwnStoreAlert, setIsOpneClickOwnStoreAlert] = useState(false);
+  const [isOpenClickOwnStoreAlert, setIsOpenClickOwnStoreAlert] = useState(false);
   const openClickOwnStoreAlertHandler = () => {
-    setIsOpneClickOwnStoreAlert(!isOpneClickOwnStoreAlert);
+    setIsOpenClickOwnStoreAlert(!isOpenClickOwnStoreAlert);
   };
   // TODO: 서버에서 가게 주인 아이디 확인해서 누른 사람이랑 같으면 openClickOwnStoreAlertHandler를 true로
   // TODO: 즉 먹기를 눌렀을때 분기를 나눠야 한다.
@@ -50,6 +49,8 @@ function MenuBox({
     if (!isLogin) {
       loginAlertOpenHandler();
     } else {
+      setAlertMessage('장바구니에 추가되었습니다');
+      openAlertHandler();
       addToCart(el);
     }
   };
@@ -75,6 +76,8 @@ function MenuBox({
             setAlertMessage('휴대폰 인증이 필요한 서비스입니다');
             openWarningAlertHandler();
             navigate('/mypage');
+          } else if (err.response.data.message === '본인의 가게에서 요청하셨습니다') {
+            openClickOwnStoreAlertHandler();
           } else {
             setAlertMessage('오늘은 이미 티켓을 쓰셨네요! 내일 다시 이용해주세요');
             openWarningAlertHandler();
@@ -132,6 +135,9 @@ function MenuBox({
       ))}
       {isOpenLoginAlert ? (
         <LoginAlert loginAlertOpenHandler={loginAlertOpenHandler} openLoginModalHandler={openLoginModalHandler} />
+      ) : null}
+      {isOpenClickOwnStoreAlert ? (
+        <ClickOwnStoreAlert navigate={navigate} openClickOwnStoreAlertHandler={openClickOwnStoreAlertHandler} />
       ) : null}
     </>
   );
