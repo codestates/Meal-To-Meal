@@ -1,8 +1,5 @@
 /* eslint-disable */
-const { cart } = require('../../database/models');
-const { cart_menu } = require('../../database/models');
-const { menu } = require('../../database/models');
-const { user } = require('../../database/models');
+const { cart, cart_menu, menu, user, store } = require('../../database/models');
 const checkTokens = require('../../middlewares/tokenAuth');
 const axios = require('axios');
 
@@ -70,8 +67,6 @@ module.exports = async (req, res) => {
         })
         .catch(err => console.log(err));
     });
-
-    // find cart로 찾은 컬럼에서 amount 즉 결제해야하는 금액만 가져온다.
   } catch (err) {
     console.log(err);
     res.status(400).send(err);
