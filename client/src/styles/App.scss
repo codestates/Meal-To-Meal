@@ -90,6 +90,8 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  font-family: Pretendard-Regular, Pretendard-ExtraLight, Pretendard-Light, Pretendard-Medium, Pretendard-SemiBold,
+    Pretendard-Bold, Pretendard-ExtraBold;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -107,8 +109,6 @@ section {
 }
 body {
   line-height: 1;
-  font-family: NotoSansKR-Regular, NotoSansKR-Medium, NotoSansKR-Bold, NotoSansKR-Light, NotoSansKR-Thin,
-    NotoSansKR-Black;
 }
 ol,
 ul {
@@ -136,6 +136,10 @@ table {
 
 div {
   word-break: keep-all;
+}
+
+img {
+  object-fit: cover;
 }
 
 button {
@@ -181,43 +185,64 @@ button {
 @import '../styles/mixin/Loading';
 
 @font-face {
-  font-family: 'NotoSansKR-Regular';
-  src: url('../fonts/NotoSansKR-Regular.otf') format('woff');
+  font-family: 'Pretendard-Black';
+  src: url('../fonts/Pretendard-Black.otf') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'NotoSansKR-Medium';
-  src: url('../fonts/NotoSansKR-Medium.otf') format('woff');
+  font-family: 'Pretendard-Bold';
+  src: url('../fonts/Pretendard-Bold.otf') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'NotoSansKR-Bold';
-  src: url('../fonts/NotoSansKR-Bold.otf') format('woff');
+  font-family: 'Pretendard-ExtraBold';
+  src: url('../fonts/Pretendard-ExtraBold.otf') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'NotoSansKR-Light';
-  src: url('../fonts/NotoSansKR-Light.otf') format('woff');
+  font-family: 'Pretendard-ExtraLight';
+  src: url('../fonts/Pretendard-ExtraLight.otf') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'NotoSansKR-Thin';
-  src: url('../fonts/NotoSansKR-Thin.otf') format('woff');
+  font-family: 'Pretendard-Light';
+  src: url('../fonts/Pretendard-Light.otf') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'NotoSansKR-Black';
-  src: url('../fonts/NotoSansKR-Black.otf') format('woff');
+  font-family: 'Pretendard-Medium';
+  src: url('../fonts/Pretendard-Medium.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('../fonts/Pretendard-Regular.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-SemiBold';
+  src: url('../fonts/Pretendard-SemiBold.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Thin';
+  src: url('../fonts/Pretendard-Thin.otf') format('woff');
   font-weight: normal;
   font-style: normal;
 }

@@ -274,7 +274,7 @@
 
 .mydonation-ranking-container {
   border: 3px solid #ffcc1d;
-  border-radius: 5px;
+  border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -300,7 +300,7 @@
 .mydonation-history-container {
   margin: 5px 0 70px 0;
   border: 3px solid #ffcc1d;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 5px;
   overflow: auto;
 }
@@ -361,8 +361,10 @@
     margin-top: 200px;
   }
   .mydonation-money-total {
-    font-size: 30px;
+    font-size: 35px;
     height: 80px;
+    width: 500px;
+    line-height: 40px;
   }
   .mydonation-money-image {
     display: block;
@@ -376,6 +378,7 @@
   }
   .mydonation-history-container {
     margin-bottom: 10px;
+    min-height: 69.1vh;
   }
   .mydonation-history-title {
     font-size: 25px;

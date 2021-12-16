@@ -5,12 +5,17 @@ function StoreInfoWindow({ storeData, navigate }) {
     <div className="infowindow-window">
       <img
         className="infowindow-store-img"
-        src={require('../../img/dummy/store1.png').default}
+        src={`${storeData.store_image}`}
         alt=""
         onClick={() => navigate(`/store/${storeData.id}`)}
       />
       <div className="infowindow-info-container">
         <div className="infowindow-store-title-container" onClick={() => navigate(`/store/${storeData.id}`)}>
+          <img
+            className="infowindow-store-category-icon"
+            src={require(`../../img/category/${storeData.store_category}.png`).default}
+            alt=""
+          />
           <div className="infowindow-store-title-text">{storeData.store_name}</div>
           <div className="infowindow-store-category">{storeData.store_category}</div>
         </div>
