@@ -465,12 +465,13 @@
     min-height: 80.6vh;
   }
   .management-container {
-    margin-right: -300px;
+    width: 50vw;
   }
   .management-store-info-container {
     padding: 30px;
-    width: 60%;
     min-height: 70%;
+    margin-right: 30px;
+    width: 45vw;
   }
   .management-store-category-icon {
     height: 35px;
@@ -479,8 +480,8 @@
     font-size: 25px;
   }
   .management-store-img {
-    width: 40em;
-    height: 380px;
+    width: 30vw;
+    height: 320px;
   }
   .management-detail-icon {
     height: 35px;

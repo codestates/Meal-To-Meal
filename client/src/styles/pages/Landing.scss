@@ -35,13 +35,15 @@
   font-weight: bolder;
   text-align: center;
   width: 200px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  line-height: 40px;
 }
 
 .landing-catchphrase-sub {
   font-size: 15px;
   text-align: center;
   margin-bottom: 10px;
+  line-height: 30px;
 }
 
 .landing-start-button,
@@ -80,7 +82,7 @@
 }
 
 .landing-ani {
-  margin-bottom: 50px;
+  margin-bottom: -10px;
 }
 
 .landing-tutorials-container {
@@ -110,7 +112,7 @@
 .landing-tutorials-info-gif,
 .landing-tutorials-info-gif-left {
   width: 270px;
-  height: 140px;
+  height: 151.87px;
   margin: 15px;
   box-shadow: gray 3px 3px 3px 3px;
   border-radius: 5px;
@@ -118,6 +120,8 @@
 
 .landing-tutorials-info-text,
 .landing-tutorials-info-text-left {
+  line-height: 30px;
+  width: 600px;
   font-size: 15px;
   opacity: 0.5;
 }
@@ -156,7 +160,7 @@
   .landing-tutorials-info-gif,
   .landing-tutorials-info-gif-left {
     width: 730px;
-    height: 380px;
+    height: 410.625px;
   }
 
   .landing-tutorials-info-text,
@@ -179,7 +183,7 @@
   }
 
   .landing-logo-img {
-    width: 230px;
+    width: 280px;
     margin-bottom: 30px;
   }
 
@@ -249,7 +253,7 @@
   .landing-tutorials-info-gif,
   .landing-tutorials-info-gif-left {
     width: 900px;
-    height: 470px;
+    height: 506.25px;
     margin: 50px 0 50px 0;
   }
 
