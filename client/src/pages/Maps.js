@@ -66,7 +66,8 @@ const Map = () => {
       {storeList.map(el => (
         <Marker
           onMouseOver={e => {
-            e.domEvent.target.src = 'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/redmarker.png';
+            e.domEvent.target.src =
+              'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/d8d383b9-47ea-4a57-9eb8-fab499b28f34.png';
           }}
           onMouseOut={e => {
             e.domEvent.target.src = 'https://maps.gstatic.com/mapfiles/transparent.png';

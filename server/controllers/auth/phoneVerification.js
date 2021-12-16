@@ -60,6 +60,7 @@ module.exports = {
         res.status(400).json({ message: '인증 코드를 확인해주세요' });
       }
     } catch (err) {
+      console.log('--------------------------------', err.message);
       res.status(400).json({ message: err.message });
     }
   },

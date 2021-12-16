@@ -122,20 +122,10 @@ module.exports = {
           store_lat: store_lat,
           store_lng: store_lng,
         });
-        // 근데 메뉴수정은?? 한개는 쉬운데 만약 여러개를 동시에 수정해서 보낸다고 하면??
-        // 여러개를 수정했을때 배열로 들어오게 만들어서 보내주는걸 맵핑하는건 어떨까??
-        // menuInfo = [
-        //   {
-        //     menu_id: menu_id,
-        //     menu_name: menu_name,
-        //     menu_price: menu_price,
-        //     menu_image: menu_image,
-        //   },
-        // ];
         for (let i = 0; i < menuInfo.length; i++) {
           const findMenu = await menu.findOne({ where: { id: menuInfo[i].menu_id } });
           await findMenu.update({
-            menu_image: menuInfo[i].menu_image,
+            menu_image: menuInfo[i].menu_image || '',
             menu_name: menuInfo[i].menu_name,
             menu_price: menuInfo[i].menu_price,
           });
