@@ -103,6 +103,7 @@ function ShareCart({
                   { headers: { authorization: `Bearer ${accessToken}` }, withCredentials: true }
                 )
                 .then(res => {
+                  setCartItems([]);
                   openThankAlertHandler();
                 })
                 .catch(err => console.log(err));

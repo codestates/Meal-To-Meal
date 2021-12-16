@@ -20,9 +20,9 @@ function Landing({ navigate }) {
       <div className="landing-introduce-ani-container">
         <div className="landing-catchphrase-container">
           <img className="landing-logo-img" src={require('../img/meal-to-meal-logo-192.png').default} alt="" />
-          <div className="landing-catchphrase">배고플때는 역시 Meal To Meal</div>
+          <div className="landing-catchphrase">따뜻한 '한끼'를 주변의 이웃들과 나누는 '작은기적'</div>
           <div className="landing-catchphrase-sub">
-            돈 없는 돼지보다는 그래도 배부른 돼지가 되자! 맨트를 길게 하면 위치를 맞춰 줄 것입니다!
+            나를 위한 한끼가 아닌 주변의 많은 사람들을 위한 한끼로 우리 동네부터 전국, 전 세계를 감동으로 물들여봐요!
           </div>
           <button className="landing-start-button" onClick={() => navigate('/maps')}>
             지금 시작하기!

@@ -92,17 +92,7 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   };
 
   const newStoreRegisterHandler = () => {
-    const {
-      store_image,
-      store_name,
-      store_category,
-      store_description,
-      business_hour,
-      store_address,
-      store_lat,
-      store_lng,
-      menuInfo,
-    } = newStoreInfo;
+    const { store_image, store_name, store_category, store_description, business_hour } = newStoreInfo;
     axios
       .post(
         `${process.env.REACT_APP_API_URL}/store`,
