@@ -17,16 +17,18 @@ module.exports = {
           res.status(403).json({ message: '인증되지 않은 사용자입니다' });
         } else {
           const { order, total_price } = req.body;
-
+          console.log(order);
           const orderSum = order.reduce((acc, cur) => acc + cur.quantity, 0);
           await matchedUser.increment({ user_donation_count: orderSum, user_donation_money: total_price });
 
-          const matchedMenu = await menu.findOne({
-            where: { id: order[0].id },
-          });
-
-          const matchedStore = await store.findOne({ where: { id: matchedMenu.store_id } });
-          await matchedStore.increment('store_order_quantity', { by: orderSum });
+          for (let i = 0; i < order.length; i++) {
+            const matchedMenu = await menu.findOne({
+              where: { id: order[i].id },
+            });
+            await matchedMenu.increment('menu_order_quantity', { by: order[i].quantity });
+            const matchedStore = await store.findOne({ where: { id: matchedMenu.store_id } });
+            await matchedStore.increment('store_order_quantity', { by: order[i].quantity });
+          }
           res.status(201).json({ message: '카트가 등록되었습니다' });
         }
       } catch (err) {
