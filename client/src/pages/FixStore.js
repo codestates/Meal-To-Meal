@@ -131,10 +131,6 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   const handleStoreInputValue = key => e => {
     // 가게 등록 정보 입력
     setNewStoreInfo({ ...newStoreInfo, [key]: e.target.value });
-<<<<<<< HEAD
-=======
-    console.log(newStoreInfo);
->>>>>>> dev
   };
 
   const storeCorrectionHandler = () => {
