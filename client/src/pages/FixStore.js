@@ -35,8 +35,8 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   };
 
   const addMenuHandler = () => {
-    setMenuList([
-      ...menuList,
+    setOwnerStoreMenu([
+      ...ownerStoreMenu,
       { menu_name: menuInfo.menu_name, menu_price: menuInfo.menu_price, menu_image: menuInfo.menu_image },
     ]);
   };
@@ -131,7 +131,6 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   const handleStoreInputValue = key => e => {
     // 가게 등록 정보 입력
     setNewStoreInfo({ ...newStoreInfo, [key]: e.target.value });
-    console.log(newStoreInfo);
   };
 
   const storeCorrectionHandler = () => {
