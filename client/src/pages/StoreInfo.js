@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import MenuBox from '../components/StoreInfo/MenuBox';
 import ReviewBox from '../components/StoreInfo/ReviewBox';
 import '../styles/pages/StoreInfo.css';
