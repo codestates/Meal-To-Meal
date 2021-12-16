@@ -210,6 +210,7 @@ function App() {
               navigate={navigate}
               setAlertMessage={setAlertMessage}
               openWarningAlertHandler={openWarningAlertHandler}
+              openAlertHandler={openAlertHandler}
             />
           }
         />
