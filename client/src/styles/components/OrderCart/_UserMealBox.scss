@@ -1,7 +1,7 @@
 @import '../../mixin/mixin';
 
 .ordered-food-container {
-  border: 2px solid #ffcc1d;
+  border: 3px solid #ffcc1d;
   display: flex;
   justify-content: flex-start;
   font-size: 10px;
@@ -9,10 +9,11 @@
 }
 
 .ordered-food-image {
-  max-height: 90px;
-  max-width: 120px;
+  height: 90px;
+  width: 120px;
   margin: 10px;
-  border: 1px solid;
+  box-shadow: gray 3px 3px 3px;
+  border-radius: 10px;
 }
 
 .ordered-food-info-container {
@@ -56,8 +57,8 @@
   }
 
   .ordered-food-image {
-    max-height: 160px;
-    max-width: 250px;
+    height: 160px;
+    width: 250px;
     margin: 15px;
   }
 
@@ -86,25 +87,33 @@
 }
 
 @include desktop {
-  .ordered-food-container {
-    width: 100%;
-    margin-bottom: 180px;
+  .usermeal-reservation-container {
+    margin-right: 30px;
+  }
+
+  .usermeal-ordered-info-container {
+    margin-top: -30px;
+  }
+
+  .usermeal-ordered-container {
+    width: 50vw;
   }
 
   .ordered-food-image {
-    max-height: 210px;
-    max-width: 300px;
-    margin: 15px;
+    width: 20em;
+    height: 140px;
+    margin: 30px;
   }
 
   .ordered-food-info-container {
-    margin-left: 20px;
-    margin-top: 15px;
-    font-size: 25px;
+    width: 100%;
+    margin: 30px;
   }
 
   .ordered-food-info-title-container {
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
   }
 
   .ordered-food-name {
@@ -112,11 +121,6 @@
   }
 
   .ordered-food-name-price {
-    font-size: 20px;
-  }
-
-  .ordered-order-date {
     font-size: 15px;
-    margin-bottom: 20px;
   }
 }

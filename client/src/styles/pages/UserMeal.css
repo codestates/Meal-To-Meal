@@ -1,5 +1,5 @@
 .ordered-food-container {
-  border: 2px solid #ffcc1d;
+  border: 3px solid #ffcc1d;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11,10 +11,12 @@
 }
 
 .ordered-food-image {
-  max-height: 90px;
-  max-width: 120px;
+  height: 90px;
+  width: 120px;
   margin: 10px;
-  border: 1px solid;
+  -webkit-box-shadow: gray 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px;
+  border-radius: 10px;
 }
 
 .ordered-food-info-container {
@@ -70,8 +72,8 @@
     font-size: 18px;
   }
   .ordered-food-image {
-    max-height: 160px;
-    max-width: 250px;
+    height: 160px;
+    width: 250px;
     margin: 15px;
   }
   .ordered-food-info-container {
@@ -95,32 +97,38 @@
 }
 
 @media (min-width: 1024px) {
-  .ordered-food-container {
-    width: 100%;
-    margin-bottom: 180px;
+  .usermeal-reservation-container {
+    margin-right: 30px;
+  }
+  .usermeal-ordered-info-container {
+    margin-top: -30px;
+  }
+  .usermeal-ordered-container {
+    width: 50vw;
   }
   .ordered-food-image {
-    max-height: 210px;
-    max-width: 300px;
-    margin: 15px;
+    width: 20em;
+    height: 140px;
+    margin: 30px;
   }
   .ordered-food-info-container {
-    margin-left: 20px;
-    margin-top: 15px;
-    font-size: 25px;
+    width: 100%;
+    margin: 30px;
   }
   .ordered-food-info-title-container {
-    margin-bottom: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    width: 100%;
   }
   .ordered-food-name {
     font-size: 25px;
   }
   .ordered-food-name-price {
-    font-size: 20px;
-  }
-  .ordered-order-date {
     font-size: 15px;
-    margin-bottom: 20px;
   }
 }
 
@@ -458,6 +466,8 @@
 
 .usermeal-reservation-container {
   margin-bottom: 20px;
+  border: 3px solid #ffcc1d;
+  padding: 15px;
 }
 
 .usermeal-title {
@@ -484,8 +494,21 @@
   margin-right: 5px;
 }
 
+.usermeal-store-img-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .usermeal-store-image {
-  max-width: 290px;
+  width: 210px;
+  height: 120px;
+  -webkit-box-shadow: gray 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px;
+  border-radius: 10px;
 }
 
 .usermeal-address-container {
@@ -542,7 +565,7 @@
 
 @media (min-width: 758px) and (max-width: 1023px) {
   .usermeal-container {
-    margin-top: 80px;
+    margin-top: 70px;
   }
   .usermeal-title {
     font-size: 25px;
@@ -553,17 +576,9 @@
   .usermeal-store-title {
     font-size: 25px;
   }
-  .usermeal-store-img-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
   .usermeal-store-image {
-    max-width: 400px;
-    max-height: 240px;
+    width: 400px;
+    height: 240px;
   }
   .fa-map-marker-alt {
     font-size: 35px;
@@ -595,8 +610,9 @@
 
 @media (min-width: 1024px) {
   .usermeal-container {
-    margin-top: 80px;
-    min-height: 71.3vh;
+    margin-top: 70px;
+    margin: 70px 30px 30px 30px;
+    min-height: 77.5vh;
   }
   .usermeal-order-food-info-container {
     display: -webkit-box;
@@ -613,43 +629,22 @@
     font-size: 25px;
   }
   .usermeal-category-icon {
-    height: 30px;
+    height: 35px;
+    margin-right: 10px;
   }
   .usermeal-store-title {
     font-size: 25px;
   }
-  .usermeal-store-img-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
   .usermeal-store-image {
-    max-width: 700px;
-    max-height: 440px;
+    width: 40em;
+    height: 320px;
   }
-  .fa-map-marker-alt {
-    font-size: 35px;
-  }
-  .usermeal-address-text {
-    font-size: 25px;
-  }
-  .fa-utensils {
-    font-size: 35px;
-  }
+  .usermeal-address-text,
   .usermeal-description-text {
-    font-size: 25px;
-  }
-  .usermeal-ordered-info-container {
-    width: 50%;
-  }
-  .usermeal-ordered-title {
-    font-size: 25px;
+    font-size: 20px;
   }
   .usermeal-userinfo-title {
-    font-size: 25px;
+    font-size: 30px;
   }
   .usermeal-user-text {
     font-size: 25px;
@@ -658,6 +653,13 @@
     width: 300px;
     height: 35px;
     font-size: 20px;
+    margin-top: 100px;
+  }
+  .usermeal-ordered-title {
+    font-size: 25px;
+  }
+  .usermeal-ordered-container {
+    margin-top: -5px;
   }
 }
 /*# sourceMappingURL=UserMeal.css.map */

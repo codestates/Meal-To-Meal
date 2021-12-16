@@ -11,12 +11,13 @@
   margin-bottom: 30px;
   -webkit-box-shadow: gray 3px 3px 3px 3px;
           box-shadow: gray 3px 3px 3px 3px;
+  width: 92%;
 }
 
 .management-menu-img {
-  max-width: 130px;
-  max-height: 100px;
-  margin: auto 0 auto 0;
+  width: 120px;
+  height: 80px;
+  margin-right: 10px;
   -webkit-box-shadow: gray 3px 3px 3px;
           box-shadow: gray 3px 3px 3px;
   border-radius: 15px;
@@ -76,6 +77,9 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .management-menu-icon {
@@ -102,9 +106,12 @@
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
+  .management-menu-container {
+    width: 96%;
+  }
   .management-menu-img {
-    max-width: 30%;
-    max-height: 150px;
+    width: 210px;
+    height: 150px;
     margin: 10px;
   }
   .management-menu-title-container {
@@ -121,7 +128,7 @@
   }
   .management-menu-icon {
     height: 20px;
-    margin: 0 5px 5px 0;
+    margin-right: 15px;
   }
   .management-menu-text {
     font-size: 25px;
@@ -129,13 +136,20 @@
   }
   .management-menu-code-icon {
     height: 30px;
+    margin-right: 10px;
+  }
+  .management-order-empty-text {
+    font-size: 20px;
   }
 }
 
 @media (min-width: 1024px) {
+  .management-menu-container {
+    width: 100%;
+  }
   .management-menu-img {
-    max-width: 30%;
-    max-height: 180px;
+    width: 20%;
+    height: 130px;
     margin: 15px;
   }
   .management-menu-info-container {
@@ -270,6 +284,10 @@
   }
 }
 
+.management-page {
+  margin: 15px 15px 70px 15px;
+}
+
 .management-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -278,7 +296,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 15px;
 }
 
 .management-store-info-container {
@@ -290,11 +307,14 @@
       -ms-flex-direction: column;
           flex-direction: column;
   margin-bottom: 5px;
+  border: 3px solid #ffcc1d;
+  padding: 5px;
 }
 
 .management-title {
-  font-size: 20px;
+  font-size: 25px;
   margin-bottom: 10px;
+  font-weight: bolder;
 }
 
 .management-store-title-container {
@@ -311,6 +331,7 @@
 
 .management-store-category-icon {
   height: 25px;
+  margin-right: 10px;
 }
 
 .management-store-title {
@@ -320,8 +341,8 @@
 }
 
 .management-store-img {
-  height: 40%;
-  max-width: 50%;
+  height: 120px;
+  width: 200px;
   margin: 10px auto 15px auto;
   border-radius: 15px;
   -webkit-box-shadow: gray 4px 4px 4px 4px;
@@ -345,19 +366,15 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 10px;
 }
 
 .management-detail-icon {
   height: 25px;
-  margin-right: 5px;
-}
-
-.management-store-menu-container {
-  margin: 15px 15px 85px 15px;
+  margin-right: 10px;
 }
 
 .management-button-container {
@@ -388,14 +405,15 @@
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
-  .management-container {
-    margin-top: 80px;
+  .management-page {
+    margin-top: 70px;
+  }
+  .management-title {
+    font-size: 30px;
   }
   .management-store-info-container {
     margin-bottom: 15px;
-  }
-  .management-title {
-    font-size: 25px;
+    padding: 15px;
   }
   .management-store-category-icon {
     height: 30px;
@@ -408,10 +426,10 @@
   }
   .management-store-img {
     height: 300px;
-    max-width: 450px;
+    width: 450px;
   }
   .management-store-detail-info-container {
-    margin: 10px 0 0 0;
+    margin-top: 10px;
   }
   .management-detail-info {
     margin-bottom: 20px;
@@ -436,68 +454,49 @@
 }
 
 @media (min-width: 1024px) {
-  .Management-page {
+  .management-page {
+    margin: 70px 30px 0 30px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    min-height: 80.6vh;
   }
   .management-container {
-    margin-top: 80px;
-    height: 81vh;
-    width: 50%;
-    margin: 80px 30px 30px 30px;
+    margin-right: -300px;
   }
   .management-store-info-container {
-    margin-bottom: 20px;
-  }
-  .management-title {
-    font-size: 30px;
+    padding: 30px;
+    width: 60%;
+    min-height: 70%;
   }
   .management-store-category-icon {
     height: 35px;
-    margin-right: 5px;
   }
   .management-store-title {
-    font-size: 30px;
-  }
-  .management-store-category {
-    font-size: 20px;
+    font-size: 25px;
   }
   .management-store-img {
-    height: 450px;
-    max-width: 650px;
-    margin: 30px 0 20px 0;
-  }
-  .management-store-detail-info-container {
-    margin: 10px 0 0 0;
-    width: 50%;
-  }
-  .management-detail-info {
-    margin-bottom: 20px;
+    width: 40em;
+    height: 380px;
   }
   .management-detail-icon {
     height: 35px;
-    margin-right: 15px;
   }
   .management-detail-text {
-    font-size: 25px;
+    font-size: 20px;
   }
   .management-store-menu-container {
-    margin: 70px 15px 15px 0;
-    width: 50%;
+    width: 80%;
+    margin-right: 30px;
   }
-  .management-button {
-    width: 120px;
-    height: 40px;
-    font-size: 22px;
-  }
+  .management-button,
   .management-delete-button {
     width: 120px;
-    height: 40px;
-    font-size: 22px;
+    height: 35px;
+    font-size: 20px;
   }
 }
 /*# sourceMappingURL=Management.css.map */
