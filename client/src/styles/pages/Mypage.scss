@@ -14,6 +14,7 @@
 .mypage-title {
   margin-bottom: 5px;
   font-size: 20px;
+  font-weight: bolder;
 }
 
 .mypage-myinfo-container {
@@ -186,12 +187,12 @@
 
 @include tablet {
   .mypage-container {
-    margin-top: 80px;
+    margin: 70px 0 20px 0;
     font-size: 20px;
   }
 
   .mypage-title {
-    font-size: 28px;
+    font-size: 30px;
     margin-bottom: 10px;
   }
 

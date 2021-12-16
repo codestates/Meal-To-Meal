@@ -97,6 +97,9 @@
 }
 
 @media (min-width: 1024px) {
+  .ordered-food-container {
+    margin-right: 30px;
+  }
   .usermeal-reservation-container {
     margin-right: 30px;
   }
@@ -472,7 +475,7 @@
 
 .usermeal-title {
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-weight: bolder;
 }
 
@@ -501,6 +504,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-bottom: 10px;
 }
 
 .usermeal-store-image {
@@ -521,6 +525,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 10px;
 }
 
 .usermeal-description-container {
@@ -541,7 +546,7 @@
 
 .usermeal-ordered-title {
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-weight: bolder;
 }
 
@@ -618,11 +623,15 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
   }
-  .usermeal-reservation-container {
+  .usermeal-order-food-reservation-container {
     width: 50%;
   }
   .usermeal-title {
@@ -657,6 +666,9 @@
   }
   .usermeal-ordered-title {
     font-size: 25px;
+  }
+  .usermeal-ordered-info-container {
+    width: 50%;
   }
   .usermeal-ordered-container {
     margin-top: -5px;

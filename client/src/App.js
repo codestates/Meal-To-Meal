@@ -272,7 +272,7 @@ function App() {
           }
         />
         <Route path="/usermeal" element={<UserMeal navigate={navigate} getImage={getImage} />} />
-        <Route path="/mydonation" element={<MyDonation />} />
+        <Route path="/mydonation" element={<MyDonation getImage={getImage} />} />
       </Routes>
       {isLogin ? (
         <UnderbarLogin

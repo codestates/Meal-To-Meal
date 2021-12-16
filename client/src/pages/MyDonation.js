@@ -5,7 +5,7 @@ import EmptyDonationAni from '../components/MyDonation/EmptyDonationAni';
 import DonationBox from '../components/MyDonation/DonationBox';
 import '../styles/pages/MyDonation.css';
 
-function MyDonation() {
+function MyDonation({ getImage }) {
   const accessToken = localStorage.getItem('accessToken');
   const [isLoading, setIsLoading] = useState(true);
   const [isUser, setIsUser] = useState({});
@@ -62,7 +62,6 @@ function MyDonation() {
                 <div className="mydonation-money-total">{`${isUser.user_nickname}님은 총 ₩${Number(
                   isUser.user_donation_money
                 ).toLocaleString()}원 기부하셨습니다!`}</div>
-                <div className="mydonation-money-ranking">현재 기부 순위 1등입니다!</div>
               </div>
               <img className="mydonation-money-image" src={require('../img/piggybank.png').default} alt="" />
             </div>
@@ -70,7 +69,11 @@ function MyDonation() {
           <div className="mydonation-right-container">
             <div className="mydonation-history-title">내 기부 내역</div>
             <div className="mydonation-history-container">
-              {donationList.length === 0 ? <EmptyDonationAni /> : <DonationBox donationList={donationList} />}
+              {donationList.length === 0 ? (
+                <EmptyDonationAni />
+              ) : (
+                <DonationBox donationList={donationList} getImage={getImage} />
+              )}
             </div>
           </div>
         </div>

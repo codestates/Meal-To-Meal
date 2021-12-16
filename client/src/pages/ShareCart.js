@@ -1,23 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SharecartItem from '../components/ShareCart/SharecartItem';
 import ThankAlert from '../components/Alert/ThankAlert';
 import '../styles/pages/ShareCart.css';
 import axios from 'axios';
 
-function ShareCart({
-  navigate,
-  cartItems,
-  setCartItems,
-  removeFromCart,
-  getImage,
-  openWarningAlertHandler,
-  setAlertMessage,
-}) {
+function ShareCart({ navigate, cartItems, setCartItems, removeFromCart, openWarningAlertHandler, setAlertMessage }) {
   const accessToken = localStorage.getItem('accessToken');
 
   const [isOpenThankAlert, setIsOpenThankAlert] = useState(false);
   const [payName, setPayName] = useState('');
   const [userPhone, setUserPhone] = useState('');
+  const [userEmail, setUserEmail] = useState('');
+  const [userNickname, setUserNickname] = useState('');
 
   const openThankAlertHandler = () => {
     setIsOpenThankAlert(!isOpenThankAlert);
@@ -51,6 +45,8 @@ function ShareCart({
             navigate('/mypage');
           } else {
             setUserPhone(res.data.userInfo.user_phone_number);
+            setUserEmail(res.data.userInfo.user_email);
+            setUserNickname(res.data.userInfo.user_nickname);
           }
         })
         .catch(err => {
@@ -59,9 +55,18 @@ function ShareCart({
     }
   };
 
+  const alertUser = e => {
+    e.preventDefault();
+    e.returnValue = '';
+  };
+
   useEffect(() => {
     makePayNameHandler();
     getUserPhoneHandler();
+    window.addEventListener('beforeunload', alertUser);
+    return () => {
+      window.removeEventListener('beforeunload', alertUser);
+    };
   }, [cartItems]);
 
   const phoneFormat = `${userPhone.slice(0, 3)}-${userPhone.slice(3, 7)}-${userPhone.slice(7, 11)}`;
@@ -79,6 +84,8 @@ function ShareCart({
         name: payName,
         amount: Number(totalPrice),
         buyer_tel: phoneFormat,
+        buyer_email: userEmail,
+        buyer_name: userNickname,
       },
       function (rsp) {
         // callback
@@ -135,6 +142,10 @@ function ShareCart({
             />
           </div>
           <div className="sharecart-order-info-container">
+            <div className="sharecart-cant-payment-on-mobile-container">
+              <div className="sharecart-cant-payment-on-mobile-emoji">&#x1F4F5;</div>
+              <div className="sharecart-cant-payment-on-mobile">PC에서만 결제가 가능합니다.</div>
+            </div>
             <div className="sharecart-order-count-container">
               <div className="sharecount-count-text">총 상품 개수</div>
               <div className="sharecount-count-number">{totalQuantity}개</div>

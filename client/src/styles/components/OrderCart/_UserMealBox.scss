@@ -87,6 +87,10 @@
 }
 
 @include desktop {
+  .ordered-food-container {
+    margin-right: 30px;
+  }
+
   .usermeal-reservation-container {
     margin-right: 30px;
   }
