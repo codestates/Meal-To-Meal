@@ -2,7 +2,6 @@ const { store, menu, user } = require('../../database/models');
 const checkTokens = require('../../middlewares/tokenAuth');
 module.exports = {
   post: async (req, res) => {
-    console.log(req.body);
     const userInfo = checkTokens(req);
     const {
       store_image,
