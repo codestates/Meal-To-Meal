@@ -214,7 +214,17 @@ function App() {
             />
           }
         />
-        <Route path="/fixstore" element={<FixStore navigate={navigate} getImage={getImage} />} />
+        <Route
+          path="/fixstore"
+          element={
+            <FixStore
+              navigate={navigate}
+              openWarningAlertHandler={openWarningAlertHandler}
+              openAlertHandler={openAlertHandler}
+              setAlertMessage={setAlertMessage}
+            />
+          }
+        />
         <Route path="/maps" element={<Maps navigate={navigate} />} />
         <Route
           path="/store/:storeid"

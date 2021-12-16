@@ -20,7 +20,10 @@ module.exports = {
         } else if (!matchedUser.user_phone_number) {
           res.status(403).json({ message: '인증되지 않은 사용자입니다' });
         } else {
-          if (matchedUser.today_used) {
+          const existingUserMeal = await user_meal.findOne({ where: { user_id: userInfo.id } });
+          if (existingUserMeal) {
+            return res.status(403).json({ message: '이미 주문 내역이 있습니다' });
+          } else if (matchedUser.today_used) {
             return res.status(403).json({ message: '오늘은 이미 사용하셨습니다' });
           } else {
             await matchedStore.decrement('store_order_quantity').catch(err => console.log(err));

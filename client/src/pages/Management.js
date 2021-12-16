@@ -20,8 +20,13 @@ function Management({ navigate, getImage }) {
           withCredentials: true,
         })
         .then(res => {
-          setOwnerStoreInfo(res.data.storeInfo);
-          setIcon(getImage(res.data.storeInfo.store_category));
+          if (res.data.message === '권한이 없습니다') {
+            return;
+          } else {
+            setOwnerStoreInfo(res.data.storeInfo);
+            setIcon(getImage(res.data.storeInfo.store_category));
+            getOwnerStoreMenuHandler();
+          }
         })
         .catch(err => {
           console.log(err);
@@ -49,7 +54,6 @@ function Management({ navigate, getImage }) {
 
   useEffect(() => {
     isStoreOwner();
-    getOwnerStoreMenuHandler();
   }, [icon]);
 
   return (
