@@ -95,6 +95,7 @@ module.exports = {
     }
   },
   put: async (req, res) => {
+    console.log(req.body);
     const userInfo = checkTokens(req);
     const {
       store_image,
@@ -137,6 +138,7 @@ module.exports = {
     }
   },
   delete: async (req, res) => {
+    console.log(req);
     const userInfo = checkTokens(req);
     if (!userInfo) {
       res.status(401).json({ message: '로그인이 필요합니다' });
