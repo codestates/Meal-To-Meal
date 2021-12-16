@@ -1389,12 +1389,18 @@ button {
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
+  .loading-container {
+    height: 90.3vh;
+  }
   .loading-animation {
     height: 180px;
   }
 }
 
 @media (min-width: 1024px) {
+  .loading-container {
+    height: 87.8vh;
+  }
   .loading-animation {
     height: 220px;
   }
