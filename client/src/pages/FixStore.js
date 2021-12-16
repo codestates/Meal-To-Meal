@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DaumPostcode from 'react-daum-postcode';
 import AddMenu from '../components/Management/AddMenu';
+import FixMenu from '../components/Management/FixMenu';
 import AddedMenu from '../components/Management/AddedMenu';
 import '../styles/pages/AddStore.css';
 
@@ -51,6 +52,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
         })
         .then(res => {
           setOwnerStoreInfo(res.data.storeInfo);
+          getOwnerStoreMenuHandler();
         })
         .catch(err => {
           console.log(err);
@@ -80,7 +82,10 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
     axios
       .get(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${fullAddress}&language=ko&key=${process.env.REACT_APP_GEOCODING_KEY}`,
-        { withCredentials: false }
+        {
+          headers: { authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
+          withCredentials: true,
+        }
       )
       .then(res => {
         setLocation({ lat: res.data.results[0].geometry.location.lat, lng: res.data.results[0].geometry.location.lng });
@@ -123,10 +128,10 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
     menuInfo: '',
   });
 
-  const handleStoreInputValue = e => {
+  const handleStoreInputValue = key => e => {
     // 가게 등록 정보 입력
-    // setNewStoreInfo({ ...newStoreInfo, [key]: e.target.value });
-    console.log(e);
+    setNewStoreInfo({ ...newStoreInfo, [key]: e.target.value });
+    console.log(newStoreInfo);
   };
 
   const storeCorrectionHandler = () => {
@@ -143,7 +148,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
     } = newStoreInfo;
     axios
       .put(
-        `${process.env.REACT_APP_API_URL}/store`,
+        `${process.env.REACT_APP_API_URL}/store/${ownerStoreInfo.id}`,
         {
           store_image,
           store_name,
@@ -172,7 +177,6 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
 
   useEffect(() => {
     isStoreOwner();
-    getOwnerStoreMenuHandler();
   }, []);
 
   return (
@@ -186,10 +190,8 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
           <input
             className="AddStore-store-info-input"
             placeholder="가게 이름을 입력하세요."
-            value={`${ownerStoreInfo.store_name}`}
-            onClick={e => {
-              handleStoreInputValue(e);
-            }}
+            defaultValue={ownerStoreInfo.store_name}
+            onChange={handleStoreInputValue('store_name')}
           />
           <div className="AddStore-store-text">카테고리</div>
           <select className="AddStore-store-info input" onChange={handleStoreInputValue('store_category')}>
@@ -207,6 +209,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
           <textarea
             className="AddStore-store-description-input"
             placeholder="가게 설명을 적어 주세요."
+            defaultValue={ownerStoreInfo.store_description}
             onChange={handleStoreInputValue('store_description')}
           />
         </div>
@@ -215,7 +218,8 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
           <input
             className="AddStore-store-info-input"
             placeholder="영업시간을 적어 주세요."
-            // onChange={handleStoreInputValue('business_hour')}
+            defaultValue={ownerStoreInfo.business_hour}
+            onChange={handleStoreInputValue('business_hour')}
           />
           <div className="AddStore-store-text">가게주소</div>
           <button className="AddStore-address-button" onClick={() => searchAddressHandler()}>
@@ -233,15 +237,18 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
           ) : null}
           <div className="AddStore-store-address">{address}</div>
           <div className="AddStore-store-address">{addressDetail}</div>
-          <input className="AddStore-store-info-input" placeholder="상세주소" onChange={e => onHandleChange(e)} />
+          <input
+            className="AddStore-store-info-input"
+            placeholder="상세주소"
+            defaultValue={ownerStoreInfo.store_address}
+            onChange={e => onHandleChange(e)}
+          />
           <div className="AddStore-title">메뉴 등록</div>
-          {menuList.length !== 0
-            ? menuList.map(item => (
-                <div className="AddStore-add-menu-container">
-                  <AddedMenu item={item} />
-                </div>
-              ))
-            : null}
+          {ownerStoreMenu.map(item => (
+            <div className="AddStore-add-menu-container">
+              <FixMenu handleInputValue={handleInputValue} item={item} />
+            </div>
+          ))}
           <div className="AddStore-add-menu-container">
             <AddMenu handleInputValue={handleInputValue} menuInfo={menuInfo} />
           </div>
@@ -252,7 +259,9 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
             <button className="AddStore-button" onClick={() => getLocationHandler()}>
               저장
             </button>
-            <button className="AddStore-button">취소</button>
+            <button className="AddStore-button" onClick={() => navigate(-1)}>
+              취소
+            </button>
           </div>
         </div>
       </div>
