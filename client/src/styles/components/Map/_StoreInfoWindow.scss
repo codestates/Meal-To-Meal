@@ -18,7 +18,8 @@ button {
 }
 
 .infowindow-store-img {
-  max-height: 120px;
+  width: 150px;
+  height: 85px;
   cursor: pointer;
 }
 
@@ -75,8 +76,8 @@ button {
   }
 
   .infowindow-store-img {
-    max-width: 250px;
-    max-height: 150px;
+    width: 250px;
+    height: 140px;
     margin: 10px auto 0 auto;
   }
 
@@ -117,7 +118,8 @@ button {
   }
 
   .infowindow-store-img {
-    max-height: 155px;
+    width: 260px;
+    height: 146px;
     margin: 0 10px 0 10px;
   }
 

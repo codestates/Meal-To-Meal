@@ -8,22 +8,22 @@
   top: 100px;
   left: 20px;
   z-index: 998;
-  width: 265px;
+  width: 170px;
   height: 40px;
   background-color: white;
   border-radius: 15px;
   box-shadow: gray 4px 4px 4px 4px;
+  z-index: 998;
 }
 
 .search-store-input {
-  width: 140px;
+  width: 90px;
   height: 20px;
-  font-size: 10px;
   border: hidden;
-  padding: 10px 0 0 15px;
+  padding: 10px 0 0 0;
   margin: 0 0 5px 10px;
   transition: 120ms all;
-  font-size: 15px;
+  font-size: 10px;
 
   &:focus {
     outline: none;
@@ -33,7 +33,7 @@
 
 .fa-search {
   font-size: 26px;
-  margin-left: 10px;
+  margin-left: 6px;
 
   &:hover {
     text-shadow: grey 2px 2px 2px;
@@ -47,7 +47,7 @@
 
 .search-x-icon {
   height: 24px;
-  margin: 0 0 0 15px;
+  margin-left: 5px;
 
   &:hover {
     cursor: pointer;
@@ -66,12 +66,12 @@
   .search-container {
     top: 80px;
     left: 10px;
-    width: 370px;
+    width: 280px;
     height: 45px;
   }
 
   .search-store-input {
-    width: 245px;
+    width: 180px;
     height: 25px;
     font-size: 20px;
   }
@@ -91,12 +91,12 @@
   .search-container {
     top: 80px;
     left: 10px;
-    width: 395px;
+    width: 310px;
     height: 50px;
   }
 
   .search-store-input {
-    width: 250px;
+    width: 200px;
     height: 30px;
     font-size: 18px;
   }

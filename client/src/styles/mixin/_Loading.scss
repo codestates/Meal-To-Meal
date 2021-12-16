@@ -17,12 +17,20 @@
 }
 
 @include tablet {
+  .loading-container {
+    height: 90.3vh;
+  }
+
   .loading-animation {
     height: 180px;
   }
 }
 
 @include desktop {
+  .loading-container {
+    height: 87.8vh;
+  }
+
   .loading-animation {
     height: 220px;
   }

@@ -14,8 +14,8 @@
 }
 
 .menu-food-image {
-  height: 180px;
-  max-width: 265px;
+  width: 265px;
+  height: 150px;
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
@@ -126,8 +126,8 @@
     height: 320px;
   }
   .menu-food-image {
-    height: 270px;
-    max-width: 400px;
+    width: 400px;
+    height: 225px;
     display: inline-block;
     border-radius: 30px;
     -webkit-box-shadow: gray 4px 4px 4px 4px;
@@ -175,8 +175,8 @@
     margin: 15px 40px 15px 0;
   }
   .menu-food-image {
-    width: 330px;
-    max-height: 300px;
+    width: 340px;
+    height: 191px;
     display: inline-block;
     border-radius: 30px;
     -webkit-box-shadow: gray 4px 4px 4px 4px;
@@ -218,8 +218,8 @@
 }
 
 .storeinfo-food-image {
-  height: 180px;
-  max-width: 270px;
+  width: 265px;
+  height: 150px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -264,6 +264,7 @@
   }
   .storeinfo-food-image {
     width: 300px;
+    height: 168px;
     border-radius: 30px;
     -webkit-box-shadow: gray 4px 4px 4px 4px;
             box-shadow: gray 4px 4px 4px 4px;
@@ -290,6 +291,7 @@
   }
   .storeinfo-food-image {
     width: 300px;
+    height: 168.75px;
     border-radius: 30px;
     -webkit-box-shadow: gray 4px 4px 4px 4px;
             box-shadow: gray 4px 4px 4px 4px;
@@ -383,7 +385,7 @@
   display: block;
   margin: 0 auto 10px auto;
   width: 295px;
-  max-height: 210px;
+  height: 166px;
   border-radius: 15px;
   -webkit-box-shadow: gray 3px 3px 3px;
           box-shadow: gray 3px 3px 3px;
@@ -500,7 +502,7 @@
   }
   .store-img {
     width: 395px;
-    max-height: 330px;
+    height: 222px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -559,8 +561,8 @@
     font-size: 20px;
   }
   .store-img {
-    width: 50%;
-    max-height: 400px;
+    width: 79%;
+    height: 400px;
     margin: 15px 0 10px 10px;
   }
   .store-detail-info-container {
