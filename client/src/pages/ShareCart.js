@@ -123,21 +123,26 @@ function ShareCart({
   return (
     <>
       <div className="sharecart-container">
-        <div className="sharecart-title">나눔카트</div>
-        <SharecartItem
-          cartItems={cartItems}
-          setCartItems={setCartItems}
-          removeFromCart={removeFromCart}
-          navigate={navigate}
-        />
-        <div className="sharecart-order-info-container">
-          <div className="sharecart-order-count-container">
-            <div className="sharecount-count-text">총 상품 개수</div>
-            <div className="sharecount-count-number">{totalQuantity}개</div>
+        <div className="sharecart-cartItems-container">
+          <div className="sharecart-item-list-container">
+            <div className="sharecart-title">나눔카트</div>
+            <SharecartItem
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+              removeFromCart={removeFromCart}
+              navigate={navigate}
+            />
           </div>
-          <div className="sharecart-order-count-container">
-            <div className="sharecount-count-text">총 상품 금액</div>
-            <div className="sharecount-count-number">{totalPriceToString}원</div>
+          <div className="sharecart-order-info-container">
+            <div className="sharecart-order-count-container">
+              <div className="sharecount-count-text">총 상품 개수</div>
+              <div className="sharecount-count-number">{totalQuantity}개</div>
+            </div>
+            <div className="sharecart-order-count-container">
+              <div className="sharecount-count-text">총 상품 금액</div>
+              <div className="sharecount-count-number">{totalPriceToString}원</div>
+            </div>
+            <img className="sharecart-img" src={require('../img/Cooking-bro.png').default} alt="" />
           </div>
         </div>
         <div className="sharecart-submit-button-container">
