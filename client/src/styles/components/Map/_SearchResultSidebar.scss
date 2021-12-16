@@ -32,6 +32,7 @@
   padding: 10px;
   border-bottom: 1px solid #f3f3f3;
   margin-bottom: 20px;
+  cursor: pointer;
 
   &:hover {
     background-color: #f3f3f3;
@@ -73,6 +74,17 @@
   margin-right: 10px;
 }
 
+.SearchResultSidebar-empty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.SearchResultSidebar-empty-ani {
+  width: 70%;
+  margin: 120px 0 20px 0;
+}
+
 @include tablet {
   .SearchResultSidebar-window {
     width: 310px;
@@ -103,6 +115,11 @@
     width: 130px;
     height: 73px;
   }
+
+  .SearchResultSidebar-empty-text {
+    font-size: 25px;
+  }
+
 }
 
 @include desktop {
@@ -121,6 +138,7 @@
 
   .SearchResult-title {
     font-size: 25px;
+    width: 170px;
   }
 
   .SearchResult-text {
