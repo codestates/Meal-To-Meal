@@ -76,9 +76,11 @@ function MenuBox({
             navigate('/mypage');
           } else if (err.response.data.message === '본인의 가게에서 요청하셨습니다') {
             openClickOwnStoreAlertHandler();
-          } else {
-            setAlertMessage('오늘은 이미 티켓을 쓰셨네요! 내일 다시 이용해주세요');
+          } else if (err.response.data.message === '이미 주문 내역이 있습니다') {
+            setAlertMessage('이미 주문 내역이 있습니다');
             openWarningAlertHandler();
+          } else {
+            setAlertMessage('잘못된 요청입니다');
           }
         });
     }

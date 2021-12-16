@@ -54,6 +54,8 @@ module.exports = {
           where: { store_id: ownedStore.id },
         });
         res.status(200).json({ menuList });
+      } else {
+        res.json({ message: '권한이 없습니다' });
       }
     } catch (err) {
       res.status(400).json({ message: err.message });

@@ -22,6 +22,7 @@ function Management({ navigate, getImage }) {
         .then(res => {
           setOwnerStoreInfo(res.data.storeInfo);
           setIcon(getImage(res.data.storeInfo.store_category));
+          getOwnerStoreMenuHandler();
         })
         .catch(err => {
           console.log(err);
@@ -49,7 +50,6 @@ function Management({ navigate, getImage }) {
 
   useEffect(() => {
     isStoreOwner();
-    getOwnerStoreMenuHandler();
   }, [icon]);
 
   return (
