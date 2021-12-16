@@ -71,6 +71,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
         })
         .then(res => {
           setOwnerStoreMenu(res.data.menuList);
+          console.log(res.data.menuList);
         })
         .catch(err => {
           console.log(err);
@@ -83,8 +84,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
       .get(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${fullAddress}&language=ko&key=${process.env.REACT_APP_GEOCODING_KEY}`,
         {
-          headers: { authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
-          withCredentials: true,
+          withCredentials: false,
         }
       )
       .then(res => {
@@ -117,15 +117,15 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   };
 
   const [newStoreInfo, setNewStoreInfo] = useState({
-    store_image: '',
-    store_name: '',
-    store_category: '',
-    store_description: '',
-    business_hour: '',
-    store_address: '',
-    store_lat: '',
-    store_lng: '',
-    menuInfo: '',
+    store_image: ownerStoreInfo.store_image,
+    store_name: ownerStoreInfo.store_name,
+    store_category: ownerStoreInfo.store_category,
+    store_description: ownerStoreInfo.store_description,
+    business_hour: ownerStoreInfo.business_hour,
+    store_address: ownerStoreInfo.store_address,
+    store_lat: ownerStoreInfo.store_lat,
+    store_lng: ownerStoreInfo.store_lng,
+    menuInfo: ownerStoreMenu,
   });
 
   const handleStoreInputValue = key => e => {
