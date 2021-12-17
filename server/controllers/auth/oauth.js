@@ -38,26 +38,24 @@ module.exports = {
         });
 
         const { email, profile } = kakaoUserInfo.data.kakao_account;
+
         const [newUserInfo, created] = await user.findOrCreate({
           where: {
             [Op.or]: [
-              { user_email: `kakao_${profile.nickname}${usercode}` },
-              { user_nickname: `kakao_${profile.nickname}${usercode}` },
+              { user_email: { [Op.like]: `%${profile.nickname}%` } },
+              { user_nickname: { [Op.like]: `%${profile.nickname}%` } },
             ],
           },
           defaults: {
             user_nickname: `kakao_${profile.nickname}${usercode}`,
             user_email: email || `kakao_${profile.nickname}${usercode}`,
             kakao_oauth_token: access_token,
-            //* db에서 삭제해도 되는지 검토 필요
             user_donation_count: 0,
             user_donation_money: 0,
             today_used: false,
             is_admin: false,
             is_owner: false,
-            // profile_url: profile.profile_image_url,
             signup_method: 'kakao',
-            //* db에 스키마 업데이트
           },
         });
 

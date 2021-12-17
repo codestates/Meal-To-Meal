@@ -203,10 +203,17 @@
   place-items: center;
 }
 
+.daum-postcode-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 93%;
+}
+
 .daum-postcode-close {
   transition: 120ms ease all;
   box-shadow: gray 4px 4px 4px;
-  width: 120px;
+  width: 100%;
 
   &:hover {
     box-shadow: gray 3px 3px 3px;
@@ -234,9 +241,6 @@
 @include tablet {
   .AddStore-container {
     margin-top: 80px;
-  }
-
-  .AddStore-store-title-container {
   }
 
   .AddStore-title {
@@ -288,7 +292,11 @@
   }
 
   .daum-postcode-window {
-    width: 50%;
+  }
+
+  .daum-postcode-close {
+    height: 40px;
+    font-size: 20px;
   }
 }
 
@@ -354,5 +362,10 @@
 
   .daum-postcode-window {
     width: 50%;
+  }
+
+  .daum-postcode-close {
+    height: 40px;
+    font-size: 20px;
   }
 }

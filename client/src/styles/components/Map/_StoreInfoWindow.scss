@@ -21,6 +21,8 @@ button {
   width: 150px;
   height: 85px;
   cursor: pointer;
+  box-shadow: gray 4px 4px 4px;
+  border-radius: 15px;
 }
 
 .infowindow-store-title-container {
@@ -29,6 +31,11 @@ button {
   align-items: flex-end;
   margin-top: 5px;
   margin-bottom: 10px;
+}
+
+.infowindow-store-category-icon {
+  width: 28px;
+  margin-right: 5px;
 }
 
 .infowindow-store-title-text {
@@ -82,7 +89,12 @@ button {
   }
 
   .infowindow-store-title-container {
-    margin: 10px;
+    margin: 10px 5px 10px 0;
+  }
+
+  .infowindow-store-category-icon {
+    width: 28px;
+    margin: 0 5px 3px 0;
   }
 
   .infowindow-store-info-container {
@@ -123,8 +135,8 @@ button {
     margin: 0 10px 0 10px;
   }
 
-  .infowindow-store-title-container {
-    margin: 10px;
+  .infowindow-store-category-icon {
+    margin-bottom: 1px;
   }
 
   .infowindow-store-info-container {

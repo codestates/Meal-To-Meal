@@ -56,13 +56,16 @@ function MyDonation() {
       ) : (
         <div className="mydonation-container">
           <div className="mydonation-left-container">
-            <div className="mydonation-ranking-title">기부현황</div>
+            <div className="mydonation-ranking-title">기부 현황</div>
             <div className="mydonation-ranking-container">
               <div className="mydonation-ranking-text-container">
-                <div className="mydonation-money-total">{`${isUser.user_nickname}님은 총 ₩${Number(
+                {console.log(isUser)}
+                <div className="mydonation-money-total">{`${isUser.user_nickname}님은 ${isUser.createdAt.slice(
+                  0,
+                  4
+                )}년 부터 총 ${isUser.user_donation_count}그릇을 ₩${Number(
                   isUser.user_donation_money
                 ).toLocaleString()}원 기부하셨습니다!`}</div>
-                <div className="mydonation-money-ranking">현재 기부 순위 1등입니다!</div>
               </div>
               <img className="mydonation-money-image" src={require('../img/piggybank.png').default} alt="" />
             </div>

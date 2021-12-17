@@ -3,7 +3,7 @@
 @import '../components/StoreInfo/EmptyCartAni';
 
 .sharecart-container {
-  margin: 15px;
+  margin: 15px 15px 30px 15px;
 }
 
 .sharecart-title {
@@ -16,6 +16,21 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 5px;
+}
+
+.sharecart-cant-payment-on-mobile-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sharecart-cant-payment-on-mobile-emoji {
+  padding-top: 5px;
+  margin-right: 10px;
+}
+
+.sharecart-cant-payment-on-mobile {
+  margin: 5px 0 15px 0;
+  color: red;
 }
 
 .sharecart-submit-button-container {
@@ -99,6 +114,10 @@
   .sharecart-img {
     display: none;
   }
+
+  .sharecart-cant-payment-on-mobile-container {
+    font-size: 20px;
+  }
 }
 
 @include desktop {
@@ -145,5 +164,9 @@
     width: 120px;
     height: 35px;
     font-size: 20px;
+  }
+
+  .sharecart-cant-payment-on-mobile-container {
+    display: none;
   }
 }

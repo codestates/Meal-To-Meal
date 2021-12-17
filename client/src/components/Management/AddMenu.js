@@ -1,11 +1,50 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
+import S3FileUpload from 'react-s3';
+import { v4 as uuid } from 'uuid';
 
-function AddMenu({ handleInputValue, menuInfo }) {
+function AddMenu({ handleInputValue }) {
+  const [selectedFile, setSelectedFile] = useState('');
+  const [url, setUrl] = useState('');
+
+  const imgRef = useRef();
+  const config = {
+    bucketName: 'meal2sdk',
+    region: 'ap-northeast-2',
+    accessKeyId: `${process.env.REACT_APP_SDK_ACCESSKEY_ID}`,
+    secretAccessKey: `${process.env.REACT_APP_SDK_SECRETACCESS_KEY}`,
+  };
+
+  const uploadImage = file => {
+    file.newName = `${uuid()}.${file.type.split('/')[1]}`;
+    setSelectedFile(file);
+    S3FileUpload.uploadFile(file, config)
+      .then(data => {
+        setUrl(data.location);
+      })
+      .catch(err => {
+        console.log(err);
+        alert('사진용량 초과!');
+      });
+  };
+
   return (
     <div className="AddMenu-container">
       <div className="AddMenu-add-img-container">
-        <img className="AddMenu-img" src={require('../../img/dummy/menu_dummy/만두전골.jpg').default} alt="" />
-        <input type="file" className="AddMenu-menu-img-input" />
+        <img
+          className="AddMenu-img"
+          src={url}
+          ref={imgRef}
+          alt=""
+          onError={() => {
+            return (imgRef.current.src = 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg');
+          }}
+        />
+        <input
+          type="file"
+          className="AddMenu-menu-img-input"
+          accept="image/*"
+          onChange={e => uploadImage(e.target.files[0])}
+        />
       </div>
       <div className="AddMenu-menu-info-container">
         <div className="AddMenu-menu-info-title">메뉴 이름</div>

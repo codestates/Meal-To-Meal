@@ -12,26 +12,24 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   const [addressDetail, setAddressDetail] = useState('주소');
   const [fullAddress, setFullAddress] = useState('');
   const [location, setLocation] = useState({ lat: null, lng: null });
-  const [menuList, setMenuList] = useState([]);
   const [ownerStoreInfo, setOwnerStoreInfo] = useState([]);
   const [ownerStoreMenu, setOwnerStoreMenu] = useState([]);
   const [fixedMenu, setFixedMenu] = useState({});
 
-  const handleFixInputValue = key => e => {
-    setFixedMenu({
-      ...fixedMenu,
-      [key]: e.target.value.toLowerCase(),
-    });
-    setOwnerStoreMenu([
-      ...ownerStoreMenu,
-      { menu_name: menuInfo.menu_name, menu_price: menuInfo.menu_price, menu_image: menuInfo.menu_image },
-    ]);
+  const handleFixInputValue = (key, itemid) => e => {
+    setFixedMenu(
+      fixedMenu.map(el => {
+        if (el.id === itemid) {
+          el[key] = e.target.value;
+        }
+        return el;
+      })
+    );
   };
-  console.log(ownerStoreMenu);
 
   const [isOpenSearchAddress, setIsOpenSearchAddress] = useState(false);
 
-  const [menuInfo, setMenuInfo] = useState({
+  const [addedMenuInfo, setAddedMenuInfo] = useState({
     menu_name: ownerStoreMenu.menu_name,
     menu_price: ownerStoreMenu.menu_price,
   });
@@ -45,13 +43,18 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   };
 
   const handleInputValue = key => e => {
-    setMenuInfo({ ...menuInfo, [key]: e.target.value.toLowerCase() });
+    setAddedMenuInfo({ ...addedMenuInfo, [key]: e.target.value.toLowerCase() });
   };
+  console.log(addedMenuInfo);
 
   const addMenuHandler = () => {
     setOwnerStoreMenu([
       ...ownerStoreMenu,
-      { menu_name: menuInfo.menu_name, menu_price: menuInfo.menu_price, menu_image: menuInfo.menu_image },
+      {
+        menu_name: addedMenuInfo.menu_name,
+        menu_price: addedMenuInfo.menu_price,
+        menu_image: addedMenuInfo.menu_image,
+      },
     ]);
   };
 
@@ -85,6 +88,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
         })
         .then(res => {
           setOwnerStoreMenu(res.data.menuList);
+          setFixedMenu(res.data.menuList);
         })
         .catch(err => {
           console.log(err);
@@ -147,6 +151,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   };
 
   const storeCorrectionHandler = () => {
+    console.log('----------', addedMenuInfo);
     const {
       store_image,
       store_name,
@@ -170,7 +175,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
           store_address: fullAddress,
           store_lat: location.lat,
           store_lng: location.lng,
-          menuInfo: menuInfo,
+          menuInfo: [...ownerStoreMenu, { ...addedMenuInfo }],
         },
         {
           headers: { authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
