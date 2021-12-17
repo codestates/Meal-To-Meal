@@ -188,7 +188,7 @@ module.exports = {
           menu_name: '들깨 칼국수',
           menu_price: 8000,
           menu_image:
-            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%8C%E1%85%A9%E1%84%92%E1%85%A1%E1%86%AF%E1%84%86%E1%85%A2%E1%84%80%E1%85%AE%E1%86%A8%E1%84%87%E1%85%A1%E1%86%B8.png',
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%8F%E1%85%A1%E1%86%AF%E1%84%80%E1%85%AE%E1%86%A8%E1%84%89%E1%85%AE.jpg',
           menu_order_quantity: 0,
           store_id: 6,
           created_at: new Date(),
@@ -199,7 +199,7 @@ module.exports = {
           menu_name: '칼 수제비',
           menu_price: 8000,
           menu_image:
-            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%8C%E1%85%A9%E1%84%92%E1%85%A1%E1%86%AF%E1%84%86%E1%85%A2%E1%84%80%E1%85%AE%E1%86%A8%E1%84%87%E1%85%A1%E1%86%B8.png',
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%8F%E1%85%A1%E1%86%AF%E1%84%80%E1%85%AE%E1%86%A8%E1%84%89%E1%85%AE.jpg',
           menu_order_quantity: 0,
           store_id: 6,
           created_at: new Date(),
@@ -210,7 +210,7 @@ module.exports = {
           menu_name: '해물 칼국수',
           menu_price: 9000,
           menu_image:
-            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%8C%E1%85%A9%E1%84%92%E1%85%A1%E1%86%AF%E1%84%86%E1%85%A2%E1%84%80%E1%85%AE%E1%86%A8%E1%84%87%E1%85%A1%E1%86%B8.png',
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%8F%E1%85%A1%E1%86%AF%E1%84%80%E1%85%AE%E1%86%A8%E1%84%89%E1%85%AE.jpg',
           menu_order_quantity: 0,
           store_id: 6,
           created_at: new Date(),
@@ -1012,7 +1012,9 @@ module.exports = {
         {
           id: autoIncrement(),
           menu_name: '마라탕',
-          menu_price: 130000,
+          menu_price: 10000,
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%86%E1%85%A1%E1%84%85%E1%85%A1%E1%84%90%E1%85%A1%E1%86%BC.jpg',
           store_id: 31,
           created_at: new Date(),
           updated_at: new Date(),
@@ -1021,7 +1023,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '지삼선',
           menu_price: 8000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%8C%E1%85%B5%E1%84%89%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A5%E1%86%AB.jpg',
           menu_order_quantity: 0,
           store_id: 31,
           created_at: new Date(),
@@ -1041,7 +1044,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '미씨엔',
           menu_price: 10000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%8B%E1%85%AE%E1%84%83%E1%85%A9%E1%86%BC.jpg',
           menu_order_quantity: 0,
           store_id: 32,
           created_at: new Date(),
@@ -1051,7 +1055,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '셩젠바오',
           menu_price: 11000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%89%E1%85%A7%E1%86%BC%E1%84%8C%E1%85%A6%E1%86%AB%E1%84%87%E1%85%A1%E1%84%8B%E1%85%A9.jpg',
           menu_order_quantity: 0,
           store_id: 32,
           created_at: new Date(),
@@ -1061,7 +1066,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '어향가지',
           menu_price: 10000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%8C%E1%85%B5%E1%84%89%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A5%E1%86%AB.jpg',
           menu_order_quantity: 0,
           store_id: 32,
           created_at: new Date(),
@@ -1071,7 +1077,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '샨시량피',
           menu_price: 8000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%8C%E1%85%B5%E1%84%89%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A5%E1%86%AB.jpg',
           menu_order_quantity: 0,
           store_id: 32,
           created_at: new Date(),
@@ -1081,7 +1088,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '마라샹궈',
           menu_price: 12000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%8C%E1%85%B5%E1%84%89%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A5%E1%86%AB.jpg',
           menu_order_quantity: 0,
           store_id: 32,
           created_at: new Date(),
@@ -1091,7 +1099,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '마라탕',
           menu_price: 7000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%86%E1%85%A1%E1%84%85%E1%85%A1%E1%84%90%E1%85%A1%E1%86%BC2.jpg',
           menu_order_quantity: 0,
           store_id: 33,
           created_at: new Date(),
@@ -1101,7 +1110,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '지삼선',
           menu_price: 8000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%86%E1%85%A1%E1%84%85%E1%85%A1%E1%84%90%E1%85%A1%E1%86%BC2.jpg',
           menu_order_quantity: 0,
           store_id: 33,
           created_at: new Date(),
@@ -1121,7 +1131,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '마라탕',
           menu_price: 7000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%86%E1%85%A1%E1%84%85%E1%85%A1%E1%84%90%E1%85%A1%E1%86%BC2.jpg',
           menu_order_quantity: 0,
           store_id: 34,
           created_at: new Date(),
@@ -1131,7 +1142,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '지삼선',
           menu_price: 8000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%86%E1%85%A1%E1%84%85%E1%85%A1%E1%84%90%E1%85%A1%E1%86%BC2.jpg',
           menu_order_quantity: 0,
           store_id: 34,
           created_at: new Date(),
@@ -1151,7 +1163,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '마라탕',
           menu_price: 7000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%86%E1%85%A1%E1%84%85%E1%85%A1%E1%84%90%E1%85%A1%E1%86%BC2.jpg',
           menu_order_quantity: 0,
           store_id: 35,
           created_at: new Date(),
@@ -1161,7 +1174,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '지삼선',
           menu_price: 8000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%8C%E1%85%B5%E1%84%89%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A5%E1%86%AB.jpg',
           menu_order_quantity: 0,
           store_id: 35,
           created_at: new Date(),
@@ -1181,7 +1195,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '마라탕',
           menu_price: 7000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%86%E1%85%A1%E1%84%85%E1%85%A1%E1%84%90%E1%85%A1%E1%86%BC2.jpg',
           menu_order_quantity: 0,
           store_id: 36,
           created_at: new Date(),
@@ -1191,7 +1206,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '지삼선',
           menu_price: 8000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%8C%E1%85%B5%E1%84%89%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A5%E1%86%AB.jpg',
           menu_order_quantity: 0,
           store_id: 36,
           created_at: new Date(),
@@ -1211,7 +1227,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '마라탕',
           menu_price: 7000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%8C%E1%85%B5%E1%84%89%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A5%E1%86%AB.jpg',
           menu_order_quantity: 0,
           store_id: 36,
           created_at: new Date(),
@@ -1221,7 +1238,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '지삼선',
           menu_price: 8000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%8C%E1%85%B5%E1%84%89%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A5%E1%86%AB.jpg',
           menu_order_quantity: 0,
           store_id: 36,
           created_at: new Date(),
@@ -1421,7 +1439,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '된장찌개',
           menu_price: 6000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%83%E1%85%AC%E1%86%AB%E1%84%8C%E1%85%A1%E1%86%BC%E1%84%8D%E1%85%B5%E1%84%80%E1%85%A2.jpg',
           menu_order_quantity: 0,
           store_id: 43,
           created_at: new Date(),
@@ -1431,7 +1450,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '김치찌개',
           menu_price: 5000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%80%E1%85%A1%E1%86%B7%E1%84%8C%E1%85%A1%E1%84%90%E1%85%A1%E1%86%BC.jpg',
           menu_order_quantity: 0,
           store_id: 43,
           created_at: new Date(),
@@ -1441,7 +1461,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '육개장',
           menu_price: 6000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%80%E1%85%A1%E1%86%B7%E1%84%8C%E1%85%A1%E1%84%90%E1%85%A1%E1%86%BC.jpg',
           menu_order_quantity: 0,
           store_id: 43,
           created_at: new Date(),
@@ -1451,7 +1472,8 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '된장찌개',
           menu_price: 6000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%83%E1%85%AC%E1%86%AB%E1%84%8C%E1%85%A1%E1%86%BC%E1%84%8D%E1%85%B5%E1%84%80%E1%85%A2.jpg',
           menu_order_quantity: 0,
           store_id: 44,
           created_at: new Date(),
