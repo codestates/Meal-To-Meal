@@ -12,15 +12,29 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   const [addressDetail, setAddressDetail] = useState('주소');
   const [fullAddress, setFullAddress] = useState('');
   const [location, setLocation] = useState({ lat: null, lng: null });
-
-  const [store, setStore] = useState();
-  // 이 store는 내가 등록할 모든 가게의 정보가 다 담겨 있스
   const [menuList, setMenuList] = useState([]);
-  const [menuInfo, setMenuInfo] = useState({ menu_name: '', menu_price: '' });
   const [ownerStoreInfo, setOwnerStoreInfo] = useState([]);
   const [ownerStoreMenu, setOwnerStoreMenu] = useState([]);
+  const [fixedMenu, setFixedMenu] = useState({});
+
+  const handleFixInputValue = key => e => {
+    setFixedMenu({
+      ...fixedMenu,
+      [key]: e.target.value.toLowerCase(),
+    });
+    setOwnerStoreMenu([
+      ...ownerStoreMenu,
+      { menu_name: menuInfo.menu_name, menu_price: menuInfo.menu_price, menu_image: menuInfo.menu_image },
+    ]);
+  };
+  console.log(ownerStoreMenu);
 
   const [isOpenSearchAddress, setIsOpenSearchAddress] = useState(false);
+
+  const [menuInfo, setMenuInfo] = useState({
+    menu_name: ownerStoreMenu.menu_name,
+    menu_price: ownerStoreMenu.menu_price,
+  });
 
   const searchAddressHandler = () => {
     setIsOpenSearchAddress(!isOpenSearchAddress);
@@ -71,7 +85,6 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
         })
         .then(res => {
           setOwnerStoreMenu(res.data.menuList);
-          console.log(res.data.menuList);
         })
         .catch(err => {
           console.log(err);
@@ -157,7 +170,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
           store_address: fullAddress,
           store_lat: location.lat,
           store_lng: location.lng,
-          menuInfo: menuList,
+          menuInfo: menuInfo,
         },
         {
           headers: { authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
@@ -165,7 +178,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
         }
       )
       .then(res => {
-        setAlertMessage('가게가 등록되었습니다');
+        setAlertMessage('가게정보가 수정되었습니다');
         openAlertHandler();
         navigate('/management');
       })
@@ -245,11 +258,11 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
           <div className="AddStore-title">메뉴 등록</div>
           {ownerStoreMenu.map(item => (
             <div className="AddStore-add-menu-container">
-              <FixMenu handleInputValue={handleInputValue} item={item} />
+              <FixMenu handleFixInputValue={handleFixInputValue} item={item} />
             </div>
           ))}
           <div className="AddStore-add-menu-container">
-            <AddMenu handleInputValue={handleInputValue} menuInfo={menuInfo} />
+            <AddMenu handleInputValue={handleInputValue} />
           </div>
           <button className="AddStore-add-menu-button" onClick={() => addMenuHandler()}>
             + 저장 후 다음 메뉴 추가

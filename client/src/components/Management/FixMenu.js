@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FixMenu({ handleInputValue, item }) {
+function FixMenu({ item, handleFixInputValue }) {
   return (
     <div className="FixMenu-container">
       <div className="FixMenu-add-img-container">
@@ -13,7 +13,7 @@ function FixMenu({ handleInputValue, item }) {
           className="FixMenu-menu-input"
           placeholder="메뉴 이름"
           defaultValue={item.menu_name}
-          onChange={handleInputValue('menu_name')}
+          onChange={handleFixInputValue('menu_name')}
         />
         <div className="FixMenu-menu-info-title">메뉴 가격</div>
         <input
@@ -21,7 +21,7 @@ function FixMenu({ handleInputValue, item }) {
           placeholder="숫자만 입력해 주세요."
           type="number"
           defaultValue={item.menu_price}
-          onChange={handleInputValue('menu_price')}
+          onChange={handleFixInputValue('menu_price')}
         />
       </div>
     </div>
