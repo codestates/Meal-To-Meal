@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useRef, useState } from 'react';
 import DaumPostcode from 'react-daum-postcode';
+import axios from 'axios';
+import S3FileUpload from 'react-s3';
+import { v4 as uuid } from 'uuid';
 import AddMenu from '../components/Management/AddMenu';
 import FixMenu from '../components/Management/FixMenu';
-import AddedMenu from '../components/Management/AddedMenu';
 import '../styles/pages/AddStore.css';
 
 function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAlertHandler }) {
@@ -15,19 +16,9 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   const [ownerStoreInfo, setOwnerStoreInfo] = useState([]);
   const [ownerStoreMenu, setOwnerStoreMenu] = useState([]);
   const [fixedMenu, setFixedMenu] = useState({});
-
-  const handleFixInputValue = (key, itemid) => e => {
-    setFixedMenu(
-      fixedMenu.map(el => {
-        if (el.id === itemid) {
-          el[key] = e.target.value;
-        }
-        return el;
-      })
-    );
-  };
-
   const [isOpenSearchAddress, setIsOpenSearchAddress] = useState(false);
+  const [storeUrl, setStoreUrl] = useState('');
+  const [menuUrl, setMenuUrl] = useState('');
 
   const [addedMenuInfo, setAddedMenuInfo] = useState({
     menu_name: ownerStoreMenu.menu_name,
@@ -42,10 +33,20 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
     setFullAddress(`${addressDetail} ${e.target.value}`);
   };
 
+  const handleFixInputValue = (key, itemid) => e => {
+    setFixedMenu(
+      fixedMenu.map(el => {
+        if (el.id === itemid) {
+          el[key] = e.target.value;
+        }
+        return el;
+      })
+    );
+  };
+
   const handleInputValue = key => e => {
     setAddedMenuInfo({ ...addedMenuInfo, [key]: e.target.value.toLowerCase() });
   };
-  console.log(addedMenuInfo);
 
   const addMenuHandler = () => {
     setOwnerStoreMenu([
@@ -56,6 +57,42 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
         menu_image: addedMenuInfo.menu_image,
       },
     ]);
+  };
+
+  const imgRef = useRef();
+  const config = {
+    bucketName: 'meal2sdk',
+    region: 'ap-northeast-2',
+    accessKeyId: `${process.env.REACT_APP_SDK_ACCESSKEY_ID}`,
+    secretAccessKey: `${process.env.REACT_APP_SDK_SECRETACCESS_KEY}`,
+  };
+
+  const uploadImage = e => key => {
+    if (key === 'store_image') {
+      e.target.files[0].newName = `${uuid()}.${e.target.files[0].type.split('/')[1]}`;
+      S3FileUpload.uploadFile(e.target.files[0], config)
+        .then(data => {
+          setStoreUrl(data.location);
+          handleStoreInputValue('store_image')(e);
+          setNewStoreInfo({ ...newStoreInfo, [key]: data.location });
+        })
+        .catch(err => {
+          console.log(err);
+          alert('사진용량 초과!');
+        });
+    } else {
+      e.target.files[0].newName = `${uuid()}.${e.target.files[0].type.split('/')[1]}`;
+      S3FileUpload.uploadFile(e.target.files[0], config)
+        .then(data => {
+          setMenuUrl(data.location);
+          handleInputValue('menu_image')(e);
+          setAddedMenuInfo({ ...addedMenuInfo, [key]: data.location });
+        })
+        .catch(err => {
+          console.log(err);
+          alert('사진용량 초과!');
+        });
+    }
   };
 
   const isStoreOwner = () => {
@@ -97,22 +134,24 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   };
 
   const getLocationHandler = () => {
+    if (fullAddress === '') return;
     axios
       .get(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${fullAddress}&language=ko&key=${process.env.REACT_APP_GEOCODING_KEY}`,
-        {
-          withCredentials: false,
-        }
+        { withCredentials: false }
       )
       .then(res => {
         setLocation({ lat: res.data.results[0].geometry.location.lat, lng: res.data.results[0].geometry.location.lng });
-        storeCorrectionHandler();
       })
       .catch(err => {
         setAlertMessage('주소를 검색 한 후에 저장해 주세요!');
         openWarningAlertHandler();
       });
   };
+
+  useEffect(() => {
+    getLocationHandler();
+  }, [fullAddress]);
 
   const onCompletePost = data => {
     let fullAddr = data.address;
@@ -146,12 +185,10 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   });
 
   const handleStoreInputValue = key => e => {
-    // 가게 등록 정보 입력
     setNewStoreInfo({ ...newStoreInfo, [key]: e.target.value });
   };
 
   const storeCorrectionHandler = () => {
-    console.log('----------', addedMenuInfo);
     const {
       store_image,
       store_name,
@@ -201,8 +238,23 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
       <div className="AddStore-container">
         <div className="AddStore-store-title-container">
           <div className="AddStore-title">가게 정보 등록</div>
-          <img className="AddStore-store-img" src={require('../img/dummy/store1.png').default} alt="" />
-          <input type="file" className="AddStore-store-img-add-input" />
+          <img
+            className="AddStore-store-img"
+            src={storeUrl}
+            ref={imgRef}
+            alt=""
+            onError={() => {
+              return (imgRef.current.src = 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg');
+            }}
+          />
+          <input
+            type="file"
+            className="AddStore-store-img-add-input"
+            accept="image/*"
+            onChange={e => {
+              uploadImage(e)('store_image');
+            }}
+          />
           <div className="AddStore-store-text">상호명</div>
           <input
             className="AddStore-store-info-input"
@@ -263,7 +315,13 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
           <div className="AddStore-title">메뉴 등록</div>
           {ownerStoreMenu.map(item => (
             <div className="AddStore-add-menu-container">
-              <FixMenu handleFixInputValue={handleFixInputValue} item={item} />
+              <FixMenu
+                handleFixInputValue={handleFixInputValue}
+                item={item}
+                menuUrl={menuUrl}
+                uploadImage={uploadImage}
+                imgRef={imgRef}
+              />
             </div>
           ))}
           <div className="AddStore-add-menu-container">
@@ -273,7 +331,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
             + 저장 후 다음 메뉴 추가
           </button>
           <div className="AddStore-add-menu-button-container">
-            <button className="AddStore-button" onClick={() => getLocationHandler()}>
+            <button className="AddStore-button" onClick={storeCorrectionHandler}>
               저장
             </button>
             <button className="AddStore-button" onClick={() => navigate(-1)}>

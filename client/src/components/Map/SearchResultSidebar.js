@@ -14,6 +14,7 @@ function SearchResultSidebar({ searchResult, setIsChangeCenter, setSelected }) {
               onClick={() => {
                 setIsChangeCenter({ lat: Number(el.store_lat) + 0.001, lng: Number(el.store_lng) - 0.001, zoom: 17 });
                 setSelected(el);
+                localStorage.setItem('clickedMarker', el.id);
               }}
             >
               <div className="SearchResult-info">
@@ -32,7 +33,7 @@ function SearchResultSidebar({ searchResult, setIsChangeCenter, setSelected }) {
                   <div className="SearchResult-text">{el.store_order_quantity}</div>
                 </div>
               </div>
-              <img className="SearchResult-img" src={require('../../img/meal-to-meal-logo-192.png').default} alt="" />
+              <img className="SearchResult-img" src={el.store_image} alt="" />
             </div>
           ))}
         </>

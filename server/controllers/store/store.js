@@ -95,7 +95,6 @@ module.exports = {
     }
   },
   put: async (req, res) => {
-    console.log(req.body);
     const userInfo = checkTokens(req);
     const {
       store_image,
@@ -112,7 +111,6 @@ module.exports = {
       res.status(401).json({ message: '로그인이 필요합니다' });
     } else {
       try {
-        console.log('--------------------------------', menuInfo);
         const findStore = await store.findOne({ where: { user_id: userInfo.id } });
         await findStore.update({
           store_image: store_image || '',
@@ -149,7 +147,6 @@ module.exports = {
     }
   },
   delete: async (req, res) => {
-    console.log(req);
     const userInfo = checkTokens(req);
     if (!userInfo) {
       res.status(401).json({ message: '로그인이 필요합니다' });

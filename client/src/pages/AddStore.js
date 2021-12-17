@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import DaumPostcode from 'react-daum-postcode';
 import axios from 'axios';
 import S3FileUpload from 'react-s3';
@@ -18,6 +18,17 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   const [menuInfo, setMenuInfo] = useState({ menu_name: '', menu_price: '' });
   const [isOpenSearchAddress, setIsOpenSearchAddress] = useState(false);
   const [url, setUrl] = useState('');
+  const [newStoreInfo, setNewStoreInfo] = useState({
+    store_image: '',
+    store_name: '',
+    store_category: '',
+    store_description: '',
+    business_hour: '',
+    store_address: '',
+    store_lat: '',
+    store_lng: '',
+    menuInfo: '',
+  });
 
   const searchAddressHandler = () => {
     setIsOpenSearchAddress(!isOpenSearchAddress);
@@ -35,6 +46,24 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
     secretAccessKey: `${process.env.REACT_APP_SDK_SECRETACCESS_KEY}`,
   };
 
+  const uploadImage = e => key => {
+    e.target.files[0].newName = `${uuid()}.${e.target.files[0].type.split('/')[1]}`;
+    S3FileUpload.uploadFile(e.target.files[0], config)
+      .then(data => {
+        setUrl(data.location);
+        handleStoreInputValue('store_image')(e);
+        setNewStoreInfo({ ...newStoreInfo, [key]: data.location });
+      })
+      .catch(err => {
+        console.log(err);
+        alert('사진용량 초과!');
+      });
+  };
+
+  const handleStoreInputValue = key => e => {
+    setNewStoreInfo({ ...newStoreInfo, [key]: e.target.value });
+  };
+
   const handleInputValue = key => e => {
     setMenuInfo({ ...menuInfo, [key]: e.target.value.toLowerCase() });
   };
@@ -47,6 +76,7 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   };
 
   const getLocationHandler = () => {
+    if (fullAddress === '') return;
     axios
       .get(
         `https://maps.googleapis.com/maps/api/geocode/json?address=${fullAddress}&language=ko&key=${process.env.REACT_APP_GEOCODING_KEY}`,
@@ -54,13 +84,16 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
       )
       .then(res => {
         setLocation({ lat: res.data.results[0].geometry.location.lat, lng: res.data.results[0].geometry.location.lng });
-        newStoreRegisterHandler();
       })
       .catch(err => {
         setAlertMessage('주소를 검색 한 후에 저장해 주세요!');
         openWarningAlertHandler();
       });
   };
+
+  useEffect(() => {
+    getLocationHandler();
+  }, [fullAddress]);
 
   const onCompletePost = data => {
     let fullAddr = data.address;
@@ -79,23 +112,6 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
     setAddress(data.zonecode);
     setAddressDetail(fullAddr);
     setIsOpenSearchAddress(false);
-  };
-
-  const [newStoreInfo, setNewStoreInfo] = useState({
-    store_image: '',
-    store_name: '',
-    store_category: '',
-    store_description: '',
-    business_hour: '',
-    store_address: '',
-    store_lat: '',
-    store_lng: '',
-    menuInfo: '',
-  });
-
-  const handleStoreInputValue = key => e => {
-    // 가게 등록 정보 입력
-    setNewStoreInfo({ ...newStoreInfo, [key]: e.target.value });
   };
 
   const newStoreRegisterHandler = () => {
@@ -147,7 +163,9 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
             type="file"
             className="AddStore-store-img-add-input"
             accept="image/*"
-            onChange={handleStoreInputValue('store_image')}
+            onChange={e => {
+              uploadImage(e)('store_image');
+            }}
           />
           <div className="AddStore-store-text">상호명</div>
           <input
@@ -213,7 +231,7 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
             + 저장 후 다음 메뉴 추가
           </button>
           <div className="AddStore-add-menu-button-container">
-            <button className="AddStore-button" onClick={() => getLocationHandler()}>
+            <button className="AddStore-button" onClick={newStoreRegisterHandler}>
               저장
             </button>
             <button className="AddStore-button">취소</button>

@@ -1,11 +1,26 @@
 import React from 'react';
 
-function FixMenu({ item, handleFixInputValue }) {
+function FixMenu({ item, handleFixInputValue, menuUrl, uploadImage, imgRef }) {
   return (
     <div className="FixMenu-container">
       <div className="FixMenu-add-img-container">
-        <img className="FixMenu-img" src={require('../../img/dummy/menu_dummy/만두전골.jpg').default} alt="" />
-        <input type="file" className="FixMenu-menu-img-input" />
+        <img
+          className="FixMenu-img"
+          src={menuUrl}
+          ref={imgRef}
+          alt=""
+          onError={() => {
+            return (imgRef.current.src = 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg');
+          }}
+        />
+        <input
+          type="file"
+          className="FixMenu-menu-img-input"
+          accept="image/*"
+          onChange={e => {
+            uploadImage(e)('menu_image');
+          }}
+        />
       </div>
       <div className="FixMenu-menu-info-container">
         <div className="FixMenu-menu-info-title">메뉴 이름</div>
