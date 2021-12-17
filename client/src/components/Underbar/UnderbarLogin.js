@@ -54,10 +54,6 @@ function UnderbarLogin({
         <i className="fas fa-file-signature" onClick={() => navigate('/usermeal')} />
       </div>
       <div className="underbar-menu-container">
-        {/* 랭킹 */}
-        <i className="fas fa-trophy" />
-      </div>
-      <div className="underbar-menu-container">
         {/* 사장님 페이지 */}
         <i className="fas fa-cash-register" onClick={() => navigate('/management')} />
       </div>

@@ -495,12 +495,26 @@
   place-items: center;
 }
 
+.daum-postcode-window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 93%;
+}
+
 .daum-postcode-close {
   -webkit-transition: 120ms ease all;
   transition: 120ms ease all;
   -webkit-box-shadow: gray 4px 4px 4px;
           box-shadow: gray 4px 4px 4px;
-  width: 120px;
+  width: 100%;
 }
 
 .daum-postcode-close:hover {
@@ -569,8 +583,9 @@
     font-size: 20px;
     height: 35px;
   }
-  .daum-postcode-window {
-    width: 50%;
+  .daum-postcode-close {
+    height: 40px;
+    font-size: 20px;
   }
 }
 
@@ -631,6 +646,10 @@
   }
   .daum-postcode-window {
     width: 50%;
+  }
+  .daum-postcode-close {
+    height: 40px;
+    font-size: 20px;
   }
 }
 /*# sourceMappingURL=AddStore.css.map */

@@ -211,7 +211,7 @@
 }
 
 .sharecart-container {
-  margin: 15px;
+  margin: 15px 15px 30px 15px;
 }
 
 .sharecart-title {
@@ -228,6 +228,25 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-bottom: 5px;
+}
+
+.sharecart-cant-payment-on-mobile-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.sharecart-cant-payment-on-mobile-emoji {
+  padding-top: 5px;
+  margin-right: 10px;
+}
+
+.sharecart-cant-payment-on-mobile {
+  margin: 5px 0 15px 0;
+  color: red;
 }
 
 .sharecart-submit-button-container {
@@ -313,6 +332,9 @@
   .sharecart-img {
     display: none;
   }
+  .sharecart-cant-payment-on-mobile-container {
+    font-size: 20px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -355,6 +377,9 @@
     width: 120px;
     height: 35px;
     font-size: 20px;
+  }
+  .sharecart-cant-payment-on-mobile-container {
+    display: none;
   }
 }
 /*# sourceMappingURL=ShareCart.css.map */
