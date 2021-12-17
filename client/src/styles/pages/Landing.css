@@ -84,7 +84,7 @@
   border: none;
   -webkit-box-shadow: gray 3px 3px 3px;
           box-shadow: gray 3px 3px 3px;
-  margin: 5px 0 20px 0;
+  margin: 10px 0 4px 0;
   -webkit-transition: 140ms ease all;
   transition: 140ms ease all;
 }
@@ -200,13 +200,15 @@
   }
   .landing-catchphrase-sub {
     font-size: 25px;
+    width: 400px;
+    line-height: 30px;
   }
   .landing-start-button,
   .landing-start-button-bottom {
     font-size: 30px;
     width: 80%;
     height: 50px;
-    margin-bottom: 30px;
+    margin-bottom: 8px;
   }
   .landing-tutorials-container-right,
   .landing-tutorials-container-left {
@@ -231,6 +233,7 @@
 @media (min-width: 1024px) {
   .landing-container {
     width: 100%;
+    padding-top: 0;
   }
   .landing-introduce-ani-container {
     -webkit-box-orient: horizontal;
@@ -264,14 +267,14 @@
     text-align: start;
     width: 80%;
     font-size: 25px;
-    line-height: 37px;
+    line-height: 30px;
   }
   .landing-start-button {
     font-size: 35px;
     width: 100%;
     height: 82px;
     padding: 0;
-    margin-top: 20px;
+    margin-top: 14px;
   }
   .landing-ani {
     width: 50%;
