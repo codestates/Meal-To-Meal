@@ -38,16 +38,13 @@ module.exports = {
         });
 
         const { email, profile } = kakaoUserInfo.data.kakao_account;
-
+        const { id } = kakaoUserInfo.data;
         const [newUserInfo, created] = await user.findOrCreate({
           where: {
-            [Op.or]: [
-              { user_email: { [Op.like]: `%${profile.nickname}%` } },
-              { user_nickname: { [Op.like]: `%${profile.nickname}%` } },
-            ],
+            kakao_id: String(id),
           },
           defaults: {
-            user_nickname: `kakao_${profile.nickname}${usercode}`,
+            user_nickname: `kakao_${profile.nickname}`,
             user_email: email || `kakao_${profile.nickname}${usercode}`,
             kakao_oauth_token: access_token,
             user_donation_count: 0,
@@ -56,6 +53,7 @@ module.exports = {
             is_admin: false,
             is_owner: false,
             signup_method: 'kakao',
+            kakao_id: String(id),
           },
         });
 
