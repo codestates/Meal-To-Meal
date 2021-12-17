@@ -23,6 +23,7 @@ function Management({ navigate, getImage, setAlertMessage, openAlertHandler, ope
           if (res.data.message === '권한이 없습니다') {
             return;
           } else {
+            console.log(res.data.storeInfo);
             setOwnerStoreInfo(res.data.storeInfo);
             setIcon(getImage(res.data.storeInfo.store_category));
             getOwnerStoreMenuHandler();

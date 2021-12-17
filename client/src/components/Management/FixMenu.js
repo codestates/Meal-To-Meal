@@ -13,7 +13,7 @@ function FixMenu({ item, handleFixInputValue }) {
           className="FixMenu-menu-input"
           placeholder="메뉴 이름"
           defaultValue={item.menu_name}
-          onChange={handleFixInputValue('menu_name')}
+          onChange={handleFixInputValue('menu_name', item.id)}
         />
         <div className="FixMenu-menu-info-title">메뉴 가격</div>
         <input
@@ -21,7 +21,7 @@ function FixMenu({ item, handleFixInputValue }) {
           placeholder="숫자만 입력해 주세요."
           type="number"
           defaultValue={item.menu_price}
-          onChange={handleFixInputValue('menu_price')}
+          onChange={handleFixInputValue('menu_price', item.id)}
         />
       </div>
     </div>

@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import DaumPostcode from 'react-daum-postcode';
 import axios from 'axios';
+import S3FileUpload from 'react-s3';
+import { v4 as uuid } from 'uuid';
 import AddMenu from '../components/Management/AddMenu';
 import AddedMenu from '../components/Management/AddedMenu';
 
@@ -12,13 +14,10 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   const [addressDetail, setAddressDetail] = useState('주소');
   const [fullAddress, setFullAddress] = useState('');
   const [location, setLocation] = useState({ lat: null, lng: null });
-
-  const [store, setStore] = useState();
-  // 이 store는 내가 등록할 모든 가게의 정보가 다 담겨 있스
   const [menuList, setMenuList] = useState([]);
   const [menuInfo, setMenuInfo] = useState({ menu_name: '', menu_price: '' });
-
   const [isOpenSearchAddress, setIsOpenSearchAddress] = useState(false);
+  const [url, setUrl] = useState('');
 
   const searchAddressHandler = () => {
     setIsOpenSearchAddress(!isOpenSearchAddress);
@@ -26,6 +25,14 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
 
   const onHandleChange = e => {
     setFullAddress(`${addressDetail} ${e.target.value}`);
+  };
+
+  const imgRef = useRef();
+  const config = {
+    bucketName: 'meal2sdk',
+    region: 'ap-northeast-2',
+    accessKeyId: `${process.env.REACT_APP_SDK_ACCESSKEY_ID}`,
+    secretAccessKey: `${process.env.REACT_APP_SDK_SECRETACCESS_KEY}`,
   };
 
   const handleInputValue = key => e => {
@@ -127,8 +134,21 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
       <div className="AddStore-container">
         <div className="AddStore-store-title-container">
           <div className="AddStore-title">가게 정보 등록</div>
-          <img className="AddStore-store-img" src={require('../img/dummy/store1.png').default} alt="" />
-          <input type="file" className="AddStore-store-img-add-input" />
+          <img
+            className="AddStore-store-img"
+            src={url}
+            ref={imgRef}
+            alt=""
+            onError={() => {
+              return (imgRef.current.src = 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg');
+            }}
+          />
+          <input
+            type="file"
+            className="AddStore-store-img-add-input"
+            accept="image/*"
+            onChange={handleStoreInputValue('store_image')}
+          />
           <div className="AddStore-store-text">상호명</div>
           <input
             className="AddStore-store-info-input"

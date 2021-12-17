@@ -112,6 +112,7 @@ module.exports = {
       res.status(401).json({ message: '로그인이 필요합니다' });
     } else {
       try {
+        console.log('--------------------------------', menuInfo);
         const findStore = await store.findOne({ where: { user_id: userInfo.id } });
         await findStore.update({
           store_image: store_image || '',
@@ -124,8 +125,8 @@ module.exports = {
           store_lng: store_lng,
         });
         for (let i = 0; i < menuInfo.length; i++) {
-          const findMenu = await menu.findOne({ where: { menu_name: menuInfo[i].menu_name, store_id: findStore.id } });
-          if (findMenu) {
+          if (menuInfo[i].id) {
+            const findMenu = await menu.findOne({ where: { id: menuInfo[i].id } });
             await findMenu.update({
               menu_image: menuInfo[i].menu_image || `https://meal2sdk.s3.amazonaws.com/-001_12.jpg`,
               menu_name: menuInfo[i].menu_name,
