@@ -131,7 +131,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  max-width: 100%;
+  width: 100%;
 }
 
 .phone-modal-backdrop {
@@ -150,7 +150,6 @@
 .phone-modal-window {
   font-size: 17px;
   width: 250px;
-  height: 150px;
   border: 3px solid #ffcc1d;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -177,7 +176,7 @@
 }
 
 .phone-modal-text {
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 .phone-modal-close {
@@ -223,9 +222,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -233,7 +232,7 @@
 
 .phone-modal-verification-input {
   padding: 5px;
-  margin-right: 35px;
+  margin-right: 5px;
   -webkit-transition: 120ms ease all;
   transition: 120ms ease all;
 }
@@ -245,13 +244,14 @@
 
 .phone-modal-verification-submit {
   width: 120px;
+  margin: 0;
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
   .phone-modal-window {
     font-size: 23px;
     width: 350px;
-    height: 300px;
+    padding-top: 15px;
   }
   .phone-modal-content-container {
     display: -webkit-box;
@@ -264,7 +264,7 @@
     width: 100%;
   }
   .phone-modal-number-input {
-    font-size: 21px;
+    font-size: 20px;
   }
   .phone-modal-number-submit {
     margin-left: 0px;
@@ -278,7 +278,8 @@
     margin-top: 15px;
   }
   .phone-modal-verification-input {
-    font-size: 21px;
+    font-size: 25px;
+    width: 50%;
   }
   .phone-modal-verification-submit {
     font-size: 20px;
@@ -290,14 +291,13 @@
   .phone-modal-window {
     font-size: 25px;
     width: 450px;
-    height: 280px;
   }
   .phone-modal-title-container {
     margin-top: 5px;
     margin-bottom: 20px;
   }
   .phone-modal-number-input {
-    font-size: 23px;
+    font-size: 25px;
   }
   .phone-modal-number-submit {
     margin-left: 0px;
@@ -305,13 +305,13 @@
     height: 40px;
   }
   .phone-modal-number-alert-text {
-    font-size: 19px;
+    font-size: 20px;
   }
   .phone-modal-verification-container {
-    margin-top: 15px;
+    margin-top: 10px;
   }
   .phone-modal-verification-input {
-    font-size: 23px;
+    font-size: 20px;
   }
   .phone-modal-verification-submit {
     font-size: 20px;
@@ -407,6 +407,7 @@
 .mypage-title {
   margin-bottom: 5px;
   font-size: 20px;
+  font-weight: bolder;
 }
 
 .mypage-myinfo-container {
@@ -613,11 +614,11 @@
 
 @media (min-width: 758px) and (max-width: 1023px) {
   .mypage-container {
-    margin-top: 80px;
+    margin: 70px 0 20px 0;
     font-size: 20px;
   }
   .mypage-title {
-    font-size: 28px;
+    font-size: 30px;
     margin-bottom: 10px;
   }
   .mypage-myinfo-nickname {

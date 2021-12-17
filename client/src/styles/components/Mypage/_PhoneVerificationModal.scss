@@ -3,7 +3,7 @@
 .phone-modal-container {
   display: flex;
   justify-content: space-between;
-  max-width: 100%;
+  width: 100%;
 }
 
 .phone-modal-backdrop {
@@ -21,7 +21,6 @@
 .phone-modal-window {
   font-size: 17px;
   width: 250px;
-  height: 150px;
   border: 3px solid #ffcc1d;
   display: flex;
   flex-direction: column;
@@ -37,7 +36,7 @@
 }
 
 .phone-modal-text {
-  font-weight: bold;
+  font-weight: bolder;
 }
 
 .phone-modal-close {
@@ -75,13 +74,13 @@
 
 .phone-modal-verification-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 
 .phone-modal-verification-input {
   padding: 5px;
-  margin-right: 35px;
+  margin-right: 5px;
   transition: 120ms ease all;
 
   &:focus {
@@ -92,13 +91,14 @@
 
 .phone-modal-verification-submit {
   width: 120px;
+  margin: 0;
 }
 
 @include tablet {
   .phone-modal-window {
     font-size: 23px;
     width: 350px;
-    height: 300px;
+    padding-top: 15px;
   }
 
   .phone-modal-content-container {
@@ -108,7 +108,7 @@
   }
 
   .phone-modal-number-input {
-    font-size: 21px;
+    font-size: 20px;
   }
 
   .phone-modal-number-submit {
@@ -126,7 +126,8 @@
   }
 
   .phone-modal-verification-input {
-    font-size: 21px;
+    font-size: 25px;
+    width: 50%;
   }
 
   .phone-modal-verification-submit {
@@ -139,7 +140,6 @@
   .phone-modal-window {
     font-size: 25px;
     width: 450px;
-    height: 280px;
   }
 
   .phone-modal-title-container {
@@ -148,7 +148,7 @@
   }
 
   .phone-modal-number-input {
-    font-size: 23px;
+    font-size: 25px;
   }
 
   .phone-modal-number-submit {
@@ -158,15 +158,15 @@
   }
 
   .phone-modal-number-alert-text {
-    font-size: 19px;
+    font-size: 20px;
   }
 
   .phone-modal-verification-container {
-    margin-top: 15px;
+    margin-top: 10px;
   }
 
   .phone-modal-verification-input {
-    font-size: 23px;
+    font-size: 20px;
   }
 
   .phone-modal-verification-submit {

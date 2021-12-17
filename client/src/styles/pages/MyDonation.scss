@@ -12,20 +12,16 @@
 .mydonation-ranking-title {
   margin-bottom: 5px;
   font-size: 20px;
+  font-weight: bolder;
 }
 
 .mydonation-ranking-container {
   border: 3px solid #ffcc1d;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 5px;
-}
-
-.mydonation-money-ranking {
-  margin-top: 10px;
-  font-weight: bold;
 }
 
 .mydonation-money-image {
@@ -35,12 +31,13 @@
 .mydonation-history-title {
   margin-top: 15px;
   font-size: 20px;
+  font-weight: bolder;
 }
 
 .mydonation-history-container {
   margin: 5px 0 70px 0;
   border: 3px solid #ffcc1d;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 5px;
   overflow: auto;
 }
@@ -48,7 +45,7 @@
 @include tablet {
   .mydonation-container {
     margin-top: 60px;
-    min-height: 80.8vh;
+    min-height: 82.5vh;
   }
 
   .mydonation-ranking-title {
@@ -91,6 +88,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 50px;
   }
 
   .mydonation-ranking-text-container {
@@ -98,12 +96,10 @@
   }
 
   .mydonation-money-total {
-    font-size: 30px;
-    height: 80px;
-  }
-
-  .mydonation-money-ranking {
     font-size: 35px;
+    height: 80px;
+    width: 500px;
+    line-height: 40px;
   }
 
   .mydonation-money-image {
@@ -120,6 +116,7 @@
 
   .mydonation-history-container {
     margin-bottom: 10px;
+    min-height: 69.1vh;
   }
 
   .mydonation-history-title {

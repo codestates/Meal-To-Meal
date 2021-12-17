@@ -53,22 +53,24 @@ function UserMeal({ navigate, getImage, emptyOrderAniText, setEmptyOrderAniText 
           ) : (
             <div className="usermeal-container">
               <div className="usermeal-order-food-info-container">
-                <div className="usermeal-reservation-container">
+                <div className="usermeal-order-food-reservation-container">
                   <div className="usermeal-title">예약 내역</div>
-                  <div className="usermeal-store-title-container">
-                    <img className="usermeal-category-icon" src={icon} alt="" />
-                    <div className="usermeal-store-title">{orderedMeal[0].menu.store.store_name}</div>
-                  </div>
-                  <div className="usermeal-store-img-container">
-                    <img className="usermeal-store-image" src={orderedMeal[0].menu.store.store_image} alt="" />
-                  </div>
-                  <div className="usermeal-address-container">
-                    <i className="fas fa-map-marker-alt" />
-                    <div className="usermeal-address-text">{orderedMeal[0].menu.store.store_address}</div>
-                  </div>
-                  <div className="usermeal-description-container">
-                    <i className="fas fa-utensils" />
-                    <div className="usermeal-description-text">{orderedMeal[0].menu.store.store_description}</div>
+                  <div className="usermeal-reservation-container">
+                    <div className="usermeal-store-title-container">
+                      <img className="usermeal-category-icon" src={icon} alt="" />
+                      <div className="usermeal-store-title">{orderedMeal[0].menu.store.store_name}</div>
+                    </div>
+                    <div className="usermeal-store-img-container">
+                      <img className="usermeal-store-image" src={orderedMeal[0].menu.store.store_image} alt="" />
+                    </div>
+                    <div className="usermeal-address-container">
+                      <i className="fas fa-map-marker-alt" />
+                      <div className="usermeal-address-text">{orderedMeal[0].menu.store.store_address}</div>
+                    </div>
+                    <div className="usermeal-description-container">
+                      <i className="fas fa-utensils" />
+                      <div className="usermeal-description-text">{orderedMeal[0].menu.store.store_description}</div>
+                    </div>
                   </div>
                 </div>
                 <div className="usermeal-ordered-info-container">

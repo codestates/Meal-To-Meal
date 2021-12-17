@@ -169,10 +169,10 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
             <div className="daum-postcode-backdrop">
               <div className="daum-postcode-window">
                 <DaumPostcode autoClose onComplete={onCompletePost} />
+                <button className="daum-postcode-close" onClick={searchAddressHandler}>
+                  닫기
+                </button>
               </div>
-              <button className="daum-postcode-close" onClick={searchAddressHandler}>
-                닫기
-              </button>
             </div>
           ) : null}
           <div className="AddStore-store-address">{address}</div>

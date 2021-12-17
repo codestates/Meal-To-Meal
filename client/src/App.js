@@ -7,6 +7,7 @@ import Alert from './components/Alert/Alert';
 import WarningAlert from './components/Alert/WarningAlert';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Loading from './components/Loading';
 import UnderbarLogin from './components/Underbar/UnderbarLogin';
 import UnderbarNotLogin from './components/Underbar/UnderbarNotLogin';
 import NotFound from './pages/NotFound';
@@ -25,7 +26,7 @@ import MyDonation from './pages/MyDonation';
 
 // 카테고리 이미지
 import 분식 from './img/category/분식.png';
-import 빵 from './img/category/빵.png';
+import 빵 from './img/category/베이커리.png';
 import 야식 from './img/category/야식.png';
 import 양식 from './img/category/양식.png';
 import 일식 from './img/category/일식.png';
@@ -41,6 +42,7 @@ axios.defaults.withCredentials = true;
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [kakaoLogin, setKakaoLogin] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [isOpenAlert, setIsOpenAlert] = useState(false);
   const [isOpenWarningAlert, setIsOpenWarningAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
@@ -95,6 +97,7 @@ function App() {
         )
         .then(res => {
           setKakaoLogin(true);
+          setIsLoading(false);
           localStorage.setItem('accessToken', res.data.accessToken);
           setIsLogin(true);
           navigate('/maps');
@@ -110,6 +113,7 @@ function App() {
     const url = new URL(window.location.href);
     const authorizationCode = url.searchParams.get('code');
     if (authorizationCode) {
+      setIsLoading(true);
       getAccessToken(authorizationCode);
     } else {
       issueTokens();
@@ -272,7 +276,7 @@ function App() {
           }
         />
         <Route path="/usermeal" element={<UserMeal navigate={navigate} getImage={getImage} />} />
-        <Route path="/mydonation" element={<MyDonation />} />
+        <Route path="/mydonation" element={<MyDonation getImage={getImage} />} />
       </Routes>
       {isLogin ? (
         <UnderbarLogin
@@ -307,6 +311,7 @@ function App() {
       {isOpenWarningAlert ? (
         <WarningAlert openWarningAlertHandler={openWarningAlertHandler} alertMessage={alertMessage} />
       ) : null}
+      {isLoading ? <Loading /> : null}
       <Footer />
     </div>
   );
