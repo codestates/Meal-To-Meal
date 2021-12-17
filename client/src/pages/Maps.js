@@ -59,7 +59,7 @@ const Map = () => {
 
   return (
     <GoogleMap
-      center={{ lat: Number(isChangeCenter.lat) + 0.01, lng: Number(isChangeCenter.lng) }}
+      center={{ lat: Number(isChangeCenter.lat), lng: Number(isChangeCenter.lng) }}
       zoom={isChangeCenter.zoom}
       options={{ disableDefaultUI: true, minZoom: 9, maxZoom: 18 }}
     >
@@ -80,7 +80,6 @@ const Map = () => {
           }}
           icon={{ url: getImage(el.store_category) }}
           onClick={() => {
-            marker.current.context.__SECRET_MAP_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.zoom = 15;
             setIsChangeCenter({ lat: Number(el.store_lat), lng: Number(el.store_lng) });
             setSelected(el);
             localStorage.setItem('clickedMarker', el.id);
@@ -88,7 +87,7 @@ const Map = () => {
           ref={marker}
         >
           {selected && selected.id === el.id && (
-            <InfoWindow>
+            <InfoWindow onCloseClick={() => setSelected(null)}>
               <StoreInfoWindow storeData={el} navigate={navigate} />
             </InfoWindow>
           )}
@@ -100,7 +99,11 @@ const Map = () => {
         setSearchResult={setSearchResult}
       />
       {isOpenSearchResultSidebar ? (
-        <SearchResultSidebar searchResult={searchResult} setIsChangeCenter={setIsChangeCenter} />
+        <SearchResultSidebar
+          searchResult={searchResult}
+          setIsChangeCenter={setIsChangeCenter}
+          setSelected={setSelected}
+        />
       ) : null}
     </GoogleMap>
   );

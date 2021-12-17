@@ -48,6 +48,10 @@ module.exports = (sequelize, DataTypes) => {
       verification_code: {
         type: DataTypes.STRING,
       },
+      kakao_id: {
+        type: DataTypes.STRING,
+        defaultValue: '',
+      },
     },
     {
       sequelize,
