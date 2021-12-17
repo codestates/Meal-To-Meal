@@ -124,12 +124,22 @@ module.exports = {
           store_lng: store_lng,
         });
         for (let i = 0; i < menuInfo.length; i++) {
-          const findMenu = await menu.findOne({ where: { id: menuInfo[i].menu_id } });
-          await findMenu.update({
-            menu_image: menuInfo[i].menu_image || '',
-            menu_name: menuInfo[i].menu_name,
-            menu_price: menuInfo[i].menu_price,
-          });
+          const findMenu = await menu.findOne({ where: { menu_name: menuInfo[i].menu_name, store_id: findStore.id } });
+          if (findMenu) {
+            await findMenu.update({
+              menu_image: menuInfo[i].menu_image || `https://meal2sdk.s3.amazonaws.com/-001_12.jpg`,
+              menu_name: menuInfo[i].menu_name,
+              menu_price: menuInfo[i].menu_price,
+            });
+          } else {
+            await menu.create({
+              store_id: findStore.id,
+              menu_image: menuInfo[i].menu_image || `https://meal2sdk.s3.amazonaws.com/-001_12.jpg`,
+              menu_name: menuInfo[i].menu_name,
+              menu_price: menuInfo[i].menu_price,
+              menu_order_quantity: 0,
+            });
+          }
         }
         res.status(200).json({ message: '정보 수정이 완료되었습니다.' });
       } catch (err) {
