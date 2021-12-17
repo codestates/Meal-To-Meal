@@ -4,7 +4,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 0 100px 0;
+  padding: 20px 0 100px 0;
+  width: 100%;
 }
 
 .landing-introduce-ani-container {
@@ -26,24 +27,25 @@
 }
 
 .landing-logo-img {
-  width: 100px;
-  margin-bottom: 10px;
+  width: 90px;
+  margin-bottom: 5px;
 }
 
 .landing-catchphrase {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bolder;
   text-align: center;
-  width: 200px;
-  margin-bottom: 20px;
-  line-height: 40px;
+  width: 170px;
+  margin-bottom: 10px;
+  line-height: 30px;
 }
 
 .landing-catchphrase-sub {
   font-size: 15px;
   text-align: center;
   margin-bottom: 10px;
-  line-height: 30px;
+  line-height: 20px;
+  opacity: 0.5;
 }
 
 .landing-start-button,
@@ -52,10 +54,10 @@
   color: white;
   font-size: 20px;
   font-weight: bolder;
-  height: 40px;
+  height: 30px;
   border: none;
   box-shadow: gray 3px 3px 3px;
-  margin-bottom: 10px;
+  margin: 5px 0 20px 0;
   transition: 140ms ease all;
 
   &:hover {
@@ -85,31 +87,40 @@
   margin-bottom: 0px;
 }
 
-.landing-tutorials-container {
+.landing-tutorials-container-right {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-bottom: 50px;
-  background-color: #f3f5f7;
-  padding: 10px;
-  width: 100%;
+  padding: 30px;
+  width: 80%;
 }
 
 .landing-tutorials-container-left {
+  background-color: #f3f5f7;
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
-  margin-bottom: 50px;
-  padding: 10px;
+  padding: 30px;
+  width: 80%;
 }
 
-.landing-tutorials-info-title,
+.landing-tutorial-info-text-container-right,
+.landing-tutorial-info-text-container-left {
+  width: 100%;
+  line-height: 30px;
+  margin: 30px;
+}
+
+.landing-tutorials-info-title-right,
 .landing-tutorials-info-title-left {
   font-size: 25px;
+  line-height: 35px;
+  margin-bottom: 15px;
 }
 
-.landing-tutorials-info-gif,
+.landing-tutorials-info-gif-right,
 .landing-tutorials-info-gif-left {
   width: 270px;
   height: 151.87px;
@@ -118,10 +129,9 @@
   border-radius: 5px;
 }
 
-.landing-tutorials-info-text,
+.landing-tutorials-info-text-right,
 .landing-tutorials-info-text-left {
-  line-height: 30px;
-  width: 600px;
+  line-height: 25px;
   font-size: 15px;
   opacity: 0.5;
 }
@@ -151,25 +161,34 @@
     margin-bottom: 30px;
   }
 
-  .landing-tutorials-info-title,
+  .landing-tutorials-container-right,
+  .landing-tutorials-container-left {
+    width: 100%;
+  }
+
+  .landing-tutorials-info-title-right,
   .landing-tutorials-info-title-left {
     font-size: 30px;
     margin-bottom: 10px;
   }
 
-  .landing-tutorials-info-gif,
+  .landing-tutorials-info-gif-right,
   .landing-tutorials-info-gif-left {
     width: 730px;
     height: 410.625px;
   }
 
-  .landing-tutorials-info-text,
+  .landing-tutorials-info-text-right,
   .landing-tutorials-info-text-left {
     font-size: 20px;
   }
 }
 
 @include desktop {
+  .landing-container {
+    width: 100%;
+  }
+
   .landing-introduce-ani-container {
     flex-direction: row;
     justify-content: space-between;
@@ -183,13 +202,13 @@
   }
 
   .landing-logo-img {
-    width: 280px;
+    width: 230px;
     margin-bottom: 30px;
   }
 
   .landing-catchphrase {
     text-align: start;
-    width: 700px;
+    width: 640px;
     font-size: 35px;
     word-spacing: 10px;
     line-height: 42px;
@@ -199,27 +218,28 @@
     text-align: start;
     width: 80%;
     font-size: 25px;
+    line-height: 37px;
   }
 
   .landing-start-button {
     font-size: 35px;
     width: 100%;
-    height: 75px;
+    height: 82px;
     padding: 0;
-    margin: 3% 0 0 0;
+    margin-top: 20px;
   }
 
   .landing-ani {
     width: 50%;
   }
 
-  .landing-tutorials-container {
+  .landing-tutorials-container-right {
     width: 100%;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 0;
-    padding: 10px 0 10px 0;
+    margin: 0;
+    padding: 30px 0;
     border-bottom: 1px solid whitesmoke;
   }
 
@@ -228,12 +248,12 @@
     flex-direction: row-reverse;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: 0;
-    padding: 10px 0 10px 0;
+    margin: 0;
+    padding: 30px 0;
     border-bottom: 1px solid whitesmoke;
   }
 
-  .landing-tutorial-info-text-container {
+  .landing-tutorial-info-text-container-right {
     text-align: start;
   }
 
@@ -241,22 +261,22 @@
     text-align: end;
   }
 
-  .landing-tutorials-info-title,
+  .landing-tutorials-info-title-right,
   .landing-tutorials-info-title-left {
     margin-bottom: 30px;
     font-size: 35px;
   }
 
-  .landing-tutorials-info-text,
+  .landing-tutorials-info-text-right,
   .landing-tutorials-info-text-left {
     font-size: 25px;
   }
 
-  .landing-tutorials-info-gif,
+  .landing-tutorials-info-gif-right,
   .landing-tutorials-info-gif-left {
     width: 900px;
     height: 506.25px;
-    margin: 50px 0 50px 0;
+    margin: 50px;
   }
 
   .landing-start-button-bottom {
