@@ -101,6 +101,8 @@ function UserMeal({ navigate, getImage, openWarningAlertHandler, openAlertHandle
           openReviewModalHandler={openReviewModalHandler}
           orderedMeal={orderedMeal}
           setOrderedMeal={setOrderedMeal}
+          setAlertMessage={setAlertMessage}
+          openAlertHandler={openAlertHandler}
           icon={icon}
           setAlertMessage={setAlertMessage}
           openWarningAlertHandler={openWarningAlertHandler}

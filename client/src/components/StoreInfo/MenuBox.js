@@ -72,7 +72,6 @@ function MenuBox({
           navigate('/usermeal');
         })
         .catch(err => {
-          console.log(err.response.data.message);
           if (err.response.data.message === '인증되지 않은 사용자입니다') {
             setAlertMessage('휴대폰 인증이 필요한 서비스입니다');
             openWarningAlertHandler();

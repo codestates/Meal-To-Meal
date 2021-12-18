@@ -334,6 +334,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
           ))}
           <div className="AddStore-add-menu-container">
             <AddMenu
+              addMenuHandler={addMenuHandler}
               menuUrl={menuUrl}
               addMenuImgRef={addMenuImgRef}
               uploadImage={uploadImage}

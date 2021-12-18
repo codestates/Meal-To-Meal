@@ -94,7 +94,6 @@ module.exports = {
     }
   },
   put: async (req, res) => {
-    console.log(req.body);
     const userInfo = checkTokens(req);
     const {
       store_image,
@@ -112,18 +111,24 @@ module.exports = {
     } else {
       try {
         const findStore = await store.findOne({ where: { user_id: userInfo.id } }).catch(err => console.log(err));
-        await findStore
-          .update({
-            store_image: store_image || '',
-            store_name: store_name,
-            store_category: store_category,
-            store_description: store_description,
-            business_hour: business_hour,
-            store_address: store_address,
-            store_lat: store_lat,
-            store_lng: store_lng,
-          })
-          .catch(err => console.log(err));
+        await findStore.update({
+          store_image: store_image || '',
+          store_name: store_name,
+          store_category: store_category,
+          store_description: store_description,
+          business_hour: business_hour,
+          store_address: store_address,
+          store_lat: store_lat,
+          store_lng: store_lng,
+        });
+        const allMenu = await menu.findAll({ where: { store_id: findStore.id } });
+        const allMenuIds = allMenu.map(el => el.id);
+        const menuIds = menuInfo.map(el => el.id);
+        const deledtedIds = allMenuIds.filter(el => !menuIds.includes(el));
+        for (let i = 0; i < deledtedIds.length; i++) {
+          await menu.destroy({ where: { id: deledtedIds[i] } });
+        }
+
         for (let i = 0; i < menuInfo.length; i++) {
           if (menuInfo[i].id) {
             const findMenu = await menu.findOne({ where: { id: menuInfo[i].id } }).catch(err => console.log(err));
