@@ -1,26 +1,19 @@
 import React from 'react';
 
-function FixMenu({ item, handleFixInputValue, menuUrl, uploadImage, imgRef }) {
+function FixMenu({ fixedMenuImgRef, deleteMenuHandler, handleFixInputValue, item, img }) {
   return (
     <div className="FixMenu-container">
       <div className="FixMenu-add-img-container">
         <img
           className="FixMenu-img"
-          src={menuUrl}
-          ref={imgRef}
+          src={img}
+          ref={fixedMenuImgRef}
           alt=""
           onError={() => {
-            return (imgRef.current.src = 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg');
+            return (fixedMenuImgRef.current.src = 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg');
           }}
         />
-        <input
-          type="file"
-          className="FixMenu-menu-img-input"
-          accept="image/*"
-          onChange={e => {
-            uploadImage(e)('menu_image');
-          }}
-        />
+        <input type="file" className="FixMenu-menu-img-input" />
       </div>
       <div className="FixMenu-menu-info-container">
         <div className="FixMenu-menu-info-title">메뉴 이름</div>
@@ -38,6 +31,9 @@ function FixMenu({ item, handleFixInputValue, menuUrl, uploadImage, imgRef }) {
           defaultValue={item.menu_price}
           onChange={handleFixInputValue('menu_price', item.id)}
         />
+        <button className="FixMenu-menu-delete-button" onClick={() => deleteMenuHandler(item.id)}>
+          삭제
+        </button>
       </div>
     </div>
   );

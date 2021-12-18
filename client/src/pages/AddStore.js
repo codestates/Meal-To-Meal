@@ -17,7 +17,8 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   const [menuList, setMenuList] = useState([]);
   const [menuInfo, setMenuInfo] = useState({ menu_name: '', menu_price: '' });
   const [isOpenSearchAddress, setIsOpenSearchAddress] = useState(false);
-  const [url, setUrl] = useState('');
+  const [storeUrl, setStoreUrl] = useState('');
+  const [menuUrl, setMenuUrl] = useState([{ addMenuUrl: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg' }]);
   const [newStoreInfo, setNewStoreInfo] = useState({
     store_image: '',
     store_name: '',
@@ -39,6 +40,9 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   };
 
   const imgRef = useRef();
+  const addMenuImgRef = useRef();
+  const addedMenuImgRef = useRef();
+
   const config = {
     bucketName: 'meal2sdk',
     region: 'ap-northeast-2',
@@ -50,8 +54,13 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
     e.target.files[0].newName = `${uuid()}.${e.target.files[0].type.split('/')[1]}`;
     S3FileUpload.uploadFile(e.target.files[0], config)
       .then(data => {
-        setUrl(data.location);
-        handleStoreInputValue('store_image')(e);
+        if (key === 'add_menu_image') {
+          setMenuUrl([{ addMenuUrl: data.location }]);
+          handleStoreInputValue('menu_image')(e);
+        } else {
+          setStoreUrl(data.location);
+          handleStoreInputValue('store_image')(e);
+        }
         setNewStoreInfo({ ...newStoreInfo, [key]: data.location });
       })
       .catch(err => {
@@ -61,6 +70,7 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   };
 
   const handleStoreInputValue = key => e => {
+    // 가게 등록 정보 입력
     setNewStoreInfo({ ...newStoreInfo, [key]: e.target.value });
   };
 
@@ -71,7 +81,7 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   const addMenuHandler = () => {
     setMenuList([
       ...menuList,
-      { menu_name: menuInfo.menu_name, menu_price: menuInfo.menu_price, menu_image: menuInfo.menu_image },
+      { menu_name: menuInfo.menu_name, menu_price: menuInfo.menu_price, menu_image: menuUrl[0].addMenuUrl },
     ]);
   };
 
@@ -152,7 +162,7 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
           <div className="AddStore-title">가게 정보 등록</div>
           <img
             className="AddStore-store-img"
-            src={url}
+            src={storeUrl}
             ref={imgRef}
             alt=""
             onError={() => {
@@ -174,7 +184,7 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
             onChange={handleStoreInputValue('store_name')}
           />
           <div className="AddStore-store-text">카테고리</div>
-          <select className="AddStore-store-info input" onChange={handleStoreInputValue('store_category')}>
+          <select className="AddStore-store-info-input" onChange={handleStoreInputValue('store_category')}>
             <option value="카테고리 선택">카테고리 선택</option>
             <option value="베이커리">베이커리</option>
             <option value="분식">분식</option>
@@ -220,12 +230,17 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
           {menuList.length !== 0
             ? menuList.map(item => (
                 <div className="AddStore-add-menu-container">
-                  <AddedMenu item={item} />
+                  <AddedMenu key={item.id} addedMenuImgRef={addedMenuImgRef} item={item} img={item.menu_image} />
                 </div>
               ))
             : null}
           <div className="AddStore-add-menu-container">
-            <AddMenu handleInputValue={handleInputValue} menuInfo={menuInfo} />
+            <AddMenu
+              menuUrl={menuUrl}
+              addMenuImgRef={addMenuImgRef}
+              uploadImage={uploadImage}
+              handleInputValue={handleInputValue}
+            />
           </div>
           <button className="AddStore-add-menu-button" onClick={() => addMenuHandler()}>
             + 저장 후 다음 메뉴 추가
