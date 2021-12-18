@@ -48,7 +48,6 @@ function Management({ navigate, getImage, setAlertMessage, openAlertHandler, ope
         })
         .catch(err => {
           console.log(err);
-          console.log(err.response);
         });
     }
   };

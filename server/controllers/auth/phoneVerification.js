@@ -46,7 +46,6 @@ module.exports = {
   },
 
   complete: async (req, res) => {
-    console.log('----------서버 req', req.body);
     const userInfo = checkTokens(req);
     const { verification_code, user_phone_number } = req.body;
     const matchedUser = await user.findOne({ where: { id: userInfo.id } });
@@ -60,7 +59,6 @@ module.exports = {
         res.status(400).json({ message: '인증 코드를 확인해주세요' });
       }
     } catch (err) {
-      console.log('--------------------------------', err.message);
       res.status(400).json({ message: err.message });
     }
   },
