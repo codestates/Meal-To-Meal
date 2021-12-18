@@ -101,6 +101,8 @@ function UserMeal({ navigate, getImage, openAlertHandler, setAlertMessage }) {
           openReviewModalHandler={openReviewModalHandler}
           orderedMeal={orderedMeal}
           setOrderedMeal={setOrderedMeal}
+          setAlertMessage={setAlertMessage}
+          openAlertHandler={openAlertHandler}
           icon={icon}
         />
       ) : null}

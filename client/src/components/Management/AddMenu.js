@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-function AddMenu({ handleInputValue, uploadImage, menuUrl, addMenuImgRef }) {
+function AddMenu({ addMenuHandler, handleInputValue, uploadImage, menuUrl, addMenuImgRef }) {
+  const [defaultValue, setDefaultValue] = useState('');
+
+  useEffect(() => {
+    setDefaultValue('');
+  }, [addMenuHandler]);
   return (
     <div className="AddedMenu-container">
       <div className="AddMenu-add-img-container">
@@ -24,13 +29,19 @@ function AddMenu({ handleInputValue, uploadImage, menuUrl, addMenuImgRef }) {
       </div>
       <div className="AddMenu-menu-info-container">
         <div className="AddMenu-menu-info-title">메뉴 이름</div>
-        <input className="AddMenu-menu-input" placeholder="메뉴 이름" onChange={handleInputValue('menu_name')} />
+        <input
+          defaultValue={defaultValue}
+          className="AddMenu-menu-input"
+          placeholder="메뉴 이름"
+          onChange={handleInputValue('menu_name')}
+        />
         <div className="AddMenu-menu-info-title">메뉴 가격</div>
         <input
           className="AddMenu-menu-input"
           placeholder="숫자만 입력해 주세요."
           type="number"
           min="1000"
+          defaultValue={defaultValue}
           onChange={handleInputValue('menu_price')}
         />
       </div>

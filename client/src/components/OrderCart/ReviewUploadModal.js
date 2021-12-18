@@ -39,7 +39,6 @@ function ReviewUploadModal({
   };
 
   const uploadImage = file => {
-    console.log(file);
     file.newName = `${uuid()}.${file.type.split('/')[1]}`;
     setSelectedFile(file);
     S3FileUpload.uploadFile(file, config)
@@ -87,6 +86,7 @@ function ReviewUploadModal({
       })
       .catch(err => {
         console.log(err);
+
         alert('리뷰 등록 에러남!');
       });
   };
