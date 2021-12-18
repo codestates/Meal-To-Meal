@@ -6,7 +6,7 @@ import EmptyOrderAni from '../components/OrderCart/EmptyOrderAni';
 import Loading from '../components/Loading';
 import '../styles/pages/UserMeal.css';
 
-function UserMeal({ navigate, getImage, openAlertHandler, setAlertMessage }) {
+function UserMeal({ navigate, getImage, openWarningAlertHandler, openAlertHandler, setAlertMessage }) {
   const accessToken = localStorage.getItem('accessToken');
   const [isLoading, setIsLoading] = useState(true);
   const [orderedMeal, setOrderedMeal] = useState([]);
@@ -102,6 +102,8 @@ function UserMeal({ navigate, getImage, openAlertHandler, setAlertMessage }) {
           orderedMeal={orderedMeal}
           setOrderedMeal={setOrderedMeal}
           icon={icon}
+          setAlertMessage={setAlertMessage}
+          openWarningAlertHandler={openWarningAlertHandler}
         />
       ) : null}
     </>

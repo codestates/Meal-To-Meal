@@ -8,6 +8,7 @@ function ReviewUploadModal({
   openReviewModalHandler,
   orderedMeal,
   setOrderedMeal,
+  openWarningAlertHandler,
   openAlertHandler,
   setAlertMessage,
 }) {
@@ -48,7 +49,8 @@ function ReviewUploadModal({
       })
       .catch(err => {
         console.log(err);
-        alert('사진용량 초과!');
+        setAlertMessage('사진용량이 초과되었습니다!');
+        openWarningAlertHandler();
       });
   };
 
@@ -87,7 +89,8 @@ function ReviewUploadModal({
       })
       .catch(err => {
         console.log(err);
-        alert('리뷰 등록 에러남!');
+        setAlertMessage('사진용량이 초과되었습니다!');
+        openWarningAlertHandler();
       });
   };
 

@@ -24,22 +24,6 @@ function Review({ navigate, alertMessage, setAlertMessage, openAlertHandler }) {
       });
   };
 
-  // ! 일단 안 쓰기로 합의했습니다.
-  const deleteReviewHandler = idx => {
-    axios
-      .delete(`${process.env.REACT_APP_API_URL}/review/${idx}`, {
-        headers: { authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
-        withCredentials: true,
-      })
-      .then(res => {
-        setAlertMessage('리뷰가 삭제되었습니다');
-        openAlertHandler();
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
   useEffect(() => {
     getDetailReviewHandler();
   }, [alertMessage]);
