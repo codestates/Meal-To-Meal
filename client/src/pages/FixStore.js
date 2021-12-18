@@ -130,8 +130,6 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
         });
     }
   };
-  console.log('newStoreInfo------', newStoreInfo);
-  console.log('ownerStoreInfo------', ownerStoreInfo);
 
   const getOwnerStoreMenuHandler = () => {
     if (!accessToken) {

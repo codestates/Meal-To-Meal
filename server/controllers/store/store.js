@@ -113,6 +113,7 @@ module.exports = {
       res.status(401).json({ message: '로그인이 필요합니다' });
     } else {
       try {
+        console.log('--------------------------------', menuInfo);
         const findStore = await store.findOne({ where: { user_id: userInfo.id } });
         await findStore.update({
           store_image: store_image || '',

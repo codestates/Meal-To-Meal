@@ -17,7 +17,8 @@
 .AddMenu-img {
   box-shadow: gray 2px 2px 2px;
   border-radius: 15px;
-  height: 120px;
+  width: 130px;
+  height: 73.125px;
   margin: 10px 15px 10px 10px;
 }
 
@@ -30,17 +31,21 @@
 .AddMenu-menu-info-container {
   display: flex;
   flex-direction: column;
+  margin: 10px;
+}
+
+.AddMenu-menu-container {
+  margin-bottom: 8px;
 }
 
 .AddMenu-menu-info-title {
   font-weight: bolder;
   font-size: 18px;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .AddMenu-menu-text {
-  font-size: 15px;
-  margin: 0 0 10px 5px;
+  font-size: 20px;
   opacity: 0.5;
 }
 
@@ -76,12 +81,12 @@
   }
 
   .AddMenu-img {
-    height: 190px;
+    width: 250px;
+    height: 140.625px;
   }
 
   .AddMenu-menu-info-title {
     font-size: 20px;
-    margin-bottom: 15px;
   }
 
   .AddMenu-menu-input {
@@ -89,6 +94,10 @@
     width: 100%;
     font-size: 20px;
     padding: 5px;
+  }
+
+  .AddMenu-menu-text {
+    font-size: 25px;
   }
 }
 
@@ -98,8 +107,8 @@
   }
 
   .AddMenu-img {
-    height: 290px;
-    max-width: 80%;
+    width: 310px;
+    height: 174.375px;
   }
 
   .AddMenu-menu-info-container {
@@ -115,5 +124,9 @@
     height: 30px;
     width: 80%;
     font-size: 25px;
+  }
+
+  .AddMenu-menu-text {
+    font-size: 28px;
   }
 }

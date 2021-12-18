@@ -24,6 +24,10 @@ module.exports = {
       kakao_oauth_token: {
         type: Sequelize.STRING,
       },
+      kakao_id: {
+        type: Sequelize.STRING,
+        defaultValue: '',
+      },
       signup_method: {
         type: Sequelize.STRING,
       },
