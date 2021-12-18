@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   border: 3px solid #ffcc1d;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 10px;
   margin-bottom: 15px;
 }
@@ -14,12 +14,15 @@
   height: 150px;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 30px;
+  box-shadow: gray 4px 4px 4px 4px;
 }
 
 .reviewBox-info-container {
   display: flex;
   flex-direction: column;
   margin-top: 15px;
+  width: 100%;
 }
 
 .reviewBox-reviewer-name {
@@ -28,12 +31,10 @@
 }
 
 .reviewBox-reviewer-review {
-  min-width: 300px;
-  max-width: 500px;
+  width: 100%;
   border-radius: 15px;
-  padding: 10px;
   word-break: keep-all;
-  margin: 10px;
+  margin: 5px 0 5px 0;
 }
 
 @include tablet {
@@ -54,6 +55,7 @@
   .reviewBox-info-container {
     margin: 15px 15px 15px 5px;
     font-size: 25px;
+    width: 50%;
   }
 }
 
@@ -68,8 +70,7 @@
     width: 300px;
     height: 168.75px;
     border-radius: 30px;
-    box-shadow: gray 4px 4px 4px 4px;
-    margin: 10px 70px 10px 10px;
+    margin: 15px;
   }
 
   .reviewBox-info-container {

@@ -35,7 +35,9 @@ function ReviewBox() {
         <>
           {storeReviews.map(el => (
             <div className="reviewBox-container">
-              <img className="storeinfo-food-image" src={el.review_image} alt="" />
+              <div className="reviewBox-food-img-container">
+                <img className="storeinfo-food-image" src={el.review_image} alt="" />
+              </div>
               <div className="reviewBox-info-container">
                 <div className="reviewBox-reviewer-name">{el.user.user_nickname}님</div>
                 <div className="reviewBox-reviewer-review">{el.review_content}</div>

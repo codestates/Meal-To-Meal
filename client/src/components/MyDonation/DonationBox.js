@@ -17,7 +17,7 @@ function DonationBox({ donationList }) {
                 <div className="donationbox-store-name-container">
                   <img
                     className="donationbox-store-category"
-                    src={require(`../../img/marker/${el.menu.store.store_category}.png`).default}
+                    src={require(`../../img/category/${el.menu.store.store_category}.png`).default}
                     alt=""
                   ></img>
                   <div className="donationbox-store-name">{el.menu.store.store_name}</div>
