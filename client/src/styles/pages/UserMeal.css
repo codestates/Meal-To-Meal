@@ -1,5 +1,6 @@
 .ordered-food-container {
   border: 3px solid #ffcc1d;
+  border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -470,6 +471,7 @@
 .usermeal-reservation-container {
   margin-bottom: 20px;
   border: 3px solid #ffcc1d;
+  border-radius: 10px;
   padding: 15px;
 }
 
