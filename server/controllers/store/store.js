@@ -30,7 +30,6 @@ module.exports = {
         res.status(400).json({ message: '입력정보가 올바르지 않습니다' });
       } else {
         try {
-          console.log('--------------------------------', req.body);
           await store.create({
             user_id: userInfo.id,
             store_image: store_image || '',
@@ -91,12 +90,10 @@ module.exports = {
         res.json({ message: '권한이 없습니다' });
       }
     } catch (err) {
-      console.log(err.message);
       res.status(400).json({ message: err.message });
     }
   },
   put: async (req, res) => {
-    console.log(req.body);
     const userInfo = checkTokens(req);
     const {
       store_image,
@@ -142,6 +139,15 @@ module.exports = {
             });
           }
         }
+        const allMenu = await menu.findAll({ where: { store_id: findStore.id } });
+        console.log('allMenu==========================', allMenu);
+        for (let i = 0; i < allMenu.length; i++) {
+          const menuInfoIds = menuInfo.map(el => el.id);
+          console.log('menuInfoIds================================', menuInfoIds);
+          if (!menuInfoIds.includes(allMenu[i].id)) {
+            await menu.destroy({ where: { id: allMenu[i].id } });
+          }
+        }
         res.status(200).json({ message: '정보 수정이 완료되었습니다.' });
       } catch (err) {
         res.status(400).json({ message: '입력 정보가 올바르지 않습니다' });
@@ -155,7 +161,11 @@ module.exports = {
     } else {
       try {
         const { storeid } = req.params;
+        const findUser = await user.findOne({ where: { id: userInfo.id } });
         await store.destroy({ where: { id: storeid } });
+        await findUser.update({
+          is_owner: false,
+        });
         res.status(204).json({ message: '가게 삭제가 완료되었습니다.' });
       } catch (err) {
         res.status(400).json({ message: '가게 정보가 올바르지 않습니다' });

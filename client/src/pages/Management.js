@@ -3,12 +3,14 @@ import axios from 'axios';
 import ManagementMenuBox from '../components/Management/ManagementMenuBox';
 import ManagementMptyAni from '../components/Management/ManagementMptyAni';
 import '../styles/pages/Management.css';
+import Loading from '../components/Loading';
 
 function Management({ navigate, getImage, setAlertMessage, openAlertHandler, openWarningAlertHandler }) {
   const accessToken = localStorage.getItem('accessToken');
   const [icon, setIcon] = useState('');
   const [ownerStoreInfo, setOwnerStoreInfo] = useState([]);
   const [ownerStoreMenu, setOwnerStoreMenu] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const isStoreOwner = () => {
     if (!accessToken) {
@@ -28,9 +30,7 @@ function Management({ navigate, getImage, setAlertMessage, openAlertHandler, ope
             getOwnerStoreMenuHandler();
           }
         })
-        .catch(err => {
-          console.log(err);
-        });
+        .catch(err => {});
     }
   };
 
@@ -48,6 +48,7 @@ function Management({ navigate, getImage, setAlertMessage, openAlertHandler, ope
         })
         .catch(err => {
           console.log(err);
+          console.log(err.response);
         });
     }
   };
@@ -71,49 +72,62 @@ function Management({ navigate, getImage, setAlertMessage, openAlertHandler, ope
   };
 
   useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 300);
     isStoreOwner();
   }, [icon]);
 
   return (
     <>
-      {!ownerStoreInfo || ownerStoreInfo.length === 0 ? (
-        <ManagementMptyAni navigate={navigate} />
+      {isLoading ? (
+        <Loading />
       ) : (
-        <div className="management-page">
-          <div className="management-container">
-            <div className="management-title">나의 가게 정보</div>
-            <div className="management-store-info-container">
-              <div className="management-store-title-container">
-                <img className="management-store-category-icon" src={icon} alt="" />
-                <div className="management-store-title">{ownerStoreInfo.store_name}</div>
-                <div className="management-store-category">{ownerStoreInfo.store_category}</div>
-              </div>
-              <img className="management-store-img" src={ownerStoreInfo.store_image} alt="" />
-              <div className="management-store-detail-info-container">
-                <div className="management-detail-info">
-                  <img className="management-detail-icon" src={require('../img/marker.png').default} alt=""></img>
-                  <div className="management-detail-text">{ownerStoreInfo.store_address}</div>
+        <>
+          {!ownerStoreInfo || ownerStoreInfo.length === 0 ? (
+            <ManagementMptyAni navigate={navigate} />
+          ) : (
+            <div className="management-page">
+              <div className="management-container">
+                <div className="management-title">나의 가게 정보</div>
+                <div className="management-store-info-container">
+                  <div className="management-store-title-container">
+                    <img className="management-store-category-icon" src={icon} alt="" />
+                    <div className="management-store-title">{ownerStoreInfo.store_name}</div>
+                    <div className="management-store-category">{ownerStoreInfo.store_category}</div>
+                  </div>
+                  <img className="management-store-img" src={ownerStoreInfo.store_image} alt="" />
+                  <div className="management-store-detail-info-container">
+                    <div className="management-detail-info">
+                      <img className="management-detail-icon" src={require('../img/marker.png').default} alt=""></img>
+                      <div className="management-detail-text">{ownerStoreInfo.store_address}</div>
+                    </div>
+                    <div className="management-detail-info">
+                      <img
+                        className="management-detail-icon"
+                        src={require('../img/desciption.png').default}
+                        alt=""
+                      ></img>
+                      <div className="management-detail-text">{ownerStoreInfo.store_description}</div>
+                    </div>
+                  </div>
                 </div>
-                <div className="management-detail-info">
-                  <img className="management-detail-icon" src={require('../img/desciption.png').default} alt=""></img>
-                  <div className="management-detail-text">{ownerStoreInfo.store_description}</div>
+              </div>
+              <div className="management-store-menu-container">
+                <div className="management-title">메뉴</div>
+                <ManagementMenuBox ownerStoreMenu={ownerStoreMenu} />
+                <div className="management-button-container">
+                  <button className="management-button" onClick={() => navigate('/fixstore')}>
+                    수정
+                  </button>
+                  <button className="management-delete-button" onClick={deleteStoreHandler}>
+                    삭제
+                  </button>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="management-store-menu-container">
-            <div className="management-title">메뉴</div>
-            <ManagementMenuBox ownerStoreMenu={ownerStoreMenu} />
-            <div className="management-button-container">
-              <button className="management-button" onClick={() => navigate('/fixstore')}>
-                수정
-              </button>
-              <button className="management-delete-button" onClick={deleteStoreHandler}>
-                삭제
-              </button>
-            </div>
-          </div>
-        </div>
+          )}
+        </>
       )}
     </>
   );

@@ -10,6 +10,7 @@ function MenuBox({
   openWarningAlertHandler,
   isLogin,
   addToCart,
+  issueTokens,
   openLoginModalHandler,
 }) {
   const accessToken = localStorage.getItem('accessToken');
@@ -44,6 +45,7 @@ function MenuBox({
   }, []);
 
   const checkIsLoginToAddCart = el => {
+    issueTokens();
     if (!isLogin) {
       loginAlertOpenHandler();
     } else {
@@ -122,6 +124,7 @@ function MenuBox({
                   <button
                     className="menu-eat-button"
                     onClick={() => {
+                      issueTokens();
                       addUserMeal(el);
                     }}
                   >

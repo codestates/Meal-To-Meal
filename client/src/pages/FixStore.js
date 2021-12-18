@@ -46,7 +46,6 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
         return el;
       })
     );
-    console.log(fixedMenu);
     setOwnerStoreMenu([...ownerStoreMenu]);
   };
 
@@ -76,6 +75,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
         menu_image: addedMenuInfo.menu_image,
       },
     ]);
+    setMenuUrl([{ addMenuUrl: '' }]);
   };
 
   const imgRef = useRef();
@@ -97,7 +97,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
           handleFixInputValue(key, itemid)(e);
         } else if (key === 'add_menu_image') {
           setMenuUrl([{ addMenuUrl: data.location }]);
-          handleStoreInputValue('menu_image')(e);
+          handleInputValue('menu_image')(e);
         } else {
           setStoreUrl(data.location);
           handleStoreInputValue('store_image')(e);
@@ -131,8 +131,6 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
         });
     }
   };
-  console.log('newStoreInfo------', newStoreInfo);
-  console.log('ownerStoreInfo------', ownerStoreInfo);
 
   const getOwnerStoreMenuHandler = () => {
     if (!accessToken) {
@@ -194,7 +192,6 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
     // 가게 등록 정보 입력
     setNewStoreInfo({ ...newStoreInfo, [key]: e.target.value });
   };
-  console.log(fullAddress);
   const storeCorrectionHandler = () => {
     const { store_image, store_name, store_category, store_description, business_hour } = newStoreInfo;
     axios

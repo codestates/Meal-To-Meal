@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchResultMptyAni from './SearchResultMptyAni';
 
-function SearchResultSidebar({ searchResult, setIsChangeCenter }) {
+function SearchResultSidebar({ searchResult, setIsChangeCenter, setSelected }) {
   return (
     <div className="SearchResultSidebar-window">
       {searchResult.length === 0 ? (
@@ -12,7 +12,9 @@ function SearchResultSidebar({ searchResult, setIsChangeCenter }) {
             <div
               className="SearchResult-info-container"
               onClick={() => {
-                setIsChangeCenter({ lat: Number(el.store_lat) - 0.01, lng: Number(el.store_lng) - 0.002, zoom: 17 });
+                setIsChangeCenter({ lat: Number(el.store_lat) + 0.001, lng: Number(el.store_lng) - 0.001, zoom: 17 });
+                setSelected(el);
+                localStorage.setItem('clickedMarker', el.id);
               }}
             >
               <div className="SearchResult-info">
@@ -31,7 +33,7 @@ function SearchResultSidebar({ searchResult, setIsChangeCenter }) {
                   <div className="SearchResult-text">{el.store_order_quantity}</div>
                 </div>
               </div>
-              <img className="SearchResult-img" src={require('../../img/meal-to-meal-logo-192.png').default} alt="" />
+              <img className="SearchResult-img" src={el.store_image} alt="" />
             </div>
           ))}
         </>

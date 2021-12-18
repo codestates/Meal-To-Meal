@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 
 function SidebarLogin({
   openisLoginOpenSidebarHandler,
+  isLogin,
   setIsLogin,
   navigate,
   openAlertHandler,
   openWarningAlertHandler,
   setAlertMessage,
   setKakaoLogin,
+  issueTokens,
+  openisNotLoginOpenSidebarHandler,
 }) {
   const LogoutButtonHandler = () => {
     axios
@@ -32,6 +35,10 @@ function SidebarLogin({
       });
   };
 
+  useEffect(() => {
+    issueTokens();
+  }, []);
+
   return (
     <div className="sidebar-backdrop" onClick={() => openisLoginOpenSidebarHandler()}>
       <div className="sidebar-container">
@@ -42,7 +49,11 @@ function SidebarLogin({
         <div
           className="sidebar-menu-container"
           onClick={() => {
-            navigate('/mydonation');
+            if (isLogin) {
+              navigate('/mydonation');
+            } else {
+              openisNotLoginOpenSidebarHandler();
+            }
           }}
         >
           <div className="sidebar-icon">&#x1F35D;</div>
@@ -51,8 +62,12 @@ function SidebarLogin({
         <div
           className="sidebar-menu-container"
           onClick={() => {
-            openisLoginOpenSidebarHandler();
-            navigate('/mypage');
+            issueTokens();
+            if (isLogin) {
+              navigate('/mypage');
+            } else {
+              openisNotLoginOpenSidebarHandler();
+            }
           }}
         >
           <div className="sidebar-icon">&#x1F96A;</div>
@@ -61,7 +76,12 @@ function SidebarLogin({
         <div
           className="sidebar-menu-container"
           onClick={() => {
-            navigate('/usermeal');
+            issueTokens();
+            if (isLogin) {
+              navigate('/usermeal');
+            } else {
+              openisNotLoginOpenSidebarHandler();
+            }
           }}
         >
           <div className="sidebar-icon">&#x1F357;</div>
@@ -69,7 +89,17 @@ function SidebarLogin({
         </div>
         <div className="sidebar-menu-container">
           <div className="sidebar-icon">&#x1F370;</div>
-          <div className="sidebar-text" onClick={() => navigate('/management')}>
+          <div
+            className="sidebar-text"
+            onClick={() => {
+              issueTokens();
+              if (isLogin) {
+                navigate('/management');
+              } else {
+                openisNotLoginOpenSidebarHandler();
+              }
+            }}
+          >
             사장님 페이지
           </div>
         </div>
