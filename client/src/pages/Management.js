@@ -59,7 +59,6 @@ function Management({ navigate, getImage, setAlertMessage, openAlertHandler, ope
         withCredentials: true,
       })
       .then(res => {
-        console.log(res);
         setAlertMessage('가게 삭제가 완료되었습니다. 사람들에게 맛있는 음식을 제공해주셔서 감사합니다!');
         openAlertHandler();
         navigate('/');

@@ -45,7 +45,7 @@ module.exports = {
           },
           defaults: {
             user_nickname: `kakao_${profile.nickname}`,
-            user_email: email || `kakao_${profile.nickname}${usercode}`,
+            user_email: email || '',
             kakao_oauth_token: access_token,
             user_donation_count: 0,
             user_donation_money: 0,

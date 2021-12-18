@@ -10,9 +10,7 @@ function AddMenu({ handleInputValue, uploadImage, menuUrl, addMenuImgRef }) {
           ref={addMenuImgRef ? addMenuImgRef : null}
           alt=""
           onError={() => {
-            return addMenuImgRef
-              ? (addMenuImgRef.current.src = 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg%27')
-              : null;
+            return addMenuImgRef ? (addMenuImgRef.current.src = 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg') : null;
           }}
         />
         <input
@@ -32,6 +30,7 @@ function AddMenu({ handleInputValue, uploadImage, menuUrl, addMenuImgRef }) {
           className="AddMenu-menu-input"
           placeholder="숫자만 입력해 주세요."
           type="number"
+          min="1000"
           onChange={handleInputValue('menu_price')}
         />
       </div>

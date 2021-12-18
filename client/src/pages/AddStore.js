@@ -51,6 +51,7 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   };
 
   const uploadImage = e => key => {
+    if (!e.target.files[0]) return;
     e.target.files[0].newName = `${uuid()}.${e.target.files[0].type.split('/')[1]}`;
     S3FileUpload.uploadFile(e.target.files[0], config)
       .then(data => {
@@ -83,6 +84,7 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
       ...menuList,
       { menu_name: menuInfo.menu_name, menu_price: menuInfo.menu_price, menu_image: menuUrl[0].addMenuUrl },
     ]);
+    setMenuUrl([{ addMenuUrl: '' }]);
   };
 
   const getLocationHandler = () => {

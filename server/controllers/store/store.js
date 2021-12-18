@@ -30,6 +30,7 @@ module.exports = {
         res.status(400).json({ message: '입력정보가 올바르지 않습니다' });
       } else {
         try {
+          console.log('--------------------------------', req.body);
           await store.create({
             user_id: userInfo.id,
             store_image: store_image || '',

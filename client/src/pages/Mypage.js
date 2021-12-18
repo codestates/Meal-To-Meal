@@ -302,7 +302,9 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
                 </div>
               </form>
             ) : null}
-            <div className="mypage-myinfo-email">{userInfo.user_email}</div>
+            <div className="mypage-myinfo-email">
+              {userInfo.user_email === '' ? '이메일 제공 동의를 하지 않으셨습니다.' : userInfo.user_email}
+            </div>
             {isKakaoLogin === 'kakao' ? (
               <span className="mypage-fix-myinfo-not-toggle-button" disabled={true}>
                 카카오 계정으로 로그인 하신 계정은 비밀번호 수정을 하실 수 없습니다

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FixMenu({ fixedMenuImgRef, deleteMenuHandler, handleFixInputValue, item, img }) {
+function FixMenu({ fixedMenuImgRef, uploadImage, deleteMenuHandler, handleFixInputValue, item, img }) {
   return (
     <div className="FixMenu-container">
       <div className="FixMenu-add-img-container">
@@ -13,7 +13,13 @@ function FixMenu({ fixedMenuImgRef, deleteMenuHandler, handleFixInputValue, item
             return (fixedMenuImgRef.current.src = 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg');
           }}
         />
-        <input type="file" className="FixMenu-menu-img-input" />
+        <input
+          type="file"
+          className="FixMenu-menu-img-input"
+          onChange={e => {
+            uploadImage(e, item.id)('fix_menu_image');
+          }}
+        />
       </div>
       <div className="FixMenu-menu-info-container">
         <div className="FixMenu-menu-info-title">메뉴 이름</div>
@@ -28,6 +34,7 @@ function FixMenu({ fixedMenuImgRef, deleteMenuHandler, handleFixInputValue, item
           className="FixMenu-menu-input"
           placeholder="숫자만 입력해 주세요."
           type="number"
+          min="1000"
           defaultValue={item.menu_price}
           onChange={handleFixInputValue('menu_price', item.id)}
         />
