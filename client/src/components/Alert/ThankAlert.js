@@ -24,7 +24,7 @@ function ThankAlert({ navigate }) {
             <button className="alert-ownstore-donation-button" onClick={() => navigate('/mydonation')}>
               내 기부내역으로 가기
             </button>
-            <button className="alert-ownstore-donation-button" onClick={() => navigate('/map')}>
+            <button className="alert-ownstore-donation-button" onClick={() => navigate('/maps')}>
               홈으로
             </button>
           </div>

@@ -251,6 +251,23 @@ footer {
   padding-bottom: 15px;
 }
 
+a {
+  color: black;
+  text-decoration: none !important;
+}
+
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
 @media (min-width: 300px) and (max-width: 757px) {
   footer {
     display: none;

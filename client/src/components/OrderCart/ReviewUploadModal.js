@@ -3,7 +3,14 @@ import axios from 'axios';
 import S3FileUpload from 'react-s3';
 import { v4 as uuid } from 'uuid';
 
-function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setOrderedMeal }) {
+function ReviewUploadModal({
+  navigate,
+  openReviewModalHandler,
+  orderedMeal,
+  setOrderedMeal,
+  openAlertHandler,
+  setAlertMessage,
+}) {
   const accessToken = localStorage.getItem('accessToken');
   const [selectedFile, setSelectedFile] = useState('');
   const [reviewText, setReviewText] = useState('');
@@ -73,7 +80,8 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
         { headers: { authorization: `Bearer ${accessToken}` }, withCredentials: true }
       )
       .then(res => {
-        alert('리뷰가 등록되었습니다');
+        setAlertMessage('리뷰가 등록되었습니다.');
+        openAlertHandler();
         navigate('/mypage');
         setOrderedMeal([]);
       })

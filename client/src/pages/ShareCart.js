@@ -4,7 +4,15 @@ import ThankAlert from '../components/Alert/ThankAlert';
 import '../styles/pages/ShareCart.css';
 import axios from 'axios';
 
-function ShareCart({ navigate, cartItems, setCartItems, removeFromCart, openWarningAlertHandler, setAlertMessage }) {
+function ShareCart({
+  navigate,
+  cartItems,
+  setCartItems,
+  removeFromCart,
+  openWarningAlertHandler,
+  setAlertMessage,
+  issueTokens,
+}) {
   const accessToken = localStorage.getItem('accessToken');
 
   const [isOpenThankAlert, setIsOpenThankAlert] = useState(false);
@@ -72,6 +80,7 @@ function ShareCart({ navigate, cartItems, setCartItems, removeFromCart, openWarn
   const phoneFormat = `${userPhone.slice(0, 3)}-${userPhone.slice(3, 7)}-${userPhone.slice(7, 11)}`;
 
   function requestPay() {
+    issueTokens();
     const IMP = window.IMP; // 생략 가능
     IMP.init('imp49046982');
 

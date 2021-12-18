@@ -59,7 +59,6 @@ function MyDonation() {
             <div className="mydonation-ranking-title">기부 현황</div>
             <div className="mydonation-ranking-container">
               <div className="mydonation-ranking-text-container">
-                {console.log(isUser)}
                 <div className="mydonation-money-total">{`${isUser.user_nickname}님은 ${isUser.createdAt.slice(
                   0,
                   4
