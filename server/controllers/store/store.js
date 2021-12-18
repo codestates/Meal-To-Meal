@@ -151,7 +151,6 @@ module.exports = {
               .catch(err => console.log(err));
           }
         }
-
         res.status(200).json({ message: '정보 수정이 완료되었습니다.' });
       } catch (err) {
         res.status(400).json({ message: '입력 정보가 올바르지 않습니다' });
