@@ -46,7 +46,6 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
         return el;
       })
     );
-    console.log(fixedMenu);
     setOwnerStoreMenu([...ownerStoreMenu]);
   };
 
