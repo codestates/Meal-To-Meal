@@ -14,7 +14,6 @@ function ShareCart({
   openWarningAlertHandler,
   setAlertMessage,
   isLogin,
-  openAlertHandler,
 }) {
   const accessToken = localStorage.getItem('accessToken');
 
@@ -34,7 +33,6 @@ function ShareCart({
     if (!isLogin) {
       loginAlertOpenHandler();
     } else {
-      openAlertHandler();
       requestPay();
     }
   };
