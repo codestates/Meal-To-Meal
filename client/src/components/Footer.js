@@ -15,7 +15,7 @@ function Footer() {
         </div>
         <div className="footer-our-info-container">
           <div className="footer-title-text">About Us</div>
-          <a className="footer-text" href="https://github.com/codestates/Meal-To-Meal">
+          <a className="footer-text" href="https://github.com/codestates/Meal-To-Meal/wiki">
             Wiki
           </a>
           <a className="footer-text" href="https://github.com/codestates/Meal-To-Meal/tree/main/client">

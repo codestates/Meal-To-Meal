@@ -270,7 +270,6 @@ function App() {
               getImage={getImage}
               openWarningAlertHandler={openWarningAlertHandler}
               setAlertMessage={setAlertMessage}
-              issueTokens={issueTokens}
             />
           }
         />
