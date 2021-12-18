@@ -151,18 +151,6 @@ module.exports = {
               .catch(err => console.log(err));
           }
         }
-        const allMenu = await menu.findAll({ where: { store_id: findStore.id } }).catch(err => console.log(err));
-        const allMenuIds = allMenu.map(el => el.id);
-        const menuIds = menuInfo.map(el => {
-          if (el.id === undefined) return;
-          return el.id;
-        });
-
-        const deletedIds = allMenuIds.filter(ids => !menuIds.includes(ids));
-
-        for (let i = 0; i < deletedIds.length; i++) {
-          await menu.destroy({ where: { id: deletedIds[i] } }).catch(err => console.log(err));
-        }
         res.status(200).json({ message: '정보 수정이 완료되었습니다.' });
       } catch (err) {
         res.status(400).json({ message: '입력 정보가 올바르지 않습니다' });
