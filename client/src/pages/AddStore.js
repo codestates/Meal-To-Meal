@@ -67,7 +67,8 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
       })
       .catch(err => {
         console.log(err);
-        alert('사진용량 초과!');
+        setAlertMessage('사진용량이 너무 큽니다!');
+        openWarningAlertHandler();
       });
   };
 
