@@ -46,6 +46,23 @@ footer {
   padding-bottom: 15px;
 }
 
+a {
+  color: black;
+  text-decoration: none !important;
+}
+
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
 @include mobile {
   footer {
     display: none;

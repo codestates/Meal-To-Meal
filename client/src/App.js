@@ -66,7 +66,8 @@ function App() {
   const issueTokens = () => {
     const accessToken = localStorage.getItem('accessToken');
     if (!accessToken) {
-      return;
+      setIsLogin(false);
+      navigate('/');
     } else {
       axios
         .get(`${process.env.REACT_APP_API_URL}/auth`, {
@@ -77,6 +78,8 @@ function App() {
           setIsLogin(true);
         })
         .catch(err => {
+          setAlertMessage('로그인이 필요합니다.');
+          openWarningAlertHandler();
           setIsLogin(false);
           console.log(err);
         });
@@ -272,10 +275,21 @@ function App() {
               getImage={getImage}
               openWarningAlertHandler={openWarningAlertHandler}
               setAlertMessage={setAlertMessage}
+              issueTokens={issueTokens}
             />
           }
         />
-        <Route path="/usermeal" element={<UserMeal navigate={navigate} getImage={getImage} />} />
+        <Route
+          path="/usermeal"
+          element={
+            <UserMeal
+              navigate={navigate}
+              getImage={getImage}
+              openAlertHandler={openAlertHandler}
+              setAlertMessage={setAlertMessage}
+            />
+          }
+        />
         <Route path="/mydonation" element={<MyDonation getImage={getImage} />} />
       </Routes>
       {isLogin ? (

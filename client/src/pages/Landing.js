@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
 import '../styles/pages/Landing.css';
-import landing1 from '../img/landing/지도검색.mp4';
-import landing2 from '../img/landing/기부하기.mp4';
+import landing1 from '../img/landing/landing1.mp4';
+import landing2 from '../img/landing/landing2.mp4';
 import landing3 from '../img/landing/먹기.mp4';
 
 function Landing({ navigate }) {

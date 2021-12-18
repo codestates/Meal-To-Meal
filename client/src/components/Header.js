@@ -8,14 +8,11 @@ function Header({
   setIsLogin,
   openLoginModalHandler,
   openSignupModalHandler,
-  accessToken,
-  setAccessToken,
   issueTokens,
   navigate,
   openAlertHandler,
   openWarningAlertHandler,
   setAlertMessage,
-  loginAlertOpenHandler,
   setKakaoLogin,
 }) {
   const [isLoginOpenSidebar, setIsLoginOpenSidebar] = useState(false);
@@ -43,13 +40,11 @@ function Header({
       ) : (
         <i className="fas fa-bars" onClick={openisNotLoginOpenSidebarHandler} />
       )}
+
       {isLoginOpenSidebar ? (
         <SidebarLogin
           openisLoginOpenSidebarHandler={openisLoginOpenSidebarHandler}
           setIsLogin={setIsLogin}
-          accessToken={accessToken}
-          setAccessToken={setAccessToken}
-          issueTokens={issueTokens}
           navigate={navigate}
           openAlertHandler={openAlertHandler}
           openWarningAlertHandler={openWarningAlertHandler}
