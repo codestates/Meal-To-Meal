@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FixMenu({ item, handleFixInputValue }) {
+function FixMenu({ item, handleFixInputValue, deleteMenuHandler }) {
   return (
     <div className="FixMenu-container">
       <div className="FixMenu-add-img-container">
@@ -23,6 +23,9 @@ function FixMenu({ item, handleFixInputValue }) {
           defaultValue={item.menu_price}
           onChange={handleFixInputValue('menu_price', item.id)}
         />
+        <button className="FixMenu-menu-delete-button" onClick={() => deleteMenuHandler(item.id)}>
+          삭제
+        </button>
       </div>
     </div>
   );

@@ -70,6 +70,42 @@
   }
 }
 
+.FixMenu-menu-delete-button {
+  padding-top: 3px;
+  width: 60px;
+  margin-top: 4px;
+  margin-left: 50%;
+  box-shadow: gray 4px 4px 4px;
+  border-radius: 7px;
+  transition: 120ms ease;
+  background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: gray 6px 6px 6px;
+    background-color: red;
+    color: white;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
 @include tablet {
   .FixMenu-add-img-container {
     width: 50%;
@@ -89,6 +125,11 @@
     width: 100%;
     font-size: 20px;
     padding: 5px;
+  }
+
+  .FixMenu-menu-delete-button {
+    width: 100px;
+    cursor: pointer;
   }
 }
 
@@ -115,5 +156,12 @@
     height: 30px;
     width: 80%;
     font-size: 25px;
+  }
+
+  .FixMenu-menu-delete-button {
+    width: 120px;
+    height: 35px;
+    font-size: 23px;
+    cursor: pointer;
   }
 }

@@ -3,7 +3,6 @@ import axios from 'axios';
 import DaumPostcode from 'react-daum-postcode';
 import AddMenu from '../components/Management/AddMenu';
 import FixMenu from '../components/Management/FixMenu';
-import AddedMenu from '../components/Management/AddedMenu';
 import '../styles/pages/AddStore.css';
 
 function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAlertHandler }) {
@@ -27,6 +26,11 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
     );
   };
 
+  const deleteMenuHandler = menuId => {
+    const rest = ownerStoreMenu.filter(el => menuId !== el.id);
+    setOwnerStoreMenu(rest);
+  };
+
   const [isOpenSearchAddress, setIsOpenSearchAddress] = useState(false);
 
   const [addedMenuInfo, setAddedMenuInfo] = useState({
@@ -45,7 +49,6 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   const handleInputValue = key => e => {
     setAddedMenuInfo({ ...addedMenuInfo, [key]: e.target.value.toLowerCase() });
   };
-  console.log(addedMenuInfo);
 
   const addMenuHandler = () => {
     setOwnerStoreMenu([
@@ -151,18 +154,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   };
 
   const storeCorrectionHandler = () => {
-    console.log('----------', addedMenuInfo);
-    const {
-      store_image,
-      store_name,
-      store_category,
-      store_description,
-      business_hour,
-      store_address,
-      store_lat,
-      store_lng,
-      menuInfo,
-    } = newStoreInfo;
+    const { store_image, store_name, store_category, store_description, business_hour } = newStoreInfo;
     axios
       .put(
         `${process.env.REACT_APP_API_URL}/store/${ownerStoreInfo.id}`,
@@ -187,9 +179,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
         openAlertHandler();
         navigate('/management');
       })
-      .catch(err => {
-        console.log(err);
-      });
+      .catch(err => {});
   };
 
   useEffect(() => {
@@ -200,7 +190,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
     <>
       <div className="AddStore-container">
         <div className="AddStore-store-title-container">
-          <div className="AddStore-title">가게 정보 등록</div>
+          <div className="AddStore-title">가게 정보 수정</div>
           <img className="AddStore-store-img" src={require('../img/dummy/store1.png').default} alt="" />
           <input type="file" className="AddStore-store-img-add-input" />
           <div className="AddStore-store-text">상호명</div>
@@ -211,7 +201,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
             onChange={handleStoreInputValue('store_name')}
           />
           <div className="AddStore-store-text">카테고리</div>
-          <select className="AddStore-store-info input" onChange={handleStoreInputValue('store_category')}>
+          <select className="AddStore-store-info-input" onChange={handleStoreInputValue('store_category')}>
             <option value="카테고리 선택">카테고리 선택</option>
             <option value="베이커리">베이커리</option>
             <option value="분식">분식</option>
@@ -240,7 +230,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
           />
           <div className="AddStore-store-text">가게주소</div>
           <button className="AddStore-address-button" onClick={() => searchAddressHandler()}>
-            가게 주소 등록하기
+            가게 주소 수정하기
           </button>
           {isOpenSearchAddress ? (
             <div className="daum-postcode-backdrop">
@@ -263,7 +253,12 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
           <div className="AddStore-title">메뉴 등록</div>
           {ownerStoreMenu.map(item => (
             <div className="AddStore-add-menu-container">
-              <FixMenu handleFixInputValue={handleFixInputValue} item={item} />
+              <FixMenu
+                key={item.id}
+                deleteMenuHandler={deleteMenuHandler}
+                handleFixInputValue={handleFixInputValue}
+                item={item}
+              />
             </div>
           ))}
           <div className="AddStore-add-menu-container">
