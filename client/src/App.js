@@ -65,25 +65,18 @@ function App() {
 
   const issueTokens = () => {
     const accessToken = localStorage.getItem('accessToken');
-    if (!accessToken) {
-      setIsLogin(false);
-      navigate('/');
-    } else {
-      axios
-        .get(`${process.env.REACT_APP_API_URL}/auth`, {
-          headers: { authorization: `Bearer ${accessToken}` },
-          withCredentials: true,
-        })
-        .then(res => {
-          setIsLogin(true);
-        })
-        .catch(err => {
-          setAlertMessage('로그인이 필요합니다.');
-          openWarningAlertHandler();
-          setIsLogin(false);
-          console.log(err);
-        });
-    }
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/auth`, {
+        headers: { authorization: `Bearer ${accessToken}` },
+        withCredentials: true,
+      })
+      .then(res => {
+        setIsLogin(true);
+      })
+      .catch(err => {
+        setIsLogin(false);
+        console.log(err);
+      });
   };
 
   const getAccessToken = authorizationCode => {
@@ -248,6 +241,7 @@ function App() {
           path="/store/:storeid"
           element={
             <StoreInfo
+              issueTokens={issueTokens}
               navigate={navigate}
               setAlertMessage={setAlertMessage}
               isLogin={isLogin}
@@ -266,9 +260,10 @@ function App() {
           path="/sharecart"
           element={
             <ShareCart
+              openAlertHandler={openAlertHandler}
+              issueTokens={issueTokens}
               navigate={navigate}
               isLogin={isLogin}
-              setIsLogin={setIsLogin}
               cartItems={cartItems}
               setCartItems={setCartItems}
               removeFromCart={removeFromCart}

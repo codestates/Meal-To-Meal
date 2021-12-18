@@ -5,7 +5,7 @@ import S3FileUpload from 'react-s3';
 import { v4 as uuid } from 'uuid';
 import AddMenu from '../components/Management/AddMenu';
 import AddedMenu from '../components/Management/AddedMenu';
-
+import Loading from '../components/Loading';
 import '../styles/pages/AddStore.css';
 
 function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAlertHandler }) {
@@ -18,6 +18,7 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   const [menuInfo, setMenuInfo] = useState({ menu_name: '', menu_price: '' });
   const [isOpenSearchAddress, setIsOpenSearchAddress] = useState(false);
   const [storeUrl, setStoreUrl] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
   const [menuUrl, setMenuUrl] = useState([{ addMenuUrl: 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg' }]);
   const [newStoreInfo, setNewStoreInfo] = useState({
     store_image: '',
@@ -104,6 +105,9 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   };
 
   useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 300);
     getLocationHandler();
   }, [fullAddress]);
 
@@ -159,102 +163,106 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
 
   return (
     <>
-      <div className="AddStore-container">
-        <div className="AddStore-store-title-container">
-          <div className="AddStore-title">가게 정보 등록</div>
-          <img
-            className="AddStore-store-img"
-            src={storeUrl}
-            ref={imgRef}
-            alt=""
-            onError={() => {
-              return (imgRef.current.src = 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg');
-            }}
-          />
-          <input
-            type="file"
-            className="AddStore-store-img-add-input"
-            accept="image/*"
-            onChange={e => {
-              uploadImage(e)('store_image');
-            }}
-          />
-          <div className="AddStore-store-text">상호명</div>
-          <input
-            className="AddStore-store-info-input"
-            placeholder="가게 이름을 입력하세요."
-            onChange={handleStoreInputValue('store_name')}
-          />
-          <div className="AddStore-store-text">카테고리</div>
-          <select className="AddStore-store-info-input" onChange={handleStoreInputValue('store_category')}>
-            <option value="카테고리 선택">카테고리 선택</option>
-            <option value="베이커리">베이커리</option>
-            <option value="분식">분식</option>
-            <option value="야식">야식</option>
-            <option value="양식">양식</option>
-            <option value="일식">일식</option>
-            <option value="중식">중식</option>
-            <option value="패스트푸드">패스트푸드</option>
-            <option value="한식">한식</option>
-          </select>
-          <div className="AddStore-store-text">가게 설명</div>
-          <textarea
-            className="AddStore-store-description-input"
-            placeholder="가게 설명을 적어 주세요."
-            onChange={handleStoreInputValue('store_description')}
-          />
-        </div>
-        <div className="AddStore-store-title-container">
-          <div className="AddStore-store-text">영업시간</div>
-          <input
-            className="AddStore-store-info-input"
-            placeholder="영업시간을 적어 주세요."
-            onChange={handleStoreInputValue('business_hour')}
-          />
-          <div className="AddStore-store-text">가게주소</div>
-          <button className="AddStore-address-button" onClick={() => searchAddressHandler()}>
-            가게 주소 등록하기
-          </button>
-          {isOpenSearchAddress ? (
-            <div className="daum-postcode-backdrop">
-              <div className="daum-postcode-window">
-                <DaumPostcode autoClose onComplete={onCompletePost} />
-                <button className="daum-postcode-close" onClick={searchAddressHandler}>
-                  닫기
-                </button>
-              </div>
-            </div>
-          ) : null}
-          <div className="AddStore-store-address">{address}</div>
-          <div className="AddStore-store-address">{addressDetail}</div>
-          <input className="AddStore-store-info-input" placeholder="상세주소" onChange={e => onHandleChange(e)} />
-          <div className="AddStore-title">메뉴 등록</div>
-          {menuList.length !== 0
-            ? menuList.map(item => (
-                <div className="AddStore-add-menu-container">
-                  <AddedMenu key={item.id} addedMenuImgRef={addedMenuImgRef} item={item} img={item.menu_image} />
-                </div>
-              ))
-            : null}
-          <div className="AddStore-add-menu-container">
-            <AddMenu
-              menuUrl={menuUrl}
-              addMenuImgRef={addMenuImgRef}
-              uploadImage={uploadImage}
-              handleInputValue={handleInputValue}
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div className="AddStore-container">
+          <div className="AddStore-store-title-container">
+            <div className="AddStore-title">가게 정보 등록</div>
+            <img
+              className="AddStore-store-img"
+              src={storeUrl}
+              ref={imgRef}
+              alt=""
+              onError={() => {
+                return (imgRef.current.src = 'https://meal2sdk.s3.amazonaws.com/-001_12.jpg');
+              }}
+            />
+            <input
+              type="file"
+              className="AddStore-store-img-add-input"
+              accept="image/*"
+              onChange={e => {
+                uploadImage(e)('store_image');
+              }}
+            />
+            <div className="AddStore-store-text">상호명</div>
+            <input
+              className="AddStore-store-info-input"
+              placeholder="가게 이름을 입력하세요."
+              onChange={handleStoreInputValue('store_name')}
+            />
+            <div className="AddStore-store-text">카테고리</div>
+            <select className="AddStore-store-info-input" onChange={handleStoreInputValue('store_category')}>
+              <option value="카테고리 선택">카테고리 선택</option>
+              <option value="베이커리">베이커리</option>
+              <option value="분식">분식</option>
+              <option value="야식">야식</option>
+              <option value="양식">양식</option>
+              <option value="일식">일식</option>
+              <option value="중식">중식</option>
+              <option value="패스트푸드">패스트푸드</option>
+              <option value="한식">한식</option>
+            </select>
+            <div className="AddStore-store-text">가게 설명</div>
+            <textarea
+              className="AddStore-store-description-input"
+              placeholder="가게 설명을 적어 주세요."
+              onChange={handleStoreInputValue('store_description')}
             />
           </div>
-          <button className="AddStore-add-menu-button" onClick={() => addMenuHandler()}>
-            + 저장 후 다음 메뉴 추가
-          </button>
-          <div className="AddStore-add-menu-button-container">
-            <button className="AddStore-button" onClick={newStoreRegisterHandler}>
-              저장
+          <div className="AddStore-store-title-container">
+            <div className="AddStore-store-text">영업시간</div>
+            <input
+              className="AddStore-store-info-input"
+              placeholder="영업시간을 적어 주세요."
+              onChange={handleStoreInputValue('business_hour')}
+            />
+            <div className="AddStore-store-text">가게주소</div>
+            <button className="AddStore-address-button" onClick={() => searchAddressHandler()}>
+              가게 주소 등록하기
             </button>
-            <button className="AddStore-button">취소</button>
+            {isOpenSearchAddress ? (
+              <div className="daum-postcode-backdrop">
+                <div className="daum-postcode-window">
+                  <DaumPostcode autoClose onComplete={onCompletePost} />
+                  <button className="daum-postcode-close" onClick={searchAddressHandler}>
+                    닫기
+                  </button>
+                </div>
+              </div>
+            ) : null}
+            <div className="AddStore-store-address">{address}</div>
+            <div className="AddStore-store-address">{addressDetail}</div>
+            <input className="AddStore-store-info-input" placeholder="상세주소" onChange={e => onHandleChange(e)} />
+            <div className="AddStore-title">메뉴 등록</div>
+            {menuList.length !== 0
+              ? menuList.map(item => (
+                  <div className="AddStore-add-menu-container">
+                    <AddedMenu key={item.id} addedMenuImgRef={addedMenuImgRef} item={item} img={item.menu_image} />
+                  </div>
+                ))
+              : null}
+            <div className="AddStore-add-menu-container">
+              <AddMenu
+                menuUrl={menuUrl}
+                addMenuImgRef={addMenuImgRef}
+                uploadImage={uploadImage}
+                handleInputValue={handleInputValue}
+              />
+            </div>
+            <button className="AddStore-add-menu-button" onClick={() => addMenuHandler()}>
+              + 저장 후 다음 메뉴 추가
+            </button>
+            <div className="AddStore-add-menu-button-container">
+              <button className="AddStore-button" onClick={newStoreRegisterHandler}>
+                저장
+              </button>
+              <button className="AddStore-button">취소</button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 }

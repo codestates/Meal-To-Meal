@@ -16,7 +16,7 @@ function StoreInfo({
   openSignupModalHandler,
   detailStoreInfo,
   setDetailStoreInfo,
-  getImage,
+  issueTokens,
 }) {
   const [loading, setLoading] = useState(true);
 
@@ -78,6 +78,7 @@ function StoreInfo({
               </div>
               <div className="box-title">메뉴</div>
               <MenuBox
+                issueTokens={issueTokens}
                 navigate={navigate}
                 setAlertMessage={setAlertMessage}
                 addToCart={addToCart}
@@ -94,7 +95,12 @@ function StoreInfo({
             </div>
           </div>
           <div className="storeinfo-button-container">
-            <button className="cart-button" onClick={() => navigate('/sharecart')}>
+            <button
+              className="cart-button"
+              onClick={() => {
+                navigate('/sharecart');
+              }}
+            >
               장바구니
             </button>
             <button className="cart-button" onClick={() => navigate('/maps')}>

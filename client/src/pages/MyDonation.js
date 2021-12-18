@@ -46,6 +46,9 @@ function MyDonation() {
   };
 
   useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 300);
     getUserReviewHandler();
   }, []);
 

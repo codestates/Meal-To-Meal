@@ -8,6 +8,7 @@ function Header({
   setIsLogin,
   openLoginModalHandler,
   openSignupModalHandler,
+  setAccessToken,
   issueTokens,
   navigate,
   openAlertHandler,
@@ -27,6 +28,8 @@ function Header({
 
   if (window.location.pathname === '/') return null;
 
+  const accessToken = localStorage.getItem('accessToken');
+
   return (
     <div className="header-container">
       <img
@@ -35,16 +38,26 @@ function Header({
         alt=""
         onClick={() => navigate('/maps')}
       />
-      {isLogin ? (
-        <i className="fas fa-bars" onClick={openisLoginOpenSidebarHandler} />
-      ) : (
-        <i className="fas fa-bars" onClick={openisNotLoginOpenSidebarHandler} />
-      )}
-
+      <i
+        className="fas fa-bars"
+        onClick={() => {
+          issueTokens();
+          if (isLogin) {
+            openisLoginOpenSidebarHandler();
+          } else {
+            openisNotLoginOpenSidebarHandler();
+          }
+        }}
+      />
       {isLoginOpenSidebar ? (
         <SidebarLogin
+          openisNotLoginOpenSidebarHandler={openisNotLoginOpenSidebarHandler}
           openisLoginOpenSidebarHandler={openisLoginOpenSidebarHandler}
           setIsLogin={setIsLogin}
+          isLogin={isLogin}
+          accessToken={accessToken}
+          setAccessToken={setAccessToken}
+          issueTokens={issueTokens}
           navigate={navigate}
           openAlertHandler={openAlertHandler}
           openWarningAlertHandler={openWarningAlertHandler}

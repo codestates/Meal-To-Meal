@@ -1,17 +1,20 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import SharecartItem from '../components/ShareCart/SharecartItem';
 import ThankAlert from '../components/Alert/ThankAlert';
 import '../styles/pages/ShareCart.css';
 import axios from 'axios';
+import LoginAlert from '../components/StoreInfo/LoginAlert';
 
 function ShareCart({
+  issueTokens,
   navigate,
   cartItems,
   setCartItems,
   removeFromCart,
   openWarningAlertHandler,
   setAlertMessage,
-  issueTokens,
+  isLogin,
+  openAlertHandler,
 }) {
   const accessToken = localStorage.getItem('accessToken');
 
@@ -20,9 +23,24 @@ function ShareCart({
   const [userPhone, setUserPhone] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [userNickname, setUserNickname] = useState('');
+  const [isOpenLoginAlert, setIsOpenLoginAlert] = useState(false);
 
   const openThankAlertHandler = () => {
     setIsOpenThankAlert(!isOpenThankAlert);
+  };
+
+  const checkIsLogin = () => {
+    issueTokens();
+    if (!isLogin) {
+      loginAlertOpenHandler();
+    } else {
+      openAlertHandler();
+      requestPay();
+    }
+  };
+
+  const loginAlertOpenHandler = () => {
+    setIsOpenLoginAlert(!isOpenLoginAlert);
   };
 
   const itemQuantity = cartItems.map(el => el.quantity);
@@ -38,29 +56,24 @@ function ShareCart({
   };
 
   const getUserPhoneHandler = () => {
-    if (!accessToken) {
-      return;
-    } else {
-      axios
-        .get(`${process.env.REACT_APP_API_URL}/user/mypage`, {
-          headers: { authorization: `Bearer ${accessToken}` },
-          withCredentials: true,
-        })
-        .then(res => {
-          if (res.data.userInfo.user_phone_number === null) {
-            setAlertMessage('휴대폰 인증이 필요한 서비스입니다.');
-            openWarningAlertHandler();
-            navigate('/mypage');
-          } else {
-            setUserPhone(res.data.userInfo.user_phone_number);
-            setUserEmail(res.data.userInfo.user_email);
-            setUserNickname(res.data.userInfo.user_nickname);
-          }
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
+    issueTokens();
+    axios
+      .get(`${process.env.REACT_APP_API_URL}/user/mypage`, {
+        headers: { authorization: `Bearer ${accessToken}` },
+        withCredentials: true,
+      })
+      .then(res => {
+        if (res.data.userInfo.user_phone_number === null) {
+          setAlertMessage('휴대폰 인증이 필요한 서비스입니다.');
+          openWarningAlertHandler();
+          navigate('/mypage');
+        } else {
+          setUserPhone(res.data.userInfo.user_phone_number);
+          setUserEmail(res.data.userInfo.user_email);
+          setUserNickname(res.data.userInfo.user_nickname);
+        }
+      })
+      .catch(err => {});
   };
 
   const alertUser = e => {
@@ -172,7 +185,12 @@ function ShareCart({
               기부하기
             </button>
           ) : (
-            <button className="sharecart-button" onClick={requestPay}>
+            <button
+              className="sharecart-button"
+              onClick={() => {
+                checkIsLogin();
+              }}
+            >
               기부하기
             </button>
           )}
@@ -187,6 +205,7 @@ function ShareCart({
         </div>
       </div>
       {isOpenThankAlert ? <ThankAlert navigate={navigate} /> : null}
+      {isOpenLoginAlert ? <LoginAlert loginAlertOpenHandler={loginAlertOpenHandler} /> : null}
     </>
   );
 }
