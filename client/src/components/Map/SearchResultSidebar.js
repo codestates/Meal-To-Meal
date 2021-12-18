@@ -33,7 +33,7 @@ function SearchResultSidebar({ searchResult, setIsChangeCenter, setSelected }) {
                   <div className="SearchResult-text">{el.store_order_quantity}</div>
                 </div>
               </div>
-              <img className="SearchResult-img" src={require('../../img/meal-to-meal-logo-192.png').default} alt="" />
+              <img className="SearchResult-img" src={el.store_image} alt="" />
             </div>
           ))}
         </>
