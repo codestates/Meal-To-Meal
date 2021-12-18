@@ -63,7 +63,14 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   };
 
   const handleInputValue = key => e => {
-    setAddedMenuInfo({ ...addedMenuInfo, [key]: e.target.value.toLowerCase() });
+    if (key === 'add_menu_image') {
+      setAddedMenuInfo({
+        ...addedMenuInfo,
+        menu_image: `https://meal2sdk.s3.amazonaws.com/${e.target.files[0].newName}`,
+      });
+    } else {
+      setAddedMenuInfo({ ...addedMenuInfo, [key]: e.target.value.toLowerCase() });
+    }
   };
 
   const addMenuHandler = () => {
@@ -90,6 +97,7 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   };
 
   const uploadImage = (e, itemid) => key => {
+    if (!e.target.files[0]) return;
     e.target.files[0].newName = `${uuid()}.${e.target.files[0].type.split('/')[1]}`;
     S3FileUpload.uploadFile(e.target.files[0], config)
       .then(data => {
@@ -97,12 +105,11 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
           handleFixInputValue(key, itemid)(e);
         } else if (key === 'add_menu_image') {
           setMenuUrl([{ addMenuUrl: data.location }]);
-          handleInputValue('menu_image')(e);
+          handleInputValue(key)(e);
         } else {
           setStoreUrl(data.location);
           handleStoreInputValue('store_image')(e);
         }
-        setNewStoreInfo({ ...newStoreInfo, [key]: data.location });
       })
       .catch(err => {
         console.log(err);
@@ -192,7 +199,9 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
     // 가게 등록 정보 입력
     setNewStoreInfo({ ...newStoreInfo, [key]: e.target.value });
   };
+
   const storeCorrectionHandler = () => {
+    console.log(ownerStoreMenu);
     const { store_image, store_name, store_category, store_description, business_hour } = newStoreInfo;
     axios
       .put(
@@ -218,7 +227,9 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
         openAlertHandler();
         navigate('/management');
       })
-      .catch(err => {});
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   useEffect(() => {
@@ -308,7 +319,6 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
             defaultValue={ownerStoreInfo.store_address}
             onChange={e => onHandleChange(e)}
           />
-          <div className="AddStore-store-info-waring">수정 시 가게 주소 검색을 다시 해주셔야 합니다</div>
           <div className="AddStore-title">메뉴 등록</div>
           {ownerStoreMenu.map(item => (
             <div className="AddStore-add-menu-container">

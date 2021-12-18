@@ -110,43 +110,56 @@ module.exports = {
       res.status(401).json({ message: '로그인이 필요합니다' });
     } else {
       try {
-        const findStore = await store.findOne({ where: { user_id: userInfo.id } });
-        await findStore.update({
-          store_image: store_image || '',
-          store_name: store_name,
-          store_category: store_category,
-          store_description: store_description,
-          business_hour: business_hour,
-          store_address: store_address,
-          store_lat: store_lat,
-          store_lng: store_lng,
-        });
+        const findStore = await store.findOne({ where: { user_id: userInfo.id } }).catch(err => console.log(err));
+        await findStore
+          .update({
+            store_image: store_image || '',
+            store_name: store_name,
+            store_category: store_category,
+            store_description: store_description,
+            business_hour: business_hour,
+            store_address: store_address,
+            store_lat: store_lat,
+            store_lng: store_lng,
+          })
+          .catch(err => console.log(err));
         for (let i = 0; i < menuInfo.length; i++) {
           if (menuInfo[i].id) {
-            const findMenu = await menu.findOne({ where: { id: menuInfo[i].id } });
-            await findMenu.update({
-              menu_image: menuInfo[i].menu_image || `https://meal2sdk.s3.amazonaws.com/-001_12.jpg`,
-              menu_name: menuInfo[i].menu_name,
-              menu_price: menuInfo[i].menu_price,
-            });
+            const findMenu = await menu.findOne({ where: { id: menuInfo[i].id } }).catch(err => console.log(err));
+            await findMenu
+              .update({
+                menu_image: menuInfo[i].menu_image || `https://meal2sdk.s3.amazonaws.com/-001_12.jpg`,
+                menu_name: menuInfo[i].menu_name,
+                menu_price: menuInfo[i].menu_price,
+              })
+              .catch(err => console.log(err));
           } else {
-            await menu.create({
-              store_id: findStore.id,
-              menu_image: menuInfo[i].menu_image || `https://meal2sdk.s3.amazonaws.com/-001_12.jpg`,
-              menu_name: menuInfo[i].menu_name,
-              menu_price: menuInfo[i].menu_price,
-              menu_order_quantity: 0,
-            });
+            await menu
+              .create({
+                store_id: findStore.id,
+                menu_image: menuInfo[i].menu_image || `https://meal2sdk.s3.amazonaws.com/-001_12.jpg`,
+                menu_name: menuInfo[i].menu_name,
+                menu_price: menuInfo[i].menu_price,
+                menu_order_quantity: 0,
+              })
+              .catch(err => console.log(err));
           }
         }
-        const allMenu = await menu.findAll({ where: { store_id: findStore.id } });
-        console.log('allMenu==========================', allMenu);
-        for (let i = 0; i < allMenu.length; i++) {
-          const menuInfoIds = menuInfo.map(el => el.id);
-          console.log('menuInfoIds================================', menuInfoIds);
-          if (!menuInfoIds.includes(allMenu[i].id)) {
-            await menu.destroy({ where: { id: allMenu[i].id } });
-          }
+        const allMenu = await menu.findAll({ where: { store_id: findStore.id } }).catch(err => console.log(err));
+        const allMenuIds = allMenu.map(el => el.id);
+        console.log('menuInfo-----------', menuInfo);
+        const menuIds = menuInfo.map(el => {
+          if (el.id === undefined) return;
+          return el.id;
+        });
+        const filteredIds = menuIds.filter(el => el !== undefined);
+        const deletedIds = allMenuIds.filter(ids => !menuIds.includes(ids));
+        console.log('deleted-----------', deletedIds);
+        console.log('allll-----------', allMenuIds);
+        console.log('menuIds-----------', menuIds);
+        console.log('filteredIds ============', filteredIds);
+        for (let i = 0; deletedIds.length; i++) {
+          await menu.destroy({ where: { id: deletedIds[i] } }).catch(err => console.log(err));
         }
         res.status(200).json({ message: '정보 수정이 완료되었습니다.' });
       } catch (err) {
