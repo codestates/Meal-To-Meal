@@ -4,7 +4,18 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border: 2px solid;
+  border: 3px solid;
+  margin-bottom: 15px;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.AddedMenu-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 3px solid #ffcc1d;
+  background-color: whitesmoke;
   margin-bottom: 15px;
   width: 100%;
   border-radius: 15px;

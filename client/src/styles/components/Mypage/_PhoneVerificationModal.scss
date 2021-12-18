@@ -64,6 +64,30 @@
   width: 100%;
   margin-top: 10px;
   margin-bottom: 8px;
+  box-shadow: gray 4px 4px 4px;
+  transition: 120ms ease all;
+
+  &:hover {
+    box-shadow: gray 6px 6px 6px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
 }
 
 .phone-modal-number-alert-text {
@@ -92,6 +116,31 @@
 .phone-modal-verification-submit {
   width: 120px;
   margin: 0;
+
+  box-shadow: gray 4px 4px 4px;
+  transition: 120ms ease all;
+
+  &:hover {
+    box-shadow: gray 6px 6px 6px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
 }
 
 @include tablet {
