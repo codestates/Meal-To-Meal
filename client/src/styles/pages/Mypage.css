@@ -210,6 +210,34 @@
   width: 100%;
   margin-top: 10px;
   margin-bottom: 8px;
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
+  -webkit-transition: 120ms ease all;
+  transition: 120ms ease all;
+}
+
+.phone-modal-number-submit:hover {
+  -webkit-box-shadow: gray 6px 6px 6px;
+          box-shadow: gray 6px 6px 6px;
+}
+
+.phone-modal-number-submit:before, .phone-modal-number-submit:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.phone-modal-number-submit:hover:before, .phone-modal-number-submit:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.phone-modal-number-submit:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .phone-modal-number-alert-text {
@@ -245,6 +273,34 @@
 .phone-modal-verification-submit {
   width: 120px;
   margin: 0;
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
+  -webkit-transition: 120ms ease all;
+  transition: 120ms ease all;
+}
+
+.phone-modal-verification-submit:hover {
+  -webkit-box-shadow: gray 6px 6px 6px;
+          box-shadow: gray 6px 6px 6px;
+}
+
+.phone-modal-verification-submit:before, .phone-modal-verification-submit:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.phone-modal-verification-submit:hover:before, .phone-modal-verification-submit:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.phone-modal-verification-submit:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
@@ -419,7 +475,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   border: 3px solid #ffcc1d;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 15px;
   margin-bottom: 15px;
 }
@@ -551,7 +607,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   border: 3px solid #ffcc1d;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 5px;
   overflow: auto;
 }

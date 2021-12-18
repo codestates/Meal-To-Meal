@@ -4,14 +4,21 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border: 2px solid;
+  border: 3px solid;
   margin-bottom: 15px;
   width: 100%;
   border-radius: 15px;
 }
 
-.AddMenu-add-img-container {
-  width: 50%;
+.AddedMenu-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 3px solid #ffcc1d;
+  background-color: whitesmoke;
+  margin-bottom: 15px;
+  width: 100%;
+  border-radius: 15px;
 }
 
 .AddMenu-img {
@@ -32,6 +39,7 @@
   display: flex;
   flex-direction: column;
   margin: 10px;
+  width: 50%;
 }
 
 .AddMenu-menu-container {
@@ -63,7 +71,7 @@
 
 .AddMenu-menu-input {
   margin-bottom: 15px;
-  width: 80%;
+  width: 110px;
   transition: 120ms ease all;
   border-radius: 5px;
   padding: 3px;
@@ -72,6 +80,37 @@
     border: 2px solid #ffcc1d;
     outline: none;
     box-shadow: gray 3px 3px 3px;
+  }
+}
+
+.AddMenu-menu-delete-button {
+  width: 50%;
+  margin: 5px 0 0 auto;
+  box-shadow: gray 2px 2px 2px;
+  transition: 120ms ease all;
+
+  &:hover {
+    box-shadow: gray 4px 4px 4px;
+    background-color: red;
+    color: white;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
   }
 }
 
@@ -91,7 +130,7 @@
 
   .AddMenu-menu-input {
     height: 30px;
-    width: 100%;
+    width: 80%;
     font-size: 20px;
     padding: 5px;
   }
@@ -99,20 +138,17 @@
   .AddMenu-menu-text {
     font-size: 25px;
   }
+
+  .AddMenu-menu-delete-button {
+    margin: 5px 58px 0 auto;
+    width: 100px;
+  }
 }
 
 @include desktop {
-  .AddMenu-add-img-container {
-    width: 50%;
-  }
-
   .AddMenu-img {
     width: 310px;
     height: 174.375px;
-  }
-
-  .AddMenu-menu-info-container {
-    width: 50%;
   }
 
   .AddMenu-menu-info-title {
@@ -128,5 +164,10 @@
 
   .AddMenu-menu-text {
     font-size: 28px;
+  }
+
+  .AddMenu-menu-delete-button {
+    margin: 15px 64px 0 auto;
+    width: 100px;
   }
 }

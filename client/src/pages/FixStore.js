@@ -191,7 +191,6 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
     // 가게 등록 정보 입력
     setNewStoreInfo({ ...newStoreInfo, [key]: e.target.value });
   };
-
   const storeCorrectionHandler = () => {
     const { store_image, store_name, store_category, store_description, business_hour } = newStoreInfo;
     axios
@@ -308,7 +307,6 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
             defaultValue={ownerStoreInfo.store_address}
             onChange={e => onHandleChange(e)}
           />
-          <div className="AddStore-store-info-waring">수정 시 가게 주소 검색을 다시 해주셔야 합니다</div>
           <div className="AddStore-title">메뉴 등록</div>
           {ownerStoreMenu.map(item => (
             <div className="AddStore-add-menu-container">

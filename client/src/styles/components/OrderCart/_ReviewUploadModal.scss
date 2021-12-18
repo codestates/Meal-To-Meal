@@ -15,8 +15,8 @@
 .review-upload-window {
   font-size: 13px;
   width: 200px;
-  height: 405px;
   border: 3px solid #ffcc1d;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -61,11 +61,12 @@
 .review-upload-content-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .review-upload-food-image {
-  height: 140px;
-  max-width: 200px;
+  width: 200px;
+  height: 112.5px;
   margin: 10px auto 15px auto;
   border-radius: 15px;
   box-shadow: gray 4px 4px 4px 4px;
@@ -73,12 +74,15 @@
 
 .review-upload-food-text {
   resize: none;
-  padding: 5px;
+  font-size: 15px;
+  padding: 15px;
   margin-bottom: 10px;
   word-break: keep-all;
-  height: 80px;
-  transition: 220ms ease all;
-  border: 2px solid;
+  height: 60px;
+  transition: 120ms ease all;
+  box-shadow: gray 2px 2px 2px 2px;
+  border-radius: 10px;
+  border: solid 2px white;
 
   &:focus {
     outline: none;
@@ -123,51 +127,74 @@
   }
 }
 
+.usermeal-confirm-warring {
+  color: rgb(255, 0, 0);
+  opacity: 0.5;
+  margin: 10px 0;
+  font-size: 10px;
+}
+
 @include tablet {
   .review-upload-window {
-    width: 500px;
-    height: 430px;
-    padding: 15px;
+    width: 600px;
+    padding: 30px;
   }
 
   .review-upload-title {
     font-size: 25px;
     margin-bottom: 15px;
-    margin-right: 380px;
   }
 
   .fa-times {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .review-upload-store-info-container {
     margin-bottom: 10px;
   }
 
+  .review-upload-store-category-icon {
+    height: 30px;
+  }
+
   .review-upload-store-name {
-    font-size: 18px;
+    font-size: 25px;
+  }
+
+  .review-upload-content-container {
+    width: 100%;
   }
 
   .review-upload-food-name {
     margin-top: 5px;
     margin-left: 15px;
+    font-size: 25px;
   }
 
   .review-upload-food-image {
-    height: 160px;
-    max-width: 215px;
+    width: 450px;
+    height: 253.125px;
+  }
+
+  .review-upload-food-text {
+    width: 90%;
+    font-size: 20px;
   }
 
   .review-upload-submit-button {
     margin-left: 80%;
-    width: 100px;
+    width: 120px;
+    font-size: 20px;
+  }
+
+  .usermeal-confirm-warring {
+    font-size: 12px;
   }
 }
 
 @include desktop {
   .review-upload-window {
     width: 800px;
-    height: 530px;
     padding: 15px;
   }
 
@@ -179,12 +206,6 @@
 
   .fa-times {
     font-size: 20px;
-    transition: 120ms ease all;
-    cursor: pointer;
-
-    &:hover {
-      color: #ffcc1d;
-    }
   }
 
   .review-upload-store-info-container {
@@ -211,19 +232,32 @@
   }
 
   .review-upload-food-image {
-    height: 280px;
-    max-width: 380px;
-    margin: 15px 30px 30px 0;
+    width: 400px;
+    height: 225px;
+    margin-right: 15px;
   }
 
   .review-upload-food-text {
-    width: 100%;
-    height: 88%;
+    width: 50%;
+    min-height: 190px;
     font-size: 20px;
+    margin-top: 10px;
   }
 
   .review-upload-submit-button {
     margin-left: 80%;
     width: 120px;
+  }
+
+  .fa-times {
+    transition: 120ms ease all;
+    cursor: pointer;
+    &:hover {
+      color: #ffcc1d;
+    }
+  }
+
+  .usermeal-confirm-warring {
+    font-size: 12px;
   }
 }

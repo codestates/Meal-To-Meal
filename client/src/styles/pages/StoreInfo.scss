@@ -16,6 +16,12 @@
   margin: 10px;
 }
 
+.storeinfo-title {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
 .store-title-container {
   display: flex;
   justify-content: center;
@@ -46,7 +52,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .store-detail-info-text {
@@ -57,7 +63,9 @@
 .box-title {
   font-size: 20px;
   font-weight: bolder;
-  margin: 35px 0 5px 5px;
+  margin: 35px 0 5px 0;
+  font-weight: bolder;
+  width: 100%;
 }
 
 .storeinfo-button-container {
@@ -102,9 +110,8 @@
 .fa-utensils,
 .fa-map-marker-alt,
 .fa-clock {
-  font-size: 25px;
+  font-size: 22px;
   color: #ffcc1d;
-  padding-bottom: 5px;
   margin-right: 10px;
   cursor: default;
 
@@ -115,8 +122,12 @@
 
 @include tablet {
   .storeinfo-info-container {
-    margin-top: 20px;
+    margin-top: 60px;
     font-size: 30px;
+  }
+
+  .storeinfo-title {
+    font-size: 25px;
   }
 
   .storeinfo-title-container {
@@ -135,8 +146,8 @@
   }
 
   .store-detail-info-text {
-    font-size: 35px;
-    margin: 15px;
+    font-size: 25px;
+    margin: 10px;
   }
 
   .box-title {
@@ -153,13 +164,17 @@
   .fa-utensils,
   .fa-map-marker-alt,
   .fa-clock {
-    font-size: 45px;
+    font-size: 35px;
   }
 }
 
 @include desktop {
   .storeinfo-page-container {
     margin-top: 60px;
+  }
+
+  .storeinfo-title {
+    font-size: 30px;
   }
 
   .storeinfo-info-menu-review-container {
