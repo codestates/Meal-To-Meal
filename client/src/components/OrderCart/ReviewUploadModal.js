@@ -8,8 +8,8 @@ function ReviewUploadModal({
   openReviewModalHandler,
   orderedMeal,
   setOrderedMeal,
-  openAlertHandler,
   openWarningAlertHandler,
+  openAlertHandler,
   setAlertMessage,
 }) {
   const accessToken = localStorage.getItem('accessToken');
@@ -48,7 +48,8 @@ function ReviewUploadModal({
       })
       .catch(err => {
         console.log(err);
-        alert('사진용량 초과!');
+        setAlertMessage('사진용량이 초과되었습니다!');
+        openWarningAlertHandler();
       });
   };
 
@@ -87,7 +88,7 @@ function ReviewUploadModal({
       })
       .catch(err => {
         console.log(err);
-        setAlertMessage('잘못된 요청입니다.');
+        setAlertMessage('사진용량이 초과되었습니다!');
         openWarningAlertHandler();
       });
   };
