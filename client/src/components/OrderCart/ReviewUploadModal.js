@@ -32,6 +32,7 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
   };
 
   const uploadImage = file => {
+    console.log(file);
     file.newName = `${uuid()}.${file.type.split('/')[1]}`;
     setSelectedFile(file);
     S3FileUpload.uploadFile(file, config)
