@@ -99,13 +99,12 @@ function UserMeal({ navigate, getImage, openWarningAlertHandler, openAlertHandle
         <ReviewUploadModal
           navigate={navigate}
           openReviewModalHandler={openReviewModalHandler}
+          openWarningAlertHandler={openWarningAlertHandler}
           orderedMeal={orderedMeal}
-          setOrderedMeal={setOrderedMeal}
           setAlertMessage={setAlertMessage}
+          setOrderedMeal={setOrderedMeal}
           openAlertHandler={openAlertHandler}
           icon={icon}
-          setAlertMessage={setAlertMessage}
-          openWarningAlertHandler={openWarningAlertHandler}
         />
       ) : null}
     </>

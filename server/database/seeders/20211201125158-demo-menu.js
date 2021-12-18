@@ -15,7 +15,8 @@ module.exports = {
           id: 1,
           menu_name: '눈꽃치즈 떡볶이',
           menu_price: 15000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/tteokbokki.jpeg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%82%E1%85%AE%E1%86%AB%E1%84%81%E1%85%A9%E1%86%BE%E1%84%8E%E1%85%B5%E1%84%8C%E1%85%B3%E1%84%84%E1%85%A5%E1%86%A8%E1%84%87%E1%85%A9%E1%86%A9%E1%84%8B%E1%85%B5.jpg',
           menu_order_quantity: 0,
           store_id: 1,
           created_at: new Date(),
@@ -25,7 +26,8 @@ module.exports = {
           id: 2,
           menu_name: '카레 떡볶이',
           menu_price: 11000,
-          menu_image: 'https://meal2sdk.s3.amazonaws.com/tteokbokki.jpeg',
+          menu_image:
+            'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%8F%E1%85%A1%E1%84%85%E1%85%A6%E1%84%84%E1%85%A5%E1%86%A8%E1%84%87%E1%85%A9%E1%86%A9%E1%84%8B%E1%85%B5.jpg',
           menu_order_quantity: 0,
           store_id: 1,
           created_at: new Date(),

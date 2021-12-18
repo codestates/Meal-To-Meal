@@ -279,6 +279,7 @@ function App() {
               navigate={navigate}
               getImage={getImage}
               openAlertHandler={openAlertHandler}
+              openWarningAlertHandler={openWarningAlertHandler}
               setAlertMessage={setAlertMessage}
             />
           }
