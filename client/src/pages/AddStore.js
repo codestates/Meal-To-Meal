@@ -40,6 +40,7 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   };
 
   const imgRef = useRef();
+  const addMenuImgRef = useRef();
   const addedMenuImgRef = useRef();
 
   const config = {
@@ -50,6 +51,7 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
   };
 
   const uploadImage = e => key => {
+    if (!e.target.files[0]) return;
     e.target.files[0].newName = `${uuid()}.${e.target.files[0].type.split('/')[1]}`;
     S3FileUpload.uploadFile(e.target.files[0], config)
       .then(data => {
@@ -82,6 +84,7 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
       ...menuList,
       { menu_name: menuInfo.menu_name, menu_price: menuInfo.menu_price, menu_image: menuUrl[0].addMenuUrl },
     ]);
+    setMenuUrl([{ addMenuUrl: '' }]);
   };
 
   const getLocationHandler = () => {
@@ -234,7 +237,12 @@ function AddStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
               ))
             : null}
           <div className="AddStore-add-menu-container">
-            <AddMenu menuUrl={menuUrl} uploadImage={uploadImage} handleInputValue={handleInputValue} />
+            <AddMenu
+              menuUrl={menuUrl}
+              addMenuImgRef={addMenuImgRef}
+              uploadImage={uploadImage}
+              handleInputValue={handleInputValue}
+            />
           </div>
           <button className="AddStore-add-menu-button" onClick={() => addMenuHandler()}>
             + 저장 후 다음 메뉴 추가
