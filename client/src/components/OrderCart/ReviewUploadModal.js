@@ -121,6 +121,10 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
               accept="image/*"
               onChange={e => uploadImage(e.target.files[0])}
             />
+            <div className="usermeal-confirm-warring">
+              식사를 하신 후 꼭! <br />
+              리뷰를 남겨 주셔야 다음 이용이 가능합니다.
+            </div>
             <button className="review-upload-submit-button" type="submit">
               등록하기
             </button>

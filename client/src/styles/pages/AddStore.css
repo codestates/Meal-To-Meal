@@ -14,10 +14,6 @@
   border-radius: 15px;
 }
 
-.AddMenu-add-img-container {
-  width: 50%;
-}
-
 .AddMenu-img {
   -webkit-box-shadow: gray 2px 2px 2px;
           box-shadow: gray 2px 2px 2px;
@@ -47,6 +43,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 10px;
+  width: 50%;
 }
 
 .AddMenu-menu-container {
@@ -78,7 +75,7 @@
 
 .AddMenu-menu-input {
   margin-bottom: 15px;
-  width: 80%;
+  width: 110px;
   -webkit-transition: 120ms ease all;
   transition: 120ms ease all;
   border-radius: 5px;
@@ -90,6 +87,41 @@
   outline: none;
   -webkit-box-shadow: gray 3px 3px 3px;
           box-shadow: gray 3px 3px 3px;
+}
+
+.AddMenu-menu-delete-button {
+  width: 50%;
+  margin: 5px 0 0 auto;
+  -webkit-box-shadow: gray 2px 2px 2px;
+          box-shadow: gray 2px 2px 2px;
+  -webkit-transition: 120ms ease all;
+  transition: 120ms ease all;
+}
+
+.AddMenu-menu-delete-button:hover {
+  -webkit-box-shadow: gray 4px 4px 4px;
+          box-shadow: gray 4px 4px 4px;
+  background-color: red;
+  color: white;
+}
+
+.AddMenu-menu-delete-button:before, .AddMenu-menu-delete-button:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.AddMenu-menu-delete-button:hover:before, .AddMenu-menu-delete-button:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.AddMenu-menu-delete-button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
@@ -105,25 +137,23 @@
   }
   .AddMenu-menu-input {
     height: 30px;
-    width: 100%;
+    width: 80%;
     font-size: 20px;
     padding: 5px;
   }
   .AddMenu-menu-text {
     font-size: 25px;
   }
+  .AddMenu-menu-delete-button {
+    margin: 5px 58px 0 auto;
+    width: 100px;
+  }
 }
 
 @media (min-width: 1024px) {
-  .AddMenu-add-img-container {
-    width: 50%;
-  }
   .AddMenu-img {
     width: 310px;
     height: 174.375px;
-  }
-  .AddMenu-menu-info-container {
-    width: 50%;
   }
   .AddMenu-menu-info-title {
     font-size: 25px;
@@ -136,6 +166,10 @@
   }
   .AddMenu-menu-text {
     font-size: 28px;
+  }
+  .AddMenu-menu-delete-button {
+    margin: 15px 64px 0 auto;
+    width: 100px;
   }
 }
 
@@ -153,17 +187,29 @@
   margin-bottom: 15px;
   width: 100%;
   border-radius: 15px;
+  padding-bottom: 10px;
 }
 
 .FixMenu-add-img-container {
-  width: 50%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .FixMenu-img {
   -webkit-box-shadow: gray 2px 2px 2px;
           box-shadow: gray 2px 2px 2px;
   border-radius: 15px;
-  height: 120px;
+  width: 130px;
+  height: 73.125px;
   margin: 10px 15px 10px 10px;
 }
 
@@ -191,7 +237,7 @@
 .FixMenu-menu-info-title {
   font-weight: bolder;
   font-size: 18px;
-  margin-bottom: 5px;
+  margin: 5px 5px;
 }
 
 .FixMenu-menu-text {
@@ -269,11 +315,9 @@
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
-  .FixMenu-add-img-container {
-    width: 50%;
-  }
   .FixMenu-img {
-    height: 190px;
+    width: 220px;
+    height: 180px;
   }
   .FixMenu-menu-info-title {
     font-size: 20px;
@@ -351,7 +395,7 @@
   -webkit-box-shadow: gray 3px 3px 3px 3px;
           box-shadow: gray 3px 3px 3px 3px;
   width: 250px;
-  max-height: 130px;
+  height: 140.625px;
   border-radius: 15px;
   margin: 0 auto 20px auto;
   display: block;
@@ -386,20 +430,22 @@
 
 .AddStore-store-info-input {
   font-size: 18px;
-  border: 2px solid;
+  border: 3px solid;
   border-radius: 5px;
   -webkit-transition: 100ms ease all;
   transition: 100ms ease all;
-  min-height: 30px;
+  height: 30px;
   margin-bottom: 15px;
   padding: 3px 0 3px 5px;
+  background-color: white;
 }
 
 .AddStore-store-info-input:focus {
-  border: 2px solid #ffcc1d;
+  border: 3px solid #ffcc1d;
   outline: none;
   -webkit-box-shadow: gray 3px 3px 3px;
           box-shadow: gray 3px 3px 3px;
+  background-color: #fdfdfd;
 }
 
 .AddStore-add-menu-container {
@@ -413,19 +459,22 @@
 
 .AddStore-store-description-input {
   font-size: 18px;
-  border: 2px solid;
+  border: 3px solid;
   border-radius: 5px;
   -webkit-transition: 100ms ease all;
   transition: 100ms ease all;
-  height: 50px;
   margin-bottom: 15px;
   padding: 5px;
   text-align: start;
   resize: none;
+  height: 100%;
+  overflow: visible;
+  text-overflow: ellipsis;
+  min-height: 80px;
 }
 
 .AddStore-store-description-input:focus {
-  border: 2px solid #ffcc1d;
+  border: 3px solid #ffcc1d;
   border-radius: 10px;
   outline: none;
   -webkit-box-shadow: gray 3px 3px 3px;
@@ -612,7 +661,7 @@
   }
   .AddStore-store-img {
     width: 550px;
-    max-height: 330px;
+    height: 309.375px;
   }
   .AddStore-store-img-add-input {
     font-size: 20px;
@@ -630,7 +679,7 @@
   }
   .AddStore-store-description-input {
     font-size: 22px;
-    min-height: 100px;
+    min-height: 140px;
   }
   .AddStore-address-button {
     font-size: 20px;
@@ -672,12 +721,13 @@
     font-size: 35px;
   }
   .AddStore-store-img {
-    width: 70%;
-    max-height: 400px;
+    width: 500px;
+    height: 281.25px;
   }
   .AddStore-store-img-add-input {
     font-size: 25px;
     padding: 10px;
+    height: 65px;
   }
   .AddStore-store-text {
     font-size: 30px;
@@ -691,7 +741,6 @@
   }
   .AddStore-store-description-input {
     font-size: 25px;
-    min-height: 120px;
   }
   .AddStore-address-button {
     font-size: 23px;

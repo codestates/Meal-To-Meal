@@ -23,7 +23,7 @@
 .AddStore-store-img {
   box-shadow: gray 3px 3px 3px 3px;
   width: 250px;
-  max-height: 130px;
+  height: 140.625px;
   border-radius: 15px;
   margin: 0 auto 20px auto;
   display: block;
@@ -58,17 +58,19 @@
 
 .AddStore-store-info-input {
   font-size: 18px;
-  border: 2px solid;
+  border: 3px solid;
   border-radius: 5px;
   transition: 100ms ease all;
-  min-height: 30px;
+  height: 30px;
   margin-bottom: 15px;
   padding: 3px 0 3px 5px;
+  background-color: white;
 
   &:focus {
-    border: 2px solid #ffcc1d;
+    border: 3px solid #ffcc1d;
     outline: none;
     box-shadow: gray 3px 3px 3px;
+    background-color: #fdfdfd;
   }
 }
 
@@ -79,17 +81,20 @@
 
 .AddStore-store-description-input {
   font-size: 18px;
-  border: 2px solid;
+  border: 3px solid;
   border-radius: 5px;
   transition: 100ms ease all;
-  height: 50px;
   margin-bottom: 15px;
   padding: 5px;
   text-align: start;
   resize: none;
+  height: 100%;
+  overflow: visible;
+  text-overflow: ellipsis;
+  min-height: 80px;
 
   &:focus {
-    border: 2px solid #ffcc1d;
+    border: 3px solid #ffcc1d;
     border-radius: 10px;
     outline: none;
     box-shadow: gray 3px 3px 3px;
@@ -250,7 +255,7 @@
 
   .AddStore-store-img {
     width: 550px;
-    max-height: 330px;
+    height: 309.375px;
   }
 
   .AddStore-store-img-add-input {
@@ -273,7 +278,7 @@
 
   .AddStore-store-description-input {
     font-size: 22px;
-    min-height: 100px;
+    min-height: 140px;
   }
 
   .AddStore-address-button {
@@ -289,9 +294,6 @@
   .AddStore-button {
     font-size: 20px;
     height: 35px;
-  }
-
-  .daum-postcode-window {
   }
 
   .daum-postcode-close {
@@ -318,13 +320,14 @@
   }
 
   .AddStore-store-img {
-    width: 70%;
-    max-height: 400px;
+    width: 500px;
+    height: 281.25px;
   }
 
   .AddStore-store-img-add-input {
     font-size: 25px;
     padding: 10px;
+    height: 65px;
   }
 
   .AddStore-store-text {
@@ -342,7 +345,6 @@
 
   .AddStore-store-description-input {
     font-size: 25px;
-    min-height: 120px;
   }
 
   .AddStore-address-button {

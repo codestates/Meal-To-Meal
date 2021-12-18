@@ -3,12 +3,15 @@
 @import '../components/OrderCart/ReviewUploadModal';
 @import '../components/OrderCart/EmptyOrderAni';
 
-.usermeal-container {
-  margin: 15px 15px 80px 15px;
+.usermeal-order-food-info-container {
+  padding: 10px;
+  margin-bottom: 70px;
 }
 
 .usermeal-reservation-container {
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
   border: 3px solid #ffcc1d;
   border-radius: 10px;
   padding: 15px;
@@ -23,7 +26,7 @@
 .usermeal-store-title-container {
   display: flex;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: 10px;
 }
 
@@ -36,6 +39,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 .usermeal-store-image {
@@ -71,24 +75,65 @@
 .usermeal-userinfo-title {
   font-size: 20px;
   font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.usermeal-user-button-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
 }
 
 .usermeal-userinfo-container {
-  margin: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.usermeal-userinfo-box {
+  box-shadow: gray 3px 3px 3px 3px;
+  border-radius: 10px;
+  width: 100%;
+  padding: 10px 20px;
 }
 
 .usermeal-user-text {
-  margin-bottom: 15px;
+  margin: 10px 0;
 }
 
 .usermeal-confirm-button {
-  display: block;
-  margin: 0 auto 0 auto;
+  width: 130px;
+  box-shadow: gray 4px 4px 4px;
+  border-radius: 7px;
+  transition: 120ms ease;
+
+  &:hover {
+    box-shadow: gray 6px 6px 6px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
 }
 
 @include tablet {
-  .usermeal-container {
-    margin-top: 70px;
+  .usermeal-order-food-info-container {
+    margin-top: 60px;
   }
 
   .usermeal-title {
@@ -124,12 +169,25 @@
     font-size: 25px;
   }
 
+  .usermeal-order-food-reservation-container {
+    margin-bottom: 40px;
+  }
+
+  .usermeal-ordered-container {
+    margin-bottom: 40px;
+  }
+
   .usermeal-ordered-title {
     font-size: 25px;
   }
 
   .usermeal-userinfo-title {
     font-size: 25px;
+    margin-bottom: 15px;
+  }
+
+  .usermeal-userinfo-box {
+    width: 60%;
   }
 
   .usermeal-user-text {
@@ -137,69 +195,53 @@
   }
 
   .usermeal-confirm-button {
-    width: 300px;
+    width: 200px;
     height: 35px;
     font-size: 20px;
   }
 }
 
 @include desktop {
-  .usermeal-container {
-    margin-top: 70px;
-    margin: 70px 30px 30px 30px;
-    min-height: 77.5vh;
-  }
-
   .usermeal-order-food-info-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    justify-content: center;
+    margin-top: 60px;
+    padding: 10px;
+    height: 72.3vh;
   }
 
   .usermeal-order-food-reservation-container {
     width: 50%;
+    margin-right: 30px;
   }
 
   .usermeal-title {
     font-size: 25px;
   }
 
+  .usermeal-reservation-container {
+    min-height: 68vh;
+  }
+
   .usermeal-category-icon {
-    height: 35px;
-    margin-right: 10px;
+    height: 45px;
   }
 
   .usermeal-store-title {
     font-size: 25px;
   }
 
+  .usermeal-ordered-title {
+    font-size: 25px;
+  }
+
   .usermeal-store-image {
-    width: 30em;
-    height: 320px;
+    width: 560px;
+    height: 315px;
   }
 
   .usermeal-address-text,
   .usermeal-description-text {
-    font-size: 20px;
-  }
-
-  .usermeal-userinfo-title {
-    font-size: 30px;
-  }
-
-  .usermeal-user-text {
-    font-size: 25px;
-  }
-
-  .usermeal-confirm-button {
-    width: 300px;
-    height: 35px;
-    font-size: 20px;
-    margin-top: 100px;
-  }
-
-  .usermeal-ordered-title {
     font-size: 25px;
   }
 
@@ -207,7 +249,18 @@
     width: 50%;
   }
 
-  .usermeal-ordered-container {
-    margin-top: -5px;
+  .usermeal-userinfo-title {
+    font-size: 25px;
+    margin-bottom: 10px;
+  }
+
+  .usermeal-user-text {
+    font-size: 20px;
+  }
+
+  .usermeal-confirm-button {
+    font-size: 20px;
+    width: 250px;
+    height: 35px;
   }
 }

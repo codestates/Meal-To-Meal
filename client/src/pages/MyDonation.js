@@ -63,7 +63,7 @@ function MyDonation() {
                 <div className="mydonation-money-total">{`${isUser.user_nickname}님은 ${isUser.createdAt.slice(
                   0,
                   4
-                )}년 부터 총 ${isUser.user_donation_count}그릇을 ₩${Number(
+                )}년 부터 총 ${isUser.user_donation_count}그릇, ₩${Number(
                   isUser.user_donation_money
                 ).toLocaleString()}원 기부하셨습니다!`}</div>
               </div>

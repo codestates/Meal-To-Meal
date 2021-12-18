@@ -8,16 +8,21 @@
   margin-bottom: 15px;
   width: 100%;
   border-radius: 15px;
+  padding-bottom: 10px;
 }
 
 .FixMenu-add-img-container {
-  width: 50%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .FixMenu-img {
   box-shadow: gray 2px 2px 2px;
   border-radius: 15px;
-  height: 120px;
+  width: 130px;
+  height: 73.125px;
   margin: 10px 15px 10px 10px;
 }
 
@@ -35,7 +40,7 @@
 .FixMenu-menu-info-title {
   font-weight: bolder;
   font-size: 18px;
-  margin-bottom: 5px;
+  margin: 5px 5px;
 }
 
 .FixMenu-menu-text {
@@ -107,12 +112,9 @@
 }
 
 @include tablet {
-  .FixMenu-add-img-container {
-    width: 50%;
-  }
-
   .FixMenu-img {
-    height: 190px;
+    width: 220px;
+    height: 180px;
   }
 
   .FixMenu-menu-info-title {

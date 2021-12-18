@@ -18,7 +18,7 @@ function SearchResultSidebar({ searchResult, setIsChangeCenter, setSelected }) {
               }}
             >
               <div className="SearchResult-info">
-                <div className="SearchResult-title">{el.store_name}</div>
+                <div className="SearchResult-title">{el.store_name.slice(0, 16)}</div>
                 <div className="SearchResult-text">{el.store_category}</div>
                 <div className="SearchResult-text-container">
                   <img className="SearchResult-icon" src={require('../../img/marker.png').default} alt="" />
