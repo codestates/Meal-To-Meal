@@ -14,7 +14,6 @@ function Header({
   openAlertHandler,
   openWarningAlertHandler,
   setAlertMessage,
-  loginAlertOpenHandler,
   setKakaoLogin,
 }) {
   const [isLoginOpenSidebar, setIsLoginOpenSidebar] = useState(false);

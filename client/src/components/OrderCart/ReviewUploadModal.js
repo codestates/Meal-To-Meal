@@ -3,7 +3,14 @@ import axios from 'axios';
 import S3FileUpload from 'react-s3';
 import { v4 as uuid } from 'uuid';
 
-function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setOrderedMeal }) {
+function ReviewUploadModal({
+  navigate,
+  openReviewModalHandler,
+  orderedMeal,
+  setOrderedMeal,
+  openAlertHandler,
+  setAlertMessage,
+}) {
   const accessToken = localStorage.getItem('accessToken');
   const [selectedFile, setSelectedFile] = useState('');
   const [reviewText, setReviewText] = useState('');
@@ -73,7 +80,8 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
         { headers: { authorization: `Bearer ${accessToken}` }, withCredentials: true }
       )
       .then(res => {
-        alert('리뷰가 등록되었습니다');
+        setAlertMessage('리뷰가 등록되었습니다.');
+        openAlertHandler();
         navigate('/mypage');
         setOrderedMeal([]);
       })
@@ -121,6 +129,10 @@ function ReviewUploadModal({ navigate, openReviewModalHandler, orderedMeal, setO
               accept="image/*"
               onChange={e => uploadImage(e.target.files[0])}
             />
+            <div className="usermeal-confirm-warring">
+              식사를 하신 후 꼭! <br />
+              리뷰를 남겨 주셔야 다음 이용이 가능합니다.
+            </div>
             <button className="review-upload-submit-button" type="submit">
               등록하기
             </button>

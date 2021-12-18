@@ -6,7 +6,7 @@ import EmptyOrderAni from '../components/OrderCart/EmptyOrderAni';
 import Loading from '../components/Loading';
 import '../styles/pages/UserMeal.css';
 
-function UserMeal({ navigate, getImage, emptyOrderAniText, setEmptyOrderAniText }) {
+function UserMeal({ navigate, getImage, openAlertHandler, setAlertMessage }) {
   const accessToken = localStorage.getItem('accessToken');
   const [isLoading, setIsLoading] = useState(true);
   const [orderedMeal, setOrderedMeal] = useState([]);
@@ -51,57 +51,59 @@ function UserMeal({ navigate, getImage, emptyOrderAniText, setEmptyOrderAniText 
           {orderedMeal.length === 0 || orderedMeal.length === undefined ? (
             <EmptyOrderAni navigate={navigate} />
           ) : (
-            <div className="usermeal-container">
-              <div className="usermeal-order-food-info-container">
-                <div className="usermeal-order-food-reservation-container">
-                  <div className="usermeal-title">예약 내역</div>
-                  <div className="usermeal-reservation-container">
-                    <div className="usermeal-store-title-container">
-                      <img className="usermeal-category-icon" src={icon} alt="" />
-                      <div className="usermeal-store-title">{orderedMeal[0].menu.store.store_name}</div>
-                    </div>
-                    <div className="usermeal-store-img-container">
-                      <img className="usermeal-store-image" src={orderedMeal[0].menu.store.store_image} alt="" />
-                    </div>
-                    <div className="usermeal-address-container">
-                      <i className="fas fa-map-marker-alt" />
-                      <div className="usermeal-address-text">{orderedMeal[0].menu.store.store_address}</div>
-                    </div>
-                    <div className="usermeal-description-container">
-                      <i className="fas fa-utensils" />
-                      <div className="usermeal-description-text">{orderedMeal[0].menu.store.store_description}</div>
-                    </div>
+            <div className="usermeal-order-food-info-container">
+              <div className="usermeal-order-food-reservation-container">
+                <div className="usermeal-title">예약 내역</div>
+                <div className="usermeal-reservation-container">
+                  <div className="usermeal-store-title-container">
+                    <img className="usermeal-category-icon" src={icon} alt="" />
+                    <div className="usermeal-store-title">{orderedMeal[0].menu.store.store_name}</div>
+                  </div>
+                  <div className="usermeal-store-img-container">
+                    <img className="usermeal-store-image" src={orderedMeal[0].menu.store.store_image} alt="" />
+                  </div>
+                  <div className="usermeal-address-container">
+                    <i className="fas fa-map-marker-alt" />
+                    <div className="usermeal-address-text">{orderedMeal[0].menu.store.store_address}</div>
+                  </div>
+                  <div className="usermeal-description-container">
+                    <i className="fas fa-utensils" />
+                    <div className="usermeal-description-text">{orderedMeal[0].menu.store.store_description}</div>
                   </div>
                 </div>
-                <div className="usermeal-ordered-info-container">
-                  <div className="usermeal-ordered-container">
-                    <div className="usermeal-ordered-title">주문한 음식</div>
-                    <UserMealBox orderedMeal={orderedMeal} />
-                  </div>
-                  <div className="usermeal-userinfo-title">주문 유저 정보</div>
-                  <div className="usermeal-userinfo-container">
+              </div>
+              <div className="usermeal-ordered-info-container">
+                <div className="usermeal-ordered-container">
+                  <div className="usermeal-ordered-title">주문한 음식</div>
+                  <UserMealBox orderedMeal={orderedMeal} />
+                </div>
+                <div className="usermeal-userinfo-title">주문 유저 정보</div>
+                <div className="usermeal-userinfo-container">
+                  <div className="usermeal-userinfo-box">
                     <div className="usermeal-user-text">{orderedUser[0].user_nickname}님</div>
                     <div className="usermeal-user-text">{orderedUser[0].user_email}</div>
                     <div className="usermeal-user-text">{orderedUser[0].user_phone_number}</div>
                   </div>
+                </div>
+                <div className="usermeal-user-button-container">
                   <button className="usermeal-confirm-button" onClick={openReviewModalHandler}>
                     잘 먹었습니다!
                   </button>
                 </div>
               </div>
-              {reviewModalOpen ? (
-                <ReviewUploadModal
-                  navigate={navigate}
-                  openReviewModalHandler={openReviewModalHandler}
-                  orderedMeal={orderedMeal}
-                  setOrderedMeal={setOrderedMeal}
-                  icon={icon}
-                />
-              ) : null}
             </div>
           )}
         </>
       )}
+      {reviewModalOpen ? (
+        <ReviewUploadModal
+          navigate={navigate}
+          openReviewModalHandler={openReviewModalHandler}
+          orderedMeal={orderedMeal}
+          setOrderedMeal={setOrderedMeal}
+          icon={icon}
+        />
+      ) : null}
     </>
   );
 }

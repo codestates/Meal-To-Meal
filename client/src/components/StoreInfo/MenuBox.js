@@ -72,6 +72,7 @@ function MenuBox({
           navigate('/usermeal');
         })
         .catch(err => {
+          console.log(err.response.data.message);
           if (err.response.data.message === '인증되지 않은 사용자입니다') {
             setAlertMessage('휴대폰 인증이 필요한 서비스입니다');
             openWarningAlertHandler();
@@ -80,6 +81,9 @@ function MenuBox({
             openClickOwnStoreAlertHandler();
           } else if (err.response.data.message === '이미 주문 내역이 있습니다') {
             setAlertMessage('이미 주문 내역이 있습니다');
+            openWarningAlertHandler();
+          } else if (err.response.data.message === '오늘은 이미 사용하셨습니다') {
+            setAlertMessage('오늘은 이미 사용하셨습니다. 내일 다시 찾아주세요!');
             openWarningAlertHandler();
           } else {
             setAlertMessage('잘못된 요청입니다');

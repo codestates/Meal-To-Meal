@@ -94,6 +94,7 @@ module.exports = {
     }
   },
   put: async (req, res) => {
+    console.log(req.body);
     const userInfo = checkTokens(req);
     const {
       store_image,

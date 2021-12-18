@@ -270,10 +270,21 @@ function App() {
               getImage={getImage}
               openWarningAlertHandler={openWarningAlertHandler}
               setAlertMessage={setAlertMessage}
+              issueTokens={issueTokens}
             />
           }
         />
-        <Route path="/usermeal" element={<UserMeal navigate={navigate} getImage={getImage} />} />
+        <Route
+          path="/usermeal"
+          element={
+            <UserMeal
+              navigate={navigate}
+              getImage={getImage}
+              openAlertHandler={openAlertHandler}
+              setAlertMessage={setAlertMessage}
+            />
+          }
+        />
         <Route path="/mydonation" element={<MyDonation getImage={getImage} />} />
       </Routes>
       {isLogin ? (

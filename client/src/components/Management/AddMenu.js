@@ -2,7 +2,7 @@ import React from 'react';
 
 function AddMenu({ handleInputValue, uploadImage, menuUrl, addMenuImgRef }) {
   return (
-    <div className="AddMenu-container">
+    <div className="AddedMenu-container">
       <div className="AddMenu-add-img-container">
         <img
           className="AddMenu-img"

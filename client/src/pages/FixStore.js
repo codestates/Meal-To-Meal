@@ -199,7 +199,6 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
     // 가게 등록 정보 입력
     setNewStoreInfo({ ...newStoreInfo, [key]: e.target.value });
   };
-
   const storeCorrectionHandler = () => {
     console.log(ownerStoreMenu);
     const { store_image, store_name, store_category, store_description, business_hour } = newStoreInfo;
@@ -305,10 +304,10 @@ function FixStore({ navigate, openWarningAlertHandler, setAlertMessage, openAler
             <div className="daum-postcode-backdrop">
               <div className="daum-postcode-window">
                 <DaumPostcode autoClose onComplete={onCompletePost} />
+                <button className="daum-postcode-close" onClick={searchAddressHandler}>
+                  닫기
+                </button>
               </div>
-              <button className="daum-postcode-close" onClick={searchAddressHandler}>
-                닫기
-              </button>
             </div>
           ) : null}
           <div className="AddStore-store-address">{address}</div>

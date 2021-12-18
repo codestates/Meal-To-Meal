@@ -15,16 +15,30 @@ function Footer() {
         </div>
         <div className="footer-our-info-container">
           <div className="footer-title-text">About Us</div>
-          <span className="footer-text">Wiki</span>
-          <span className="footer-text">Client</span>
-          <span className="footer-text">Server</span>
+          <a className="footer-text" href="https://github.com/codestates/Meal-To-Meal">
+            Wiki
+          </a>
+          <a className="footer-text" href="https://github.com/codestates/Meal-To-Meal/tree/main/client">
+            Client
+          </a>
+          <a className="footer-text" href="https://github.com/codestates/Meal-To-Meal/tree/main/server">
+            Server
+          </a>
         </div>
         <div className="footer-our-info-container">
           <div className="footer-title-text">Contact</div>
-          <span className="footer-text">Jamie Park</span>
-          <span className="footer-text">Seojung Noh</span>
-          <span className="footer-text">Sungjun Jin</span>
-          <span className="footer-text">Hendrix Lim</span>
+          <a className="footer-text" href="https://github.com/jamiep9rk">
+            Jamie Park
+          </a>
+          <a className="footer-text" href="https://github.com/anniemon">
+            Seojung Noh
+          </a>
+          <a className="footer-text" href="https://github.com/Jin-sungjun">
+            Sungjun Jin
+          </a>
+          <a className="footer-text" href="https://github.com/Hendrix1995">
+            Hendrix Lim
+          </a>
         </div>
       </div>
       <div className="footer-copyright">Copyright 2021 Sudo_Hired, All rights reserved.</div>
