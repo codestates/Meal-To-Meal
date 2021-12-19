@@ -26,8 +26,6 @@ function Header({
     setIsNotLoginOpenSidebar(!isNotLoginOpenSidebar);
   };
 
-  if (window.location.pathname === '/') return null;
-
   const accessToken = localStorage.getItem('accessToken');
 
   return (

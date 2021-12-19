@@ -1490,11 +1490,4 @@ button {
   font-weight: normal;
   font-style: normal;
 }
-
-@font-face {
-  font-family: 'SDSamliphopangcheBasic';
-  src: url("../fonts/SDSamliphopangcheBasic.otf") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
 /*# sourceMappingURL=App.css.map */

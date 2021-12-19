@@ -260,7 +260,6 @@ function App() {
           path="/sharecart"
           element={
             <ShareCart
-              openAlertHandler={openAlertHandler}
               issueTokens={issueTokens}
               navigate={navigate}
               isLogin={isLogin}
@@ -280,6 +279,7 @@ function App() {
               navigate={navigate}
               getImage={getImage}
               openAlertHandler={openAlertHandler}
+              openWarningAlertHandler={openWarningAlertHandler}
               setAlertMessage={setAlertMessage}
             />
           }
