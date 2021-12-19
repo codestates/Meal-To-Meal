@@ -130,7 +130,7 @@ function Mypage({ navigate, alertMessage, setAlertMessage, openAlertHandler, ope
           }
         )
         .then(res => {
-          setAlertMessage('페스워드가 변경되었습니다.');
+          setAlertMessage('패스워드가 변경되었습니다.');
           openAlertHandler();
           openFixPasswordToggleHandler();
         })

@@ -31,7 +31,7 @@ function Landing({ navigate }) {
             나를 위한 한 끼가 아닌 많은 사람들을 위한 한 끼로 나눔을 실천하세요
           </div>
           <button className="landing-start-button" onClick={() => navigate('/maps')}>
-            지금 시작하기!
+            지금 시작하기
           </button>
         </div>
         <div className="landing-ani" ref={landingAniContainer} />
