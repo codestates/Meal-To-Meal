@@ -292,6 +292,7 @@ button {
   cursor: pointer;
   -webkit-transition: 120ms ease all;
   transition: 120ms ease all;
+  font-family: Pretendard-SemiBold;
 }
 
 .infowindow-store-title-text:hover {
@@ -300,6 +301,7 @@ button {
 
 .infowindow-store-category {
   font-size: 10px;
+  font-family: Pretendard-Light;
 }
 
 .infowindow-store-info-container {
@@ -333,6 +335,7 @@ button {
 .infowindow-info-text {
   font-size: 10px;
   margin-right: 5px;
+  font-family: Pretendard-Medium;
 }
 
 @media (min-width: 758px) and (max-width: 1023px) {
