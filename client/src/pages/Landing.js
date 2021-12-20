@@ -8,7 +8,6 @@ import landing4 from '../img/landing/Landing4.gif';
 
 function Landing({ navigate }) {
   const landingAniContainer = useRef();
-  const GifPlayer = require('react-gif-player');
   useEffect(() => {
     lottie.loadAnimation({
       container: landingAniContainer.current,
