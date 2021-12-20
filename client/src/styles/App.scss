@@ -90,8 +90,6 @@ video {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
-  font-family: Pretendard-Regular, Pretendard-ExtraLight, Pretendard-Light, Pretendard-Medium, Pretendard-SemiBold,
-    Pretendard-Bold, Pretendard-ExtraBold;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -110,6 +108,13 @@ section {
 body {
   line-height: 1;
 }
+
+html,
+body {
+  font-family: Pretendard-Regular, Pretendard-ExtraLight, Pretendard-Light, Pretendard-Medium, Pretendard-SemiBold,
+    Pretendard-Bold, Pretendard-ExtraBold;
+}
+
 ol,
 ul {
   list-style: none;
