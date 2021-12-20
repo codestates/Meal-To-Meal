@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
 html,
 body,
 div,
@@ -1430,63 +1431,63 @@ button {
 
 @font-face {
   font-family: 'Pretendard-Black';
-  src: url("../fonts/Pretendard-Black.otf") format("woff");
+  src: local("Pretendard-Black"), url("../fonts/Pretendard-Black.otf") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard-Bold';
-  src: url("../fonts/Pretendard-Bold.otf") format("woff");
+  src: local("Pretendard-Bold"), url("../fonts/Pretendard-Bold.otf") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard-ExtraBold';
-  src: url("../fonts/Pretendard-ExtraBold.otf") format("woff");
+  src: local("Pretendard-ExtraBold"), url("../fonts/Pretendard-ExtraBold.otf") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard-ExtraLight';
-  src: url("../fonts/Pretendard-ExtraLight.otf") format("woff");
+  src: local("Pretendard-ExtraLight"), url("../fonts/Pretendard-ExtraLight.otf") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard-Light';
-  src: url("../fonts/Pretendard-Light.otf") format("woff");
+  src: local("Pretendard-Light"), url("../fonts/Pretendard-Light.otf") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard-Medium';
-  src: url("../fonts/Pretendard-Medium.otf") format("woff");
+  src: local("Pretendard-Medium"), url("../fonts/Pretendard-Medium.otf") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard-Regular';
-  src: url("../fonts/Pretendard-Regular.otf") format("woff");
+  src: local("Pretendard-Regular"), url("../fonts/Pretendard-Regular.otf") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard-SemiBold';
-  src: url("../fonts/Pretendard-SemiBold.otf") format("woff");
+  src: local("Pretendard-SemiBold"), url("../fonts/Pretendard-SemiBold.otf") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard-Thin';
-  src: url("../fonts/Pretendard-Thin.otf") format("woff");
+  src: local("Pretendard-Thin"), url("../fonts/Pretendard-Thin.otf") format("woff");
   font-weight: normal;
   font-style: normal;
 }

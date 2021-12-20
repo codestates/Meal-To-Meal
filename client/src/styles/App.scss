@@ -186,63 +186,80 @@ button {
 
 @font-face {
   font-family: 'Pretendard-Black';
-  src: url('../fonts/Pretendard-Black.otf') format('woff');
+  src: local('Pretendard-Black'),
+    url('../fonts/Pretendard-Black.otf') format('woff') url('../fonts/Pretendard-Black.otf') format('truetype')
+      url('../fonts/Pretendard-Black.otf') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard-Bold';
-  src: url('../fonts/Pretendard-Bold.otf') format('woff');
+  src: local('Pretendard-Bold'), url('../fonts/Pretendard-Bold.otf') format('woff'),
+    url('../fonts/Pretendard-Bold.otf') format('truetype'), url('../fonts/Pretendard-Bold.otf') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard-ExtraBold';
-  src: url('../fonts/Pretendard-ExtraBold.otf') format('woff');
+  src: local('Pretendard-ExtraBold'),
+    url('../fonts/Pretendard-ExtraBold.otf') format('woff') url('../fonts/Pretendard-ExtraBold.otf') format('truetype')
+      url('../fonts/Pretendard-ExtraBold.otf') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard-ExtraLight';
-  src: url('../fonts/Pretendard-ExtraLight.otf') format('woff');
+  src: local('Pretendard-ExtraLight'),
+    url('../fonts/Pretendard-ExtraLight.otf') format('woff') url('../fonts/Pretendard-ExtraLight.otf')
+      format('truetype') url('../fonts/Pretendard-ExtraLight.otf') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard-Light';
-  src: url('../fonts/Pretendard-Light.otf') format('woff');
+  src: local('Pretendard-Light'),
+    url('../fonts/Pretendard-Light.otf') format('woff') url('../fonts/Pretendard-Light.otf') format('truetype')
+      url('../fonts/Pretendard-Light.otf') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard-Medium';
-  src: url('../fonts/Pretendard-Medium.otf') format('woff');
+  src: local('Pretendard-Medium'),
+    url('../fonts/Pretendard-Medium.otf') format('woff') url('../fonts/Pretendard-Medium.otf') format('truetype')
+      url('../fonts/Pretendard-Medium.otf') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard-Regular';
-  src: url('../fonts/Pretendard-Regular.otf') format('woff');
+  src: local('Pretendard-Regular'),
+    url('../fonts/Pretendard-Regular.otf') format('woff') url('../fonts/Pretendard-Regular.otf') format('truetype')
+      url('../fonts/Pretendard-Regular.otf') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard-SemiBold';
-  src: url('../fonts/Pretendard-SemiBold.otf') format('woff');
+  src: local('Pretendard-SemiBold'),
+    url('../fonts/Pretendard-SemiBold.otf') format('woff') url('../fonts/Pretendard-SemiBold.otf') format('truetype')
+      url('../fonts/Pretendard-SemiBold.otf') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pretendard-Thin';
-  src: url('../fonts/Pretendard-Thin.otf') format('woff');
+  src: local('Pretendard-Thin'),
+    url('../fonts/Pretendard-Thin.otf') format('woff') url('../fonts/Pretendard-Thin.otf') format('truetype')
+      url('../fonts/Pretendard-Thin.otf') format('svg');
   font-weight: normal;
   font-style: normal;
 }
