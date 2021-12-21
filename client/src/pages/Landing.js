@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
 import '../styles/pages/Landing.css';
-import landing1 from '../img/landing/landing1.mp4';
-import landing2 from '../img/landing/landing2.mp4';
-import landing3 from '../img/landing/landing3.mp4';
-import landing4 from '../img/landing/landing4.mp4';
+import landing1 from '../img/landing/Landing1.gif';
+import landing2 from '../img/landing/Landing2.gif';
+import landing3 from '../img/landing/Landing3.gif';
+import landing4 from '../img/landing/Landing4.gif';
 
 function Landing({ navigate }) {
   const landingAniContainer = useRef();
@@ -31,7 +31,7 @@ function Landing({ navigate }) {
             나를 위한 한 끼가 아닌 많은 사람들을 위한 한 끼로 나눔을 실천하세요
           </div>
           <button className="landing-start-button" onClick={() => navigate('/maps')}>
-            지금 시작하기!
+            지금 시작하기
           </button>
         </div>
         <div className="landing-ani" ref={landingAniContainer} />
@@ -45,9 +45,7 @@ function Landing({ navigate }) {
             전국에 있는 Meal to Meal 가맹점을 찾을 수 있어요{' '}
           </div>
         </div>
-        <video className="landing-tutorials-info-gif-right" autoPlay loop muted>
-          <source src={landing1} type="video/mp4" />
-        </video>
+        <img className="landing-tutorials-info-gif-right" src={landing1} alt="" />
       </div>
       <div className="landing-tutorials-container-left">
         <div className="landing-tutorial-info-text-container-left">
@@ -58,9 +56,7 @@ function Landing({ navigate }) {
             다른 사람에게 한 끼를 기부해보세요
           </div>
         </div>
-        <video className="landing-tutorials-info-gif-left" autoPlay loop muted>
-          <source src={landing2} type="video/mp4" />
-        </video>
+        <img className="landing-tutorials-info-gif-left" src={landing2} alt="" />
       </div>
       <div className="landing-tutorials-container-right">
         <div className="landing-tutorial-info-text-container-right">
@@ -69,9 +65,7 @@ function Landing({ navigate }) {
             맛있는 한 끼를 먹고 리뷰를 남겨서 기부에 대한 고마움을 표시하세요
           </div>
         </div>
-        <video className="landing-tutorials-info-gif-right" autoPlay loop muted>
-          <source src={landing3} type="video/mp4" />
-        </video>
+        <img className="landing-tutorials-info-gif-right" src={landing3} alt="" />
       </div>
       <div className="landing-tutorials-container-left">
         <div className="landing-tutorial-info-text-container-left">
@@ -82,9 +76,7 @@ function Landing({ navigate }) {
             고객들이 남긴 리뷰로 맛집이 될 수 있어요
           </div>
         </div>
-        <video className="landing-tutorials-info-gif-left" autoPlay loop muted>
-          <source src={landing4} type="video/mp4" />
-        </video>
+        <img className="landing-tutorials-info-gif-left" src={landing4} alt="" />
       </div>
       <button className="landing-start-button-bottom" onClick={() => navigate('/maps')}>
         지금 시작하기!
