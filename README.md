@@ -20,7 +20,7 @@ P/W: asdf1234
 
 
 
-# 💻 팀원 소개
+## 💻 팀원 소개
 
 ### ☀️ 박정현
 [![](https://img.shields.io/badge/Github-jamiep9rk-%230099FF?style=for-the-badge&logo=github)](https://github.com/jamiep9rk)
@@ -396,7 +396,7 @@ P/W: asdf1234
 
 
 
-<h1>서비스 /h1>
+## 서비스 미리보기
 
 
 <details>
