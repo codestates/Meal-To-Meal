@@ -16,7 +16,7 @@ module.exports = {
       const KAKAO_REDIRECT_URI = process.env.KAKAO_REDIRECT_URI;
       const KAKAO_CLIENT_SECRET = process.env.KAKAO_CLIENT_SECRET;
       const grantType = 'authorization_code';
-      console.log('authorizationCode', authorizationCode);
+
       if (authorizationCode) {
         const response = await axios({
           method: 'POST',

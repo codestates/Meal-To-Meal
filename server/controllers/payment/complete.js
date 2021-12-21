@@ -13,19 +13,19 @@ module.exports = async (req, res) => {
     const getToken = await axios({
       url: 'https://api.iamport.kr/users/getToken',
       method: 'post', // POST method
-      headers: { 'Content-Type': 'application/json' }, // "Content-Type": "application/json"
+      headers: { 'Content-Type': 'application/json' },
       data: {
-        imp_key: process.env.REACT_APP_INICIS_API_KEY, // REST API 키
-        imp_secret: process.env.REACT_APP_INICIS_API_SECRET, // REST API Secret
+        imp_key: process.env.REACT_APP_INICIS_API_KEY,
+        imp_secret: process.env.REACT_APP_INICIS_API_SECRET,
       },
     }).catch(err => console.log(err));
-    // accessToken 받기 (결제용임)
-    const { access_token } = getToken.data.response; // 우리 엑세스 토큰과 겹치지는 않는가?
+
+    const { access_token } = getToken.data.response;
 
     const getPaymentData = await axios({
-      url: `https://api.iamport.kr/payments/${imp_uid}`, // imp_uid 전달
+      url: `https://api.iamport.kr/payments/${imp_uid}`,
       method: 'get', // GET method
-      headers: { Authorization: access_token }, // 인증 토큰 Authorization header에 추가
+      headers: { Authorization: access_token },
     }).catch(err => console.log(err));
 
     // 조회한 결제정보
