@@ -396,7 +396,7 @@ P/W: asdf1234
 
 
 
-## 서비스 미리보기
+## 🍔 서비스 미리보기
 
 
 <details>
@@ -425,7 +425,7 @@ P/W: asdf1234
 </details>
 <details> 
 <summary>Phone Verification 휴대폰 인증</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146716642-9e56a57d-a976-46f1-bac1-91e7a00392e8.gif" />
+<img src="https://user-images.githubusercontent.com/83822798/146871182-8d14feb0-0e18-406a-a565-3b4adf77e834.gif" />
 </details>
 <details> 
 <summary>ShareCart 나눔카트</summary>
@@ -463,5 +463,7 @@ P/W: asdf1234
 <summary>FixStore 사장님 가게 정보 수정/삭제</summary>
 <img src="https://user-images.githubusercontent.com/83822798/146716343-e4f08c1b-31fd-4bfb-92d7-04a2434d4adf.gif" />
 </details>
+
+          
 
           
