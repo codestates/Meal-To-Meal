@@ -7,7 +7,7 @@ module.exports = {
     try {
       const userInfo = checkTokens(req);
       if (!userInfo) {
-        return res.staus(400).json({ message: '로그인이 필요합니다' });
+        return res.staus(401).json({ message: '로그인이 필요합니다' });
       } else {
         const { user_phone_number } = req.body;
         const existingNumber = await user.findOne({ where: { user_phone_number } });

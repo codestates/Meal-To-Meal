@@ -17,7 +17,6 @@ module.exports = {
           res.status(403).json({ message: '인증되지 않은 사용자입니다' });
         } else {
           const { order, total_price } = req.body;
-          console.log(order);
           const orderSum = order.reduce((acc, cur) => acc + cur.quantity, 0);
           await matchedUser.increment({ user_donation_count: orderSum, user_donation_money: total_price });
 

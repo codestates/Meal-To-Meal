@@ -3,7 +3,6 @@ const { user } = require('../../database/models');
 const axios = require('axios');
 
 module.exports = async (req, res) => {
-  //카카오 로그인 사용자라면 회원탈퇴를 어쩌까?
   const userInfo = checkTokens(req);
   const access_token = userInfo.kakao_oauth_token;
   if (!userInfo) {

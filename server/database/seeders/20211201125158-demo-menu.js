@@ -1015,6 +1015,7 @@ module.exports = {
           id: autoIncrement(),
           menu_name: '마라탕',
           menu_price: 10000,
+          menu_order_quantity: 0,
           menu_image:
             'https://meal2sdk.s3.ap-northeast-2.amazonaws.com/dummyimage/%E1%84%86%E1%85%A1%E1%84%85%E1%85%A1%E1%84%90%E1%85%A1%E1%86%BC.jpg',
           store_id: 31,
