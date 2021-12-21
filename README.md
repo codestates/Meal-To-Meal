@@ -3,7 +3,7 @@
 ## LOGO 
 ![2021-11-24__10 46 13-removebg-preview](https://user-images.githubusercontent.com/83822798/143395528-229796bd-bddd-4e13-8562-cce937023874.png)
 
-## 🍰About
+## 🍰 About
 ### 내가 먹은 맛있는 한 끼를 다른 사람에게도 나눌 수 있는
 ### *"Meal to Meal" 입니다*
 
@@ -19,7 +19,8 @@ ID: admin@gmail.com
 P/W: asdf1234
 
 
-# 💻어떤 부분을 맡고 있나요?
+
+# 💻 팀원 소개
 
 ### ☀️ 박정현
 [![](https://img.shields.io/badge/Github-jamiep9rk-%230099FF?style=for-the-badge&logo=github)](https://github.com/jamiep9rk)
@@ -391,6 +392,11 @@ P/W: asdf1234
   </div>
 </details>
 
+
+
+
+
+<h1>서비스 /h1>
 
 
 <details>
