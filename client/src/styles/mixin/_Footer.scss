@@ -1,0 +1,77 @@
+@import '../mixin/mixin';
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  width: 100%;
+  height: fit-content;
+  background-color: #f7f1e3;
+  position: static;
+  bottom: 0;
+  z-index: 999;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px 5px 10px;
+  width: 97%;
+}
+
+.footer-logo-info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-logo-img {
+  height: 50px;
+  margin: 5px 10px 5px 5px;
+}
+
+.footer-title-text {
+  font-weight: bolder;
+  padding: 5px 10px 5px 5px;
+}
+
+.footer-text {
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.footer-copyright {
+  padding-bottom: 15px;
+}
+
+a {
+  color: black;
+  text-decoration: none !important;
+}
+
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+@include mobile {
+  footer {
+    display: none;
+  }
+}
+
+@include desktop {
+  .footer-logo-img {
+    height: 70px;
+    margin: 5px 10px 5px 5px;
+  }
+}

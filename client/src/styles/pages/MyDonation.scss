@@ -1,0 +1,130 @@
+@import '../mixin/mixin';
+@import '../components/MyDonation/DonationBox';
+@import '../components/MyDonation/EmptyDonationAni';
+
+.mydonation-container {
+  padding: 10px;
+  font-size: 14px;
+  word-break: keep-all;
+  font-family: 'NotoSansKR', sans-serif;
+}
+
+.mydonation-ranking-title {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.mydonation-ranking-container {
+  border: 3px solid #ffcc1d;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.mydonation-money-image {
+  width: 15em;
+}
+
+.mydonation-history-title {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.mydonation-history-container {
+  margin: 5px 0 70px 0;
+  border: 3px solid #ffcc1d;
+  border-radius: 10px;
+  padding: 5px;
+  overflow: auto;
+}
+
+@include tablet {
+  .mydonation-container {
+    margin-top: 60px;
+    min-height: 82.5vh;
+  }
+
+  .mydonation-ranking-title {
+    font-size: 25px;
+  }
+
+  .mydonation-history-container {
+    margin-bottom: 10px;
+  }
+
+  .mydonation-history-title {
+    font-size: 25px;
+  }
+
+  .mydonation-ranking-text-container {
+    margin-left: 10px;
+    font-size: 25px;
+  }
+}
+
+@include desktop {
+  .mydonation-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 60px;
+    min-height: 79.6vh;
+    font-size: 23px;
+  }
+
+  .mydonation-left-container {
+    width: 50%;
+    margin-right: 30px;
+  }
+
+  .mydonation-ranking-title {
+    font-size: 25px;
+  }
+
+  .mydonation-ranking-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+  }
+
+  .mydonation-ranking-text-container {
+    margin-top: 200px;
+  }
+
+  .mydonation-money-total {
+    font-size: 35px;
+    height: 80px;
+    width: 500px;
+    line-height: 40px;
+  }
+
+  .mydonation-money-image {
+    display: block;
+    height: 15em;
+    width: 15em;
+    margin: 0 0 0 auto;
+  }
+
+  .mydonation-right-container {
+    width: 50%;
+    margin-top: -15px;
+  }
+
+  .mydonation-history-container {
+    margin-bottom: 10px;
+    min-height: 69.1vh;
+  }
+
+  .mydonation-history-title {
+    font-size: 25px;
+  }
+
+  .mydonation-ranking-text-container {
+    margin-left: 10px;
+    font-size: 25px;
+  }
+}

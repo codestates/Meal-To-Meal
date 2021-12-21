@@ -1,0 +1,222 @@
+.withdrawal-container {
+  margin: 10px;
+}
+
+.withdrawal-title {
+  font-size: 20px;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.withdrawal-content-container {
+  border: 3px solid #ffcc1d;
+  border-radius: 10px;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.withdrawal-content-text {
+  font-size: 15px;
+  line-height: 25px;
+}
+
+.withdrawal-checkbox-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 70%;
+  margin: 20px;
+  margin-bottom: 30px;
+}
+
+.checkbox-input-check {
+  margin-right: 15px;
+}
+
+.checkbox-agree-text {
+  font-size: 12px;
+  color: red;
+}
+
+.withdrawal-fillin-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.fillin-text {
+  margin-bottom: 10px;
+  color: red;
+}
+
+.fillin-input {
+  border: 2px solid white;
+  -webkit-box-shadow: gray 3px 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px 3px;
+  border-radius: 5px;
+  -webkit-transition: 120ms ease all;
+  transition: 120ms ease all;
+}
+
+.fillin-input:focus {
+  outline: none;
+  -webkit-box-shadow: gray 2px 2px 2px 2px;
+          box-shadow: gray 2px 2px 2px 2px;
+  border: #ffcc1d solid 2px;
+}
+
+.withdrawal-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 15px;
+}
+
+.withdrawal-submit-button {
+  margin: 5px;
+}
+
+.withdrawal-submit-button:hover {
+  -webkit-box-shadow: gray 6px 6px 6px;
+          box-shadow: gray 6px 6px 6px;
+}
+
+.withdrawal-submit-button:before, .withdrawal-submit-button:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.withdrawal-submit-button:hover:before, .withdrawal-submit-button:hover:after {
+  width: 100%;
+  -webkit-transition: ease all;
+  transition: ease all;
+}
+
+.withdrawal-submit-button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .withdrawal-container {
+    margin-top: 60px;
+    padding: 0 60px;
+    min-height: 83.6vh;
+  }
+  .withdrawal-title {
+    font-size: 25px;
+  }
+  .withdrawal-content-container {
+    padding: 60px;
+  }
+  .withdrawal-content-text {
+    font-size: 22px;
+    line-height: 60px;
+  }
+  .checkbox-input-check {
+    width: 30px;
+    height: 30px;
+  }
+  .withdrawal-checkbox-container {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .checkbox-agree-text {
+    font-size: 22px;
+  }
+  .fillin-text {
+    font-size: 20px;
+  }
+  .fillin-input {
+    height: 35px;
+    font-size: 20px;
+  }
+  .withdrawal-button-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .withdrawal-submit-button {
+    width: 140px;
+    height: 35px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .withdrawal-container {
+    margin-top: 60px;
+    padding: 0 600px;
+    min-height: 80.6vh;
+  }
+  .withdrawal-title {
+    font-size: 25px;
+  }
+  .withdrawal-content-container {
+    padding: 60px;
+  }
+  .withdrawal-content-text {
+    font-size: 25px;
+    line-height: 50px;
+  }
+  .checkbox-input-check {
+    width: 30px;
+    height: 30px;
+  }
+  .withdrawal-checkbox-container {
+    width: 100%;
+    margin-bottom: 60px;
+  }
+  .checkbox-agree-text {
+    font-size: 25px;
+  }
+  .fillin-text {
+    font-size: 20px;
+  }
+  .fillin-input {
+    height: 35px;
+    font-size: 20px;
+  }
+  .withdrawal-button-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .withdrawal-submit-button {
+    width: 140px;
+    height: 35px;
+    font-size: 20px;
+  }
+}
+/*# sourceMappingURL=Withdrawal.css.map */

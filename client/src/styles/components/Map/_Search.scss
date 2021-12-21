@@ -1,0 +1,114 @@
+@import '../../mixin/mixin';
+
+.search-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  top: 100px;
+  left: 20px;
+  z-index: 998;
+  width: 170px;
+  height: 40px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: gray 4px 4px 4px 4px;
+  z-index: 998;
+}
+
+.search-store-input {
+  width: 90px;
+  height: 20px;
+  border: hidden;
+  padding: 10px 0 0 0;
+  margin: 0 0 5px 10px;
+  transition: 120ms all;
+  font-size: 10px;
+
+  &:focus {
+    outline: none;
+    border-bottom: solid 2px #ffcc1d;
+  }
+}
+
+.fa-search {
+  font-size: 26px;
+  margin-left: 6px;
+
+  &:hover {
+    text-shadow: grey 2px 2px 2px;
+    cursor: pointer;
+    color: #ffcc1d;
+  }
+  &:active {
+    text-shadow: none;
+  }
+}
+
+.search-x-icon {
+  height: 24px;
+  margin-left: 5px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+// 반응형
+@include mobile {
+  .search-container {
+    top: 10px;
+    left: 10px;
+  }
+}
+
+@include tablet {
+  .search-container {
+    top: 80px;
+    left: 10px;
+    width: 280px;
+    height: 45px;
+  }
+
+  .search-store-input {
+    width: 180px;
+    height: 25px;
+    font-size: 20px;
+  }
+
+  .fa-search {
+    font-size: 30px;
+    padding-top: 3px;
+  }
+
+  .search-x-icon {
+    height: 25px;
+    padding-top: 3px;
+  }
+}
+
+@include desktop {
+  .search-container {
+    top: 80px;
+    left: 10px;
+    width: 310px;
+    height: 50px;
+  }
+
+  .search-store-input {
+    width: 200px;
+    height: 30px;
+    font-size: 18px;
+  }
+
+  .fa-search {
+    font-size: 28px;
+    margin-left: 25px;
+    padding-top: 4px;
+  }
+
+  .search-x-icon {
+    height: 25px;
+    padding-top: 2.5px;
+  }
+}

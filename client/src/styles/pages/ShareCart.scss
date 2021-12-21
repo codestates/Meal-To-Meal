@@ -1,0 +1,172 @@
+@import '../mixin/mixin';
+@import '../components/ShareCart/SharecartItem';
+@import '../components/StoreInfo/EmptyCartAni';
+
+.sharecart-container {
+  margin: 15px 15px 30px 15px;
+}
+
+.sharecart-title {
+  font-size: 20px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.sharecart-order-count-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.sharecart-cant-payment-on-mobile-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sharecart-cant-payment-on-mobile-emoji {
+  padding-top: 5px;
+  margin-right: 10px;
+}
+
+.sharecart-cant-payment-on-mobile {
+  margin: 5px 0 15px 0;
+  color: red;
+}
+
+.sharecart-submit-button-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.sharecart-button {
+  padding-top: 3px;
+  width: 70px;
+  margin-top: 4px;
+  box-shadow: gray 4px 4px 4px;
+  border-radius: 7px;
+  transition: 120ms ease;
+  background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: gray 6px 6px 6px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.sharecart-img {
+  display: none;
+}
+
+@include tablet {
+  .sharecart-container {
+    margin-top: 70px;
+    min-height: 81.9vh;
+  }
+
+  .sharecart-title {
+    font-size: 25px;
+  }
+
+  .sharecart-order-info-container {
+    margin: 30px 0 30px 0;
+  }
+
+  .sharecart-order-count-container {
+    justify-content: flex-start;
+    margin-left: 57%;
+  }
+
+  .sharecount-count-text {
+    font-size: 25px;
+    margin-right: 10%;
+    width: 200px;
+  }
+
+  .sharecount-count-number {
+    font-size: 25px;
+  }
+
+  .sharecart-button {
+    width: 120px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  .sharecart-img {
+    display: none;
+  }
+
+  .sharecart-cant-payment-on-mobile-container {
+    font-size: 20px;
+  }
+}
+
+@include desktop {
+  .sharecart-container {
+    padding: 20px 15px 20px 15px;
+    margin-top: 70px;
+  }
+
+  .sharecart-cartItems-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .sharecart-item-list-container {
+    width: 50%;
+    margin-right: 30px;
+  }
+
+  .sharecart-title {
+    font-size: 30px;
+  }
+
+  .sharecart-order-info-container {
+    margin-top: 40px;
+    width: 45%;
+  }
+
+  .sharecount-count-text {
+    font-size: 25px;
+  }
+
+  .sharecount-count-number {
+    font-size: 25px;
+  }
+
+  .sharecart-img {
+    display: inline;
+    margin-left: 130px;
+    width: 555px;
+  }
+
+  .sharecart-button {
+    width: 120px;
+    height: 35px;
+    font-size: 20px;
+  }
+
+  .sharecart-cant-payment-on-mobile-container {
+    display: none;
+  }
+}

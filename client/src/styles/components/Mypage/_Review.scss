@@ -1,0 +1,65 @@
+@import '../../mixin/mixin';
+
+.review-container {
+  border-bottom: 2px solid grey;
+  font-size: 14px;
+  padding: 0 5px 0 5px;
+  margin-bottom: 10px;
+  word-break: keep-all;
+}
+
+.review-title-info-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 5px;
+}
+
+.review-icon-text-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 100px;
+}
+
+.review-title-icon {
+  width: 30px;
+  margin-right: 5px;
+}
+
+.fa-calendar-alt {
+  margin: 0 5px 5px 0;
+  font-size: 25px;
+}
+
+.review-img-info-container {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.review-store-img {
+  height: 120px;
+  max-width: 150px;
+  border-radius: 15px;
+  box-shadow: gray 2px 2px 2px 2px;
+}
+
+.review-store-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  word-break: keep-all;
+  margin-left: 15px;
+}
+
+.review-menu-title {
+  font-weight: bolder;
+  margin: 20px 0 5px 0;
+}
+
+@include tablet {
+}
+
+@include desktop {
+}

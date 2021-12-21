@@ -1,0 +1,42 @@
+@import '../../mixin/mixin';
+
+.empty-review-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-review-animation {
+  width: 300px;
+  margin-bottom: 15px;
+}
+
+.empty-review-text {
+  margin-bottom: 10px;
+}
+
+.empty-back-button {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+@include tablet {
+  .empty-review-content-container {
+    font-size: 23px;
+  }
+
+  .empty-back-button {
+    margin-bottom: 20px;
+  }
+}
+
+@include desktop {
+  .empty-review-content-container {
+    margin-top: 150px;
+    font-size: 23px;
+  }
+
+  .empty-back-button {
+    margin-bottom: 30px;
+  }
+}

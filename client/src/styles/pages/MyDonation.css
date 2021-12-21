@@ -1,0 +1,391 @@
+.donationbox-container {
+  border-bottom: 3px solid #f3f3f3;
+  font-size: 15px;
+  padding: 10px;
+  margin-bottom: 10px;
+  word-break: keep-all;
+}
+
+.donationbox-title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 5px;
+  width: 100%;
+}
+
+.donationbox-date-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.donationbox-category-icon {
+  width: 30px;
+  margin-right: 5px;
+}
+
+.donationbox-category-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.donationbox-createdat-icon {
+  width: 20px;
+  margin-right: 5px;
+}
+
+.donationbox-address-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 10px;
+}
+
+.donationbox-address-icon {
+  width: 13px;
+  margin-right: 5px;
+}
+
+.donationbox-address-text {
+  padding-top: 5px;
+}
+
+.donationbox-content-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 15px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.donationbox-food-info-container {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-right: 15px;
+  -webkit-box-shadow: gray 3px 3px 3px 3px;
+          box-shadow: gray 3px 3px 3px 3px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.donationbox-food-info-container {
+  margin-bottom: 15px;
+}
+
+.donationbox-store-name-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.donationbox-store-category {
+  width: 25px;
+  margin: 0 5px 5px 0;
+}
+
+.donationbox-food-name {
+  margin-bottom: 3px;
+}
+
+.donationbox-food-price {
+  margin-bottom: 3px;
+}
+
+.donationbox-dish-count-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.donationbox-dish-icon {
+  width: 20px;
+  padding-bottom: 4px;
+  margin-right: 5px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .donationbox-createdat-icon {
+    width: 30px;
+  }
+  .donationbox-createdat-text {
+    font-size: 20px;
+  }
+  .donationbox-content-container {
+    margin-top: 15px;
+  }
+  .donationbox-food-info-container {
+    margin-right: 20px;
+  }
+  .donationbox-store-category {
+    width: 30px;
+  }
+  .donationbox-store-name {
+    font-size: 22px;
+  }
+  .donationbox-food-name {
+    font-size: 20px;
+  }
+  .donationbox-food-price {
+    font-size: 18px;
+  }
+  .donationbox-dish-icon {
+    width: 25px;
+  }
+  .donationbox-dish-number {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .donationbox-createdat-icon {
+    width: 30px;
+  }
+  .donationbox-createdat-text {
+    font-size: 20px;
+  }
+  .donationbox-content-container {
+    margin-top: 15px;
+  }
+  .donationbox-food-info-container {
+    margin-right: 20px;
+  }
+  .donationbox-store-category {
+    width: 30px;
+  }
+  .donationbox-store-name {
+    font-size: 22px;
+  }
+  .donationbox-food-name {
+    font-size: 20px;
+  }
+  .donationbox-food-price {
+    font-size: 18px;
+  }
+  .donationbox-dish-icon {
+    width: 25px;
+  }
+  .donationbox-dish-number {
+    font-size: 18px;
+  }
+}
+
+.empty-donation-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 15px;
+}
+
+.empty-donation-animation {
+  height: 150px;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .empty-donation-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 20px;
+  }
+  .empty-donation-animation {
+    height: 350px;
+  }
+  .empty-donation-text {
+    font-size: 30px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .empty-donation-container {
+    height: 27.8em;
+  }
+  .empty-donation-animation {
+    height: 450px;
+  }
+  .empty-donation-text {
+    font-size: 30px;
+  }
+}
+
+.mydonation-container {
+  padding: 10px;
+  font-size: 14px;
+  word-break: keep-all;
+  font-family: 'NotoSansKR', sans-serif;
+}
+
+.mydonation-ranking-title {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.mydonation-ranking-container {
+  border: 3px solid #ffcc1d;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+}
+
+.mydonation-money-image {
+  width: 15em;
+}
+
+.mydonation-history-title {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.mydonation-history-container {
+  margin: 5px 0 70px 0;
+  border: 3px solid #ffcc1d;
+  border-radius: 10px;
+  padding: 5px;
+  overflow: auto;
+}
+
+@media (min-width: 758px) and (max-width: 1023px) {
+  .mydonation-container {
+    margin-top: 60px;
+    min-height: 82.5vh;
+  }
+  .mydonation-ranking-title {
+    font-size: 25px;
+  }
+  .mydonation-history-container {
+    margin-bottom: 10px;
+  }
+  .mydonation-history-title {
+    font-size: 25px;
+  }
+  .mydonation-ranking-text-container {
+    margin-left: 10px;
+    font-size: 25px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mydonation-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin-top: 60px;
+    min-height: 79.6vh;
+    font-size: 23px;
+  }
+  .mydonation-left-container {
+    width: 50%;
+    margin-right: 30px;
+  }
+  .mydonation-ranking-title {
+    font-size: 25px;
+  }
+  .mydonation-ranking-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-bottom: 50px;
+  }
+  .mydonation-ranking-text-container {
+    margin-top: 200px;
+  }
+  .mydonation-money-total {
+    font-size: 35px;
+    height: 80px;
+    width: 500px;
+    line-height: 40px;
+  }
+  .mydonation-money-image {
+    display: block;
+    height: 15em;
+    width: 15em;
+    margin: 0 0 0 auto;
+  }
+  .mydonation-right-container {
+    width: 50%;
+    margin-top: -15px;
+  }
+  .mydonation-history-container {
+    margin-bottom: 10px;
+    min-height: 69.1vh;
+  }
+  .mydonation-history-title {
+    font-size: 25px;
+  }
+  .mydonation-ranking-text-container {
+    margin-left: 10px;
+    font-size: 25px;
+  }
+}
+/*# sourceMappingURL=MyDonation.css.map */

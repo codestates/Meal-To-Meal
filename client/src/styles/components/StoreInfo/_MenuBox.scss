@@ -1,0 +1,166 @@
+@import '../../mixin/mixin';
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #ffcc1d;
+  border-radius: 10px;
+  height: 290px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.menu-food-image {
+  width: 265px;
+  height: 150px;
+  overflow: hidden;
+  margin-right: auto;
+  border-radius: 30px;
+  box-shadow: gray 4px 4px 4px 4px;
+}
+
+.menu-info-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.menu-text {
+  margin-bottom: 10px;
+}
+
+.menu-donation-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.menu-donation-icon {
+  height: 14px;
+  margin-right: 5px;
+  margin-bottom: 14px;
+}
+
+.menu-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.menu-donate-button,
+.menu-eat-button {
+  padding-top: 3px;
+  width: 80px;
+  margin-top: 4px;
+  box-shadow: gray 4px 4px 4px;
+  border-radius: 7px;
+  transition: 120ms ease;
+  background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: gray 6px 6px 6px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+@include tablet {
+  .menu-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: initial;
+    align-items: center;
+    height: 320px;
+  }
+
+  .menu-food-image {
+    width: 400px;
+    height: 225px;
+    display: inline-block;
+  }
+
+  .menu-info-container {
+    font-size: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .menu-donation-icon {
+    height: 20px;
+  }
+
+  .menu-button-container {
+    margin-top: 20px;
+  }
+
+  .menu-donate-button,
+  .menu-eat-button {
+    font-size: 20px;
+    width: 100px;
+    height: 35px;
+    margin: 10px;
+  }
+}
+
+@include desktop {
+  .menu-box-container {
+    width: 50vw;
+  }
+
+  .menu-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: initial;
+    height: fit-content;
+    margin: 15px 40px 15px 0;
+  }
+
+  .menu-food-image {
+    width: 340px;
+    height: 191px;
+    display: inline-block;
+    border-radius: 30px;
+    box-shadow: gray 4px 4px 4px 4px;
+    margin: 10px 45px 10px 10px;
+  }
+
+  .menu-info-container {
+    font-size: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .menu-donation-icon {
+    height: 20px;
+  }
+
+  .menu-button-container {
+    margin-top: 20px;
+  }
+
+  .menu-donate-button,
+  .menu-eat-button {
+    font-size: 25px;
+    width: 110px;
+    height: 45px;
+    margin: 10px;
+  }
+}

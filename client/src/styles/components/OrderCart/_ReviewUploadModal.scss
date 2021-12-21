@@ -1,0 +1,263 @@
+@import '../../mixin/mixin';
+
+.review-upload-backdrop {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: grid;
+  place-items: center;
+}
+
+.review-upload-window {
+  font-size: 13px;
+  width: 200px;
+  border: 3px solid #ffcc1d;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 20px;
+}
+
+.review-upload-title-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+}
+
+.review-upload-title {
+  font-size: 18px;
+  min-width: fit-content;
+  margin-right: 110px;
+  margin-bottom: 10px;
+  font-weight: bolder;
+}
+
+.review-upload-store-info-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.review-upload-store-category-icon {
+  height: 18px;
+  margin-right: 5px;
+}
+
+.review-upload-store-name {
+  font-size: 15px;
+}
+
+.review-upload-food-name {
+  font-size: 15px;
+}
+
+.review-upload-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-upload-food-image {
+  width: 200px;
+  height: 112.5px;
+  margin: 10px auto 15px auto;
+  border-radius: 15px;
+  box-shadow: gray 4px 4px 4px 4px;
+}
+
+.review-upload-food-text {
+  resize: none;
+  font-size: 15px;
+  padding: 15px;
+  margin-bottom: 10px;
+  word-break: keep-all;
+  height: 60px;
+  transition: 120ms ease all;
+  box-shadow: gray 2px 2px 2px 2px;
+  border-radius: 10px;
+  border: solid 2px white;
+
+  &:focus {
+    outline: none;
+    border: 2px solid #ffcc1d;
+  }
+}
+
+.review-upload-image-upload-button {
+  max-width: 100%;
+}
+
+.review-upload-submit-button {
+  margin-left: 65%;
+  width: 70px;
+  padding-top: 3px;
+  margin-top: 4px;
+  box-shadow: gray 4px 4px 4px;
+  border-radius: 7px;
+  transition: 120ms ease;
+  background-color: white;
+
+  &:hover {
+    box-shadow: gray 6px 6px 6px;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    transition: ease all;
+  }
+
+  &:hover:before,
+  &:hover:after {
+    width: 100%;
+    transition: ease all;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.usermeal-confirm-warring {
+  color: rgb(255, 0, 0);
+  opacity: 0.5;
+  margin: 10px 0;
+  font-size: 10px;
+}
+
+@include tablet {
+  .review-upload-window {
+    width: 600px;
+    padding: 30px;
+  }
+
+  .review-upload-title {
+    font-size: 25px;
+    margin-bottom: 15px;
+  }
+
+  .fa-times {
+    font-size: 20px;
+  }
+
+  .review-upload-store-info-container {
+    margin-bottom: 10px;
+  }
+
+  .review-upload-store-category-icon {
+    height: 30px;
+  }
+
+  .review-upload-store-name {
+    font-size: 25px;
+  }
+
+  .review-upload-content-container {
+    width: 100%;
+  }
+
+  .review-upload-food-name {
+    margin-top: 5px;
+    margin-left: 15px;
+    font-size: 25px;
+  }
+
+  .review-upload-food-image {
+    width: 450px;
+    height: 253.125px;
+  }
+
+  .review-upload-food-text {
+    width: 90%;
+    font-size: 20px;
+  }
+
+  .review-upload-submit-button {
+    margin-left: 80%;
+    width: 120px;
+    font-size: 20px;
+  }
+
+  .usermeal-confirm-warring {
+    font-size: 12px;
+  }
+}
+
+@include desktop {
+  .review-upload-window {
+    width: 800px;
+    padding: 15px;
+  }
+
+  .review-upload-title {
+    font-size: 25px;
+    margin-bottom: 15px;
+    margin-right: 380px;
+  }
+
+  .fa-times {
+    font-size: 20px;
+  }
+
+  .review-upload-store-info-container {
+    margin-bottom: 10px;
+  }
+
+  .review-upload-store-category-icon {
+    height: 30px;
+  }
+
+  .review-upload-store-name {
+    font-size: 25px;
+  }
+
+  .review-upload-content-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .review-upload-food-name {
+    margin-top: 5px;
+    margin-left: 15px;
+    font-size: 25px;
+  }
+
+  .review-upload-food-image {
+    width: 400px;
+    height: 225px;
+    margin-right: 15px;
+  }
+
+  .review-upload-food-text {
+    width: 50%;
+    min-height: 190px;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+
+  .review-upload-submit-button {
+    margin-left: 80%;
+    width: 120px;
+  }
+
+  .fa-times {
+    transition: 120ms ease all;
+    cursor: pointer;
+    &:hover {
+      color: #ffcc1d;
+    }
+  }
+
+  .usermeal-confirm-warring {
+    font-size: 12px;
+  }
+}
