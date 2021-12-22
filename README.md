@@ -346,12 +346,14 @@ P/W: asdf1234
 
 #### 📝 Stack:
 
-<li>Axios
-<li>React
-<li>React-Hooks
-<li>ReactRouter
 <li>JavaScript
-<li>Styled Component
+<li>SASS
+<li>React
+<li>React S3
+<li>KAKAO LOGIN API
+<li>GOOGLE MAPS API
+<li>AXIOS
+<li>UUID
 
 #### 💯 Contributions
 
