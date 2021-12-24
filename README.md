@@ -224,7 +224,7 @@ P/W: asdf1234
 
 [![](https://img.shields.io/badge/Github-anniemon-%23660099?style=for-the-badge&logo=github)](https://github.com/anniemon)
 
-#### 🙋 About: 떠오르는 빌런계의 다크호스, 사실은 백엔드 고수, 뼈발자
+#### 🙋 About: 떠오르는 빌런계의 다크호스, 뼈발자
 
 #### 🔨 Position: Back-End
 
