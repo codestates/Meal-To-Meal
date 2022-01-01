@@ -2,7 +2,7 @@
 
 ## LOGO
 
-![2021-11-24__10 46 13-removebg-preview](https://user-images.githubusercontent.com/83822798/143395528-229796bd-bddd-4e13-8562-cce937023874.png)
+![2021-11-24__10 46 13-removebg-preview](https://user-images.githubusercontent.com/83822798/147181108-e17903b3-8c7a-4878-88a6-9d79113dd641.png)
 
 ## 🍰 About
 
