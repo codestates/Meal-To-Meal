@@ -316,6 +316,7 @@
   transition: 120ms ease all;
   -webkit-box-shadow: gray 4px 4px 4px;
           box-shadow: gray 4px 4px 4px;
+  color: #ff7800;
 }
 
 .AddStore-address-button:hover {
