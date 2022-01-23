@@ -122,14 +122,11 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
   padding: 1rem 0.5rem;
   margin-bottom: 3rem;
 }
 
-.landing-introduce-container .landing-introduce-box {
+.landing-introduce-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -142,11 +139,11 @@
           align-items: center;
 }
 
-.landing-introduce-container .landing-catchphrase {
+.landing-catchphrase {
   margin: 0.5rem;
 }
 
-.landing-introduce-container .landing-catchphrase-sub {
+.landing-catchphrase-sub {
   font-size: 15px;
   text-align: center;
   margin-bottom: 10px;
@@ -155,10 +152,9 @@
   color: gray;
 }
 
-.landing-introduce-container .landing-introduce-img {
+.landing-introduce-img {
   width: 250px;
   height: 250px;
-  display: block;
 }
 
 .landing-title {
@@ -263,6 +259,10 @@
   .landing-ani {
     margin-bottom: 100px;
   }
+  .landing-introduce-img {
+    width: 450px;
+    height: 450px;
+  }
   .landing-tutorials-container-right,
   .landing-tutorials-container-left {
     width: 100%;
@@ -299,7 +299,7 @@
     margin-bottom: 15%;
   }
   .landing-catchphrase-container {
-    margin: 170px 0 0 16%;
+    margin: 135px 0 0 16%;
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
@@ -312,8 +312,8 @@
   }
   .landing-catchphrase {
     text-align: start;
-    width: 740px;
-    font-size: 50px;
+    width: 850px;
+    font-size: 40px;
     line-height: 60px;
     z-index: 999;
   }
@@ -332,6 +332,28 @@
   }
   .landing-ani {
     margin-top: 80px;
+  }
+  .landing-introduce-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .landing-introduce-box {
+    width: 30vw;
+  }
+  .landing-introduce-box .landing-introduce-img {
+    width: 400px;
+    height: 400px;
+  }
+  .landing-introduce-box .landing-catchphrase {
+    font-size: 25px;
+    text-align: center;
+  }
+  .landing-introduce-box .landing-catchphrase-sub {
+    width: 50%;
+    font-size: 15px;
+    text-align: center;
   }
   .landing-tutorials-container-right {
     width: 100%;

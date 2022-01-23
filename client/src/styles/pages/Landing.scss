@@ -81,34 +81,32 @@
 .landing-introduce-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   padding: 1rem 0.5rem;
   margin-bottom: 3rem;
+}
 
-  .landing-introduce-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.landing-introduce-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  .landing-catchphrase {
-    margin: 0.5rem;
-  }
+.landing-catchphrase {
+  margin: 0.5rem;
+}
 
-  .landing-catchphrase-sub {
-    font-size: 15px;
-    text-align: center;
-    margin-bottom: 10px;
-    line-height: 20px;
-    font-family: Pretendard-Medium;
-    color: gray;
-  }
+.landing-catchphrase-sub {
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 10px;
+  line-height: 20px;
+  font-family: Pretendard-Medium;
+  color: gray;
+}
 
-  .landing-introduce-img {
-    width: 250px;
-    height: 250px;
-    display: block;
-  }
+.landing-introduce-img {
+  width: 250px;
+  height: 250px;
 }
 
 .landing-title {
@@ -202,6 +200,11 @@
     margin-bottom: 100px;
   }
 
+  .landing-introduce-img {
+    width: 450px;
+    height: 450px;
+  }
+
   .landing-tutorials-container-right,
   .landing-tutorials-container-left {
     width: 100%;
@@ -238,7 +241,7 @@
   }
 
   .landing-catchphrase-container {
-    margin: 170px 0 0 16%;
+    margin: 135px 0 0 16%;
     align-items: flex-start;
   }
 
@@ -251,8 +254,8 @@
 
   .landing-catchphrase {
     text-align: start;
-    width: 740px;
-    font-size: 50px;
+    width: 850px;
+    font-size: 40px;
     line-height: 60px;
     z-index: 999;
   }
@@ -274,6 +277,30 @@
 
   .landing-ani {
     margin-top: 80px;
+  }
+
+  .landing-introduce-container {
+    flex-direction: row;
+  }
+
+  .landing-introduce-box {
+    width: 30vw;
+
+    .landing-introduce-img {
+      width: 400px;
+      height: 400px;
+    }
+
+    .landing-catchphrase {
+      font-size: 25px;
+      text-align: center;
+    }
+
+    .landing-catchphrase-sub {
+      width: 50%;
+      font-size: 15px;
+      text-align: center;
+    }
   }
 
   .landing-tutorials-container-right {

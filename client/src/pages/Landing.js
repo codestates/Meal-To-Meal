@@ -58,7 +58,6 @@ function Landing({ navigate }) {
           </div>
         </div>
       </div>
-      <div className="landing-title">어떻게 사용할까요?</div>
       <div className="landing-tutorials-container-right">
         <div className="landing-tutorial-info-text-container-right">
           <div className="landing-tutorials-info-title-right">지도에서 음식점을 찾아보세요</div>
