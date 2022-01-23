@@ -34,19 +34,9 @@
 .landing-catchphrase {
   font-size: 20px;
   text-align: center;
-  width: 170px;
-  margin-bottom: 10px;
+  margin: 1rem;
   line-height: 30px;
   font-family: Pretendard-ExtraBold;
-}
-
-.landing-catchphrase-sub {
-  font-size: 15px;
-  text-align: center;
-  margin-bottom: 10px;
-  line-height: 20px;
-  opacity: 0.5;
-  font-family: Pretendard-Medium;
 }
 
 .landing-start-button,
@@ -86,6 +76,46 @@
 
 .landing-ani {
   margin-bottom: 50px;
+}
+
+.landing-introduce-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem 0.5rem;
+  margin-bottom: 3rem;
+
+  .landing-introduce-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .landing-catchphrase {
+    margin: 0.5rem;
+  }
+
+  .landing-catchphrase-sub {
+    font-size: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+    line-height: 20px;
+    font-family: Pretendard-Medium;
+    color: gray;
+  }
+
+  .landing-introduce-img {
+    width: 250px;
+    height: 250px;
+    display: block;
+  }
+}
+
+.landing-title {
+  font-size: 20px;
+  margin-bottom: 2rem;
+  line-height: 30px;
+  font-family: Pretendard-ExtraBold;
 }
 
 .landing-tutorials-container-right {

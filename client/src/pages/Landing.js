@@ -24,11 +24,8 @@ function Landing({ navigate }) {
         <div className="landing-catchphrase-container">
           <img className="landing-logo-img" src={require('../img/meal-to-meal-logo-192.png').default} alt="" />
           <div className="landing-catchphrase">
-            따뜻한 한 끼를
-            <br /> 주변의 이웃들과 나누는 작은 기적
-          </div>
-          <div className="landing-catchphrase-sub">
-            나를 위한 한 끼가 아닌 많은 사람들을 위한 한 끼로 나눔을 실천하세요
+            <p>내가 먹은 맛있는 한 끼를 다른 사람에게도 나눌 수 있는</p>
+            <p>음식 기부 & 예약 서비스 Meal To Meal 입니다</p>
           </div>
           <button className="landing-start-button" onClick={() => navigate('/maps')}>
             지금 시작하기
@@ -36,6 +33,32 @@ function Landing({ navigate }) {
         </div>
         <div className="landing-ani" ref={landingAniContainer} />
       </div>
+      <div className="landing-introduce-container">
+        <div className="landing-introduce-box">
+          <img className="landing-introduce-img" src={require('../img/Order food-bro.png').default} alt="" />
+          <div className="landing-catchphrase">기부해보실래요?</div>
+          <div className="landing-catchphrase-sub">
+            맛있게 먹을 누군가를 상상하면서 음식을 골라보세요 소액만으로도 기부에 참여할 수 있어요. 선한 영향력을
+            보여주세요 😎
+          </div>
+        </div>
+        <div className="landing-introduce-box">
+          <img className="landing-introduce-img" src={require('../img/Hamburger-bro.png').default} alt="" />
+          <div className="landing-catchphrase">맛있는 한 끼를 드시고 싶으신가요?</div>
+          <div className="landing-catchphrase-sub">
+            휴대폰 인증을 하면 먹기 기능은 하루에 한 번, 누구에게나 열려 있어요 맛있게 드신 후 리뷰 작성은 필수예요 🥰
+          </div>
+        </div>
+        <div className="landing-introduce-box">
+          <img className="landing-introduce-img" src={require('../img/Mobile payments-bro.png').default} alt="" />
+          <div className="landing-catchphrase">사장님이신가요?</div>
+          <div className="landing-catchphrase-sub">
+            가게를 등록해보세요. 리뷰를 많이 받은 가게는 맛집으로 소문날 수 있어요 본인의 가게에도 기부하실 수 있답니다
+            👍🏻
+          </div>
+        </div>
+      </div>
+      <div className="landing-title">어떻게 사용할까요?</div>
       <div className="landing-tutorials-container-right">
         <div className="landing-tutorial-info-text-container-right">
           <div className="landing-tutorials-info-title-right">지도에서 음식점을 찾아보세요</div>
