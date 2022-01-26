@@ -447,7 +447,7 @@ button {
   background-color: #f8f9f9;
   position: fixed;
   top: 0;
-  bottom: 50px;
+  bottom: 60px;
   width: 200px;
   border-radius: 0 30px 0 0;
   word-break: keep-all;
@@ -457,7 +457,6 @@ button {
           animation: out ease-in-out 0.1s alternate;
   -webkit-box-shadow: gray 6px 6px 6px;
           box-shadow: gray 6px 6px 6px;
-  height: 82vh;
 }
 
 .SearchResult-info-container {
@@ -524,8 +523,8 @@ button {
 }
 
 .SearchResult-img {
-  width: 120px;
-  height: 67.5px;
+  width: 100px;
+  height: 56.25px;
   border-radius: 15px;
   -webkit-box-shadow: gray 3px 3px 3px 3px;
           box-shadow: gray 3px 3px 3px 3px;
