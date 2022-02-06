@@ -19,6 +19,18 @@ function StoreInfo({
   issueTokens,
 }) {
   const [loading, setLoading] = useState(true);
+  const [address, setAddress] = useState('');
+
+  const markerAddressHandler = (lat, lng) => {
+    axios
+      .get(
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&language=ko&key=${process.env.REACT_APP_GEOCODING_KEY}`,
+        { withCredentials: false }
+      )
+      .then(res => {
+        setAddress(res.data.results[0].formatted_address.slice(4));
+      });
+  };
 
   const getDetailStoreInfoHandler = () => {
     axios
@@ -37,7 +49,8 @@ function StoreInfo({
 
   useEffect(() => {
     getDetailStoreInfoHandler();
-  }, []);
+    markerAddressHandler(Number(detailStoreInfo.store_lat), Number(detailStoreInfo.store_lng));
+  }, [address]);
 
   return (
     <>
@@ -64,7 +77,7 @@ function StoreInfo({
                 <div className="store-info-container">
                   <div className="store-detail-info-container">
                     <i className="fas fa-map-marker-alt" />
-                    <div className="store-detail-info-text">{detailStoreInfo.store_address}</div>
+                    <div className="store-detail-info-text">{address}</div>
                   </div>
                   <div className="store-detail-info-container">
                     <i className="fas fa-clock" />

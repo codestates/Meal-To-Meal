@@ -3,11 +3,7 @@ const axios = require('axios');
 axios.defaults.withCredentials = true;
 const { user } = require('../../database/models');
 const { generateAccessToken, generateRefreshToken } = require('../../middlewares/tokenFunctions');
-const { Op } = require('sequelize');
-function randomIntFromInterval2(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-const usercode = randomIntFromInterval2(0, 99999);
+
 module.exports = {
   kakaoLogin: async (req, res) => {
     try {
