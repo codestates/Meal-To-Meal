@@ -5,16 +5,13 @@ module.exports = {
   post: async (req, res) => {
     const userInfo = checkTokens(req);
     const { menu_id } = req.body;
+    const matchedMenu = await menu.findOne({ where: { id: menu_id } }).catch(err => console.log(err));
+    const matchedStore = await store.findOne({ where: { id: matchedMenu.store_id } }).catch(err => console.log(err));
+    const matchedUser = await user.findOne({ where: { id: userInfo.id } }).catch(err => console.log(err));
     if (!userInfo) {
       return res.status(401).json({ message: '로그인이 필요합니다' });
     } else {
       try {
-        const matchedMenu = await menu.findOne({ where: { id: menu_id } }).catch(err => console.log(err));
-        const matchedStore = await store
-          .findOne({ where: { id: matchedMenu.store_id } })
-          .catch(err => console.log(err));
-        const matchedUser = await user.findOne({ where: { id: userInfo.id } }).catch(err => console.log(err));
-
         if (matchedStore.user_id === userInfo.id) {
           res.status(403).json({ message: '본인의 가게에서 요청하셨습니다' });
         } else if (!matchedUser.user_phone_number) {
