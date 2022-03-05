@@ -2,9 +2,6 @@ let i = 69;
 function autoIncrement() {
   i = i + 1;
 }
-function randomIntFromInterval(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -283,36 +280,36 @@ module.exports = {
           created_at: new Date(),
           updated_at: new Date(),
         },
-        {
-          id: 26,
-          menu_name: '알리오올리오 파스타',
-          menu_price: 11000,
-          menu_image: 'https://foodish-api.herokuapp.com/images/pasta/pasta28.jpg',
-          menu_order_quantity: 0,
-          store_id: 9,
-          created_at: new Date(),
-          updated_at: new Date(),
-        },
-        {
-          id: 27,
-          menu_name: '까르보나라 파스타',
-          menu_price: 11000,
-          menu_image: 'https://foodish-api.herokuapp.com/images/pasta/pasta28.jpg',
-          menu_order_quantity: 0,
-          store_id: 9,
-          created_at: new Date(),
-          updated_at: new Date(),
-        },
-        {
-          id: 28,
-          menu_name: '링귀니 볼로네제 파스타',
-          menu_price: 12000,
-          menu_image: 'https://foodish-api.herokuapp.com/images/pasta/pasta28.jpg',
-          menu_order_quantity: 0,
-          store_id: 9,
-          created_at: new Date(),
-          updated_at: new Date(),
-        },
+        // {
+        //   id: 26,
+        //   menu_name: '알리오올리오 파스타',
+        //   menu_price: 11000,
+        //   menu_image: 'https://foodish-api.herokuapp.com/images/pasta/pasta28.jpg',
+        //   menu_order_quantity: 0,
+        //   store_id: 9,
+        //   created_at: new Date(),
+        //   updated_at: new Date(),
+        // },
+        // {
+        //   id: 27,
+        //   menu_name: '까르보나라 파스타',
+        //   menu_price: 11000,
+        //   menu_image: 'https://foodish-api.herokuapp.com/images/pasta/pasta28.jpg',
+        //   menu_order_quantity: 0,
+        //   store_id: 9,
+        //   created_at: new Date(),
+        //   updated_at: new Date(),
+        // },
+        // {
+        //   id: 28,
+        //   menu_name: '링귀니 볼로네제 파스타',
+        //   menu_price: 12000,
+        //   menu_image: 'https://foodish-api.herokuapp.com/images/pasta/pasta28.jpg',
+        //   menu_order_quantity: 0,
+        //   store_id: 9,
+        //   created_at: new Date(),
+        //   updated_at: new Date(),
+        // },
         {
           id: 29,
           menu_name: '양고기 스튜',
@@ -1682,7 +1679,6 @@ module.exports = {
           created_at: new Date(),
           updated_at: new Date(),
         },
-        //총 159개
       ],
       {}
     );
