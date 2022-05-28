@@ -4,22 +4,6 @@ module.exports = {
       'user',
       [
         {
-          id: 1,
-          user_nickname: '김진표',
-          user_password: '$2b$10$ZyyzAzg8oRrPW.LV.HhFhuCmiWWewEvSX1dXYdLXPj7JeYqnkDKma',
-          user_phone_number: '01012121212',
-          user_email: 'jinpyo@gmail.com',
-          user_donation_count: 0,
-          user_donation_money: 0,
-          today_used: false,
-          created_at: Sequelize.literal('CURRENT_TIMESTAMP'),
-          updated_at: Sequelize.literal('CURRENT_TIMESTAMP'),
-          is_admin: false,
-          is_owner: true,
-          kakao_oauth_token: '',
-          signup_method: '',
-        },
-        {
           id: 2,
           user_nickname: '김수로',
           user_password: '$2b$10$ZyyzAzg8oRrPW.LV.HhFhuCmiWWewEvSX1dXYdLXPj7JeYqnkDKma',

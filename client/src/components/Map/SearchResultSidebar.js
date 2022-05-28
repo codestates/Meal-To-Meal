@@ -17,23 +17,25 @@ function SearchResultSidebar({ searchResult, setIsChangeCenter, setSelected }) {
                 localStorage.setItem('clickedMarker', el.id);
               }}
             >
-              <div className="SearchResult-info">
-                <div className="SearchResult-title">{el.store_name.slice(0, 16)}</div>
-                <div className="SearchResult-text">{el.store_category}</div>
-                <div className="SearchResult-text-container">
-                  <img className="SearchResult-icon" src={require('../../img/marker.png').default} alt="" />
-                  <div className="SearchResult-text">{el.store_address.slice(0, 12)}...</div>
+              <div className="SearchResult-title">{el.store_name.slice(0, 16)}</div>
+              <div className="SearchResult-content-box">
+                <div className="SearchResult-info">
+                  <div className="SearchResult-text">{el.store_category}</div>
+                  <div className="SearchResult-text-container">
+                    <img className="SearchResult-icon" src={require('../../img/marker.png').default} alt="" />
+                    <div className="SearchResult-text">{el.store_address.slice(0, 12)}...</div>
+                  </div>
+                  <div className="SearchResult-text-container">
+                    <img className="SearchResult-icon" src={require('../../img/businesshour.png').default} alt="" />
+                    <div className="SearchResult-text">{el.business_hour}</div>
+                  </div>
+                  <div className="SearchResult-text-container">
+                    <img className="SearchResult-icon" src={require('../../img/donation.png').default} alt="" />
+                    <div className="SearchResult-text">{el.store_order_quantity}</div>
+                  </div>
                 </div>
-                <div className="SearchResult-text-container">
-                  <img className="SearchResult-icon" src={require('../../img/businesshour.png').default} alt="" />
-                  <div className="SearchResult-text">{el.business_hour}</div>
-                </div>
-                <div className="SearchResult-text-container">
-                  <img className="SearchResult-icon" src={require('../../img/donation.png').default} alt="" />
-                  <div className="SearchResult-text">{el.store_order_quantity}</div>
-                </div>
+                <img className="SearchResult-img" src={el.store_image} alt="" />
               </div>
-              <img className="SearchResult-img" src={el.store_image} alt="" />
             </div>
           ))}
         </>
