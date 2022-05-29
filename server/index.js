@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
+const helmet = require('helmet');
 
 const { sequelize } = require('./database/models');
 
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 app.use(cookieParser());
+app.use(helmet());
 
 const HTTPS_PORT = process.env.HTTPS_PORT || 4000;
 
@@ -60,8 +62,13 @@ app.use(
   })
 );
 
-app.get('/', (req, res, next) => {
-  res.send('나는 서버다');
+app.use((req, res, next) => {
+  res.sendStatus(404);
+});
+
+app.use((error, req, res, next) => {
+  console.error(error);
+  res.sendStatus(500);
 });
 
 app.use('/auth', authRouter);
