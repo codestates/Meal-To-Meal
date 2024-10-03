@@ -1,47 +1,66 @@
 # Meal-To-Meal
 
+내가 먹은 맛있는 한 끼를 다른 사람에게도 나눌 수 있는
+`음식 기부 & 예약 서비스`Meal To Meal 입니다
+
+![image](https://github.com/user-attachments/assets/5b72ae77-66aa-4a8c-9edf-aa6f5b257b9d)
+
+## Requirements
+
+- 유저는 지도에서 가게명 또는 주소, 카테고리로 가게를 검색할 수 있어요
+- 기부자는 원하는 메뉴를 고르고 장바구니에 담아 기부할 수 있어요
+- 기부를 받는 사람은 음식을 주문하고 가게에 가서 내역을 보여주면 식사를 할 수 있어요
+- 기부를 받는 사람은 음식을 먹고나서 리뷰를 작성하여 감사를 표현할 수 있어요
+- 유저는 내가 기부한 음식 내역과, 작성한 리뷰를 모아볼 수 있어요
+- 사장님이라면 음식점을 등록하고 기부/주문 내역을 확인할 수 있어요
+
+[API Docs](https://seojung19.gitbook.io/meal-to-meal_api-docs)
+
+## Features
+ #### User
+  - 회원 가입, 로그인, 로그아웃, 회원탈퇴
+  - 이메일 중복 체크, 닉네임 중복 체크
+  - 회원 정보 조회, 회원 정보 수정
+ 
+ #### Auth
+  - 휴대폰 인증
+  - 이메일 인증
+  - 카카오 로그인
+  - 유저 토큰 인증
+ 
+ #### Menu
+  - 메뉴 등록, 조회, 삭제
+ 
+ #### Review
+  - 리뷰 등록, 조회
+ 
+ #### Store
+  - 가게 등록, 조회, 수정, 삭제
+ 
+ #### Cart
+  - 기부 카트 생성(기부하기)
+  - 기부 내역 조회
+ 
+ #### User-meal
+  - 주문 내역 생성
+  - 주문 내역 조회
+ 
+ #### Search
+  - 키워드로 가게 검색
+ 
+ #### Payment
+  - 아임포트 결제 내역 생성
+
+## 사용 기술
+
+![image](https://github.com/user-attachments/assets/a44b9636-5cc1-41a5-87ba-89da09f63c7a)
+
+
 ## ERD
 <img width="906" alt="스크린샷 2024-10-03 오후 6 43 35" src="https://github.com/user-attachments/assets/676b4ef9-3861-49f3-8853-70bfbd558130">
 
 [dbdiagram 링크](https://dbdiagram.io/d/619b1efb02cf5d186b615228)
 
-## Requirements
-
-[API Docs](https://seojung19.gitbook.io/meal-to-meal_api-docs)
-
-#### User
- - 회원 가입, 로그인, 로그아웃, 회원탈퇴
- - 이메일 중복 체크, 닉네임 중복 체크
- - 회원 정보 조회, 회원 정보 수정
-
-#### Auth
- - 휴대폰 인증
- - 이메일 인증
- - 카카오 로그인
- - 유저 토큰 인증
-
-#### Menu
- - 메뉴 등록, 조회, 삭제
-
-#### Review
- - 리뷰 등록, 조회
-
-#### Store
- - 가게 등록, 조회, 수정, 삭제
-
-#### Cart
- - 기부 카트 생성(기부하기)
- - 기부 내역 조회
-
-#### User-meal
- - 주문 내역 생성
- - 주문 내역 조회
-
-#### Search
- - 키워드로 가게 검색
-
-#### Payment
- - 아임포트 결제 내역 생성
 
 ## LOGO
 
