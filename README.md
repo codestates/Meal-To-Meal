@@ -14,9 +14,13 @@
 - 유저는 내가 기부한 음식 내역과, 작성한 리뷰를 모아볼 수 있어요
 - 사장님이라면 음식점을 등록하고 기부/주문 내역을 확인할 수 있어요
 
-[API Docs](https://seojung19.gitbook.io/meal-to-meal_api-docs)
+## Ui & Flow
+[Miro 링크](https://miro.com/app/board/o9J_lh0mMz4=/)
 
 ## Features
+
+[API Docs](https://seojung19.gitbook.io/meal-to-meal_api-docs)
+
  #### User
   - 회원 가입, 로그인, 로그아웃, 회원탈퇴
   - 이메일 중복 체크, 닉네임 중복 체크
@@ -54,7 +58,6 @@
 ## 사용 기술
 
 ![image](https://github.com/user-attachments/assets/a44b9636-5cc1-41a5-87ba-89da09f63c7a)
-
 
 ## ERD
 <img width="906" alt="스크린샷 2024-10-03 오후 6 43 35" src="https://github.com/user-attachments/assets/676b4ef9-3861-49f3-8853-70bfbd558130">
