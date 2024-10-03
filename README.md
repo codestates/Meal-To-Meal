@@ -1,5 +1,48 @@
 # Meal-To-Meal
 
+## ERD
+<img width="906" alt="스크린샷 2024-10-03 오후 6 43 35" src="https://github.com/user-attachments/assets/676b4ef9-3861-49f3-8853-70bfbd558130">
+
+[dbdiagram 링크](https://dbdiagram.io/d/619b1efb02cf5d186b615228)
+
+## Requirements
+
+[API Docs](https://seojung19.gitbook.io/meal-to-meal_api-docs)
+
+#### User
+ - 회원 가입, 로그인, 로그아웃, 회원탈퇴
+ - 이메일 중복 체크, 닉네임 중복 체크
+ - 회원 정보 조회, 회원 정보 수정
+
+#### Auth
+ - 휴대폰 인증
+ - 이메일 인증
+ - 카카오 로그인
+ - 유저 토큰 인증
+
+#### Menu
+ - 메뉴 등록, 조회, 삭제
+
+#### Review
+ - 리뷰 등록, 조회
+
+#### Store
+ - 가게 등록, 조회, 수정, 삭제
+
+#### Cart
+ - 기부 카트 생성(기부하기)
+ - 기부 내역 조회
+
+#### User-meal
+ - 주문 내역 생성
+ - 주문 내역 조회
+
+#### Search
+ - 키워드로 가게 검색
+
+#### Payment
+ - 아임포트 결제 내역 생성
+
 ## LOGO
 
 ![2021-11-24__10 46 13-removebg-preview](https://user-images.githubusercontent.com/83822798/147181108-e17903b3-8c7a-4878-88a6-9d79113dd641.png)
@@ -16,10 +59,6 @@
 <li>음식점 사장님들은 손님들이 남긴 리뷰로 맛집임을 증명 할 수 있어요
 <li>기부가 가능한 음식점들을 지도에서 한 눈에 볼 수 있어요
 <li>내가 기부한 음식, 내가 남긴 리뷰를 모아볼 수 있어요
-
-배포주소 (www.mealtomeal.shop)
-ID: admin@gmail.com
-P/W: asdf1234
 
 ## 💻 팀원 소개
 
