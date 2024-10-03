@@ -1,11 +1,14 @@
 # Meal-To-Meal
-
 ## 🍰 About
 
-내가 먹은 맛있는 한 끼를 다른 사람에게도 나눌 수 있는
-지도 기반 음식 기부 플랫폼 `Meal To Meal` 입니다
 
-![image](https://github.com/user-attachments/assets/5b72ae77-66aa-4a8c-9edf-aa6f5b257b9d)
+내가 먹은 맛있는 한 끼를 다른 사람에게도 나눌 수 있는
+
+지도 기반 음식 기부 플랫폼 `Meal To Meal` 입니다
+<div>
+ <img src="https://user-images.githubusercontent.com/83822798/147181108-e17903b3-8c7a-4878-88a6-9d79113dd641.png" width=300 height=300>
+<img src="https://github.com/user-attachments/assets/5b72ae77-66aa-4a8c-9edf-aa6f5b257b9d" width=600 height=333>
+</div>
 
 ## Requirements
 
@@ -42,13 +45,17 @@
  
  #### Store
   - 가게 등록, 조회, 수정, 삭제
+
+ #### Payment
+  - 아임포트 결제 내역 생성
  
  #### Cart
-  - 기부 카트 생성(기부하기)
+  - 기부하기
+    - 결제 API 호출 성공 시 기부 내역 생성
     - 가게의 메뉴별 기부 주문 수량 증가
     - 유저의 기부 횟수를 메뉴 단위로 업데이트
     - 유저의 총 기부액을 업데이트
-   - 기부 내역 조회
+  - 기부 내역 조회
  
  #### User-meal
   - 주문 내역 생성
@@ -64,8 +71,7 @@
  #### Search
   - 키워드로 가게 검색
  
- #### Payment
-  - 아임포트 결제 내역 생성
+
 
 ## 사용 기술
 
@@ -76,10 +82,58 @@
 
 [dbdiagram 링크](https://dbdiagram.io/d/619b1efb02cf5d186b615228)
 
+## 🍔 서비스 미리보기
+
+### 랜딩페이지
+<img src="https://user-images.githubusercontent.com/83822798/146705634-f0d28217-7b99-4d60-92c2-420bb5fd3df7.gif" />
+
+### Maps페이지
+<img src="https://user-images.githubusercontent.com/83822798/146715705-a87b94f6-c476-4819-8d69-db95ed5bb5f1.gif" />
+
+### Search Bar
+<img src="https://user-images.githubusercontent.com/83822798/146716723-fe4850de-69c5-438b-94be-98ea8e650fdc.gif" />
+
+### 가게정보 페이지
+<img src="https://user-images.githubusercontent.com/83822798/146716865-80b98413-6380-489a-9c8a-9ef33ef9db49.gif" />
+
+### LogIn 로그인
+<img src="https://user-images.githubusercontent.com/83822798/146716482-e7d52d0a-472b-40c8-9dcc-ab000b69850c.gif" />
+
+### SignUp 회원가입
+<img src="https://user-images.githubusercontent.com/83822798/146716822-92156a9f-3730-45a1-a58d-c56abd081415.gif" />
+
+### 휴대폰 인증
+<img src="https://user-images.githubusercontent.com/83822798/146871182-8d14feb0-0e18-406a-a565-3b4adf77e834.gif" />
+
+### ShareCart 나눔카트
+<img src="https://user-images.githubusercontent.com/83822798/146716795-345e68da-3abf-45ea-8dd1-7dbf1ff456e7.gif" />
+
+### Payment 결제
+<img src="https://user-images.githubusercontent.com/83822798/146716610-52d49544-2ffd-4106-a6f7-d2fab5d6f0a2.gif" />
+
+### UserMeal 예약
+<img src="https://user-images.githubusercontent.com/83822798/146715928-b2e0c31b-c5bf-463d-8f5f-c96788a6078b.gif" />
+
+<img src="https://user-images.githubusercontent.com/83822798/146716904-2c97461c-d3d7-44ac-ab80-ab8400b9f811.gif" />
+
+### ReviewUpload 리뷰 등록
+<img src="https://user-images.githubusercontent.com/83822798/146716687-5ba806c4-29ed-41d5-8e8c-2859afa9d142.gif" />
+
+### MyPage 마이페이지 (회원정보 수정)
+<img src="https://user-images.githubusercontent.com/83822798/146716582-cc58a37c-b884-4ca3-b387-4bfd981ee6b0.gif" />
+
+### Withdrawal 회원탈퇴
+<img src="https://user-images.githubusercontent.com/83822798/146716950-13b75178-a58c-4454-a172-1b2a7b7dad2d.gif" />
+
+### 사장님 가게 페이지
+<img src="https://user-images.githubusercontent.com/83822798/146716551-b49d49a1-e0fb-44cc-8f5e-91844e1ce50d.gif" />
+
+### 사장님 가게 정보 수정/삭제
+<img src="https://user-images.githubusercontent.com/83822798/146716343-e4f08c1b-31fd-4bfb-92d7-04a2434d4adf.gif" />
 
 ## LOGO
 
-![2021-11-24__10 46 13-removebg-preview](https://user-images.githubusercontent.com/83822798/147181108-e17903b3-8c7a-4878-88a6-9d79113dd641.png)
+
 
 ## 💻 팀원 소개
 
@@ -554,71 +608,4 @@
         </details>
     </div>
   </div>
-</details>
-
-## 🍔 서비스 미리보기
-
-<details>
- <summary>랜딩페이지</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146705634-f0d28217-7b99-4d60-92c2-420bb5fd3df7.gif" />
-</details>
-<details> 
-<summary>Maps페이지</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146715705-a87b94f6-c476-4819-8d69-db95ed5bb5f1.gif" />
-</details>
-<details> 
-<summary>Search Bar</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146716723-fe4850de-69c5-438b-94be-98ea8e650fdc.gif" />
-</details>
-<details> 
-<summary>StoreInfo 가게정보 페이지</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146716865-80b98413-6380-489a-9c8a-9ef33ef9db49.gif" />
-</details>
-<details> 
-<summary>LogIn 로그인</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146716482-e7d52d0a-472b-40c8-9dcc-ab000b69850c.gif" />
-</details>
-<details> 
-<summary>SignUp 회원가입</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146716822-92156a9f-3730-45a1-a58d-c56abd081415.gif" />
-</details>
-<details> 
-<summary>Phone Verification 휴대폰 인증</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146871182-8d14feb0-0e18-406a-a565-3b4adf77e834.gif" />
-</details>
-<details> 
-<summary>ShareCart 나눔카트</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146716795-345e68da-3abf-45ea-8dd1-7dbf1ff456e7.gif" />
-</details>
-<details> 
-<summary>Payment 결제</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146716610-52d49544-2ffd-4106-a6f7-d2fab5d6f0a2.gif" />
-</details>
-<details> 
-<summary>Reservation 예약</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146715928-b2e0c31b-c5bf-463d-8f5f-c96788a6078b.gif" />
-</details>
-<details> 
-<summary>UserMeal 예약카트</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146716904-2c97461c-d3d7-44ac-ab80-ab8400b9f811.gif" />
-</details>
-<details> 
-<summary>ReviewUpload 리뷰 등록</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146716687-5ba806c4-29ed-41d5-8e8c-2859afa9d142.gif" />
-</details>
-<details> 
-<summary>MyPage 마이페이지 (회원정보 수정)</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146716582-cc58a37c-b884-4ca3-b387-4bfd981ee6b0.gif" />
-</details>
-<details> 
-<summary>Withdrawal 회원탈퇴</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146716950-13b75178-a58c-4454-a172-1b2a7b7dad2d.gif" />
-</details>
-<details> 
-<summary>Management 사장님 가게 페이지</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146716551-b49d49a1-e0fb-44cc-8f5e-91844e1ce50d.gif" />
-</details>
-<details> 
-<summary>FixStore 사장님 가게 정보 수정/삭제</summary>
-<img src="https://user-images.githubusercontent.com/83822798/146716343-e4f08c1b-31fd-4bfb-92d7-04a2434d4adf.gif" />
 </details>
